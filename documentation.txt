@@ -1,0 +1,49 @@
+ESS Restaurent is a trendy and modern HTML5 Template for Hotels & Restaurent. It comes with powerful, beautiful and high-performance web design. Built with Bootstrap Framework 5.1, HTML5, CSS3, jQuery and Javascript.
+
+ESS Restaurent template has a fully responsive layout. It fits perfectly on various displays and resolutions from regular desktop screens to tablets, iPads, iPhones and small mobile devices.
+
+Features
+
+	1 Home Page (More coming)
+    6 others pages
+    Crossbrowser Compatible with Edge, Firefox, Safari, Opera, Chrome
+	Fully Responsive Layout
+    SEO Friendly Design
+    Free Lifetime updates
+    Smooth animation
+    Quick & Faster Support
+    W3C validated
+    Valid HTML5 & CSS3 Files
+    Free and Premium Vector Illustration Image Used
+    Creative, Elegant, clean, unique and mordern style
+    Free google font and icon used
+	Faster Load
+	Great Support 24/7
+	
+FTP Upload:
+
+	Open up your FTP manager and connect to your hosting.
+	Browse to required directory (Normally public_html).
+	Upload the files inside MainFile folder.
+
+Source & Credits
+
+	jQuery
+	Bootstrap
+	Font Awesome
+	
+Google fonts Used
+
+	Futura PT
+	Avenir Next LT Pro
+	
+Support
+
+	This is just a part of what is included in this template. There is much more in there so you should check out the live preview. If you have any questions about customization of this template which are not covered in the documentation feel free to ask a question in the comment section or contact me directly via e-mail form on my profile page.
+
+
+
+Note:
+
+Some Images used in this template are only for demonstration purposes and are not included in the main download due to copyright descriptions but you can buy or download from the above site.
+We are always happy to help you. Please, contact us if you need any help regarding the items via Themforest Profile.
