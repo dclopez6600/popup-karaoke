@@ -331,7 +331,7 @@ Copyright 2021 ESS Authors
     }
     .navbar-brand img {
         transition: .5s ease-in-out;
-        height: 60px !important;
+        height: 50px !important;
     }
     .home-banner {
         min-height: auto;
