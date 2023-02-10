@@ -227,7 +227,7 @@ img {
 
 /*Colors*/
 .text-default {
-  color: #FFFFFF;
+  color: #000;
 }
 .primary {
   color: #FFFFFF;
@@ -701,10 +701,11 @@ ul.dropdown-menu {
   color: #000000;
 }
 .copyright-bar ul.social-media {
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 .contact .footer .copyright-bar {
-  background: #D462FF;
+  background: #FFF;
   padding-top: 0;
 }
 .copyright-bar ul.social-media li {
