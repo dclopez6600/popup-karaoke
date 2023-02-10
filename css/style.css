@@ -169,7 +169,8 @@ h6 {
   font-family: "Futura PT";
 }
 img {
-  width: 100%;
+  height: auto;
+  width: 150%;
 }
 .parallex {
   background-attachment: fixed;
