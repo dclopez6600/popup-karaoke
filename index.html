@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,319 +38,344 @@
                         <!--<li class="nav-item me-5">
                            <a class="nav-link p-0 text-white" href="gallery.html">Gallery</a>
                         </li>-->
-                        <li class="nav-item me-5">
-                           <a class="nav-link p-0 text-white " href="#locationForm">Locations</a>
-                        </li>
-                        <!--<li class="nav-item me-5">
+                     <li class="nav-item me-5">
+                        <a class="nav-link p-0 text-white " href="#locationForm">Locations</a>
+                     </li>
+                     <!--<li class="nav-item me-5">
                            <a class="nav-link p-0 text-white " href="news.html">News</a>
                         </li>-->
-						  <li class="nav-item me-5">
-                           <a class="nav-link p-0 text-white " href="#contactForm">Contact</a>
-                        </li>
-                        <li class="nav-item me-5">
-                           <a class="nav-link p-0 text-white active" href="#subscribeForm">Subscribe</a>
-                        </li>
-                     </ul>
-                     <!--<form class="d-flex">-->
-                        <button class="btn btn-primary" type="button"> <a href="#contactForm">Book a Party</a></button>
-                        <!-- Book a Table Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                           <div class="modal-dialog  modal-dialog-centered">
-                           <div class="modal-content">
-                              <div class="modal-header">
-                                 <h5 class="modal-title" id="exampleModalLabel">Book a Party</h5>
-                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div class="modal-body">
-                                 <form class="reservation-form needs-validation">
-                                    <div class="row reservation-form">
-                                       <div class="col-lg-12 formrow mb-3">
-                                          <input type="date" class="form-control w-100" placeholder="mm/dd/yyyy" required id="date" >
-                                          <!-- <div class="input-group-prepend">
+                     <li class="nav-item me-5">
+                        <a class="nav-link p-0 text-white " href="#contactForm">Contact</a>
+                     </li>
+                     <li class="nav-item me-5">
+                        <a class="nav-link p-0 text-white active" href="#subscribeForm">Subscribe</a>
+                     </li>
+                  </ul>
+                  <!--<form class="d-flex">-->
+                  <button class="btn btn-primary" type="button"> <a href="#contactForm">Book a Party</a></button>
+                  <!-- Book a Table Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                     <div class="modal-dialog  modal-dialog-centered">
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Book a Party</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                 aria-label="Close"></button>
+                           </div>
+                           <div class="modal-body">
+                              <form class="reservation-form needs-validation">
+                                 <div class="row reservation-form">
+                                    <div class="col-lg-12 formrow mb-3">
+                                       <input type="date" class="form-control w-100" placeholder="mm/dd/yyyy" required
+                                          id="date">
+                                       <!-- <div class="input-group-prepend">
                                              <img src="images/calender.png" alt="icon">
                                           </div> -->
-                                        </div>
-                                        <div class="col-lg-12 formrow mb-3">
-                                          <!--<input type="time" value="13:00" class="form-control w-100" required placeholder="../../.." id="time" >-->
-                                          <div class="arrowadd">
-                                             <select type="text" value="13:00" class="form-control" placeholder="../../.." required>
-												<option>12:00</option>
-                                                <option>12:30</option>
-                                                <option>1:00</option>
-                                                <option>1:30</option>
-                                                <option>2:00</option>
-                                                <option>2:30</option>
-                                                <option>3:00</option>
-                                                <option>3:30</option>
-                                                <option>4:00</option>
-                                                <option>4:30</option>
-                                                <option>5:00</option>
-                                                <option>5:30</option>
-                                                <option>6:00</option>
-                                                <option>6:30</option>
-                                                <option>7:00</option>
-                                                <option>7:30</option>
-                                                <option>8:00</option>
-                                                <option>8:30</option>
-                                                <option>9:00</option>
-                                             </select>
-                                          </div>
-                                           <div class="input-group-prepend">
-                                             <img src="images/clock.png" alt="icon">
-                                          </div>
-                                        </div>
-                                        <div class="col-lg-12 formrow mb-3">
-                                          <div class="arrowadd">
-                                             <select type="text" class="form-control" required>
-                                                <option>10-25</option>
-                                                <option>25-50</option>
-                                                <option>50-75</option>
-                                                <option>75-100</option>
-                                                <option>100-150</option>
-                                                <option>150-200</option>
-                                                <option>200-250</option>
-                                                <option>250-300</option>
-                                                <option>300-350</option>
-                                                <option>350-400</option>
-                                             </select>
-                                          </div>
-                                          <div class="input-group-prepend">
-                                             <img src="images/user.png" alt="icon">
-                                          </div>
-                                       </div>
-                                        <div class="col-lg-12 formrow formbtn">
-                                          <button type="submit" class="btn btn-primary w-100">Book a Party</button>
-                                        </div>
                                     </div>
-                                 </form>
-                              </div>
-                           </div>
+                                    <div class="col-lg-12 formrow mb-3">
+                                       <!--<input type="time" value="13:00" class="form-control w-100" required placeholder="../../.." id="time" >-->
+                                       <div class="arrowadd">
+                                          <select type="text" value="13:00" class="form-control" placeholder="../../.."
+                                             required>
+                                             <option>12:00</option>
+                                             <option>12:30</option>
+                                             <option>1:00</option>
+                                             <option>1:30</option>
+                                             <option>2:00</option>
+                                             <option>2:30</option>
+                                             <option>3:00</option>
+                                             <option>3:30</option>
+                                             <option>4:00</option>
+                                             <option>4:30</option>
+                                             <option>5:00</option>
+                                             <option>5:30</option>
+                                             <option>6:00</option>
+                                             <option>6:30</option>
+                                             <option>7:00</option>
+                                             <option>7:30</option>
+                                             <option>8:00</option>
+                                             <option>8:30</option>
+                                             <option>9:00</option>
+                                          </select>
+                                       </div>
+                                       <div class="input-group-prepend">
+                                          <img src="images/clock.png" alt="icon">
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-12 formrow mb-3">
+                                       <div class="arrowadd">
+                                          <select type="text" class="form-control" required>
+                                             <option>10-25</option>
+                                             <option>25-50</option>
+                                             <option>50-75</option>
+                                             <option>75-100</option>
+                                             <option>100-150</option>
+                                             <option>150-200</option>
+                                             <option>200-250</option>
+                                             <option>250-300</option>
+                                             <option>300-350</option>
+                                             <option>350-400</option>
+                                          </select>
+                                       </div>
+                                       <div class="input-group-prepend">
+                                          <img src="images/user.png" alt="icon">
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-12 formrow formbtn">
+                                       <button type="submit" class="btn btn-primary w-100">Book a Party</button>
+                                    </div>
+                                 </div>
+                              </form>
                            </div>
                         </div>
-					  <!-- Book a Table Modal - below this was </form> Re-add to use modal-->
-                  </div>
-               </nav>
-            </div>
-         </div>
-      </header>
-      <!--header ends from here-->
-      <main>
-        
-        <!--Inner banner start here-->
-		
-        <section class="banner-inner border-zigzag-up" style="background-image: url('https://dl.dropbox.com/s/ylxm67blja6ejdx/parallaxbanner3.webp?dl=0');">
-            <div class="container">
-                <h1 class="banner text-center text-white">It only takes one song to bring out the performer in you!
-				</h1>
-            </div>
-        </section>
-	
-        <!--Inner banner start here-->
-        
-<!-- Instagram Reel -->
-<section class="contactus py-80 pb-0">
-      <div class="container">
-<!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/bf35eea7b2f25fe3b3d48022c3332d64.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>        <!--News bar start here-->
-		  <a id="locationForm"></a>
-        <section class="contactus py-80 pb-0">
-         <div class="container">
-           <div class="row">
-            <div class="col-lg-7">
-                <div class="contact-map">
-                    <div class="mapouter">
-                        <div class="gmap_canvas">
-                           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d381600.4870701966!2d-87.4688634!3d41.650258!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4561b481cf4c9fcb%3A0xf88d227eb9f6d888!2sPopUp%20Karaoke!5e0!3m2!1sen!2sus!4v1676069845452!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                            <!--<iframe id="gmap_canvas" src="https://maps.google.com/maps?q=E-91,%20First%20Floor%20Industrial%20Area,%20Phase%208%20%20Mohali,%20Punjab&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="contact-detail">
-                    <h4 class="mb-5 text-uppercase text-default">NW Indiana &amp; Chicago</h4>
-                    <ul>
-                        <li class="mb-4">
-                            <h6 class="text-uppercase">Read Google Reviews</h6>
-                            
-								<button class="btn btn-primary" type="button"><a href="https://www.google.com/maps/place/PopUp+Karaoke/@41.682024,-87.4688634,10z/data=!4m8!3m7!1s0x4561b481cf4c9fcb:0xf88d227eb9f6d888!8m2!3d41.682024!4d-87.4688634!9m1!1b1!16s%2Fg%2F11scznktf5?authuser=0&hl=en" target="_blank">Read Reviews</a></button>
-							<br><br>
-							<h6 class="text-uppercase">Leave Us a Review</h6>
-                            
-								<button class="btn btn-primary" type="button"><a href="https://g.page/r/CYjY9rl-Io34EAI/review" target="_blank">Leave Review</a></button>
-                        </li>
-                        <li class="mb-4">
-                            <h6 class="text-uppercase">Contact</h6>
-                            <a class="text-uppercase" href="tel:219-758-1313">219.758.1313</a>
-                        </li>
-                        <li class="mb-4">
-                            <h6 class="text-uppercase">Email</h6>
-                            <a class="text-uppercase" href="mailto:booking@popupkaraoke.net">booking@popupkaraoke.net</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-           </div>
-         </div>
-        </section>
-        <!--contact form-->
-		  <a id="contactForm"></a>
-        <section class="contactformbar py-110">
-            <div class="container">
-                <h4 class="text-default text-center mb-2 text-uppercase">Looking to have a PopUp Karaoke event?</h4>
-                <p class="text-gray text-center mb-5">Fill out this form below and we'll get right back to you!</p>
-                <div class="contact-form">
-                  <form class="formreply">
-                     <div class="row">
-                         <div class="col-md-6">
-                             <div class="mb-3">
-                                 <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name*">
-                             </div>
-                         </div>
-                         <div class="col-md-6">
-                             <div class="mb-3">
-                                 <input type="email" class="form-control" id="email" placeholder="Email*">
-                             </div>
-                         </div>
-                         <div class="col-md-6">
-                             <div class="mb-3">
-                                 <input type="number" class="form-control" id="email" placeholder="Phone number*">
-                             </div>
-                         </div>
-                         <div class="col-md-6">
-                           <div class="mb-3">
-                               <select class="form-select" aria-label="Events" aria-placeholder="">
-                                   <option selected>Type Of Events</option>
-                                   <option value="1">Birthday</option>
-                                   <option value="2">Bars/Breweries</option>
-                                   <option value="3">Private Party</option>
-								   <option value="4">Public/Corporate Event</option>
-                               </select>
-                           </div>
-                       </div>
-                         <div class="col-md-6">
-                             <div class="mb-3">
-                                 <input type="date" class="form-control" id="email" placeholder="Event Date*">
-                             </div>
-                         </div>
-                         <div class="col-md-6">
-                             <div class="mb-3">
-                                 <input type="number" class="form-control" id="email" placeholder="Guest Count*">
-                             </div>
-                         </div>
-                         <div class="col-md-12">
-                             <div class="mb-3 ">
-                                 <textarea class="form-control" placeholder="Message"></textarea>
-                             </div>
-                         </div>
-                         <div class="col-md-12">
-                             <div class="mb-0 text-center btnsubmit">
-                                 <button type="submit" class="btn btn-primary">submit message</button>
-                             </div>
-                         </div>
                      </div>
-                 </form>
-                </div>
-            </div>
-        </section>
-        <!--News bar ends here-->
-        <!--Keepup-date start here-->
-		  <a id="subscribeForm"></a>
-        <section class="Keepup-date py-130 gray-bg">
-         <div class="container">
-            <h4 class="text-default text-center mb-lg-3">KEEP UP TO DATE WITH US!</h4>
-            <p class="text-gray text-center">Sign up to be the first to receive special news and event updates from PopUp Karaoke. </p>
-            <form class="keepup-form needs-validation" novalidate>
-               <div class="formrow">
-                  <input type="email" class="form-control" required placeholder="Enter Your Email Address">
-                  <div class="input-group-append">
-                     <button class="btn btn-secondary" type="submit">
-                        <img src="images/next.png" alt="next">
-                     </button>
                   </div>
+                  <!-- Book a Table Modal - below this was </form> Re-add to use modal-->
                </div>
-            </form>
+            </nav>
+         </div>
+      </div>
+   </header>
+   <!--header ends from here-->
+   <main>
+
+      <!--Inner banner start here-->
+
+      <section class="banner-inner border-zigzag-up"
+         style="background-image: url('https://dl.dropbox.com/s/ylxm67blja6ejdx/parallaxbanner3.webp?dl=0');">
+         <div class="container">
+            <h1 class="banner text-center text-white">It only takes one song to bring out the performer in you!
+            </h1>
          </div>
       </section>
-      <!--Keepup-date ends here-->
-      </main>
-      <!--Footer start here-->
-      <footer class="footer">
-         <div class="main-footer sky-bg py-50">
-            <div class="container">
-               <div class="row">
-                  <h4 class="footer-title text-center text-uppercase">find us</h4>
+
+      <!--Inner banner start here-->
+
+      <!-- Instagram Reel -->
+      <section class="contactus py-80 pb-0">
+         <div class="container">
+            <!-- LightWidget WIDGET -->
+            <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe
+               src="https://cdn.lightwidget.com/widgets/bf35eea7b2f25fe3b3d48022c3332d64.html" scrolling="no"
+               allowtransparency="true" class="lightwidget-widget"
+               style="width:100%;border:0;overflow:hidden;"></iframe> <!--News bar start here-->
+            <a id="locationForm"></a>
+            <section class="contactus py-80 pb-0">
+               <div class="container">
                   <div class="row">
-                     <div class="col-xl-4 col-lg-4 col-md-12">
-                        <div class="footer-widget text-center">
-                           <ul class="widget-list">
-                              <li>
-                                 <a href="tel:219-758-1313">
-                                    <i class="fa fa-phone" aria-hidden="true"></i>
-                                    <div class="details">
-                                       <h4 class="text-uppercase">Call us</h4>
-                                       <p>219.758.1313</p>
-                                    </div>
-                                 </a>
-                              </li>
-                           </ul>
+                     <div class="col-lg-7">
+                        <div class="contact-map">
+                           <div class="mapouter">
+                              <div class="gmap_canvas">
+                                 <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d381412.2579484219!2d-87.4688634!3d41.682024!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf88d227eb9f6d888!2sPopUp%20Karaoke!5e0!3m2!1sen!2sus!4v1675822808332!5m2!1sen!2sus"
+                                    width="800" height="800" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                 <!--<iframe id="gmap_canvas" src="https://maps.google.com/maps?q=E-91,%20First%20Floor%20Industrial%20Area,%20Phase%208%20%20Mohali,%20Punjab&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>-->
+                              </div>
+                           </div>
                         </div>
                      </div>
-                     <div class="col-xl-4 col-lg-4 col-md-12">
-                        <div class="footer-widget text-center">
-                           <ul class="widget-list">
-                              <li>
-                                 <a href="#">
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    <div class="details">
-                                       <h4 class="text-uppercase">Address</h4>
-                                       <p>Northwest Indiana &amp; Chicagoland</p>
-                                    </div>
-                                 </a>
+                     <div class="col-lg-5">
+                        <div class="contact-detail">
+                           <h4 class="mb-5 text-uppercase text-default">NW Indiana &amp; Chicago</h4>
+                           <ul>
+                              <li class="mb-4">
+                                 <h6 class="text-uppercase">Read Google Reviews</h6>
+
+                                 <button class="btn btn-primary" type="button"><a
+                                       href="https://www.google.com/maps/place/PopUp+Karaoke/@41.682024,-87.4688634,10z/data=!4m8!3m7!1s0x4561b481cf4c9fcb:0xf88d227eb9f6d888!8m2!3d41.682024!4d-87.4688634!9m1!1b1!16s%2Fg%2F11scznktf5?authuser=0&hl=en"
+                                       target="_blank">Read Reviews</a></button>
+                                 <br><br>
+                                 <h6 class="text-uppercase">Leave Us a Review</h6>
+
+                                 <button class="btn btn-primary" type="button"><a
+                                       href="https://g.page/r/CYjY9rl-Io34EAI/review" target="_blank">Leave
+                                       Review</a></button>
                               </li>
-                           </ul>
-                        </div>
-                     </div>
-                     <div class="col-xl-4 col-lg-4 col-md-12">
-                        <div class="footer-widget text-center">
-                           <ul class="widget-list">
-                              <li>
-                                 <a href="mailto:booking@popupkaraoke.net">
-                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                    <div class="details">
-                                       <h4 class="text-uppercase">Email</h4>
-                                       <p>booking@popupkaraoke.net</p>
-                                    </div>
-                                 </a>
+                              <li class="mb-4">
+                                 <h6 class="text-uppercase">Contact</h6>
+                                 <a class="text-uppercase" href="tel:219-758-1313">219.758.1313</a>
+                              </li>
+                              <li class="mb-4">
+                                 <h6 class="text-uppercase">Email</h6>
+                                 <a class="text-uppercase"
+                                    href="mailto:booking@popupkaraoke.net">booking@popupkaraoke.net</a>
                               </li>
                            </ul>
                         </div>
                      </div>
                   </div>
                </div>
+            </section>
+            <!--contact form-->
+            <a id="contactForm"></a>
+            <section class="contactformbar py-110">
+               <div class="container">
+                  <h4 class="text-default text-center mb-2 text-uppercase">Looking to have a PopUp Karaoke event?</h4>
+                  <p class="text-gray text-center mb-5">Fill out this form below and we'll get right back to you!</p>
+                  <div class="contact-form">
+                     <form class="formreply" id="contactForm" data-wow-delay='.1s' data-wow-duration='1s' method='POST'
+                        action="contact-form.php" name='contact'>
+                        <input type='hidden' name='form-name' value='contact'>
+
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="mb-3">
+                                 <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
+                                    placeholder="First Last Name*" required>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="mb-3">
+                                 <input type="email" class="form-control" id="email" placeholder="Email*" required>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="mb-3">
+                                 <input type="number" class="form-control" id="phone" placeholder="Phone number*"
+                                    required>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="mb-3">
+                                 <select class="form-select" id="event" aria-label="Events" aria-placeholder="">
+                                    <option selected>Type Of Events</option>
+                                    <option value="1">Birthday</option>
+                                    <option value="2">Bars/Breweries</option>
+                                    <option value="3">Private Party</option>
+                                    <option value="4">Public/Corporate Event</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="mb-3">
+                                 <input type="date" class="form-control" id="date" placeholder="Event Date*">
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="mb-3">
+                                 <input type="number" class="form-control" id="guest-count" placeholder="Guest Count*">
+                              </div>
+                           </div>
+                           <div class="col-md-12">
+                              <div class="mb-3 ">
+                                 <textarea class="form-control" id="message" placeholder="Message"></textarea>
+                              </div>
+                           </div>
+                           <div class="col-md-12">
+                              <div class="mb-0 text-center btnsubmit">
+                                 <button type="submit" class="btn btn-primary form-control">submit message</button>
+                              </div>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </section>
+            <!--News bar ends here-->
+            <!--Keepup-date start here-->
+            <a id="subscribeForm"></a>
+            <section class="Keepup-date py-130 gray-bg">
+               <div class="container">
+                  <h4 class="text-default text-center mb-lg-3">KEEP UP TO DATE WITH US!</h4>
+                  <p class="text-gray text-center">Sign up to be the first to receive special news and event updates
+                     from PopUp Karaoke. </p>
+                  <form class="keepup-form needs-validation" novalidate>
+                     <div class="formrow">
+                        <input type="email" class="form-control" required placeholder="Enter Your Email Address">
+                        <div class="input-group-append">
+                           <button class="btn btn-secondary" type="submit">
+                              <img src="images/next.png" alt="next">
+                           </button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </section>
+            <!--Keepup-date ends here-->
+   </main>
+   <!--Footer start here-->
+   <footer class="footer">
+      <div class="main-footer sky-bg py-50">
+         <div class="container">
+            <div class="row">
+               <h4 class="footer-title text-center text-uppercase">find us</h4>
+               <div class="row">
+                  <div class="col-xl-4 col-lg-4 col-md-12">
+                     <div class="footer-widget text-center">
+                        <ul class="widget-list">
+                           <li>
+                              <a href="tel:219-758-1313">
+                                 <i class="fa fa-phone" aria-hidden="true"></i>
+                                 <div class="details">
+                                    <h4 class="text-uppercase">Call us</h4>
+                                    <p>219.758.1313</p>
+                                 </div>
+                              </a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-12">
+                     <div class="footer-widget text-center">
+                        <ul class="widget-list">
+                           <li>
+                              <a href="#">
+                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                 <div class="details">
+                                    <h4 class="text-uppercase">Address</h4>
+                                    <p>Northwest Indiana &amp; Chicagoland</p>
+                                 </div>
+                              </a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-12">
+                     <div class="footer-widget text-center">
+                        <ul class="widget-list">
+                           <li>
+                              <a href="mailto:booking@popupkaraoke.net">
+                                 <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                 <div class="details">
+                                    <h4 class="text-uppercase">Email</h4>
+                                    <p>booking@popupkaraoke.net</p>
+                                 </div>
+                              </a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
             </div>
          </div>
-         <div class="copyright-bar white-bg py-50">
-            <div class="container">
-               <ul class="social-media d-md-flex align-items-center justify-content-center">
-                  <li>
-                     <a href="https://www.facebook.com/PopUpKaraoke219">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                     </a>
-                  </li>
-                  <li>
-                     <a href="https://www.instagram.com/popupkaraoke219/">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                     </a>
-                  </li>
-               </ul>
-               <p class="text-default text-center mb-0">© 2023 Copyright PopUp Karaoke.</p>
-            </div>
+      </div>
+      <div class="copyright-bar white-bg py-50">
+         <div class="container">
+            <ul class="social-media d-md-flex align-items-center justify-content-center">
+               <li>
+                  <a href="https://www.facebook.com/PopUpKaraoke219">
+                     <i class="fa fa-facebook" aria-hidden="true"></i>
+                  </a>
+               </li>
+               <li>
+                  <a href="https://www.instagram.com/popupkaraoke219/">
+                     <i class="fa fa-instagram" aria-hidden="true"></i>
+                  </a>
+               </li>
+            </ul>
+            <p class="text-default text-center mb-0">© 2023 Copyright PopUp Karaoke.</p>
          </div>
-      </footer>
-      <!--Footer ends here-->
-      <script src="js/aos.js"></script>
-      <script> AOS.init();</script>
-      <script src="js/jquery.min.js"></script>
-      <script src="js/bootstrap.js"></script>
-      <script src="js/backtotop.js"></script>
-   </body>
+      </div>
+   </footer>
+   <!--Footer ends here-->
+   <script src="js/aos.js"></script>
+   <script> AOS.init();</script>
+   <script src="js/jquery.min.js"></script>
+   <script src="js/bootstrap.js"></script>
+   <script src="js/backtotop.js"></script>
+</body>
+
 </html>
