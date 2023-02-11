@@ -223,7 +223,7 @@
                   <p class="text-gray text-center mb-5">Fill out this form below and we'll get right back to you!</p>
                   <div class="contact-form">
 
-                     <!-- Contact Form Action Begins Here -->
+                     <!-- Contact Form Action Begins Here 20230211 A.G.-->
                      <form class="formreply" id="contactForm" data-wow-delay='.1s' data-wow-duration='1s' method='POST'
                         action='POST' data-netlify="true" name='contact'>
                         <input type='hidden' name='form-name' value='contact'>
@@ -287,7 +287,7 @@
                            </div>
                         </div>
                      </form>
-                     <!-- End Contact Form Action Begins Here -->
+                     <!-- End Contact Form Action Ends Here -->
 
                   </div>
                </div>
@@ -300,9 +300,14 @@
                   <h4 class="text-default text-center mb-lg-3">KEEP UP TO DATE WITH US!</h4>
                   <p class="text-gray text-center">Sign up to be the first to receive special news and event updates
                      from PopUp Karaoke. </p>
-                  <form class="keepup-form needs-validation" novalidate>
+
+                  <!-- Email Form Action Begins Here 20230211 A.G.-->
+                  <form class="keepup-form needs-validation" novalidate method='POST' action='POST' data-netlify="true"
+                     name='Email-form'>
                      <div class="formrow">
-                        <input type="email" class="form-control" required placeholder="Enter Your Email Address">
+                        <!-- <input type="email" class="form-control" required placeholder="Enter Your Email Address"> -->
+                        <input type="email" class="form-control" name="email-form" id="email-form"
+                           placeholder="Enter Your Email Address" required>
                         <div class="input-group-append">
                            <button class="btn btn-secondary" type="submit">
                               <img src="images/next.png" alt="next">
@@ -310,6 +315,8 @@
                         </div>
                      </div>
                   </form>
+                  <!-- Email Form Action Ends Here -->
+
                </div>
             </section>
             <!--Keepup-date ends here-->
