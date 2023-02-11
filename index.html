@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>PopUp Karaoke</title>
-      <link rel="icon" type="image/x-icon" href="/images/favicon2.ico">
-      <!--css links-->
-      <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-      <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="font/stylesheet.css" type="text/css">
-      <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-      <link rel="stylesheet" type="text/css" href="font/flaticon.css">
-      <link rel="stylesheet" href="css/aos.css" type="text/css">
-      <link rel="stylesheet" href="css/style.css" type="text/css">
-      <link rel="stylesheet" href="css/responsive.css" type="text/css">
-   </head>
-   <body class="contact">
-      <a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--fade-out" data-bs-abc="true"><i class="fa fa-caret-up" aria-hidden="true"></i>
-      </a>
-      <!--header start from here-->
-      <header class="header-area sticky">
-         <div class="container">
-            <div class="row">
-               <!--Navbar-->
-               <nav class="navbar navbar-expand-lg navbar-light p-0">
-                  <a class="navbar-brand p-0" href="index.html"><img src="images/puklogo.webp" alt="PopUp Karaoke Logo" width="300" height="100" title="logo"></a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                     <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                     <ul class="navbar-nav ms-auto ">
-                        <li class="nav-item me-5">
-                           <a class="nav-link p-0 text-white " aria-current="page" href="index.html">Home</a>
-                        </li>
-						 
-                        <!--<li class="nav-item me-5">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PopUp Karaoke</title>
+   <link rel="icon" type="image/x-icon" href="/images/favicon2.ico">
+   <!--css links-->
+   <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="font/stylesheet.css" type="text/css">
+   <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+   <link rel="stylesheet" type="text/css" href="font/flaticon.css">
+   <link rel="stylesheet" href="css/aos.css" type="text/css">
+   <link rel="stylesheet" href="css/style.css" type="text/css">
+   <link rel="stylesheet" href="css/responsive.css" type="text/css">
+</head>
+
+<body class="contact">
+   <a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--fade-out" data-bs-abc="true"><i
+         class="fa fa-caret-up" aria-hidden="true"></i>
+   </a>
+   <!--header start from here-->
+   <header class="header-area sticky">
+      <div class="container">
+         <div class="row">
+            <!--Navbar-->
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+               <a class="navbar-brand p-0" href="index.html"><img src="images/puklogo.webp" alt="PopUp Karaoke Logo"
+                     width="300" height="100" title="logo"></a>
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                  aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ms-auto ">
+                     <li class="nav-item me-5">
+                        <a class="nav-link p-0 text-white " aria-current="page" href="index.html">Home</a>
+                     </li>
+
+                     <!--<li class="nav-item me-5">
                            <a class="nav-link p-0 text-white" href="gallery.html">Gallery</a>
                         </li>-->
                      <li class="nav-item me-5">
@@ -209,6 +214,7 @@
                   </div>
                </div>
             </section>
+
             <!--contact form-->
             <a id="contactForm"></a>
             <section class="contactformbar py-110">
@@ -216,31 +222,35 @@
                   <h4 class="text-default text-center mb-2 text-uppercase">Looking to have a PopUp Karaoke event?</h4>
                   <p class="text-gray text-center mb-5">Fill out this form below and we'll get right back to you!</p>
                   <div class="contact-form">
+
+                     <!-- Contact Form Action Begins Here -->
                      <form class="formreply" id="contactForm" data-wow-delay='.1s' data-wow-duration='1s' method='POST'
-                        action="contact-form.php" name='contact'>
+                        action='POST' data-netlify="true" name='contact'>
                         <input type='hidden' name='form-name' value='contact'>
 
                         <div class="row">
                            <div class="col-md-6">
                               <div class="mb-3">
-                                 <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
-                                    placeholder="First Last Name*" required>
+                                 <input type="text" class="form-control" name="name" id="name"
+                                    aria-describedby="emailHelp" placeholder="First Last Name*" required>
                               </div>
                            </div>
                            <div class="col-md-6">
                               <div class="mb-3">
-                                 <input type="email" class="form-control" id="email" placeholder="Email*" required>
-                              </div>
-                           </div>
-                           <div class="col-md-6">
-                              <div class="mb-3">
-                                 <input type="number" class="form-control" id="phone" placeholder="Phone number*"
+                                 <input type="email" class="form-control" name="email" id="email" placeholder="Email*"
                                     required>
                               </div>
                            </div>
                            <div class="col-md-6">
                               <div class="mb-3">
-                                 <select class="form-select" id="event" aria-label="Events" aria-placeholder="">
+                                 <input type="number" class="form-control" name="phone" id="phone"
+                                    placeholder="Phone number*" required>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="mb-3">
+                                 <select class="form-select" name="event" id="event" aria-label="Events"
+                                    aria-placeholder="">
                                     <option selected>Type Of Events</option>
                                     <option value="1">Birthday</option>
                                     <option value="2">Bars/Breweries</option>
@@ -251,18 +261,24 @@
                            </div>
                            <div class="col-md-6">
                               <div class="mb-3">
-                                 <input type="date" class="form-control" id="date" placeholder="Event Date*">
+                                 <input type="date" class="form-control" name="date" id="date"
+                                    placeholder="Event Date*">
                               </div>
                            </div>
                            <div class="col-md-6">
                               <div class="mb-3">
-                                 <input type="number" class="form-control" id="guest-count" placeholder="Guest Count*">
+                                 <input type="number" class="form-control" name="guest-count" id="guest-count"
+                                    placeholder="Guest Count*">
                               </div>
                            </div>
                            <div class="col-md-12">
                               <div class="mb-3 ">
-                                 <textarea class="form-control" id="message" placeholder="Message"></textarea>
+                                 <textarea class="form-control" name="message" id="message"
+                                    placeholder="Message"></textarea>
                               </div>
+                           </div>
+                           <div class="col-md-12">
+                              <div class="mb-3 " data-netlify-recaptcha="true"></div>
                            </div>
                            <div class="col-md-12">
                               <div class="mb-0 text-center btnsubmit">
@@ -271,6 +287,8 @@
                            </div>
                         </div>
                      </form>
+                     <!-- End Contact Form Action Begins Here -->
+
                   </div>
                </div>
             </section>
