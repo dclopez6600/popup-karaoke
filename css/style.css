@@ -581,7 +581,7 @@ a#toTopBtn {
   position: fixed !important;
   top: 0 !important;
   width: 100%;
-  background: #464545 !important;
+  background: #000 !important;
   z-index: 100;
   animation: stuckMoveDown 0.6s;
 }
