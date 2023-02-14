@@ -2,7 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
 <url>
   <loc>https://popupkaraoke.net</loc>
+  <priority>0.5</priority>
   <lastmod>2023-02-13</lastmod>
-  <changefreq>bi-weekly</changefreq>
+  <changefreq>weekly</changefreq>
 </url>
 </urlset>
