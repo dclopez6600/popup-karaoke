@@ -170,12 +170,36 @@
 
       <!--Inner banner start here-->
 
-      <section class="banner-inner border-zigzag-up" style="background-image: url('images/parallaxbanner.webp');">
+
+      <!-- The video -->
+      <section id="banner-video" class="border-zigzag-up">
+         <video id="video1" autoplay loop muted>
+            <source src="images/pukreel.mov" type="video/mp4">
+         </video>
+      </section>
+      <!-- <video autoplay muted loop id="banner-video">
+         <source src="images/pukreel.mov" type="video/mp4">
+      </video> -->
+
+
+      <!-- <section class="banner-inner border-zigzag-up" style="background: url('images/pukreel.mov');">
          <div class="container">
             <h1 class="banner text-center text-white">It only takes one song to bring out the performer in you!
             </h1>
          </div>
-      </section>
+      </section> -->
+
+
+      <!--    
+         <video width="320" height="240" controls>
+      <source src=”http://techslides.com/demos/sample-videos/small.ogv” type=video/ogg>
+      <source src="/build/videos/arcnet.io(7-sec).mp4" type=video/mp4>
+    </video> 
+   
+            <video controls="controls" name="video-banner">
+               <source src="images/pukreel.mov" type=video/mp4>
+            </video>
+         -->
 
       <!--Inner banner start here-->
 
@@ -434,6 +458,13 @@
    <script src="js/jquery.min.js"></script>
    <script src="js/bootstrap.js"></script>
    <script src="js/backtotop.js"></script>
+   <!-- Added 2023-02-18 AG - video parallax js-->
+   <script>
+      // Get the video
+      var video = document.getElementById("video1");
+      video.play();
+   </script>
+   <!-- End video parallax script -->
 </body>
 
 </html>
