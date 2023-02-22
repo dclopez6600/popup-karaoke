@@ -173,18 +173,43 @@
 
       <!--Inner banner start here-->
       <!-- Banner video reel -->
-      <section id="banner-video" class="border-zigzag-up">
+      <!-- <section id="banner-video" class="border-zigzag-up">
          <video id="video1" autoplay loop muted>
             <source src="images/banner-reel3.mov" type="video/mp4">
          </video>
-      </section>
-
+      </section> -->
       <!-- <section class="banner-inner border-zigzag-up" style="background: url('images/pukreel.mov');">
          <div class="container">
             <h1 class="banner text-center text-white">It only takes one song to bring out the performer in you!
             </h1>
          </div>
       </section> -->
+      <!--New Banner-->
+
+      <div id="banner-video" class="border-zigzag-up">
+      </div>
+      
+      <video id="video1" autoplay="autoplay" muted="muted" loop="loop">
+          <source src="images/banner-reel3.mov" type="video/mp4">
+      </video>
+      <style>
+          video {
+              position: absolute;
+              z-index: -1;
+              height: 100%;
+          }
+      
+          #video-container {
+              height: 100%;
+              width: 100vw;
+              background-image: url("images/banner-reel3.mov");
+              background-color: transparent;
+              position: absolute;
+              z-index: 1;
+          }
+      </style>
+      
+      <!--New banner ends here>
       <!--Inner banner ends here-->
 
       <!-- Instagram Reel -->
