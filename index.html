@@ -81,6 +81,9 @@
                   </ul>
                   <!--<form class="d-flex">-->
                   <button class="btn btn-primary" type="button"> <a href="#contactForm">Book a Party</a></button>
+
+
+
                   <!-- Book a Table Modal -->
                   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                      aria-hidden="true">
@@ -169,15 +172,20 @@
    <main>
 
       <!--Inner banner start here-->
+      <!-- Banner video reel -->
+      <section id="banner-video" class="border-zigzag-up">
+         <video id="video1" autoplay loop muted>
+            <source src="images/banner-reel3.mov" type="video/mp4">
+         </video>
+      </section>
 
-      <section class="banner-inner border-zigzag-up" style="background-image: url('images/parallaxbanner.webp');">
+      <!-- <section class="banner-inner border-zigzag-up" style="background: url('images/pukreel.mov');">
          <div class="container">
             <h1 class="banner text-center text-white">It only takes one song to bring out the performer in you!
             </h1>
          </div>
-      </section>
-
-      <!--Inner banner start here-->
+      </section> -->
+      <!--Inner banner ends here-->
 
       <!-- Instagram Reel -->
       <section class="contactus py-80 pb-0">
@@ -424,7 +432,16 @@
                   </a>
                </li>
             </ul>
-            <p class="text-default text-center mb-0">© 2023 Copyright PopUp Karaoke | The Creative Few </p>
+            <!-- <p class="text-default text-center mb-0"> -->
+            <ul class="d-md-flex align-items-center justify-content-center">
+               <li>© 2023 Copyright PopUp Karaoke | </li>
+               <li> &nbsp;The Creative Few &nbsp;<i class="fa" width="30em" height="30em" aria-hidden="true">
+                     <a href="http://www.thecreativefew.com" target="_blank"> <img width="20em" height="20em"
+                           src="images/creative_few_logo.svg" alt="The Creative Few logo"></a>
+                  </i>
+               </li>
+            </ul>
+            <!-- </p> -->
          </div>
       </div>
    </footer>
@@ -434,6 +451,13 @@
    <script src="js/jquery.min.js"></script>
    <script src="js/bootstrap.js"></script>
    <script src="js/backtotop.js"></script>
+   <!-- Added 2023-02-18 AG - video parallax js-->
+   <script>
+      // Get the video
+      var video = document.getElementById("video1");
+      video.play();
+   </script>
+   <!-- End video parallax script -->
 </body>
 
 </html>

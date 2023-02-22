@@ -113,7 +113,7 @@ a {
   cursor: pointer;
 }
 a:hover {
-  color: #4C0083;
+  color: #4c0083;
 }
 a,
 li {
@@ -231,7 +231,7 @@ img {
   color: #000;
 }
 .primary {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .secondry {
   color: #000000;
@@ -243,7 +243,7 @@ img {
   color: #ffffff;
 }
 .text-sky {
-  color: #9400D3;
+  color: #9400d3;
 }
 .cursive-title {
   font-size: 50px;
@@ -256,19 +256,19 @@ img {
   background-color: #000000;
 }
 .primary-bg {
-  background-color: #4C0083;
+  background-color: #4c0083;
 }
 .secondry-bg {
   background-color: #000000;
 }
 .gray-bg {
-  background-color: #4C0083;
+  background-color: #4c0083;
 }
 .white-bg {
   background-color: #ffffff;
 }
 .sky-bg {
-  background-color: #4C0083;
+  background-color: #4c0083;
 }
 
 /*--buttons--*/
@@ -285,14 +285,14 @@ img {
   outline: none !important;
 }
 .btn-primary {
-  background: #D462FF;
-  border-color: #4C0083;
+  background: #d462ff;
+  border-color: #4c0083;
 }
 .btn-primary:hover,
 .btn-primary:focus {
-  color: #4C0083;
+  color: #4c0083;
   background: #ffffff;
-  border-color: #4C0083;
+  border-color: #4c0083;
   box-shadow: inset 0 -50px 0 #ffffff !important;
 }
 .btn-outline {
@@ -300,13 +300,13 @@ img {
 }
 .btn-outline:hover,
 .btn-outline:focus {
-  background: #4C0083;
+  background: #4c0083;
   border-color: #ffffff;
   color: #ffffff;
   box-shadow: inset 0 -50px 0 #7ca4c5 !important;
 }
 .btn-black {
-  background: #4C0083;
+  background: #4c0083;
 }
 .btn-black:hover,
 .btn-black:focus {
@@ -706,7 +706,7 @@ ul.dropdown-menu {
   margin-bottom: 20px;
 }
 .contact .footer .copyright-bar {
-  background: #FFF;
+  background: #fff;
   padding-top: 0;
 }
 .copyright-bar ul.social-media li {
@@ -714,7 +714,7 @@ ul.dropdown-menu {
 }
 
 .copyright-bar ul.social-media li a {
-  background-color: #7D0096;
+  background-color: #7d0096;
   width: 40px;
   height: 40px;
   display: flex;
@@ -728,13 +728,43 @@ ul.dropdown-menu {
 
 .copyright-bar ul.social-media li a:hover {
   transform: rotate(360deg);
-  background: #8C00E4;
+  background: #8c00e4;
 }
 /*==========================================================
 							Homepage
 ==========================================================*/
 
 /*Banner*/
+/* Added 2023-02-18 AG - Banner Video */
+/* Style the video: 100% width and height to cover the entire window */
+/* Add the video/page */
+/* #banner-video {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: url("images/pukreel.mov") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+#video1 {
+  position: relative;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0;
+  padding: 0;
+  background: url("images/pukreel.mov") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: rgb(84, 9, 111);
+}
+/* End Banner Video */
+
 .home-banner {
   min-height: 850px;
   position: relative;
@@ -1234,7 +1264,7 @@ section.Reservation-bar {
   line-height: 30px;
 }
 .contact .Keepup-date {
-  background: #D462FF;
+  background: #d462ff;
   padding: 100px 0 !important;
 }
 .contact-form
