@@ -21,7 +21,7 @@
 
       gtag('config', 'G-9N0MXJJ2VZ');
    </script>
-   <meta name="msvalidate.01" content="DE4E960DA23941090998820DD1E871B5"/>
+   <meta name="msvalidate.01" content="DE4E960DA23941090998820DD1E871B5" />
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>PopUp Karaoke</title>
@@ -172,6 +172,37 @@
             <source src="images/banner-reel3.mov" type="video/mp4">
          </video>
       </section>
+      <!-- <section class="banner-inner border-zigzag-up" style="background: url('images/pukreel.mov');">
+         <div class="container">
+            <h1 class="banner text-center text-white">It only takes one song to bring out the performer in you!
+            </h1>
+         </div>
+      </section> -->
+
+      <!--New Banner
+      <div id="banner-video" class="border-zigzag-up">
+      </div>
+      
+      <video id="video1" autoplay="autoplay" muted="muted" loop="loop">
+          <source src="images/banner-reel3.mov" type="video/mp4">
+      </video>
+      <style>
+          video {
+              position: absolute;
+              z-index: -1;
+              height: 100%;
+          }
+      
+          #video-container {
+              height: 100%;
+              width: 100vw;
+              background-image: url("images/banner-reel3.mov");
+              background-color: transparent;
+              position: absolute;
+              z-index: 1;
+          }
+      </style>
+      
       <!-- New banner ends here-->
       <!--Inner banner ends here-->
 
@@ -446,6 +477,18 @@
       video.play();
    </script>
    <!-- End video parallax script -->
+
+   <!-- Collapse Nav Hamburger -->
+   <script>
+      $('.nav-link:not(.dropdown-toggle), .dropdown-item').each(function () {
+
+         $(this).on("click", function (e) {
+            $(".navbar-toggler").trigger("click");
+            //alert($(this).attr("href"));
+
+         });
+      });
+   </script>
 </body>
 
 </html>
