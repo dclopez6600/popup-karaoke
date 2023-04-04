@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -62,6 +62,12 @@
                   <ul class="navbar-nav ms-auto ">
                      <li class="nav-item me-5">
                         <a class="nav-link p-0 text-white " aria-current="page" href="index.html">Home</a>
+                     </li>
+                     <li class="nav-item me-5">
+                        <a class="nav-link p-0 text-white " href="#aboutUs">About Us</a>
+                     </li>
+                     <li class="nav-item me-5">
+                        <a class="nav-link p-0 text-white " href="#eventsInfo">Events</a>
                      </li>
                      <li class="nav-item me-5">
                         <a class="nav-link p-0 text-white " href="#locationForm">Locations</a>
@@ -173,12 +179,11 @@
          </video>
       </section>
       <!-- <section class="banner-inner border-zigzag-up" style="background: url('images/pukreel.mov');">
-         <div class="container">
-            <h1 class="banner text-center text-white">It only takes one song to bring out the performer in you!
-            </h1>
-         </div>
-      </section> -->
-
+       <div class="container">
+          <h1 class="banner text-center text-white">It only takes one song to bring out the performer in you!
+          </h1>
+       </div>
+    </section> -->
       <!--New Banner
       <div id="banner-video" class="border-zigzag-up">
       </div>
@@ -202,184 +207,248 @@
               z-index: 1;
           }
       </style>
-      
+      -->
       <!-- New banner ends here-->
       <!--Inner banner ends here-->
 
-      <!-- Instagram Reel -->
-      <section class="contactus py-80 pb-0">
+    <video id="video1" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="images/banner-reel3.mov" type="video/mp4">
+    </video>
+    <style>
+        video {
+            position: absolute;
+            z-index: -1;
+            height: 100%;
+        }
+
+        #video-container {
+            height: 100%;
+            width: 100vw;
+            background-image: url("images/banner-reel3.mov");
+            background-color: transparent;
+            position: absolute;
+            z-index: 1;
+        }
+    </style>
+   -->
+
+      <!-- New banner ends here-->
+      <!--Inner banner ends here-->
+      <!-- About Us -->
+      <section class="aboutUs py-80 pb-0">
          <div class="container">
-            <!-- Video WIDGET -->
-            <div style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
-               <iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/3bK3Ur4X3xQ?rel=0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  frameborder="0" allowfullscreen="" style="position:absolute; top:0; left: 0">
-               </iframe>
+            <h4 class="text-default text-center mb-2 text-uppercase">
+               Our Story
+            </h4>
+            <p class="text-gray text-center mb-5">
+               <b>Specialties</b>
+               PopUp Karaoke is a Veteran owned karaoke service that’s available for Birthdays, Bars/Breweries, Private,
+               Public, and Corporate Events! With over 53,000 songs we’ll keep you singing all night long! When you hire
+               us, we bring all of our professional grade equipment, all you need is your voice. Are you a bar/brewery
+               or public event? We include social media content in our package to promote your event at no additional
+               cost. Need a little wind up/down music? We bring a variety of music to play before or after your karaoke
+               session. Please contact us with any questions or to learn more about our services.
+            <p></p>
+            <b>History</b>
+            Established in 2020, we started PopUp Karaoke as a hobby and it has since evolved into a full service event,
+            with some of the best professional equipment and over 53,000 songs to choose from.
+            </p>
+         </div>
+         <br><br>
+         <!-- Events -->
+         <section class="eventsInfo py-80 pb-0">
+            <div class="container">
+               <h4 class="text-default text-center mb-2 text-uppercase">
+                  Events
+               </h4>
+               <img src="https://dl.dropbox.com/s/3nn2cyj9t0qipx3/popMBB.JPG?dl=0"
+                  alt="PopUp Karaoke and Malt Brothers Brewing Karaoke Night April 6, 2023" class="center">
             </div>
             <br><br>
-            <div class="container">
-               <!-- LightWidget WIDGET -->
-               <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe
-                  src="https://cdn.lightwidget.com/widgets/bf35eea7b2f25fe3b3d48022c3332d64.html" scrolling="no"
-                  allowtransparency="true" class="lightwidget-widget"
-                  style="width:100%;border:0;overflow:hidden;"></iframe>
-               <!--News bar start here-->
-               <a id="locationForm"></a>
-               <section class="contactus py-80 pb-0">
-                  <div class="container">
-                     <div class="row">
-                        <div class="col-lg-7">
-                           <div class="contact-map">
-                              <div class="mapouter">
-                                 <div class="gmap_canvas">
-                                    <iframe
-                                       src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d381412.2579484219!2d-87.4688634!3d41.682024!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf88d227eb9f6d888!2sPopUp%20Karaoke!5e0!3m2!1sen!2sus!4v1675822808332!5m2!1sen!2sus"
-                                       width="800" height="800" style="border:0;" allowfullscreen="" loading="lazy"
-                                       referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                    <!--<iframe id="gmap_canvas" src="https://maps.google.com/maps?q=E-91,%20First%20Floor%20Industrial%20Area,%20Phase%208%20%20Mohali,%20Punjab&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>-->
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-lg-5">
-                           <div class="contact-detail">
-                              <h4 class="mb-5 text-uppercase text-default">NW Indiana &amp; Chicago</h4>
-                              <ul>
-                                 <li class="mb-4">
-                                    <h6 class="text-uppercase">Read Google Reviews</h6>
 
-                                    <button class="btn btn-primary" type="button"><a
-                                          href="https://www.google.com/maps/place/PopUp+Karaoke/@41.682024,-87.4688634,10z/data=!4m8!3m7!1s0x4561b481cf4c9fcb:0xf88d227eb9f6d888!8m2!3d41.682024!4d-87.4688634!9m1!1b1!16s%2Fg%2F11scznktf5?authuser=0&hl=en"
-                                          target="_blank">Read Reviews</a></button>
-                                    <br><br>
-                                    <h6 class="text-uppercase">Leave Us a Review</h6>
-
-                                    <button class="btn btn-primary" type="button"><a
-                                          href="https://g.page/r/CYjY9rl-Io34EAI/review" target="_blank">Leave
-                                          Review</a></button>
-                                 </li>
-                                 <li class="mb-4">
-                                    <h6 class="text-uppercase">Contact</h6>
-                                    <a class="text-uppercase" href="tel:219-758-1313">219.758.1313</a>
-                                 </li>
-                                 <li class="mb-4">
-                                    <h6 class="text-uppercase">Email</h6>
-                                    <a class="text-uppercase"
-                                       href="mailto:booking@popupkaraoke.net">booking@popupkaraoke.net</a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
+            <!-- Instagram Reel -->
+            <section class="contactus py-80 pb-0">
+               <div class="container">
+                  <!-- Video WIDGET -->
+                  <div style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
+                     <iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/3bK3Ur4X3xQ?rel=0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        frameborder="0" allowfullscreen="" style="position:absolute; top:0; left: 0">
+                     </iframe>
                   </div>
-               </section>
-
-               <!--contact form-->
-               <a id="contactForm"></a>
-               <section class="contactformbar py-110">
+                  <br><br>
                   <div class="container">
-                     <h4 class="text-default text-center mb-2 text-uppercase">Looking to have a PopUp Karaoke event?
-                     </h4>
-                     <p class="text-gray text-center mb-5">Fill out this form below and we'll get right back to you!</p>
-                     <div class="contact-form">
-
-                        <!-- Contact Form Action Begins Here 20230211 A.G.-->
-                        <form class="formreply" id="contactForm" data-wow-delay='.1s' data-wow-duration='1s'
-                           method='POST' action='POST' data-netlify="true" name='contact'>
-                           <input type='hidden' name='form-name' value='contact'>
-
+                     <!-- LightWidget WIDGET -->
+                     <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe
+                        src="https://cdn.lightwidget.com/widgets/bf35eea7b2f25fe3b3d48022c3332d64.html" scrolling="no"
+                        allowtransparency="true" class="lightwidget-widget"
+                        style="width:100%;border:0;overflow:hidden;"></iframe>
+                     <!--News bar start here-->
+                     <a id="locationForm"></a>
+                     <section class="contactus py-80 pb-0">
+                        <div class="container">
                            <div class="row">
-                              <div class="col-md-6">
-                                 <div class="mb-3">
-                                    <input type="text" class="form-control" name="name" id="name"
-                                       aria-describedby="emailHelp" placeholder="First Last Name*" required>
+                              <div class="col-lg-7">
+                                 <div class="contact-map">
+                                    <div class="mapouter">
+                                       <div class="gmap_canvas">
+                                          <iframe
+                                             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d381412.2579484219!2d-87.4688634!3d41.682024!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf88d227eb9f6d888!2sPopUp%20Karaoke!5e0!3m2!1sen!2sus!4v1675822808332!5m2!1sen!2sus"
+                                             width="800" height="800" style="border:0;" allowfullscreen=""
+                                             loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                          <!--<iframe id="gmap_canvas" src="https://maps.google.com/maps?q=E-91,%20First%20Floor%20Industrial%20Area,%20Phase%208%20%20Mohali,%20Punjab&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>-->
+                                       </div>
+                                    </div>
                                  </div>
                               </div>
-                              <div class="col-md-6">
-                                 <div class="mb-3">
-                                    <input type="email" class="form-control" name="email" id="email"
-                                       placeholder="Email*" required>
-                                 </div>
-                              </div>
-                              <div class="col-md-6">
-                                 <div class="mb-3">
-                                    <input type="number" class="form-control" name="phone" id="phone"
-                                       placeholder="Phone number*" required>
-                                 </div>
-                              </div>
-                              <div class="col-md-6">
-                                 <div class="mb-3">
-                                    <select class="form-select" name="event" id="event" aria-label="Events"
-                                       aria-placeholder="">
-                                       <option selected>Type Of Events</option>
-                                       <option value="1">Birthday</option>
-                                       <option value="2">Bars/Breweries</option>
-                                       <option value="3">Private Party</option>
-                                       <option value="4">Public/Corporate Event</option>
-                                    </select>
-                                 </div>
-                              </div>
-                              <div class="col-md-6">
-                                 <div class="mb-3">
-                                    <input type="date" class="form-control" name="date" id="date"
-                                       placeholder="Event Date*">
-                                 </div>
-                              </div>
-                              <div class="col-md-6">
-                                 <div class="mb-3">
-                                    <input type="number" class="form-control" name="guest-count" id="guest-count"
-                                       placeholder="Guest Count*">
-                                 </div>
-                              </div>
-                              <div class="col-md-12">
-                                 <div class="mb-3 ">
-                                    <textarea class="form-control" name="message" id="message"
-                                       placeholder="Message"></textarea>
-                                 </div>
-                              </div>
-                              <div class="col-md-12">
-                                 <div class="mb-3 " data-netlify-recaptcha="true"></div>
-                              </div>
-                              <div class="col-md-12">
-                                 <div class="mb-0 text-center btnsubmit">
-                                    <button type="submit" class="btn btn-primary form-control">submit message</button>
-                                 </div>
-                              </div>
-                           </div>
-                        </form>
-                        <!-- End Contact Form Action Ends Here -->
+                              <div class="col-lg-5">
+                                 <div class="contact-detail">
+                                    <h4 class="mb-5 text-uppercase text-default">NW Indiana &amp; Chicago</h4>
+                                    <ul>
+                                       <li class="mb-4">
+                                          <h6 class="text-uppercase">Read Google Reviews</h6>
 
-                     </div>
-                  </div>
-               </section>
-               <!--News bar ends here-->
-               <!--Keepup-date start here-->
-               <a id="subscribeForm"></a>
-               <section class="Keepup-date py-130 gray-bg">
-                  <div class="container">
-                     <h4 class="text-default text-center mb-lg-3">KEEP UP TO DATE WITH US!</h4>
-                     <p class="text-gray text-center">Sign up to be the first to receive special news and event updates
-                        from PopUp Karaoke. </p>
+                                          <button class="btn btn-primary" type="button">
+                                             <a href="https://www.google.com/maps/place/PopUp+Karaoke/@41.682024,-87.4688634,10z/data=!4m8!3m7!1s0x4561b481cf4c9fcb:0xf88d227eb9f6d888!8m2!3d41.682024!4d-87.4688634!9m1!1b1!16s%2Fg%2F11scznktf5?authuser=0&hl=en"
+                                                target="_blank">Read Reviews</a>
+                                          </button>
+                                          <br><br>
+                                          <h6 class="text-uppercase">Leave Us a Review</h6>
 
-                     <!-- Email Form Action Begins Here 20230211 A.G.-->
-                     <form class="keepup-form needs-validation" novalidate method='POST' action='POST'
-                        data-netlify="true" name='Email-form'>
-                        <div class="formrow">
-                           <!-- <input type="email" class="form-control" required placeholder="Enter Your Email Address"> -->
-                           <input type="email" class="form-control" name="email-form" id="email-form"
-                              placeholder="Enter Your Email Address" required>
-                           <div class="input-group-append">
-                              <button class="btn btn-secondary" type="submit">
-                                 <img src="images/next.png" alt="next">
-                              </button>
+                                          <button class="btn btn-primary" type="button">
+                                             <a href="https://g.page/r/CYjY9rl-Io34EAI/review" target="_blank">
+                                                Leave
+                                                Review
+                                             </a>
+                                          </button>
+                                       </li>
+                                       <li class="mb-4">
+                                          <h6 class="text-uppercase">Contact</h6>
+                                          <a class="text-uppercase" href="tel:219-758-1313">219.758.1313</a>
+                                       </li>
+                                       <li class="mb-4">
+                                          <h6 class="text-uppercase">Email</h6>
+                                          <a class="text-uppercase"
+                                             href="mailto:booking@popupkaraoke.net">booking@popupkaraoke.net</a>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
                            </div>
                         </div>
-                     </form>
-                     <!-- Email Form Action Ends Here -->
+                     </section>
 
-                  </div>
-               </section>
-               <!--Keepup-date ends here-->
+                     <!--contact form-->
+                     <a id="contactForm"></a>
+                     <section class="contactformbar py-110">
+                        <div class="container">
+                           <h4 class="text-default text-center mb-2 text-uppercase">
+                              Looking to have a PopUp Karaoke event?
+                           </h4>
+                           <p class="text-gray text-center mb-5">Fill out this form below and we'll get right back to
+                              you!</p>
+                           <div class="contact-form">
+
+                              <!-- Contact Form Action Begins Here 20230211 A.G.-->
+                              <form class="formreply" id="contactForm" data-wow-delay='.1s' data-wow-duration='1s'
+                                 method='POST' action='POST' data-netlify="true" name='contact'>
+                                 <input type='hidden' name='form-name' value='contact'>
+
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                       <div class="mb-3">
+                                          <input type="text" class="form-control" name="name" id="name"
+                                             aria-describedby="emailHelp" placeholder="First Last Name*" required>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       <div class="mb-3">
+                                          <input type="email" class="form-control" name="email" id="email"
+                                             placeholder="Email*" required>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       <div class="mb-3">
+                                          <input type="number" class="form-control" name="phone" id="phone"
+                                             placeholder="Phone number*" required>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       <div class="mb-3">
+                                          <select class="form-select" name="event" id="event" aria-label="Events"
+                                             aria-placeholder="">
+                                             <option selected>Type Of Events</option>
+                                             <option value="1">Birthday</option>
+                                             <option value="2">Bars/Breweries</option>
+                                             <option value="3">Private Party</option>
+                                             <option value="4">Public/Corporate Event</option>
+                                          </select>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       <div class="mb-3">
+                                          <input type="date" class="form-control" name="date" id="date"
+                                             placeholder="Event Date*">
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       <div class="mb-3">
+                                          <input type="number" class="form-control" name="guest-count" id="guest-count"
+                                             placeholder="Guest Count*">
+                                       </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                       <div class="mb-3 ">
+                                          <textarea class="form-control" name="message" id="message"
+                                             placeholder="Message"></textarea>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                       <div class="mb-3 " data-netlify-recaptcha="true"></div>
+                                    </div>
+                                    <div class="col-md-12">
+                                       <div class="mb-0 text-center btnsubmit">
+                                          <button type="submit" class="btn btn-primary form-control">submit
+                                             message</button>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </form>
+                              <!-- End Contact Form Action Ends Here -->
+
+                           </div>
+                        </div>
+                     </section>
+                     <!--News bar ends here-->
+                     <!--Keepup-date start here-->
+                     <a id="subscribeForm"></a>
+                     <section class="Keepup-date py-130 gray-bg">
+                        <div class="container">
+                           <h4 class="text-default text-center mb-lg-3">KEEP UP TO DATE WITH US!</h4>
+                           <p class="text-gray text-center">
+                              Sign up to be the first to receive special news and event updates
+                              from PopUp Karaoke.
+                           </p>
+
+                           <!-- Email Form Action Begins Here 20230211 A.G.-->
+                           <form class="keepup-form needs-validation" novalidate method='POST' action='POST'
+                              data-netlify="true" name='Email-form'>
+                              <div class="formrow">
+                                 <!-- <input type="email" class="form-control" required placeholder="Enter Your Email Address"> -->
+                                 <input type="email" class="form-control" name="email-form" id="email-form"
+                                    placeholder="Enter Your Email Address" required>
+                                 <div class="input-group-append">
+                                    <button class="btn btn-secondary" type="submit">
+                                       <img src="images/next.png" alt="next">
+                                    </button>
+                                 </div>
+                              </div>
+                           </form>
+                           <!-- Email Form Action Ends Here -->
+
+                        </div>
+                     </section>
+                     <!--Keepup-date ends here-->
    </main>
    <!--Footer start here-->
    <footer class="footer">
