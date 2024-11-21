@@ -310,10 +310,9 @@
                      <p class="text-gray text-center mb-5">Complete the form below and we'll get right back to you!</p>
                      <div class="contact-form">
 
-                        <!-- Contact Form Action Begins Here 20230211 A.G.-->
-                        <form class="formreply" id="contactForm" data-wow-delay='.1s' data-wow-duration='1s'
-                           method='POST' action='POST' data-netlify="true" name='contact'>
-                           <input type='hidden' name='form-name' value='contact'>
+                        <!-- Contact Form Action Begins Here. Updates 20241120 A.G. Added honeypot as a second layer of spam protection-->
+                        <form class="formreply" id="contactForm" data-wow-delay='.1s' data-wow-duration='1s' method='POST' action='POST' data-netlify="true" name='contact' netlify-honeypot=“bot-field”>
+
 
                            <div class="row">
                               <div class="col-md-6">
