@@ -308,58 +308,81 @@
                </section>
 
                <!--contact form-->
-               <a id="contactForm"></a>
-               <section class="contactformbar py-110">
-                  <div class="container">
-                     <h4 class="text-default text-center mb-2 text-uppercase">Book PopUp Karaoke for your next event!
-                     </h4>
-                     <p class="text-gray text-center mb-5">Complete the form below and we'll get right back to you!</p>
-                     <div class="contact-form">
+        <a id="contactForm"></a>
+        <section class="contactformbar py-110">
+          <div class="container">
+            <h4 class="text-default text-center mb-2 text-uppercase">Want PopUp Karaoke for your next event?
+            </h4>
+            <p class="text-gray text-center mb-5">Complete the form below and we'll get right back to you!</p>
+            <div class="contact-form">
 
-                        <!-- Contact Form Action Begins Here. Updates 20241120 A.G. Added honeypot as a second layer of spam protection -->
-<form class="formreply" id="contactForm" data-wow-delay='.1s' data-wow-duration='1s'
-      method='POST' action='POST' data-netlify="true" name='contact' netlify-honeypot=“bot-field”>
-<!--
-   <p class="hidden">
-  <label>
-    Don’t fill this out if you’re human: <input name="bot-field" />
-  </label>
-</p>
--->
+              <!-- Contact Form Action Begins Here. Updates 20241120 A.G. Added honeypot as a second layer of spam protection -->
+              <form class="formreply" id="contactForm" data-wow-delay='.1s' data-wow-duration='1s' method='POST' action='POST' data-netlify="true" name='contact' netlify-honeypot=“bot-field”>
+                <input type='hidden' name='form-name' value='contact'>
 
-                     </div>
-                    
+                <p class="hidden">
+                  <label>
+                    Don’t fill this out if you’re human: <input name="bot-field" />
+                  </label>
+                </p>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <input type="text" class="form-control" name="name" id="name" aria-describedby="emailHelp" placeholder="First Last Name*" required>
+                    </div>
                   </div>
-               </section>
-               <!--News bar ends here-->
-               <!--Keepup-date start here-->
-               <a id="subscribeForm"></a>
-               <section class="Keepup-date py-130 gray-bg">
-                  <div class="container">
-                     <h4 class="text-default text-center mb-lg-3">KEEP UP TO DATE WITH US!</h4>
-                     <p class="text-gray text-center">Sign up to be the first to receive special news and event updates
-                        from PopUp Karaoke. </p>
-
-                     <!-- Email Form Action Begins Here 20230211 A.G.-->
-                     <form class="keepup-form needs-validation" novalidate method='POST' action='POST'
-                        data-netlify="true" name='Email-form'>
-                        <div class="formrow">
-                           <!-- <input type="email" class="form-control" required placeholder="Enter Your Email Address"> -->
-                           <input type="email" class="form-control" name="email-form" id="email-form"
-                              placeholder="Enter Your Email Address" required>
-                           <div class="input-group-append">
-                              <button class="btn btn-secondary" type="submit">
-                                 <img src="images/next.png" alt="next">
-                              </button>
-                           </div>
-                           
-                        </div>
-                     </form>
-                     <!-- Email Form Action Ends Here -->
-                     
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <input type="email" class="form-control" name="email" id="email" placeholder="Email*" required>
+                    </div>
                   </div>
-               </section>
-               <!--Keepup-date ends here-->
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <input type="number" class="form-control" name="phone" id="phone" placeholder="Phone number*" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <select class="form-select" name="event" id="event" aria-label="Events" aria-placeholder="">
+                        <option selected>Type Of Events</option>
+                        <option value="1">Birthday</option>
+                        <option value="2">Bars/Breweries</option>
+                        <option value="3">Private Party</option>
+                        <option value="4">Public/Corporate Event</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <input type="date" class="form-control" name="date" id="date" placeholder="Event Date*">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <input type="number" class="form-control" name="guest-count" id="guest-count" placeholder="Guest Count*">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="mb-3 ">
+                      <textarea class="form-control" name="message" id="message" placeholder="Message"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="mb-3 " data-netlify-recaptcha="true"></div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="mb-0 text-center btnsubmit">
+                      <button type="submit" class="btn btn-primary form-control">submit message</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <!-- End Contact Form Action Ends Here -->
+            </div>
+          </div>
+        <!--</section>-->
+      <!--Keepup-date ends here-->
       </section>
    </main>
    <!--Footer start here-->
