@@ -349,7 +349,9 @@
                   </div>
                   <div class="col-md-6">
                     <div class="mb-3">
-                      <input type="date" class="form-control" name="date" id="date" placeholder="Date of Event*" required>
+                      <!-- <input type="date" class="form-control" name="date" id="date" placeholder="Date of Event*" required> -->
+                      <input type="text" class="form-control" name="date" id="date" placeholder="Date of Event*" onfocus="(this.type='date')" onblur="(this.type='text')">
+
                     </div>
                   </div>
                   <div class="col-md-6">
