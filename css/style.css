@@ -1275,6 +1275,25 @@ section.Reservation-bar {
   .form-control[type="number"]::-webkit-calendar-picker-indicator {
   display: none;
 }
+/* Placeholder styles */
+/* Added by A.G. 11282024 */
+.form-control::placeholder {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.7); /* Slightly faded black */
+    text-transform: none;
+}
+
+/* Adjust appearance for type="text" and type="date" dynamically */
+input[type="text"]#date {
+    background-color: #fff;
+    color: #000;
+}
+input[type="date"]#date::-webkit-datetime-edit-text {
+    visibility: hidden; /* Hides default placeholder for date */
+}
+input[type="date"]#date::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.7);
+}
 /*Banner inner pages*/
 .banner-inner {
   padding: 390px 0 130px 0;
