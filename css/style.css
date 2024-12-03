@@ -1625,6 +1625,6 @@ input[type="date"]#date::-webkit-input-placeholder {
   display: inline-block;
 }
 /*Theme OPtion change css ends here*/
-.hidden p {
-  visibility: hidden;
+.hidden {
+  display:none;
 }
