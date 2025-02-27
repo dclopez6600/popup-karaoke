@@ -48,6 +48,42 @@
   <link rel="stylesheet" href="css/aos.css" type="text/css">
   <link rel="stylesheet" href="css/style.css" type="text/css">
   <link rel="stylesheet" href="css/responsive.css" type="text/css">
+
+  <style>
+    .banner-container {
+      position: relative;
+      width: 100%;
+    }
+
+    .best-of-image {
+      position: absolute;
+      bottom: 20px;
+      right: 120px;
+      width: 180px;
+    }
+
+    .vote-button {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      background-color: #d462ff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .vote-button:hover {
+      /* background-color: #700; */
+      color: #4c0083;
+      background: #ffffff;
+      border-color: #4c0083;
+      box-shadow: inset 0 -50px 0 #ffffff !important;
+    }
+
+  </style>
 </head>
 
 <body class="contact">
@@ -183,6 +219,8 @@
       <video id="video1" autoplay loop muted playsinline>
         <source src="images/Reel18st1.mp4" type="video/mp4">
       </video>
+      <img src="images/BestOf2025.PNG" alt="Best of 2025" class="best-of-image">
+      <button class="vote-button" onclick="sendSMS()">Click to vote</button>
     </section>
     <!-- New banner ends here-->
     <!--Inner banner ends here-->
@@ -309,7 +347,7 @@
       </style>
       <!-- End Top 10 songs of the Month -->
 
-       <!-- Latest Songs Added of the Month ag 02/17/2025-->
+      <!-- Latest Songs Added of the Month ag 02/17/2025-->
       <section>
         <div class="container">
           <h4 class="text-default text-center mb-2 text-uppercase">
@@ -647,6 +685,14 @@
 
       });
     });
+
+  </script>
+
+  <!-- Text message script -->
+  <script>
+    function sendSMS() {
+      window.location.href = "sms:2199158767?body=167";
+    }
 
   </script>
 </body>
