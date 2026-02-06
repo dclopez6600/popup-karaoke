@@ -64,6 +64,14 @@ Additional Details: ${data.message}
     // Show confirmation message
     alert('Thank you! Your booking request will open in your email client. Please send the email to complete your booking request.');
     bookingForm.reset();
+    
+    // Auto-return to home after 3 seconds
+    setTimeout(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }, 3000);
 });
 
 // Add active state to nav links based on scroll position
