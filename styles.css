@@ -887,7 +887,7 @@ body {
 }
 
 .hero-logo {
-    width: 180px;
+    width: 360px;
     height: auto;
     max-width: 100%;
     filter: drop-shadow(0 10px 30px rgba(124, 58, 237, 0.5));
@@ -917,13 +917,13 @@ body {
 /* Responsive hero logo */
 @media (max-width: 768px) {
     .hero-logo {
-        width: 140px;
+        width: 280px;
     }
 }
 
 @media (max-width: 480px) {
     .hero-logo {
-        width: 120px;
+        width: 240px;
     }
 }
 
@@ -963,4 +963,46 @@ body {
 .event-time {
     color: var(--text-muted);
     font-size: 1rem;
+}
+
+/* Enhanced Calendar Styles - Make it Larger and More Prominent */
+.calendar-embed {
+    background: rgba(124, 58, 237, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid rgba(124, 58, 237, 0.3);
+    margin-bottom: 40px;
+    box-shadow: 0 15px 40px rgba(124, 58, 237, 0.2);
+}
+
+.calendar-frame {
+    border-radius: 16px;
+    min-height: 700px;
+    display: block;
+}
+
+/* Responsive calendar sizing */
+@media (max-width: 768px) {
+    .calendar-frame {
+        min-height: 500px;
+    }
+    
+    .calendar-embed {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-frame {
+        min-height: 400px;
+    }
+    
+    .calendar-embed {
+        padding: 15px;
+    }
+}
+
+/* Make header logo background transparent */
+.logo-img {
+    background: transparent;
 }
