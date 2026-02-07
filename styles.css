@@ -60,8 +60,9 @@ body {
 }
 
 .logo-img {
-    height: 40px;
+    height: 80px;
     width: auto;
+    background: transparent;
 }
 
 .nav {
@@ -223,7 +224,10 @@ body {
 .btn-large {
     padding: 16px 40px;
     font-size: 18px;
-    width: 100%;
+    width: auto;
+    min-width: 300px;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Features Section */
@@ -812,9 +816,10 @@ body {
 }
 
 .footer-logo {
-    height: 60px;
+    height: 120px;
     width: auto;
     opacity: 0.9;
+    background: transparent;
 }
 
 .footer-links a {
@@ -1005,4 +1010,23 @@ body {
 /* Make header logo background transparent */
 .logo-img {
     background: transparent;
+}
+
+/* Video Calendar Specific Styles */
+.calendar-frame::-webkit-media-controls {
+    display: none !important;
+}
+
+.calendar-frame {
+    pointer-events: none; /* Prevent interaction to hide controls */
+}
+
+video.calendar-frame {
+    object-fit: contain;
+    background: transparent;
+}
+
+/* Re-enable pointer events for embed container for potential future interactions */
+.calendar-embed {
+    pointer-events: auto;
 }
