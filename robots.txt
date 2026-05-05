@@ -1,6 +1,21 @@
+# robots.txt for popupkaraoke.net
+# Allow all reputable search engines to crawl the entire site.
+
 User-agent: *
 Allow: /
 
-Sitemap: https://popupkaraoke.net/sitemap.xml
+# Block known SEO spam crawlers (saves bandwidth, prevents stat skew)
+User-agent: AhrefsBot
+Disallow: /
 
-Crawl-delay: 1
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemap
+Sitemap: https://popupkaraoke.net/sitemap.xml
