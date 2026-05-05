@@ -4,77 +4,95 @@
 
   <url>
     <loc>https://popupkaraoke.net/</loc>
-    <lastmod>2026-05-04</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://popupkaraoke.net/puklogo.png</image:loc>
       <image:title>PopUp Karaoke</image:title>
-      <image:caption>NW Indiana &amp; Chicagoland's premier mobile karaoke service. Veteran-owned.</image:caption>
+      <image:caption>Veteran-owned mobile karaoke for NW Indiana &amp; Chicagoland.</image:caption>
     </image:image>
   </url>
 
   <url>
     <loc>https://popupkaraoke.net/faq.html</loc>
-    <lastmod>2026-05-04</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
+  <!-- Geo landing pages -->
   <url>
     <loc>https://popupkaraoke.net/chicago-karaoke.html</loc>
-    <lastmod>2026-05-04</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://popupkaraoke.net/northwest-indiana-karaoke.html</loc>
-    <lastmod>2026-05-04</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://popupkaraoke.net/#about</loc>
+    <loc>https://popupkaraoke.net/valparaiso-karaoke.html</loc>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://popupkaraoke.net/#events</loc>
-    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://popupkaraoke.net/#songs</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://popupkaraoke.net/#services</loc>
+    <loc>https://popupkaraoke.net/crown-point-karaoke.html</loc>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://popupkaraoke.net/#reviews</loc>
+    <loc>https://popupkaraoke.net/gary-karaoke.html</loc>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://popupkaraoke.net/#pay</loc>
+    <loc>https://popupkaraoke.net/hammond-karaoke.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://popupkaraoke.net/merrillville-karaoke.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Legal -->
+  <url>
+    <loc>https://popupkaraoke.net/privacy.html</loc>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://popupkaraoke.net/#contact</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://popupkaraoke.net/terms.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
+
+  <!-- Anchor sections of homepage -->
+  <url><loc>https://popupkaraoke.net/#about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://popupkaraoke.net/#events</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://popupkaraoke.net/#songs</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://popupkaraoke.net/#services</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://popupkaraoke.net/#reviews</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://popupkaraoke.net/#pay</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://popupkaraoke.net/#contact</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
 </urlset>

@@ -25,9 +25,6 @@
   <link rel="icon" type="image/png" sizes="512x512" href="puklogo.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
   <!-- FAQPage schema for rich-result eligibility -->
@@ -303,7 +300,25 @@
           </details>
         </div>
 
+        <!-- Cross-link to geo landing pages -->
         <div class="cta-wrap" style="margin-top: clamp(3rem, 6vw, 5rem);">
+          <div class="cta-block" style="max-width: 820px;">
+            <span class="section-label">Find Your Area</span>
+            <h3 class="cta-headline">Booking in <span class="grad">your area?</span></h3>
+            <p class="cta-sub">We have dedicated pages for each region we serve, with local info, residencies, and details specific to your city.</p>
+            <div class="area-tags" style="margin-top: 0.5rem; justify-content: center;">
+              <a class="area-tag" href="/chicago-karaoke.html">🏙️ Chicago</a>
+              <a class="area-tag" href="/northwest-indiana-karaoke.html">🎯 NW Indiana</a>
+              <a class="area-tag" href="/valparaiso-karaoke.html">📍 Valparaiso</a>
+              <a class="area-tag" href="/crown-point-karaoke.html">📍 Crown Point</a>
+              <a class="area-tag" href="/gary-karaoke.html">📍 Gary</a>
+              <a class="area-tag" href="/hammond-karaoke.html">📍 Hammond</a>
+              <a class="area-tag" href="/merrillville-karaoke.html">📍 Merrillville</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-wrap" style="margin-top: clamp(2rem, 4vw, 3rem);">
           <div class="cta-block">
             <h3 class="cta-headline">Still have <span class="grad">questions?</span></h3>
             <p class="cta-sub">Call us, email us, or send a booking request — we usually respond within a few hours.</p>
@@ -371,8 +386,8 @@
     <div class="foot-bottom">
       <p>© <span id="year">2026</span> PopUp Karaoke, LLC. Veteran-owned. All rights reserved.</p>
       <div class="foot-links">
-        <a href="/#contact">Privacy</a>
-        <a href="/#contact">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
       </div>
     </div>
   </footer>
@@ -386,5 +401,13 @@
       if(t&&l){t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});}
     })();
   </script>
+  <!-- Sticky mobile CTA bar -->
+  <div class="mobile-cta" aria-label="Quick actions">
+    <div class="mobile-cta-inner">
+      <a class="mobile-cta-call" href="tel:+12197581313" aria-label="Call PopUp Karaoke">📞 Call</a>
+      <a class="mobile-cta-book" href="/#contact" aria-label="Book your event">🎤 Book Now</a>
+    </div>
+  </div>
+
 </body>
 </html>
