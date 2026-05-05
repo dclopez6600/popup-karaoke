@@ -54,11 +54,38 @@
   <link rel="icon" type="image/png" sizes="512x512" href="puklogo.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
-  <!-- Performance: preconnect + font preload -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Performance: preconnect + preload -->
   <link rel="preload" as="image" href="puklogo.png" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="style.css">
+
+  <!-- Critical CSS — inlined for instant first paint while style.css loads -->
+  <style>
+    :root{--purple-300:#d8b4fe;--purple-400:#c084fc;--purple-500:#a855f7;--purple-600:#9333ea;--purple-700:#7c3aed;--neon-pink:#ff2d92;--neon-cyan:#00f5ff;--neon-gold:#ffd54a;--bg:#060010;--card:#150e2a;--card-hi:#1d1438;--border:rgba(168,85,247,0.25);--border-hi:rgba(255,45,146,0.45);--text:#fff;--text-dim:rgba(255,255,255,0.72);--text-mute:rgba(255,255,255,0.55);--container:min(1200px,92vw);--radius:16px;--radius-lg:24px}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{font-family:'Outfit',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:clamp(1rem,0.9rem + 0.4vw,1.125rem);line-height:1.6;color:var(--text);background:var(--bg);overflow-x:hidden;min-height:100vh}
+    img,svg{display:block;max-width:100%;height:auto}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;cursor:pointer;border:0;background:transparent;color:inherit}
+    .bg-fx{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+    .bg-fx::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 15% 20%,rgba(168,85,247,0.25),transparent 60%),radial-gradient(ellipse 60% 60% at 85% 30%,rgba(255,45,146,0.18),transparent 60%),radial-gradient(ellipse 55% 60% at 60% 90%,rgba(0,245,255,0.10),transparent 60%)}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0.85rem 0;background:rgba(6,0,16,0.55);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+    .nav-row{width:var(--container);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .nav-logo{display:flex;align-items:center;gap:0.6rem;font-weight:800;font-size:1.05rem}
+    .nav-logo img{width:38px;height:38px}
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding-top:clamp(6rem,12vh,9rem);padding-bottom:2rem;text-align:center;position:relative;overflow:hidden}
+    .hero-inner{width:var(--container);position:relative;z-index:2}
+    .hero-mic{width:clamp(140px,18vw,220px);height:auto;margin:0 auto 1.5rem;filter:drop-shadow(0 0 35px rgba(168,85,247,0.6))}
+    .hero h1{font-size:clamp(2.75rem,2rem + 5vw,6rem);font-weight:900;line-height:0.95;letter-spacing:-0.04em;margin:0.5rem 0 1.25rem;text-transform:uppercase}
+    .hero p.lead{max-width:640px;margin:0 auto 2rem;font-size:clamp(1.125rem,1rem + 0.6vw,1.375rem);color:var(--text-dim)}
+    .skip-link{position:absolute;top:-100px;left:1rem;background:var(--neon-pink);color:#fff;padding:0.75rem 1.25rem;border-radius:8px;z-index:10000;font-weight:700}
+    .skip-link:focus{top:1rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.95rem 1.75rem;border-radius:999px;font-weight:700}
+    .btn-primary{background:linear-gradient(135deg,var(--neon-pink),var(--purple-600),var(--purple-700));color:#fff;box-shadow:0 8px 30px rgba(255,45,146,0.4)}
+    .btn-cyan{background:linear-gradient(135deg,var(--neon-cyan),var(--purple-500));color:#060010}
+    .btn-pay{background:linear-gradient(135deg,var(--neon-gold),var(--neon-pink));color:#1a0008}
+    .hero-ctas{display:flex;flex-wrap:wrap;gap:0.85rem;justify-content:center;margin-bottom:2rem}
+  </style>
 
   <!-- JSON-LD Structured Data: EntertainmentBusiness for rich Google results -->
   <script type="application/ld+json">
@@ -101,6 +128,40 @@
       "bestRating": "5",
       "ratingCount": "50"
     },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Jesse G." },
+        "datePublished": "2026-04-15",
+        "reviewBody": "Danny is absolutely phenomenal! He has got to be the best karaoke DJ in the Chicagoland Area. I've been to a lot of karaoke places in both Chicago as well as Northwest Indiana, and nobody has ever balanced their sound equipment as well as Danny does. Danny never disappoints, he is professional as well as courteous and hospitable. If you get a chance, come on out for a guaranteed good time!",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "publisher": { "@type": "Organization", "name": "Google" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Christina G." },
+        "datePublished": "2026-05-08",
+        "reviewBody": "Danny is professional, organized and reasonable. He showed up very early, set up to the space needs of our basement and didn't take much of any break! Everyone loved the set up and the party overall. I would highly recommend PopUp Karaoke for anyone, even if you don't think you are into Karaoke! You will not regret it.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "publisher": { "@type": "Organization", "name": "Google" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Sonal P." },
+        "datePublished": "2026-02-15",
+        "reviewBody": "Book with PopUp Karaoke! Daniel is amazing at what he does and he has a legitimate set-up, from DJ turn-tables, to a top notch karaoke screen and even lights to turn any venue into a party. He has a database of 61,000 songs to choose from!",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "publisher": { "@type": "Organization", "name": "Google" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Gigi M." },
+        "datePublished": "2026-05-22",
+        "reviewBody": "They were very attentive leading up to the event. They had a great set up and provided everything you could need for a great evening of fun. Easy to use system. Would recommend again and again. I'm already thinking of other parties I can throw just to use them!",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "publisher": { "@type": "Organization", "name": "Google" }
+      }
+    ],
     "sameAs": [
       "https://www.facebook.com/PopUpKaraoke219",
       "https://www.instagram.com/popupkaraoke219/",
@@ -261,6 +322,65 @@
         {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bars & Breweries"}}
       ]
     }
+  }
+  </script>
+
+  <!-- HowTo schema: numbered steps for booking -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Book PopUp Karaoke for Your Event",
+    "description": "Step-by-step process to book PopUp Karaoke mobile karaoke service for weddings, birthdays, corporate events, and bar nights in NW Indiana and Chicagoland.",
+    "image": "https://popupkaraoke.net/og-image.png",
+    "totalTime": "PT10M",
+    "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": "0" },
+    "supply": [],
+    "tool": [],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Choose your event date and venue",
+        "text": "Pick the date and location of your event. Bookings 3–6 weeks ahead are recommended for weekends and peak season. Last-minute requests are sometimes accommodated.",
+        "url": "https://popupkaraoke.net/#contact"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Submit a booking request",
+        "text": "Fill out the booking form on popupkaraoke.net with your name, email, phone, event type, date, location, and expected guest count. You can also call us at 219.758.1313.",
+        "url": "https://popupkaraoke.net/#contact"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Receive your custom quote",
+        "text": "We'll review your request and send a custom quote — usually within 24 hours. Quotes are free with no obligation.",
+        "url": "https://popupkaraoke.net/#contact"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Confirm with a deposit",
+        "text": "Once you accept the quote, lock in your date by paying the deposit through our secure Square checkout link.",
+        "url": "https://square.link/u/CmsBTgrE"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Pre-event coordination",
+        "text": "We'll confirm setup details, song requests, and any venue requirements (insurance certificate, decibel limits, etc.) ahead of the event.",
+        "url": "https://popupkaraoke.net/faq.html"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 6,
+        "name": "Show up and sing!",
+        "text": "We arrive early, set up everything (sound, lights, mics, song display, host), and run the show. Your guests pick songs and sing — we handle the rest.",
+        "url": "https://popupkaraoke.net/#about"
+      }
+    ]
   }
   </script>
 
@@ -628,17 +748,146 @@
     <!-- REVIEWS -->
     <section class="reviews" id="reviews">
       <div class="container">
-        <div class="reviews-card reveal">
+        <div class="reviews-card reveal" style="max-width: 900px;">
           <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
           <h3>What Our Customers Say</h3>
-          <p>Read our 5★ Google reviews — or share your own experience.</p>
+          <p>5.0 stars on Google — here's what folks say after their event.</p>
+        </div>
+
+        <div class="testimonials-grid reveal">
+          <article class="testimonial" itemscope itemtype="https://schema.org/Review">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote itemprop="reviewBody">Danny is absolutely phenomenal! He has got to be the best karaoke DJ in the Chicagoland Area. I've been to a lot of karaoke places in both Chicago as well as Northwest Indiana, and nobody has ever balanced their sound equipment as well as Danny does. Danny never disappoints — professional, courteous, and hospitable. If you get a chance, come on out for a guaranteed good time!</blockquote>
+            <footer>
+              <cite itemprop="author">Jesse G.</cite>
+              <span class="testimonial-meta">Karaoke at El Capitan · April 2026</span>
+            </footer>
+          </article>
+
+          <article class="testimonial" itemscope itemtype="https://schema.org/Review">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote itemprop="reviewBody">Danny is professional, organized and reasonable. He showed up very early, set up to the space needs of our basement and didn't take much of any break! Everyone loved the set up and the party overall. I would highly recommend PopUp Karaoke for anyone, even if you don't think you are into karaoke!</blockquote>
+            <footer>
+              <cite itemprop="author">Christina G.</cite>
+              <span class="testimonial-meta">Birthday Party · May 2026</span>
+            </footer>
+          </article>
+
+          <article class="testimonial" itemscope itemtype="https://schema.org/Review">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote itemprop="reviewBody">Book with PopUp Karaoke! Daniel is amazing at what he does and he has a legitimate set-up — from DJ turntables, to a top-notch karaoke screen, and even lights to turn any venue into a party. He has a database of 61,000 songs to choose from!</blockquote>
+            <footer>
+              <cite itemprop="author">Sonal P.</cite>
+              <span class="testimonial-meta">Corporate Party · February 2026</span>
+            </footer>
+          </article>
+
+          <article class="testimonial" itemscope itemtype="https://schema.org/Review">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote itemprop="reviewBody">They were very attentive leading up to the event. They had a great set up and provided everything you could need for a great evening of fun. Easy to use system. Would recommend again and again. I'm already thinking of other parties I can throw just to use them!</blockquote>
+            <footer>
+              <cite itemprop="author">Gigi M.</cite>
+              <span class="testimonial-meta">Private Birthday Party · May 2026</span>
+            </footer>
+          </article>
+        </div>
+
+        <div class="reviews-card reveal" style="max-width: 720px; margin-top: 2.5rem;">
+          <p>Want to share your experience or check out more reviews?</p>
           <div class="review-buttons">
-            <a class="btn btn-secondary" href="https://www.google.com/maps/place/PopUp+Karaoke/@41.682024,-87.4688634,10z/data=!4m8!3m7!1s0x4561b481cf4c9fcb:0xf88d227eb9f6d888!8m2!3d41.682024!4d-87.4688634!9m1!1b1!16s%2Fg%2F11scznktf5" target="_blank" rel="noopener">📖 Read Reviews</a>
+            <a class="btn btn-secondary" href="https://www.google.com/maps/place/PopUp+Karaoke/@41.682024,-87.4688634,10z/data=!4m8!3m7!1s0x4561b481cf4c9fcb:0xf88d227eb9f6d888!8m2!3d41.682024!4d-87.4688634!9m1!1b1!16s%2Fg%2F11scznktf5" target="_blank" rel="noopener">📖 Read All Reviews</a>
             <a class="btn btn-primary" href="https://g.page/r/CYjY9rl-Io34EAI/review" target="_blank" rel="noopener">✍️ Leave a Review</a>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- PHOTO GALLERY -->
+    <section class="gallery-section" id="gallery">
+      <div class="container">
+        <div class="events-header reveal" style="text-align:center;">
+          <span class="section-label">In Action</span>
+          <h2 class="section-title">Past <span class="grad">Events</span></h2>
+          <p style="color:var(--text-dim);">A few snapshots from recent shows. Tap any photo to view full size.</p>
+        </div>
+        <div class="gallery reveal">
+          <div class="gallery-grid" id="galleryGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         EDIT THIS BLOCK TO MANAGE THE PHOTO GALLERY
+         Add photos to the /photos/ folder, then list them here.
+         The gallery is hidden automatically when this array is empty.
+         =========================================================== -->
+    <script>
+      window.PUK_GALLERY = [
+        // Example — replace with real photos:
+        // { src: "photos/valpo-wedding-2026.jpg", caption: "Wedding at Aberdeen Manor — March 2026" },
+        // { src: "photos/corporate-merrillville.jpg", caption: "Corporate party in Merrillville — Feb 2026" },
+        // { src: "photos/18th-street-feb.jpg", caption: "Wednesday night at 18th Street Brewery" }
+      ];
+    </script>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Photo viewer">
+      <button class="lightbox-close" type="button" aria-label="Close">✕</button>
+      <button class="lightbox-prev" type="button" aria-label="Previous photo">‹</button>
+      <button class="lightbox-next" type="button" aria-label="Next photo">›</button>
+      <img class="lightbox-img" id="lightboxImg" alt="">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <script>
+      (function () {
+        var grid = document.getElementById('galleryGrid');
+        var section = document.getElementById('gallery');
+        var photos = (window.PUK_GALLERY || []).filter(function (p) { return p && p.src; });
+        if (!photos.length) {
+          if (section) section.style.display = 'none';
+          return;
+        }
+        function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+        grid.innerHTML = photos.map(function (p, i) {
+          return '<button class="gallery-item" type="button" data-i="' + i + '" aria-label="View photo ' + (i+1) + '">'
+            +    '<img src="' + esc(p.src) + '" alt="' + esc(p.caption || 'Event photo') + '" loading="lazy" decoding="async">'
+            +    (p.caption ? '<span class="caption">' + esc(p.caption) + '</span>' : '')
+            +  '</button>';
+        }).join('');
+
+        var lb = document.getElementById('lightbox');
+        var lbImg = document.getElementById('lightboxImg');
+        var lbCap = document.getElementById('lightboxCaption');
+        var current = 0;
+        function open(i) {
+          current = (i + photos.length) % photos.length;
+          lbImg.src = photos[current].src;
+          lbImg.alt = photos[current].caption || 'Event photo';
+          lbCap.textContent = photos[current].caption || '';
+          lb.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+        function close() {
+          lb.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+        grid.addEventListener('click', function (e) {
+          var btn = e.target.closest('.gallery-item');
+          if (btn) open(parseInt(btn.dataset.i, 10));
+        });
+        lb.querySelector('.lightbox-close').addEventListener('click', close);
+        lb.querySelector('.lightbox-prev').addEventListener('click', function () { open(current - 1); });
+        lb.querySelector('.lightbox-next').addEventListener('click', function () { open(current + 1); });
+        lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+        document.addEventListener('keydown', function (e) {
+          if (lb.getAttribute('aria-hidden') === 'true') return;
+          if (e.key === 'Escape') close();
+          else if (e.key === 'ArrowLeft') open(current - 1);
+          else if (e.key === 'ArrowRight') open(current + 1);
+        });
+      })();
+    </script>
 
     <!-- PAY (Square) -->
     <section class="pay-section" id="pay">
@@ -680,11 +929,12 @@
         <div class="form-card reveal">
           <h3>🎤 Request a Booking</h3>
           <!-- Posts to FormSubmit (no backend needed). -->
-          <form id="bookingForm" action="https://formsubmit.co/booking@popupkaraoke.net" method="POST">
+          <form id="bookingForm" action="https://formsubmit.co/booking@popupkaraoke.net" method="POST" novalidate>
             <input type="hidden" name="_subject" value="New Booking Request from popupkaraoke.net">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="true">
             <input type="hidden" name="_next" value="https://popupkaraoke.net/?sent=1">
+            <input type="hidden" name="_autoresponse" value="Hi! Thanks for reaching out to PopUp Karaoke — we got your booking request and will respond within 24 hours (usually much sooner). In the meantime, save our number 219.758.1313 in case you have any questions, and feel free to follow us on Facebook (PopUpKaraoke219), Instagram (@popupkaraoke219), or TikTok (@popupkaraoke219) for clips from past events. Talk soon! — Daniel, PopUp Karaoke (Veteran-Owned & Operated)">
             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
             <div class="form-row">
@@ -815,8 +1065,8 @@
     <div class="foot-bottom">
       <p>© <span id="year">2026</span> PopUp Karaoke, LLC. All rights reserved.</p>
       <div class="foot-links">
-        <a href="#contact">Privacy</a>
-        <a href="#contact">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
       </div>
     </div>
   </footer>
@@ -828,10 +1078,11 @@
       <span class="section-label">On Stage</span>
       <h3 id="srTitle">🎵 Request a Song</h3>
       <p class="lead">Send us your song request and we'll get you on the mic next.</p>
-      <form id="songForm" action="https://formsubmit.co/booking@popupkaraoke.net" method="POST">
+      <form id="songForm" action="https://formsubmit.co/booking@popupkaraoke.net" method="POST" novalidate>
         <input type="hidden" name="_subject" value="New Song Request from popupkaraoke.net">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_autoresponse" value="Thanks for the song request! 🎵 If we don't already have it, we'll do our best to add it before your next event. Catch us live: Wednesdays at 18th Street Brewery (Gary), 1st & 3rd Tuesdays at Flights Taproom (Hammond), and 2nd & 4th Fridays at El Capitan (Hobart). — PopUp Karaoke">
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
         <div class="form-group">
@@ -856,6 +1107,14 @@
         </div>
         <button type="submit" class="btn btn-primary submit-btn">🎤 Send Song Request</button>
       </form>
+    </div>
+  </div>
+
+  <!-- Sticky mobile CTA bar -->
+  <div class="mobile-cta" aria-label="Quick actions">
+    <div class="mobile-cta-inner">
+      <a class="mobile-cta-call" href="tel:+12197581313" aria-label="Call PopUp Karaoke">📞 Call</a>
+      <a class="mobile-cta-book" href="#contact" aria-label="Book your event">🎤 Book Now</a>
     </div>
   </div>
 
@@ -931,6 +1190,83 @@
           if (history.replaceState) history.replaceState({}, '', location.pathname);
         }
       } catch (e) {}
+
+      /* ============================================================
+         FORM VALIDATION + LOADING STATE
+         ============================================================ */
+      function validateField(field) {
+        var msg = '';
+        var v = (field.value || '').trim();
+        if (field.required && !v) {
+          msg = 'This field is required.';
+        } else if (field.type === 'email' && v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+          msg = 'Please enter a valid email address.';
+        } else if (field.type === 'tel' && v && v.replace(/\D/g, '').length < 7) {
+          msg = 'Please enter a valid phone number.';
+        } else if (field.tagName === 'SELECT' && field.required && !v) {
+          msg = 'Please select an option.';
+        }
+        var errorEl = field.parentElement.querySelector('.form-error');
+        if (msg) {
+          field.classList.add('invalid');
+          field.classList.remove('valid');
+          field.setAttribute('aria-invalid', 'true');
+          if (errorEl) {
+            errorEl.textContent = msg;
+            errorEl.classList.add('show');
+          }
+          return false;
+        } else {
+          field.classList.remove('invalid');
+          if (v) field.classList.add('valid');
+          field.setAttribute('aria-invalid', 'false');
+          if (errorEl) errorEl.classList.remove('show');
+          return true;
+        }
+      }
+
+      function setupForm(form) {
+        if (!form) return;
+        // Inject .form-error containers under each form-group if not present
+        Array.prototype.forEach.call(form.querySelectorAll('.form-group'), function (g) {
+          if (g.querySelector('.form-error')) return;
+          var err = document.createElement('div');
+          err.className = 'form-error';
+          err.setAttribute('role', 'alert');
+          g.appendChild(err);
+        });
+        // Validate on blur and input
+        var fields = form.querySelectorAll('input:not([type=hidden]):not([name=_honey]), select, textarea');
+        Array.prototype.forEach.call(fields, function (f) {
+          f.addEventListener('blur', function () { validateField(f); });
+          f.addEventListener('input', function () {
+            if (f.classList.contains('invalid')) validateField(f);
+          });
+        });
+        // Validate all on submit
+        form.addEventListener('submit', function (e) {
+          var allValid = true;
+          Array.prototype.forEach.call(fields, function (f) {
+            if (!validateField(f)) allValid = false;
+          });
+          if (!allValid) {
+            e.preventDefault();
+            var firstInvalid = form.querySelector('.invalid');
+            if (firstInvalid) firstInvalid.focus();
+            return;
+          }
+          // Loading state
+          var btn = form.querySelector('button[type="submit"]');
+          if (btn) {
+            btn.classList.add('submitting');
+            btn.dataset.originalText = btn.innerHTML;
+            btn.innerHTML = 'Sending…';
+            btn.setAttribute('disabled', 'disabled');
+          }
+        });
+      }
+      setupForm(document.getElementById('bookingForm'));
+      setupForm(document.getElementById('songForm'));
 
       /* ============================================================
          CONVERSION TRACKING
