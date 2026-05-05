@@ -1690,20 +1690,8 @@
       .hero p.lead { font-size: 1rem; }
     }
 
-    /* Make mobile menu fully cover the hamburger area + add explicit close affordance */
+    /* Just the X close colour override — the mobile menu styles live in the earlier block */
     @media (max-width: 880px) {
-      .nav-links {
-        background: rgba(6, 0, 16, 0.98);
-        padding-top: 1.25rem;
-      }
-      .nav-links.open {
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-      }
-      .nav-links a {
-        font-size: 1.1rem;
-        padding: 1rem 0;
-      }
-      /* Make the X close more visible when menu is open */
       .nav-toggle[aria-expanded="true"] span {
         background: var(--neon-pink);
         height: 3px;
