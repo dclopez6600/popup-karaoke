@@ -258,7 +258,7 @@
       var nav=document.getElementById('nav');
       window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>30);},{passive:true});
       var t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
-      if(t&&l){t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});}
+      if(t&&l){t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');document.body.classList.toggle('menu-open',o);});}
     })();
   </script>
   <!-- Sticky mobile CTA bar -->
