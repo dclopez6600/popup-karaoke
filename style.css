@@ -1397,14 +1397,12 @@
     /* ============================================================
        TESTIMONIAL CARDS
        ============================================================ */
-    /* Break out of the parent .container so cards have room to fit 4 across */
+    /* Wider centered testimonials — sits directly inside the section, not container */
     .testimonials-grid {
       display: grid; gap: 0.85rem;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      margin-top: 2rem;
-      width: min(1320px, 96vw);
-      margin-left: 50%;
-      transform: translateX(-50%);
+      width: min(1320px, 92vw);
+      margin: 2rem auto 0;
     }
     @media (max-width: 960px) { .testimonials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 540px)  { .testimonials-grid { grid-template-columns: 1fr; } }
@@ -1413,6 +1411,20 @@
       overflow-wrap: break-word;
       word-wrap: break-word;
       hyphens: auto;
+    }
+
+    /* Hero brand name under the floating logo */
+    .hero-brand {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin: -0.5rem auto 1.25rem;
+      background: linear-gradient(90deg, var(--neon-pink), var(--purple-300), var(--neon-cyan));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+      text-align: center;
     }
     .testimonial {
       padding: 1.5rem 1.5rem 1.25rem;
