@@ -411,12 +411,87 @@
           <h2 class="section-title">Upcoming <span class="grad">Events</span></h2>
           <p>Check out our calendar for public karaoke nights at venues near you.</p>
         </div>
-        <div class="calendar-frame reveal">
-          <video autoplay loop muted playsinline preload="metadata" aria-label="Upcoming events calendar">
-            <source src="https://www.dropbox.com/scl/fi/5re72gj4de4v0jcz1v7uc/may_2026.mp4?rlkey=ae0pshfw7ak8ozr021zpw7hov&st=no7qsx8y&raw=1" type="video/mp4">
-            Your browser does not support video. Please email booking@popupkaraoke.net for the latest schedule.
-          </video>
+        <!-- ===================================================
+             MONTHLY CALENDAR
+             To update: edit window.PUK_CALENDAR below this section.
+             =================================================== -->
+        <div class="calendar-board reveal" id="cal-board" aria-live="polite">
+          <header class="cal-header">
+            <h3 class="cal-month-label" style="display:flex; align-items:baseline; gap:0.6rem; margin:0;">
+              <span class="cal-month-name" id="cal-month">May</span>
+              <span class="cal-year" id="cal-year">2026</span>
+            </h3>
+            <p class="cal-tagline">Where to sing this month — all shows free to attend</p>
+          </header>
+          <div class="cal-events" id="cal-events"></div>
+          <div class="cal-funfact">
+            <span class="cal-funfact-label">🎤 Fun Fact</span>
+            <p class="cal-funfact-text">According to recent studies, singing karaoke relieves stress, boosts self-esteem and confidence, and builds social connections — all major life extenders.</p>
+          </div>
         </div>
+
+        <!-- ===========================================================
+             EDIT MONTHLY — change month, year, and events below.
+             venueClass options: "flights" | "18thStreetBrewery" | "elCapitan"
+             (or any custom name; will fall back to default purple style)
+             =========================================================== -->
+        <script>
+          window.PUK_CALENDAR = {
+            month: "May",
+            year: 2026,
+            funFact: "According to recent studies, singing karaoke relieves stress, boosts self-esteem and confidence, and builds social connections — all major life extenders.",
+            events: [
+              { date: 5,  day: "Tuesday",   venue: "Flights",             venueClass: "flights",           time: "8pm – 11pm", address: "839 169th St, Hammond, IN 46324",  mapsQuery: "Flights Taproom 839 169th St Hammond IN" },
+              { date: 6,  day: "Wednesday", venue: "18th Street Brewery", venueClass: "18thStreetBrewery", time: "7pm – 10pm", address: "5725 Miller Ave, Gary, IN 46403", mapsQuery: "18th Street Brewery 5725 Miller Ave Gary IN" },
+              { date: 13, day: "Wednesday", venue: "18th Street Brewery", venueClass: "18thStreetBrewery", time: "7pm – 10pm", address: "5725 Miller Ave, Gary, IN 46403", mapsQuery: "18th Street Brewery 5725 Miller Ave Gary IN" },
+              { date: 15, day: "Friday",    venue: "El Capitán",          venueClass: "elCapitan",         time: "8pm – 12am", address: "327 Main St, Hobart, IN 46342",   mapsQuery: "El Capitan 327 Main St Hobart IN" },
+              { date: 19, day: "Tuesday",   venue: "Flights",             venueClass: "flights",           time: "8pm – 11pm", address: "839 169th St, Hammond, IN 46324", mapsQuery: "Flights Taproom 839 169th St Hammond IN" },
+              { date: 20, day: "Wednesday", venue: "18th Street Brewery", venueClass: "18thStreetBrewery", time: "7pm – 10pm", address: "5725 Miller Ave, Gary, IN 46403", mapsQuery: "18th Street Brewery 5725 Miller Ave Gary IN" },
+              { date: 27, day: "Wednesday", venue: "18th Street Brewery", venueClass: "18thStreetBrewery", time: "7pm – 10pm", address: "5725 Miller Ave, Gary, IN 46403", mapsQuery: "18th Street Brewery 5725 Miller Ave Gary IN" },
+              { date: 29, day: "Friday",    venue: "El Capitán",          venueClass: "elCapitan",         time: "8pm – 12am", address: "327 Main St, Hobart, IN 46342",   mapsQuery: "El Capitan 327 Main St Hobart IN" }
+            ]
+          };
+        </script>
+
+        <script>
+          (function(){
+            var d = window.PUK_CALENDAR; if (!d) return;
+            var monthEl = document.getElementById('cal-month');
+            var yearEl  = document.getElementById('cal-year');
+            var listEl  = document.getElementById('cal-events');
+            var factEl  = document.querySelector('.cal-funfact-text');
+            if (monthEl) monthEl.textContent = d.month;
+            if (yearEl)  yearEl.textContent  = d.year;
+            if (factEl && d.funFact) factEl.textContent = d.funFact;
+            if (!listEl) return;
+            if (!d.events || !d.events.length) {
+              listEl.innerHTML = '<p class="cal-empty">No public events scheduled this month — check back soon!</p>';
+              return;
+            }
+            var dayShort = { Sunday:'SUN', Monday:'MON', Tuesday:'TUE', Wednesday:'WED', Thursday:'THU', Friday:'FRI', Saturday:'SAT' };
+            function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+            var html = d.events.map(function(e){
+              var qs = encodeURIComponent(e.mapsQuery || (e.venue + ' ' + e.address));
+              var maps = 'https://www.google.com/maps/search/?api=1&query=' + qs;
+              var venueCls = (e.venueClass || '').replace(/[^A-Za-z0-9]/g,'');
+              var dayCode = dayShort[e.day] || (e.day || '').slice(0,3).toUpperCase();
+              return '<article class="cal-event venue-' + venueCls + '">'
+                +   '<div class="cal-event-date">'
+                +     '<span class="cal-event-day">' + esc(dayCode) + '</span>'
+                +     '<span class="cal-event-num">' + esc(e.date) + '</span>'
+                +   '</div>'
+                +   '<div class="cal-event-info">'
+                +     '<h4 class="cal-event-venue">' + esc(e.venue) + '</h4>'
+                +     '<div class="cal-event-meta">'
+                +       '<span class="cal-event-time">' + esc(e.time) + '</span>'
+                +       '<span class="cal-event-addr"><a href="' + maps + '" target="_blank" rel="noopener">' + esc(e.address) + '</a></span>'
+                +     '</div>'
+                +   '</div>'
+                + '</article>';
+            }).join('');
+            listEl.innerHTML = html;
+          })();
+        </script>
 
         <!-- Recurring residencies -->
         <div class="residencies reveal" aria-label="Weekly karaoke residencies">
