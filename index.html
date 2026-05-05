@@ -53,6 +53,11 @@
   <link rel="icon" type="image/svg+xml" href="puklogo.svg">
   <link rel="icon" type="image/png" sizes="512x512" href="puklogo.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="dns-prefetch" href="https://square.link">
+  <link rel="dns-prefetch" href="https://formsubmit.co">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+  <link rel="dns-prefetch" href="https://connect.facebook.net">
 
   <!-- Performance: preconnect + preload -->
   <link rel="preload" as="image" href="puklogo.png" fetchpriority="high">
@@ -126,7 +131,8 @@
       "@type": "AggregateRating",
       "ratingValue": "5.0",
       "bestRating": "5",
-      "ratingCount": "50"
+      "ratingCount": "4",
+      "reviewCount": "4"
     },
     "review": [
       {
@@ -418,7 +424,7 @@
   <header class="nav" id="nav">
     <div class="nav-row">
       <a class="nav-logo" href="#home" aria-label="PopUp Karaoke home">
-        <img src="puklogo.png" alt="" width="38" height="38" loading="eager" decoding="async">
+        <img src="puklogo.png" alt="PopUp Karaoke" width="38" height="38" loading="eager" decoding="async">
         <span>PopUp Karaoke</span>
       </a>
       <button class="nav-toggle" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle menu">
@@ -449,7 +455,7 @@
 
       <div class="hero-inner">
         <!-- Floating brand logo -->
-        <img class="hero-mic" src="puklogo.png" alt="" width="220" height="220" decoding="async" fetchpriority="high">
+        <img class="hero-mic" src="puklogo.png" alt="PopUp Karaoke" width="220" height="220" decoding="async" fetchpriority="high">
 
         <div class="hero-badges">
           <span class="hero-badge">★★★★★ NW Indiana &amp; Chicagoland's Premier Mobile Karaoke</span>
@@ -573,23 +579,7 @@
           };
         </script>
 
-        <script>
-          (function(){
-            var d = window.PUK_CALENDAR; if (!d) return;
-            var monthEl = document.getElementById('cal-month');
-            var yearEl  = document.getElementById('cal-year');
-            var listEl  = document.getElementById('cal-events');
-            var factEl  = document.querySelector('.cal-funfact-text');
-            if (monthEl) monthEl.textContent = d.month;
-            if (yearEl)  yearEl.textContent  = d.year;
-            if (factEl && d.funFact) factEl.textContent = d.funFact;
-            if (!listEl) return;
-            if (!d.events || !d.events.length) {
-              listEl.innerHTML = '<p class="cal-empty">No public events scheduled this month — check back soon!</p>';
-              return;
-            }
-            var dayShort = { Sunday:'SUN', Monday:'MON', Tuesday:'TUE', Wednesday:'WED', Thursday:'THU', Friday:'FRI', Saturday:'SAT' };
-            function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+        <script>(function(){var d=window.PUK_CALENDAR;if(!d)return;var monthEl=document.getElementById('cal-month');var yearEl=document.getElementById('cal-year');var listEl=document.getElementById('cal-events');var factEl=document.querySelector('.cal-funfact-text');if(monthEl)monthEl.textContent=d.month;if(yearEl)yearEl.textContent=d.year;if(factEl&&d.funFact)factEl.textContent=d.funFact;if(!listEl)return;if(!d.events||!d.events.length){listEl.innerHTML='<p class="cal-empty">No public events scheduled this month — check back soon!</p>';return;}var dayShort={Sunday:'SUN',Monday:'MON',Tuesday:'TUE',Wednesday:'WED',Thursday:'THU',Friday:'FRI',Saturday:'SAT'};function esc(s){return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
             var html = d.events.map(function(e){
               var qs = encodeURIComponent(e.mapsQuery || (e.venue + ' ' + e.address));
               var maps = 'https://www.google.com/maps/search/?api=1&query=' + qs;
@@ -766,6 +756,15 @@
 
           <article class="testimonial" itemscope itemtype="https://schema.org/Review">
             <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote itemprop="reviewBody">Danny is professional, organized and reasonable. He showed up very early, set up to the space needs of our basement and didn't take much of any break! Everyone loved the set up and the party overall. I would highly recommend PopUp Karaoke for anyone, even if you don't think you are into karaoke!</blockquote>
+            <footer>
+              <cite itemprop="author">Christina G.</cite>
+              <span class="testimonial-meta">Birthday Party · May 2026</span>
+            </footer>
+          </article>
+
+          <article class="testimonial" itemscope itemtype="https://schema.org/Review">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
             <blockquote itemprop="reviewBody">Book with PopUp Karaoke! Daniel is amazing at what he does and he has a legitimate set-up — from DJ turntables, to a top-notch karaoke screen, and even lights to turn any venue into a party. He has a database of 61,000 songs to choose from!</blockquote>
             <footer>
               <cite itemprop="author">Sonal P.</cite>
@@ -814,15 +813,11 @@
          =========================================================== -->
     <script>
       window.PUK_GALLERY = [
-        { src: "photos/18thstbrewery-1.JPG", caption: "Karaoke Wednesdays at 18th Street Brewery" },
-        { src: "photos/moods-1.JPG", caption: "Pop Princess Sing-Along Brunch at Moods" },
-        { src: "photos/18thstbrewery-2.JPG", caption: "Karaoke Wednesdays at 18th Street Brewery" },
-        { src: "photos/bridal-collective-1.jpg", caption: "Bridal Collective Corporate Karaoke Party" },
-        { src: "photos/18thstbrewery-4.jpg", caption: "Karaoke Wednesdays at 18th Street Brewery" },
-        { src: "photos/moods-2.JPG", caption: "Pop Princess Sing-Along Brunch at Moods" },
-        { src: "photos/18thstbrewery-6.png", caption: "Karaoke Wednesdays at 18th Street Brewery" },
-        { src: "photos/bridal-collective-2.jpg", caption: "Bridal Collective Corporate Karaoke Party" },
-       ];
+        // Example — replace with real photos:
+        // { src: "photos/valpo-wedding-2026.jpg", caption: "Wedding at Aberdeen Manor — March 2026" },
+        // { src: "photos/corporate-merrillville.jpg", caption: "Corporate party in Merrillville — Feb 2026" },
+        // { src: "photos/18th-street-feb.jpg", caption: "Wednesday night at 18th Street Brewery" }
+      ];
     </script>
 
     <!-- Lightbox -->
@@ -834,18 +829,9 @@
       <div class="lightbox-caption" id="lightboxCaption"></div>
     </div>
 
-    <script>
-      (function () {
-        var grid = document.getElementById('galleryGrid');
-        var section = document.getElementById('gallery');
-        var photos = (window.PUK_GALLERY || []).filter(function (p) { return p && p.src; });
-        if (!photos.length) {
-          if (section) section.style.display = 'none';
-          return;
-        }
-        function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+    <script>(function(){var grid=document.getElementById('galleryGrid');var section=document.getElementById('gallery');var photos=(window.PUK_GALLERY||[]).filter(function(p){return p&&p.src;});if(!photos.length){if(section)section.style.display='none';return;}function esc(s){return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
         grid.innerHTML = photos.map(function (p, i) {
-          return '<button class="gallery-item" type="button" data-i="' + i + '" aria-label="View photo ' + (i+1) + '">'
+          return '<button class="gallery-item" type="button" data-i="' + i + '" aria-label="View photo' + (i+1) + '">'
             +    '<img src="' + esc(p.src) + '" alt="' + esc(p.caption || 'Event photo') + '" loading="lazy" decoding="async">'
             +    (p.caption ? '<span class="caption">' + esc(p.caption) + '</span>' : '')
             +  '</button>';
@@ -1011,7 +997,7 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <div class="foot-brand-row">
-          <img src="puklogo.png" alt="" width="44" height="44" loading="lazy" decoding="async">
+          <img src="puklogo.png" alt="PopUp Karaoke" width="44" height="44" loading="lazy" decoding="async">
           <span class="foot-brand-name">PopUp Karaoke</span>
         </div>
         <p>NW Indiana &amp; Chicagoland's premier mobile karaoke. Bringing the party to weddings, bars, birthdays, and corporate events since 2020.</p>
@@ -1114,234 +1100,6 @@
   </div>
 
   <!-- SCRIPTS -->
-  <script>
-    (function () {
-      'use strict';
-
-      var yr = document.getElementById('year');
-      if (yr) yr.textContent = new Date().getFullYear();
-
-      var nav = document.getElementById('nav');
-      function onScroll() {
-        if (window.scrollY > 30) nav.classList.add('scrolled');
-        else nav.classList.remove('scrolled');
-      }
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-
-      var navToggle = document.getElementById('navToggle');
-      var navLinks = document.getElementById('navLinks');
-      if (navToggle && navLinks) {
-        navToggle.addEventListener('click', function () {
-          var open = navLinks.classList.toggle('open');
-          navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-        navLinks.querySelectorAll('a').forEach(function (a) {
-          a.addEventListener('click', function () {
-            navLinks.classList.remove('open');
-            navToggle.setAttribute('aria-expanded', 'false');
-          });
-        });
-      }
-
-      var openers = document.querySelectorAll('[data-open-modal]');
-      var closers = document.querySelectorAll('[data-close-modal]');
-      function openModal(id) {
-        var m = document.getElementById(id);
-        if (!m) return;
-        m.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        var firstInput = m.querySelector('input, textarea, select, button');
-        if (firstInput) setTimeout(function(){ firstInput.focus(); }, 50);
-      }
-      function closeAllModals() {
-        document.querySelectorAll('.modal').forEach(function (m) { m.setAttribute('aria-hidden', 'true'); });
-        document.body.style.overflow = '';
-      }
-      openers.forEach(function (b) { b.addEventListener('click', function () { openModal(b.getAttribute('data-open-modal')); }); });
-      closers.forEach(function (b) { b.addEventListener('click', closeAllModals); });
-      document.querySelectorAll('.modal').forEach(function (m) {
-        m.addEventListener('click', function (e) { if (e.target === m) closeAllModals(); });
-      });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAllModals(); });
-
-      if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('in');
-              io.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-        document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
-      } else {
-        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
-      }
-
-      try {
-        if (location.search.indexOf('sent=1') !== -1) {
-          alert("Thanks! We got your request and will be in touch soon. 🎤");
-          if (history.replaceState) history.replaceState({}, '', location.pathname);
-        }
-      } catch (e) {}
-
-      /* ============================================================
-         FORM VALIDATION + LOADING STATE
-         ============================================================ */
-      function validateField(field) {
-        var msg = '';
-        var v = (field.value || '').trim();
-        if (field.required && !v) {
-          msg = 'This field is required.';
-        } else if (field.type === 'email' && v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
-          msg = 'Please enter a valid email address.';
-        } else if (field.type === 'tel' && v && v.replace(/\D/g, '').length < 7) {
-          msg = 'Please enter a valid phone number.';
-        } else if (field.tagName === 'SELECT' && field.required && !v) {
-          msg = 'Please select an option.';
-        }
-        var errorEl = field.parentElement.querySelector('.form-error');
-        if (msg) {
-          field.classList.add('invalid');
-          field.classList.remove('valid');
-          field.setAttribute('aria-invalid', 'true');
-          if (errorEl) {
-            errorEl.textContent = msg;
-            errorEl.classList.add('show');
-          }
-          return false;
-        } else {
-          field.classList.remove('invalid');
-          if (v) field.classList.add('valid');
-          field.setAttribute('aria-invalid', 'false');
-          if (errorEl) errorEl.classList.remove('show');
-          return true;
-        }
-      }
-
-      function setupForm(form) {
-        if (!form) return;
-        // Inject .form-error containers under each form-group if not present
-        Array.prototype.forEach.call(form.querySelectorAll('.form-group'), function (g) {
-          if (g.querySelector('.form-error')) return;
-          var err = document.createElement('div');
-          err.className = 'form-error';
-          err.setAttribute('role', 'alert');
-          g.appendChild(err);
-        });
-        // Validate on blur and input
-        var fields = form.querySelectorAll('input:not([type=hidden]):not([name=_honey]), select, textarea');
-        Array.prototype.forEach.call(fields, function (f) {
-          f.addEventListener('blur', function () { validateField(f); });
-          f.addEventListener('input', function () {
-            if (f.classList.contains('invalid')) validateField(f);
-          });
-        });
-        // Validate all on submit
-        form.addEventListener('submit', function (e) {
-          var allValid = true;
-          Array.prototype.forEach.call(fields, function (f) {
-            if (!validateField(f)) allValid = false;
-          });
-          if (!allValid) {
-            e.preventDefault();
-            var firstInvalid = form.querySelector('.invalid');
-            if (firstInvalid) firstInvalid.focus();
-            return;
-          }
-          // Loading state
-          var btn = form.querySelector('button[type="submit"]');
-          if (btn) {
-            btn.classList.add('submitting');
-            btn.dataset.originalText = btn.innerHTML;
-            btn.innerHTML = 'Sending…';
-            btn.setAttribute('disabled', 'disabled');
-          }
-        });
-      }
-      setupForm(document.getElementById('bookingForm'));
-      setupForm(document.getElementById('songForm'));
-
-      /* ============================================================
-         CONVERSION TRACKING
-         Pushes events to GTM dataLayer AND fires Meta Pixel directly.
-         GTM picks them up via Custom Event triggers (see GTM_SETUP.md).
-         ============================================================ */
-      window.dataLayer = window.dataLayer || [];
-
-      function trackEvent(eventName, fbEvent, params) {
-        params = params || {};
-        // GTM dataLayer — drives GA4 / Google Ads / any GTM tag
-        try {
-          window.dataLayer.push(Object.assign({ event: eventName }, params));
-        } catch (e) {}
-        // Meta Pixel — direct call
-        try {
-          if (typeof window.fbq === 'function') {
-            window.fbq('track', fbEvent, params);
-          }
-        } catch (e) {}
-      }
-
-      // ----- Form submissions → Lead -----
-      var bookingForm = document.getElementById('bookingForm');
-      if (bookingForm) {
-        bookingForm.addEventListener('submit', function () {
-          trackEvent('lead_submit', 'Lead', {
-            content_name: 'Booking Request',
-            content_category: 'booking',
-            value: 0,
-            currency: 'USD'
-          });
-        });
-      }
-      var songForm = document.getElementById('songForm');
-      if (songForm) {
-        songForm.addEventListener('submit', function () {
-          trackEvent('lead_submit', 'Lead', {
-            content_name: 'Song Request',
-            content_category: 'song_request',
-            value: 0,
-            currency: 'USD'
-          });
-        });
-      }
-
-      // ----- Square payment clicks → InitiateCheckout -----
-      Array.prototype.forEach.call(
-        document.querySelectorAll('a[href*="square.link"]'),
-        function (a) {
-          a.addEventListener('click', function () {
-            var src = 'unknown';
-            try {
-              var u = new URL(a.href);
-              src = u.searchParams.get('src') || 'unknown';
-            } catch (e) {}
-            trackEvent('initiate_checkout', 'InitiateCheckout', {
-              content_name: 'Square Payment',
-              payment_method: 'square',
-              link_source: src,
-              currency: 'USD'
-            });
-          });
-        }
-      );
-
-      // ----- Phone / email taps → contact -----
-      Array.prototype.forEach.call(
-        document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]'),
-        function (a) {
-          a.addEventListener('click', function () {
-            var kind = a.getAttribute('href').indexOf('tel:') === 0 ? 'phone' : 'email';
-            trackEvent('contact_click', 'Contact', {
-              content_name: kind === 'phone' ? 'Call' : 'Email',
-              contact_method: kind
-            });
-          });
-        }
-      );
-    })();
-  </script>
+  <script>(function(){'use strict';var yr=document.getElementById('year');if(yr)yr.textContent=new Date().getFullYear();var nav=document.getElementById('nav');function onScroll(){if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');}window.addEventListener('scroll',onScroll,{passive:true});onScroll();var navToggle=document.getElementById('navToggle');var navLinks=document.getElementById('navLinks');if(navToggle&&navLinks){navToggle.addEventListener('click',function(){var open=navLinks.classList.toggle('open');navToggle.setAttribute('aria-expanded',open?'true':'false');});navLinks.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){navLinks.classList.remove('open');navToggle.setAttribute('aria-expanded','false');});});}var openers=document.querySelectorAll('[data-open-modal]');var closers=document.querySelectorAll('[data-close-modal]');function openModal(id){var m=document.getElementById(id);if(!m)return;m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';var firstInput=m.querySelector('input, textarea, select, button');if(firstInput)setTimeout(function(){firstInput.focus();},50);}function closeAllModals(){document.querySelectorAll('.modal').forEach(function(m){m.setAttribute('aria-hidden','true');});document.body.style.overflow='';}openers.forEach(function(b){b.addEventListener('click',function(){openModal(b.getAttribute('data-open-modal'));});});closers.forEach(function(b){b.addEventListener('click',closeAllModals);});document.querySelectorAll('.modal').forEach(function(m){m.addEventListener('click',function(e){if(e.target===m)closeAllModals();});});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAllModals();});if('IntersectionObserver'in window){var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}try{if(location.search.indexOf('sent=1')!==-1){alert("Thanks! We got your request and will be in touch soon. 🎤");if(history.replaceState)history.replaceState({},'',location.pathname);}}catch(e){}function validateField(field){var msg='';var v=(field.value||'').trim();if(field.required&&!v){msg='This field is required.';}else if(field.type==='email'&&v&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){msg='Please enter a valid email address.';}else if(field.type==='tel'&&v&&v.replace(/\D/g,'').length<7){msg='Please enter a valid phone number.';}else if(field.tagName==='SELECT'&&field.required&&!v){msg='Please select an option.';}var errorEl=field.parentElement.querySelector('.form-error');if(msg){field.classList.add('invalid');field.classList.remove('valid');field.setAttribute('aria-invalid','true');if(errorEl){errorEl.textContent=msg;errorEl.classList.add('show');}return false;}else{field.classList.remove('invalid');if(v)field.classList.add('valid');field.setAttribute('aria-invalid','false');if(errorEl)errorEl.classList.remove('show');return true;}}function setupForm(form){if(!form)return;Array.prototype.forEach.call(form.querySelectorAll('.form-group'),function(g){if(g.querySelector('.form-error'))return;var err=document.createElement('div');err.className='form-error';err.setAttribute('role','alert');g.appendChild(err);});var fields=form.querySelectorAll('input:not([type=hidden]):not([name=_honey]), select, textarea');Array.prototype.forEach.call(fields,function(f){f.addEventListener('blur',function(){validateField(f);});f.addEventListener('input',function(){if(f.classList.contains('invalid'))validateField(f);});});form.addEventListener('submit',function(e){var allValid=true;Array.prototype.forEach.call(fields,function(f){if(!validateField(f))allValid=false;});if(!allValid){e.preventDefault();var firstInvalid=form.querySelector('.invalid');if(firstInvalid)firstInvalid.focus();return;}var btn=form.querySelector('button[type="submit"]');if(btn){btn.classList.add('submitting');btn.dataset.originalText=btn.innerHTML;btn.innerHTML='Sending…';btn.setAttribute('disabled','disabled');}});}setupForm(document.getElementById('bookingForm'));setupForm(document.getElementById('songForm'));window.dataLayer=window.dataLayer||[];function trackEvent(eventName,fbEvent,params){params=params||{};try{window.dataLayer.push(Object.assign({event:eventName},params));}catch(e){}try{if(typeof window.fbq==='function'){window.fbq('track',fbEvent,params);}}catch(e){}}var bookingForm=document.getElementById('bookingForm');if(bookingForm){bookingForm.addEventListener('submit',function(){trackEvent('lead_submit','Lead',{content_name:'Booking Request',content_category:'booking',value:0,currency:'USD'});});}var songForm=document.getElementById('songForm');if(songForm){songForm.addEventListener('submit',function(){trackEvent('lead_submit','Lead',{content_name:'Song Request',content_category:'song_request',value:0,currency:'USD'});});}Array.prototype.forEach.call(document.querySelectorAll('a[href*="square.link"]'),function(a){a.addEventListener('click',function(){var src='unknown';try{var u=new URL(a.href);src=u.searchParams.get('src')||'unknown';}catch(e){}trackEvent('initiate_checkout','InitiateCheckout',{content_name:'Square Payment',payment_method:'square',link_source:src,currency:'USD'});});});Array.prototype.forEach.call(document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]'),function(a){a.addEventListener('click',function(){var kind=a.getAttribute('href').indexOf('tel:')===0?'phone':'email';trackEvent('contact_click','Contact',{content_name:kind==='phone'?'Call':'Email',contact_method:kind});});});})();</script>
 </body>
 </html>
