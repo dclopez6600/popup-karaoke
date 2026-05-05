@@ -9,8 +9,17 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://popupkaraoke.net/puklogo.png</image:loc>
-      <image:title>PopUp Karaoke</image:title>
+      <image:title>PopUp Karaoke logo</image:title>
       <image:caption>Veteran-owned mobile karaoke for NW Indiana &amp; Chicagoland.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://popupkaraoke.net/og-image.png</image:loc>
+      <image:title>PopUp Karaoke — Mobile Karaoke for Chicago and Northwest Indiana</image:title>
+      <image:caption>PopUp Karaoke brand image with veteran-owned mobile karaoke service for Chicago and Northwest Indiana.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://popupkaraoke.net/puklogo.svg</image:loc>
+      <image:title>PopUp Karaoke logo (vector)</image:title>
     </image:image>
   </url>
 
