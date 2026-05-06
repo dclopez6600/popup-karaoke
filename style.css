@@ -2090,3 +2090,300 @@
       .venue-logo-card { padding: 0.75rem 1.25rem; }
       .venue-logo-card img { width: 75px; height: 75px; }
     }
+
+    /* ============================================================
+       SONG SEARCH
+       ============================================================ */
+    .song-search-wrap {
+      max-width: 680px; margin: 0 auto 3rem; padding: 0 1rem;
+    }
+    .song-search-inner {
+      background: linear-gradient(160deg, var(--card), var(--card-hi));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2rem 1.75rem;
+      text-align: center;
+    }
+    .song-search-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .song-search-sub   { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1.25rem; }
+    .song-search-box {
+      position: relative; display: flex; align-items: center;
+    }
+    .song-search-input {
+      width: 100%; padding: 0.8rem 2.5rem 0.8rem 1.1rem;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius); color: var(--text);
+      font-family: 'Outfit', sans-serif; font-size: 1rem;
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .song-search-input:focus {
+      border-color: var(--neon-cyan);
+      box-shadow: 0 0 0 3px rgba(0,245,255,0.15);
+    }
+    .song-search-clear {
+      position: absolute; right: 0.75rem;
+      background: none; border: none; color: var(--text-mute);
+      cursor: pointer; font-size: 0.85rem; display: none;
+    }
+    .song-search-clear.visible { display: block; }
+    .song-search-results {
+      margin-top: 0.85rem; text-align: left; max-height: 240px;
+      overflow-y: auto; border-radius: var(--radius);
+    }
+    .song-result-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.55rem 0.85rem; border-radius: 6px;
+      transition: background 0.15s;
+    }
+    .song-result-item:hover { background: rgba(255,255,255,0.04); }
+    .song-result-title { font-weight: 600; font-size: 0.9rem; }
+    .song-result-artist { font-size: 0.78rem; color: var(--text-dim); }
+    .song-result-check { color: var(--neon-cyan); font-size: 0.8rem; font-weight: 700; }
+    .song-search-not-found {
+      padding: 1rem; text-align: center;
+      background: rgba(255,45,146,0.06); border-radius: var(--radius);
+      border: 1px dashed rgba(255,45,146,0.25);
+    }
+    .song-search-not-found p { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 0.5rem; }
+    .song-search-count {
+      font-size: 0.75rem; color: var(--text-mute);
+      margin-top: 0.5rem; text-align: right;
+    }
+
+    /* ============================================================
+       QUIZ SECTION
+       ============================================================ */
+    .quiz-section { text-align: center; }
+    .quiz-sub { color: var(--text-dim); max-width: 480px; margin: 0.75rem auto 0; }
+    .quiz-card {
+      max-width: 640px; margin: 2.5rem auto 0;
+      background: linear-gradient(160deg, var(--card), var(--card-hi));
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem 2rem; position: relative;
+    }
+    .quiz-hidden { display: none !important; }
+    .quiz-q {
+      font-size: 1.2rem; font-weight: 700;
+      margin-bottom: 1.5rem; color: var(--text);
+    }
+    .quiz-options {
+      display: flex; flex-wrap: wrap;
+      gap: 0.75rem; justify-content: center;
+    }
+    .quiz-opt {
+      padding: 0.65rem 1.2rem; border-radius: 999px;
+      background: var(--bg); border: 1px solid var(--border);
+      color: var(--text); font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem; cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+    .quiz-opt:hover {
+      border-color: var(--neon-pink); background: rgba(255,45,146,0.08);
+      transform: translateY(-2px);
+    }
+    .quiz-progress {
+      display: flex; justify-content: center; gap: 0.5rem;
+      margin-top: 2rem;
+    }
+    .quiz-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--border); transition: background 0.3s;
+    }
+    .quiz-dot.active { background: var(--neon-pink); }
+    .quiz-result-inner { text-align: center; padding: 0.5rem 0; }
+    .quiz-result-emoji { font-size: 3rem; display: block; margin-bottom: 0.75rem; }
+    .quiz-result-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.75rem; }
+    .quiz-result-msg {
+      color: var(--text-dim); max-width: 420px;
+      margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.6;
+    }
+    .quiz-result-cta { display: inline-block; margin-bottom: 1rem; }
+    .quiz-restart {
+      display: block; margin: 0.5rem auto 0; background: none;
+      border: none; color: var(--text-mute); font-size: 0.85rem;
+      cursor: pointer; text-decoration: underline;
+    }
+    .quiz-restart:hover { color: var(--text); }
+
+    /* ============================================================
+       REVIEW TICKER
+       ============================================================ */
+    .review-ticker {
+      overflow: hidden; padding: 1rem 0;
+      background: rgba(13,8,32,0.7);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .ticker-track { width: 100%; overflow: hidden; }
+    .ticker-inner {
+      display: flex; gap: 3rem; width: max-content;
+      animation: tickerScroll 40s linear infinite;
+    }
+    .ticker-inner:hover { animation-play-state: paused; }
+    @keyframes tickerScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-item {
+      white-space: nowrap; font-size: 0.88rem;
+      color: var(--text-dim); flex-shrink: 0;
+    }
+    .ticker-stars { color: var(--neon-gold); margin-right: 0.4rem; }
+    .ticker-item em { color: var(--text-mute); font-style: normal; }
+
+    /* ============================================================
+       FAQ SECTION
+       ============================================================ */
+    .faq-section { max-width: 760px; margin: 0 auto; }
+    .faq-header  { text-align: center; margin-bottom: 2.5rem; }
+    .faq-list    { display: flex; flex-direction: column; gap: 0.75rem; }
+    .faq-item    {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: linear-gradient(160deg, var(--card), var(--card-hi));
+      overflow: hidden; transition: border-color 0.25s;
+    }
+    .faq-item.open { border-color: var(--neon-pink); }
+    .faq-q {
+      width: 100%; display: flex; justify-content: space-between;
+      align-items: center; gap: 1rem;
+      padding: 1.1rem 1.4rem; background: none; border: none;
+      color: var(--text); font-family: 'Outfit', sans-serif;
+      font-size: 1rem; font-weight: 600; text-align: left;
+      cursor: pointer; transition: color 0.2s;
+    }
+    .faq-q:hover { color: var(--neon-pink); }
+    .faq-icon {
+      font-size: 1.3rem; font-weight: 300; line-height: 1;
+      color: var(--neon-pink); flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s;
+      padding: 0 1.4rem;
+    }
+    .faq-item.open .faq-a {
+      max-height: 300px; padding: 0 1.4rem 1.2rem;
+    }
+    .faq-a p { color: var(--text-dim); font-size: 0.92rem; line-height: 1.65; margin: 0; }
+
+    /* ============================================================
+       AVAILABILITY CHECKER
+       ============================================================ */
+    .avail-checker {
+      background: linear-gradient(135deg, rgba(255,45,146,0.08), rgba(0,245,255,0.05));
+      border: 1px solid rgba(255,45,146,0.3);
+      border-radius: var(--radius-lg); padding: 1.25rem 1.4rem;
+      margin-bottom: 1.75rem;
+    }
+    .avail-label {
+      font-weight: 700; font-size: 0.85rem;
+      color: var(--neon-gold); margin-bottom: 0.75rem; letter-spacing: 0.02em;
+    }
+    .avail-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .avail-input {
+      flex: 1; min-width: 160px; padding: 0.65rem 0.9rem;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius); color: var(--text);
+      font-family: 'Outfit', sans-serif; font-size: 0.95rem; outline: none;
+      transition: border-color 0.2s;
+    }
+    .avail-input:focus { border-color: var(--neon-cyan); }
+    .avail-btn { padding: 0.65rem 1.25rem; font-size: 0.9rem; white-space: nowrap; }
+    .avail-feedback {
+      margin-top: 0.6rem; font-size: 0.85rem;
+      min-height: 1.2em; transition: color 0.2s;
+    }
+    .avail-feedback.ok   { color: var(--neon-cyan); }
+    .avail-feedback.warn { color: var(--neon-gold); }
+
+    /* ============================================================
+       STICKY BOOK NOW BAR
+       ============================================================ */
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 900;
+      background: rgba(6,0,16,0.96);
+      border-top: 1px solid var(--border-hi);
+      backdrop-filter: blur(12px);
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+      padding: 0.7rem 1.25rem;
+    }
+    .sticky-bar.visible { transform: translateY(0); }
+    .sticky-bar-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    }
+    .sticky-bar-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800; font-size: 0.95rem; white-space: nowrap;
+    }
+    .sticky-bar-msg {
+      font-size: 0.82rem; color: var(--text-dim); white-space: nowrap;
+    }
+    .sticky-bar-actions { display: flex; align-items: center; gap: 0.75rem; }
+    .sticky-bar-phone {
+      font-size: 0.88rem; color: var(--text-dim); white-space: nowrap;
+      text-decoration: none; transition: color 0.2s;
+    }
+    .sticky-bar-phone:hover { color: var(--neon-cyan); }
+    .sticky-bar-btn { padding: 0.5rem 1.1rem; font-size: 0.88rem; }
+    @media (max-width: 520px) {
+      .sticky-bar-brand, .sticky-bar-msg { display: none; }
+      .sticky-bar-inner { justify-content: center; }
+    }
+
+    /* ============================================================
+       EXIT INTENT MODAL
+       ============================================================ */
+    .exit-modal-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(6,0,16,0.82); backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .exit-modal-overlay.visible {
+      opacity: 1; pointer-events: auto;
+    }
+    .exit-modal-card {
+      background: var(--card); border: 1px solid var(--border-hi);
+      border-radius: var(--radius-lg); padding: 2.5rem 2rem;
+      max-width: 420px; width: 100%; text-align: center;
+      position: relative;
+      box-shadow: 0 24px 80px rgba(255,45,146,0.25);
+      transform: scale(0.92);
+      transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+    .exit-modal-overlay.visible .exit-modal-card { transform: scale(1); }
+    .exit-modal-close {
+      position: absolute; top: 0.85rem; right: 1rem;
+      background: none; border: none; color: var(--text-mute);
+      font-size: 1.1rem; cursor: pointer; line-height: 1;
+    }
+    .exit-modal-close:hover { color: var(--text); }
+    .exit-modal-emoji { font-size: 2.5rem; display: block; margin-bottom: 0.75rem; }
+    .exit-modal-card h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.75rem; }
+    .exit-modal-card p  { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.6; }
+    .exit-modal-card .btn { display: inline-block; width: 100%; margin-bottom: 0.75rem; }
+    .exit-modal-dismiss {
+      background: none; border: none; color: var(--text-mute);
+      font-size: 0.82rem; cursor: pointer; text-decoration: underline;
+    }
+    .exit-modal-dismiss:hover { color: var(--text); }
+
+    /* ============================================================
+       SPOTIFY SECTION
+       ============================================================ */
+    .spotify-embed {
+      max-width: 760px;
+      margin: 2rem auto 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+    .spotify-embed iframe { display: block; border-radius: var(--radius-lg); }
