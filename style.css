@@ -2103,8 +2103,10 @@
        SONG SEARCH
        ============================================================ */
     .song-search-wrap {
-      max-width: 680px; margin: 0 auto 0; padding: 0 1rem;
+      max-width: 680px; margin: 0 auto; padding: 0 1rem;
     }
+    /* Tighten gap between song search and the CTA card directly below it */
+    .song-search-wrap + .cta-wrap { margin-top: 1.25rem; }
     .song-search-inner {
       background: linear-gradient(160deg, var(--card), var(--card-hi));
       border: 1px solid var(--border);
