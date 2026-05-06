@@ -504,7 +504,9 @@
           <button type="button" class="btn btn-primary" data-open-modal="songRequest" aria-haspopup="dialog">
             🎵 Request a Song
           </button>
-          <a class="btn btn-cyan" href="#contact">🎤 Book Your Event</a>
+          <div class="hero-cta-glow">
+            <a class="btn btn-cyan" href="#contact">🎤 Book Your Event</a>
+          </div>
           <a class="btn btn-pay" href="https://square.link/u/CmsBTgrE?src=web" target="_blank" rel="noopener">💳 Pay with Square</a>
         </div>
 
@@ -550,6 +552,38 @@
             <li><span class="ico" aria-hidden="true">📚</span><span>61,000+ Song Library</span></li>
             <li><span class="ico" aria-hidden="true">🚚</span><span>We Come To You</span></li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- AS SEEN AT -->
+    <section class="as-seen-at" aria-label="Venues we perform at">
+      <div class="container">
+        <p class="as-seen-label">As Seen At</p>
+        <div class="venue-strip">
+          <div class="venue-logo-card">
+            <span class="vl-ico" aria-hidden="true">🍺</span>
+            <span class="vl-name">18th Street Brewery</span>
+            <span class="vl-loc">Gary, IN</span>
+          </div>
+          <div class="venue-strip-divider" aria-hidden="true"></div>
+          <div class="venue-logo-card">
+            <span class="vl-ico" aria-hidden="true">🥃</span>
+            <span class="vl-name">Flights Taproom</span>
+            <span class="vl-loc">Hammond, IN</span>
+          </div>
+          <div class="venue-strip-divider" aria-hidden="true"></div>
+          <div class="venue-logo-card">
+            <span class="vl-ico" aria-hidden="true">🌮</span>
+            <span class="vl-name">El Capitán</span>
+            <span class="vl-loc">Hobart, IN</span>
+          </div>
+          <div class="venue-strip-divider" aria-hidden="true"></div>
+          <div class="venue-logo-card">
+            <span class="vl-ico" aria-hidden="true">🎶</span>
+            <span class="vl-name">Moods</span>
+            <span class="vl-loc">Sing Along Brunch</span>
+          </div>
         </div>
       </div>
     </section>
@@ -779,6 +813,59 @@
       </div>
     </section>
 
+    <!-- WHAT'S INCLUDED -->
+    <section class="whats-included" id="whats-included">
+      <div class="container">
+        <div class="wi-header reveal">
+          <span class="section-label">Every Booking</span>
+          <h2 class="section-title">Everything <span class="grad">Included</span></h2>
+          <p class="wi-sub">No hidden fees. No renting extras. Everything you need for an unforgettable night comes standard.</p>
+        </div>
+        <div class="wi-grid reveal">
+          <div class="wi-item">
+            <span class="wi-ico" aria-hidden="true">🔊</span>
+            <h4>Concert-Quality Sound</h4>
+            <p>Pro speakers that fill any room — from a backyard to a ballroom.</p>
+          </div>
+          <div class="wi-item">
+            <span class="wi-ico" aria-hidden="true">🎤</span>
+            <h4>Wireless Microphones</h4>
+            <p>Multiple wireless mics so the crowd can share the spotlight.</p>
+          </div>
+          <div class="wi-item">
+            <span class="wi-ico" aria-hidden="true">💡</span>
+            <h4>Stage Lighting</h4>
+            <p>Dynamic LED lighting that transforms any space into a stage.</p>
+          </div>
+          <div class="wi-item">
+            <span class="wi-ico" aria-hidden="true">🎙️</span>
+            <h4>Pro Host &amp; MC</h4>
+            <p>An experienced host who keeps energy high and the crowd engaged all night.</p>
+          </div>
+          <div class="wi-item">
+            <span class="wi-ico" aria-hidden="true">📺</span>
+            <h4>Lyrics Screen</h4>
+            <p>Large display so every singer can see the words — no excuses not to sing.</p>
+          </div>
+          <div class="wi-item">
+            <span class="wi-ico" aria-hidden="true">📱</span>
+            <h4>Social Media Content</h4>
+            <p>We capture and post highlights from your event at no extra charge.</p>
+          </div>
+          <div class="wi-item">
+            <span class="wi-ico" aria-hidden="true">🎵</span>
+            <h4>61,000+ Songs</h4>
+            <p>Pop, hip-hop, country, rock, Spanish, oldies — every genre, every era.</p>
+          </div>
+          <div class="wi-item">
+            <span class="wi-ico" aria-hidden="true">🚚</span>
+            <h4>Full Setup &amp; Teardown</h4>
+            <p>We handle everything — you just show up and enjoy the party.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- AREAS -->
     <section class="areas" id="areas">
       <div class="container reveal">
@@ -952,14 +1039,14 @@
          =========================================================== -->
     <script>
       window.PUK_GALLERY = [
-        { src: "photos/18thstbrewery-1.JPG", caption: "Karaoke Wednesdays at 18th Street Brewery" },
-        { src: "photos/18thstbrewery-2.JPG", caption: "Karaoke Wednesdays at 18th Street Brewery" },
-        { src: "photos/18thstbrewery-4.jpg", caption: "Karaoke Wednesdays at 18th Street Brewery" },
-        { src: "photos/18thstbrewery-6.jpg", caption: "Karaoke Wednesdays at 18th Street Brewery" },
-        { src: "photos/corporate-event-1.jpg", caption: "Corporate Event Karaoke" },
-        { src: "photos/corporate-event-2.jpg", caption: "Corporate Event Karaoke" },
-        { src: "photos/moods-1.jpg", caption: "Sing Along Brunch at Moods" },
-        { src: "photos/moods-2.jpg", caption: "Sing Along Brunch at Moods" }
+        { src: "photos/18thstbrewery-1.webp", fallback: "photos/18thstbrewery-1.JPG", caption: "Karaoke Wednesdays at 18th Street Brewery" },
+        { src: "photos/18thstbrewery-2.webp", fallback: "photos/18thstbrewery-2.JPG", caption: "Karaoke Wednesdays at 18th Street Brewery" },
+        { src: "photos/18thstbrewery-4.webp", fallback: "photos/18thstbrewery-4.jpg", caption: "Karaoke Wednesdays at 18th Street Brewery" },
+        { src: "photos/18thstbrewery-6.webp", fallback: "photos/18thstbrewery-6.jpg", caption: "Karaoke Wednesdays at 18th Street Brewery" },
+        { src: "photos/corporate-event-1.webp", fallback: "photos/corporate-event-1.jpg", caption: "Corporate Event Karaoke" },
+        { src: "photos/corporate-event-2.webp", fallback: "photos/corporate-event-2.jpg", caption: "Corporate Event Karaoke" },
+        { src: "photos/moods-1.webp", fallback: "photos/moods-1.jpg", caption: "Sing Along Brunch at Moods" },
+        { src: "photos/moods-2.webp", fallback: "photos/moods-2.jpg", caption: "Sing Along Brunch at Moods" }
       ];
     </script>
 
@@ -974,8 +1061,14 @@
 
     <script>(function(){var grid=document.getElementById('galleryGrid');var section=document.getElementById('gallery');var photos=(window.PUK_GALLERY||[]).filter(function(p){return p&&p.src;});if(!photos.length){if(section)section.style.display='none';return;}function esc(s){return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
         grid.innerHTML = photos.map(function (p, i) {
-          return '<button class="gallery-item" type="button" data-i="' + i + '" aria-label="View photo' + (i+1) + '">'
-            +    '<img src="' + esc(p.src) + '" alt="' + esc(p.caption || 'Event photo') + '" loading="lazy" decoding="async">'
+          var imgTag = p.fallback
+            ? '<picture>'
+              + '<source srcset="' + esc(p.src) + '" type="image/webp">'
+              + '<img src="' + esc(p.fallback) + '" alt="' + esc(p.caption || 'Event photo') + '" loading="lazy" decoding="async">'
+              + '</picture>'
+            : '<img src="' + esc(p.src) + '" alt="' + esc(p.caption || 'Event photo') + '" loading="lazy" decoding="async">';
+          return '<button class="gallery-item" type="button" data-i="' + i + '" aria-label="View photo ' + (i+1) + '">'
+            +    imgTag
             +    (p.caption ? '<span class="caption">' + esc(p.caption) + '</span>' : '')
             +  '</button>';
         }).join('');
@@ -986,7 +1079,7 @@
         var current = 0;
         function open(i) {
           current = (i + photos.length) % photos.length;
-          lbImg.src = photos[current].src;
+          lbImg.src = photos[current].fallback || photos[current].src;
           lbImg.alt = photos[current].caption || 'Event photo';
           lbCap.textContent = photos[current].caption || '';
           lb.setAttribute('aria-hidden', 'false');
@@ -1162,6 +1255,7 @@
               <label for="b-msg">Tell Us About Your Event</label>
               <textarea id="b-msg" name="message" placeholder="Venue, special requests, vibe, etc."></textarea>
             </div>
+            <div class="urgency-badge">⚡ Booking fast for summer 2026 — only a few weekends left</div>
             <button type="submit" class="btn btn-primary submit-btn">🎉 Send Booking Request</button>
           </form>
         </div>

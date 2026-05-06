@@ -1922,3 +1922,166 @@
     @media (max-width: 720px) {
       .video-pair { flex-direction: column; align-items: center; }
     }
+
+    /* ============================================================
+       HERO CTA — animated gradient glow border on Book Your Event
+       ============================================================ */
+    .hero-cta-glow {
+      display: inline-block;
+      border-radius: calc(var(--radius) + 3px);
+      padding: 3px;
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan), var(--purple-400), var(--neon-pink));
+      background-size: 300% 300%;
+      animation: gradBorderSpin 3s ease infinite;
+      box-shadow: 0 0 22px rgba(255, 45, 146, 0.5), 0 0 44px rgba(0, 245, 255, 0.25);
+    }
+    .hero-cta-glow .btn {
+      margin: 0;
+      display: block;
+    }
+    @keyframes gradBorderSpin {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ============================================================
+       URGENCY BADGE — near booking form submit button
+       ============================================================ */
+    .urgency-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-bottom: 0.9rem;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255, 45, 146, 0.15), rgba(255, 213, 74, 0.12));
+      border: 1px solid rgba(255, 45, 146, 0.4);
+      color: var(--neon-gold);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-align: center;
+      animation: urgencyPulse 2.8s ease-in-out infinite;
+    }
+    @keyframes urgencyPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255, 45, 146, 0); }
+      50%       { box-shadow: 0 0 0 5px rgba(255, 45, 146, 0.12); }
+    }
+
+    /* ============================================================
+       WHAT'S INCLUDED — icon grid checklist
+       ============================================================ */
+    .whats-included { text-align: center; }
+    .wi-header { margin-bottom: 2.5rem; }
+    .wi-sub {
+      color: var(--text-dim);
+      max-width: 540px;
+      margin: 0.75rem auto 0;
+      font-size: 1rem;
+    }
+    .wi-grid {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    @media (min-width: 640px)  { .wi-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px)  { .wi-grid { grid-template-columns: repeat(4, 1fr); } }
+    .wi-item {
+      background: linear-gradient(160deg, var(--card), var(--card-hi));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 1.4rem 1.5rem;
+      text-align: left;
+      transition: transform 0.28s, border-color 0.28s, box-shadow 0.28s;
+    }
+    .wi-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--neon-cyan);
+      box-shadow: 0 8px 32px rgba(0, 245, 255, 0.18);
+    }
+    .wi-ico {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 0.85rem;
+      line-height: 1;
+    }
+    .wi-item h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+    .wi-item p {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ============================================================
+       AS SEEN AT — venue logo strip
+       ============================================================ */
+    .as-seen-at {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(13, 8, 32, 0.6);
+    }
+    .as-seen-label {
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      margin-bottom: 1.75rem;
+    }
+    .venue-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+    .venue-logo-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 1rem 2.5rem;
+      transition: opacity 0.25s;
+    }
+    .venue-logo-card:hover { opacity: 0.8; }
+    .vl-ico {
+      font-size: 1.75rem;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+    .vl-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .vl-loc {
+      font-size: 0.72rem;
+      color: var(--text-mute);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .venue-strip-divider {
+      width: 1px;
+      height: 48px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+    @media (max-width: 640px) {
+      .venue-strip-divider { display: none; }
+      .venue-logo-card { padding: 0.85rem 1.5rem; }
+    }
