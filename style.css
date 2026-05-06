@@ -2105,13 +2105,13 @@
     .song-search-wrap {
       max-width: 680px; margin: 0 auto; padding: 0 1rem;
     }
-    /* Tighten gap between song search and the CTA card directly below it */
-    .song-search-wrap + .cta-wrap { margin-top: 1.25rem; }
+    /* Collapse gap between search card and CTA */
+    #songs .cta-wrap { margin-top: 1rem !important; }
     .song-search-inner {
       background: linear-gradient(160deg, var(--card), var(--card-hi));
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 2rem 2rem 1.75rem;
+      padding: 1.5rem 2rem 1.25rem;
       text-align: center;
     }
     .song-search-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.4rem; }
