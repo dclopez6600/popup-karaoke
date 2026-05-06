@@ -563,10 +563,18 @@
               animation: floatY 9s ease-in-out infinite;
       pointer-events: none;
     }
-    .float-emoji:nth-child(1) { top: 18%; left: 6%;  -webkit-animation-delay: 0s;  animation-delay: 0s; }
-    .float-emoji:nth-child(2) { top: 28%; right: 8%; -webkit-animation-delay: 2s;  animation-delay: 2s; }
-    .float-emoji:nth-child(3) { bottom: 22%; left: 12%; -webkit-animation-delay: 4s; animation-delay: 4s; }
-    .float-emoji:nth-child(4) { bottom: 30%; right: 14%; -webkit-animation-delay: 6s; animation-delay: 6s; }
+    .float-emoji:nth-child(1)  { top: 18%;    left: 6%;   -webkit-animation-delay: 0s;    animation-delay: 0s;    font-size: clamp(1.5rem, 3vw, 2.5rem); }
+    .float-emoji:nth-child(2)  { top: 28%;    right: 8%;  -webkit-animation-delay: 2s;    animation-delay: 2s;    font-size: clamp(1.2rem, 2.5vw, 2rem); }
+    .float-emoji:nth-child(3)  { bottom: 22%; left: 12%;  -webkit-animation-delay: 4s;    animation-delay: 4s;    font-size: clamp(1.5rem, 3vw, 2.5rem); }
+    .float-emoji:nth-child(4)  { bottom: 30%; right: 14%; -webkit-animation-delay: 6s;    animation-delay: 6s;    font-size: clamp(1.2rem, 2.5vw, 2rem); }
+    .float-emoji:nth-child(5)  { top: 10%;    right: 22%; -webkit-animation-delay: 1s;    animation-delay: 1s;    font-size: clamp(1rem, 2vw, 1.6rem);   -webkit-animation-duration: 7s; animation-duration: 7s; }
+    .float-emoji:nth-child(6)  { top: 55%;    left: 4%;   -webkit-animation-delay: 3s;    animation-delay: 3s;    font-size: clamp(1.3rem, 2.5vw, 2.2rem); -webkit-animation-duration: 11s; animation-duration: 11s; }
+    .float-emoji:nth-child(7)  { top: 65%;    right: 6%;  -webkit-animation-delay: 5s;    animation-delay: 5s;    font-size: clamp(1rem, 2vw, 1.5rem);   -webkit-animation-duration: 8s; animation-duration: 8s; }
+    .float-emoji:nth-child(8)  { bottom: 8%;  left: 28%;  -webkit-animation-delay: 7s;    animation-delay: 7s;    font-size: clamp(1.2rem, 2.5vw, 2rem); -webkit-animation-duration: 13s; animation-duration: 13s; }
+    .float-emoji:nth-child(9)  { top: 12%;    left: 38%;  -webkit-animation-delay: 1.5s;  animation-delay: 1.5s;  font-size: clamp(0.9rem, 1.8vw, 1.4rem); -webkit-animation-duration: 10s; animation-duration: 10s; }
+    .float-emoji:nth-child(10) { bottom: 12%; right: 28%; -webkit-animation-delay: 3.5s;  animation-delay: 3.5s;  font-size: clamp(1.4rem, 2.8vw, 2.2rem); -webkit-animation-duration: 12s; animation-duration: 12s; }
+    .float-emoji:nth-child(11) { top: 40%;    right: 3%;  -webkit-animation-delay: 2.5s;  animation-delay: 2.5s;  font-size: clamp(1rem, 2vw, 1.6rem);   -webkit-animation-duration: 9s;  animation-duration: 9s; }
+    .float-emoji:nth-child(12) { bottom: 45%; left: 40%;  -webkit-animation-delay: 5.5s;  animation-delay: 5.5s;  font-size: clamp(0.9rem, 1.8vw, 1.3rem); -webkit-animation-duration: 14s; animation-duration: 14s; }
     @-webkit-keyframes floatY {
       0%, 100% { -webkit-transform: translateY(0) rotate(0); transform: translateY(0) rotate(0); }
       50%      { -webkit-transform: translateY(-25px) rotate(8deg); transform: translateY(-25px) rotate(8deg); }
@@ -1418,7 +1426,7 @@
     .hero-brand {
       display: block;
       font-family: 'Outfit', sans-serif;
-      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
       font-weight: 800;
       letter-spacing: 0.02em;
       margin: -0.5rem auto 1.25rem;
@@ -1426,6 +1434,7 @@
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent; color: transparent;
       text-align: center;
+      filter: drop-shadow(0 0 12px rgba(255, 45, 146, 0.5));
     }
     .testimonial {
       padding: 1.5rem 1.5rem 1.25rem;
