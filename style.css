@@ -607,6 +607,9 @@
     }
     .proof-label { font-size: 0.78rem; color: var(--text-mute); letter-spacing: 0.05em; text-transform: uppercase; }
     .proof-stars { color: var(--neon-gold); letter-spacing: 0.1em; font-size: 1rem; line-height: 1; }
+    @-webkit-keyframes countPop { 0%,100%{-webkit-transform:scale(1);transform:scale(1)} 50%{-webkit-transform:scale(1.18);transform:scale(1.18)} }
+    @keyframes countPop { 0%,100%{transform:scale(1)} 50%{transform:scale(1.18)} }
+    .proof-num.count-done { -webkit-animation:countPop 0.4s cubic-bezier(0.175,0.885,0.32,1.275); animation:countPop 0.4s cubic-bezier(0.175,0.885,0.32,1.275); }
 
     /* ============================================================
        STATS STRIP
@@ -1804,6 +1807,42 @@
       .nav-dropdown.open .nav-dd-menu { display: block; }
       .nav-dd-menu a { font-size: 1.1rem; padding: 0.75rem 1.25rem; text-align: center; }
       .nav-dd-divider { display: none; }
+    }
+
+    /* ============================================================
+       VIDEO SECTION
+       ============================================================ */
+    .video-section { text-align: center; }
+    .video-embed {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 1.75rem; margin-top: 2.5rem;
+    }
+    .video-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 2px solid var(--border-hi);
+      box-shadow:
+        0 0 0 1px rgba(255,45,146,0.15) inset,
+        0 20px 60px rgba(255, 45, 146, 0.28),
+        0 0 60px rgba(168, 85, 247, 0.2);
+      line-height: 0;
+      width: 325px;
+      -webkit-animation: videoPulse 4s ease-in-out infinite;
+              animation: videoPulse 4s ease-in-out infinite;
+    }
+    .video-card iframe { display: block; width: 325px; height: 700px; border: none; }
+    @-webkit-keyframes videoPulse {
+      0%,100% { box-shadow: 0 0 0 1px rgba(255,45,146,0.15) inset, 0 20px 60px rgba(255,45,146,0.28), 0 0 60px rgba(168,85,247,0.2); }
+      50%      { box-shadow: 0 0 0 1px rgba(255,45,146,0.25) inset, 0 20px 80px rgba(255,45,146,0.45), 0 0 80px rgba(168,85,247,0.35); }
+    }
+    @keyframes videoPulse {
+      0%,100% { box-shadow: 0 0 0 1px rgba(255,45,146,0.15) inset, 0 20px 60px rgba(255,45,146,0.28), 0 0 60px rgba(168,85,247,0.2); }
+      50%      { box-shadow: 0 0 0 1px rgba(255,45,146,0.25) inset, 0 20px 80px rgba(255,45,146,0.45), 0 0 80px rgba(168,85,247,0.35); }
+    }
+    @media (max-width: 360px) {
+      .video-card { width: 100%; }
+      .video-card iframe { width: 100%; }
     }
 
     /* ============================================================

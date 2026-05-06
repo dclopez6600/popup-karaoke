@@ -511,15 +511,15 @@
         <div class="proof" aria-label="Highlights">
           <div class="proof-item">
             <span class="proof-stars" aria-label="5 stars">★★★★★</span>
-            <span class="proof-num">5.0</span>
+            <span class="proof-num" data-count="5.0" data-suffix="" data-decimals="1" data-duration="1800">5.0</span>
             <span class="proof-label">on Google</span>
           </div>
           <div class="proof-item">
-            <span class="proof-num">61K+</span>
+            <span class="proof-num" data-count="61" data-suffix="K+" data-decimals="0" data-duration="2200">61K+</span>
             <span class="proof-label">Songs Available</span>
           </div>
           <div class="proof-item">
-            <span class="proof-num">200+</span>
+            <span class="proof-num" data-count="200" data-suffix="+" data-decimals="0" data-duration="2000">200+</span>
             <span class="proof-label">Events Hosted</span>
           </div>
           <div class="proof-item">
@@ -860,6 +860,34 @@
         </div>
       </div>
       </section>
+
+    <!-- VIDEO -->
+    <section class="video-section" id="video">
+      <div class="container">
+        <div class="video-header reveal" style="text-align:center;">
+          <span class="section-label">See It Live</span>
+          <h2 class="section-title">Watch Us <span class="grad">In Action</span></h2>
+          <p style="color:var(--text-dim); max-width:520px; margin:0 auto;">Don't just take our word for it — see the energy for yourself.</p>
+        </div>
+        <div class="video-embed reveal">
+          <div class="video-card">
+            <iframe
+              src="https://www.tiktok.com/embed/v2/7600510975917264158"
+              width="325"
+              height="700"
+              frameborder="0"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+              title="PopUp Karaoke in action — TikTok">
+            </iframe>
+          </div>
+          <a href="https://www.tiktok.com/@popupkaraoke219" target="_blank" rel="noopener" class="btn btn-secondary">
+            🎵 Follow @popupkaraoke219 on TikTok
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- PHOTO GALLERY -->
     <section class="gallery-section" id="gallery">
@@ -1226,6 +1254,37 @@
       <a class="mobile-cta-book" href="#contact" aria-label="Book your event">🎤 Book Now</a>
     </div>
   </div>
+
+  <!-- Animated stat counters -->
+  <script>(function(){
+    'use strict';
+    function animateCounter(el,to,decimals,suffix,duration){
+      var start=null;
+      function step(ts){
+        if(!start)start=ts;
+        var p=Math.min((ts-start)/duration,1);
+        var ease=1-Math.pow(1-p,4);
+        var val=to*ease;
+        el.textContent=(decimals>0?val.toFixed(decimals):Math.floor(val))+suffix;
+        if(p<1){requestAnimationFrame(step);}
+        else{el.textContent=(decimals>0?to.toFixed(decimals):to)+suffix;el.classList.add('count-done');}
+      }
+      requestAnimationFrame(step);
+    }
+    var proof=document.querySelector('.proof');
+    if(!proof)return;
+    var fired=false;
+    var io=new IntersectionObserver(function(entries){
+      if(fired)return;
+      if(entries[0].isIntersecting){
+        fired=true;io.disconnect();
+        proof.querySelectorAll('[data-count]').forEach(function(el){
+          animateCounter(el,parseFloat(el.getAttribute('data-count')),parseInt(el.getAttribute('data-decimals')||'0',10),el.getAttribute('data-suffix')||'',parseInt(el.getAttribute('data-duration')||'2000',10));
+        });
+      }
+    },{threshold:0.5});
+    io.observe(proof);
+  })();</script>
 
   <!-- Areas dropdown -->
   <script>(function(){
