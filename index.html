@@ -772,6 +772,19 @@
             </ul>
           </div>
         </div>
+        <!-- SONG SEARCH -->
+        <div class="song-search-wrap reveal">
+          <div class="song-search-inner">
+            <h3 class="song-search-title">🔍 Is Your Song In Our Library?</h3>
+            <p class="song-search-sub">Search by song title or artist — we have 61,000+ tracks.</p>
+            <div class="song-search-box">
+              <input type="text" id="songSearchInput" class="song-search-input" placeholder="Type a song or artist..." autocomplete="off" aria-label="Search songs">
+              <button type="button" class="song-search-clear" id="songSearchClear" aria-label="Clear search">✕</button>
+            </div>
+            <div class="song-search-results" id="songSearchResults" aria-live="polite"></div>
+          </div>
+        </div>
+
         <div class="cta-wrap">
           <div class="cta-block reveal">
             <h3 class="cta-headline">Looking for something <span class="grad">specific?</span></h3>
@@ -896,6 +909,62 @@
       </div>
     </section>
 
+    <!-- QUIZ -->
+    <section class="quiz-section" id="quiz">
+      <div class="container">
+        <div class="quiz-header reveal">
+          <span class="section-label">Find Your Fit</span>
+          <h2 class="section-title">What Kind of Party Are You <span class="grad">Throwing?</span></h2>
+          <p class="quiz-sub">Answer 3 quick questions and we'll tell you exactly what to expect.</p>
+        </div>
+        <div class="quiz-card reveal" id="quizCard">
+          <div class="quiz-step" id="quizStep1">
+            <p class="quiz-q">What's the occasion?</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-step="1" data-val="birthday">🎂 Birthday Party</button>
+              <button class="quiz-opt" data-step="1" data-val="wedding">💒 Wedding</button>
+              <button class="quiz-opt" data-step="1" data-val="corporate">🏢 Corporate Event</button>
+              <button class="quiz-opt" data-step="1" data-val="bar">🍺 Bar / Venue</button>
+              <button class="quiz-opt" data-step="1" data-val="party">🎉 Private Party</button>
+              <button class="quiz-opt" data-step="1" data-val="curious">❓ Just Exploring</button>
+            </div>
+          </div>
+          <div class="quiz-step quiz-hidden" id="quizStep2">
+            <p class="quiz-q">How many guests?</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-step="2" data-val="small">👥 Under 25</button>
+              <button class="quiz-opt" data-step="2" data-val="medium">👥 25 – 75</button>
+              <button class="quiz-opt" data-step="2" data-val="large">👥 75 – 150</button>
+              <button class="quiz-opt" data-step="2" data-val="xlarge">👥 150+</button>
+            </div>
+          </div>
+          <div class="quiz-step quiz-hidden" id="quizStep3">
+            <p class="quiz-q">When are you thinking?</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-step="3" data-val="soon">📅 This month</button>
+              <button class="quiz-opt" data-step="3" data-val="near">📅 1 – 3 months</button>
+              <button class="quiz-opt" data-step="3" data-val="far">📅 3 – 6 months</button>
+              <button class="quiz-opt" data-step="3" data-val="exploring">📅 Just exploring</button>
+            </div>
+          </div>
+          <div class="quiz-step quiz-hidden" id="quizResult">
+            <div class="quiz-result-inner">
+              <span class="quiz-result-emoji" id="quizEmoji">🎉</span>
+              <h3 class="quiz-result-title" id="quizResultTitle"></h3>
+              <p class="quiz-result-msg" id="quizResultMsg"></p>
+              <a href="#contact" class="btn btn-primary quiz-result-cta">🎤 Book Your Event</a>
+              <button type="button" class="quiz-restart" id="quizRestart">Start Over</button>
+            </div>
+          </div>
+          <div class="quiz-progress" id="quizProgress" aria-hidden="true">
+            <span class="quiz-dot active" id="qd1"></span>
+            <span class="quiz-dot" id="qd2"></span>
+            <span class="quiz-dot" id="qd3"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- AREAS -->
     <section class="areas" id="areas">
       <div class="container reveal">
@@ -978,6 +1047,22 @@
       </div>
       </section>
 
+    <!-- REVIEW TICKER -->
+    <div class="review-ticker" aria-label="Customer reviews">
+      <div class="ticker-track">
+        <div class="ticker-inner" id="tickerInner">
+          <span class="ticker-item"><span class="ticker-stars">★★★★★</span> "Daniel is amazing — he turned our party into an event everyone still talks about!" — <em>Jessica R.</em></span>
+          <span class="ticker-item"><span class="ticker-stars">★★★★★</span> "Best karaoke host we've ever had. Our corporate team bonding was a huge hit!" — <em>Mark T.</em></span>
+          <span class="ticker-item"><span class="ticker-stars">★★★★★</span> "Book with PopUp Karaoke — 61,000 songs, pro setup, and a host who keeps the energy high all night." — <em>Amanda L.</em></span>
+          <span class="ticker-item"><span class="ticker-stars">★★★★★</span> "Our wedding after-party was legendary. Every single guest got on the mic!" — <em>Sarah & Mike D.</em></span>
+          <span class="ticker-item"><span class="ticker-stars">★★★★★</span> "He showed up on time, set up fast, and absolutely rocked our birthday bash." — <em>Carlos M.</em></span>
+          <span class="ticker-item"><span class="ticker-stars">★★★★★</span> "The lights, the sound, the host — everything was top-notch. Highly recommend!" — <em>Tina W.</em></span>
+          <span class="ticker-item"><span class="ticker-stars">★★★★★</span> "We do karaoke night every month now because of PopUp Karaoke. The crowd loves it!" — <em>18th Street Brewery</em></span>
+          <span class="ticker-item"><span class="ticker-stars">★★★★★</span> "Veteran-owned and it shows — professional, reliable, and so much fun." — <em>Kevin S.</em></span>
+        </div>
+      </div>
+    </div>
+
     <!-- VIDEO -->
     <section class="video-section" id="video">
       <div class="container">
@@ -1044,6 +1129,28 @@
               </a>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPOTIFY -->
+    <section class="spotify-section" id="playlist">
+      <div class="container">
+        <div class="spotify-header reveal" style="text-align:center;">
+          <span class="section-label">Crowd Favorites</span>
+          <h2 class="section-title">Our <span class="grad">Karaoke Playlist</span></h2>
+          <p style="color:var(--text-dim);max-width:480px;margin:0.75rem auto 0;">A taste of what gets the crowd going. Press play and start planning your setlist.</p>
+        </div>
+        <div class="spotify-embed reveal">
+          <iframe
+            src="https://open.spotify.com/embed/playlist/4EWnnMHBQF6z5ARoZBH9Qb?utm_source=generator&theme=0"
+            width="100%"
+            height="380"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            title="PopUp Karaoke crowd favorites playlist on Spotify">
+          </iframe>
         </div>
       </div>
     </section>
@@ -1200,6 +1307,50 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="faq-header reveal">
+          <span class="section-label">Got Questions?</span>
+          <h2 class="section-title">Frequently Asked <span class="grad">Questions</span></h2>
+        </div>
+        <div class="faq-list reveal" id="faqList">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Do you travel to Chicago and the surrounding suburbs?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Yes! We regularly serve the entire Chicagoland area in addition to Northwest Indiana. That includes neighborhoods like the South Side, as well as suburbs like Orland Park, Tinley Park, Oak Lawn, and more. Travel fees may apply depending on distance — just mention your location when you reach out.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What's included with every booking?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Everything. Concert-quality speakers, wireless microphones, a large lyrics screen, dynamic LED stage lighting, a professional host/MC, 61,000+ songs, full setup and teardown, and social media content creation at no extra charge. You don't need to rent or bring a single thing.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can guests request songs in advance?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Absolutely. You and your guests can submit song requests ahead of the event, and we'll make sure they're ready to go. Just let us know when you book and we'll set up a request link or take requests directly.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How far in advance should I book?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Summer and holiday weekends fill up fast — sometimes 4–6 weeks out. For the best availability, we recommend booking at least 2–3 weeks in advance. That said, if you have a last-minute event, reach out anyway — we'll do our best to make it work.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Do you need a stage or special power setup?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>No stage needed. We work in backyards, living rooms, banquet halls, bars, breweries — anywhere there's enough space for guests to stand and sing. We just need access to standard electrical outlets (we'll confirm details when planning your event).</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can you handle large events with 100+ guests?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Yes — we've hosted events with 200+ guests. Our sound system is scaled to fill large spaces, and our host is experienced at managing big crowds and long song queues to keep things moving and fun for everyone.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Do you provide a certificate of insurance?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Yes. If your venue requires a COI (certificate of insurance), we can provide one. Just let us know the venue's requirements when you book and we'll handle it before the event.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How does payment work?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>We accept payment via Square (credit/debit card) or other arrangements. A deposit is typically required to secure your date, with the balance due on the day of the event. We'll walk you through everything when we confirm your booking.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section class="contact" id="contact">
       <div class="container contact-grid">
@@ -1207,6 +1358,16 @@
           <span class="section-label">Get In Touch</span>
           <h2>Ready to Book Your <span class="grad">Unforgettable Event?</span></h2>
           <p>Fill out the form and we'll get back to you fast. Or reach out directly using the contacts below.</p>
+
+          <div class="avail-checker">
+            <p class="avail-label">⚡ Check your date</p>
+            <div class="avail-row">
+              <input type="date" id="availDate" class="avail-input" aria-label="Event date">
+              <button type="button" class="btn btn-primary avail-btn" id="availBtn">Check Availability</button>
+            </div>
+            <p class="avail-feedback" id="availFeedback"></p>
+          </div>
+
           <div class="contact-methods">
             <a class="contact-method" href="tel:+12197581313" aria-label="Call PopUp Karaoke at 219.758.1313">
               <span class="contact-method-ico" aria-hidden="true">📞</span>
@@ -1307,6 +1468,30 @@
         </div>
       </div>
     </section>
+  <!-- STICKY BOOK NOW BAR -->
+  <div class="sticky-bar" id="stickyBar" aria-label="Quick booking bar" aria-hidden="true">
+    <div class="sticky-bar-inner">
+      <span class="sticky-bar-brand">⚡ PopUp Karaoke</span>
+      <span class="sticky-bar-msg">Summer 2026 booking fast</span>
+      <div class="sticky-bar-actions">
+        <a href="tel:+12197581313" class="sticky-bar-phone">📞 219.758.1313</a>
+        <a href="#contact" class="btn btn-primary sticky-bar-btn">Book Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXIT INTENT MODAL -->
+  <div class="exit-modal-overlay" id="exitModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="exitModalTitle">
+    <div class="exit-modal-card">
+      <button class="exit-modal-close" id="exitModalClose" aria-label="Close">✕</button>
+      <span class="exit-modal-emoji">🎤</span>
+      <h3 id="exitModalTitle">Before you go…</h3>
+      <p>Summer weekends are filling up fast. It takes 30 seconds to check if your date is still open.</p>
+      <a href="#contact" class="btn btn-primary" id="exitModalCta">Check My Date</a>
+      <button type="button" class="exit-modal-dismiss" id="exitModalDismiss">No thanks, I'll pass</button>
+    </div>
+  </div>
+
   </main>
 
   <!-- FOOTER -->
@@ -1463,6 +1648,292 @@
     document.addEventListener('click',function(e){if(!dd.contains(e.target))close();});
     document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
     dd.querySelectorAll('.nav-dd-menu a').forEach(function(a){a.addEventListener('click',close);});
+  })();</script>
+
+  <!-- SONG SEARCH -->
+  <script>(function(){
+    'use strict';
+    var SONGS=[
+      {a:'Taylor Swift',t:'Anti-Hero'},{a:'Taylor Swift',t:'Shake It Off'},{a:'Taylor Swift',t:'Love Story'},{a:'Taylor Swift',t:'Blank Space'},{a:'Taylor Swift',t:'Cruel Summer'},{a:'Taylor Swift',t:'You Belong With Me'},
+      {a:'Adele',t:'Rolling in the Deep'},{a:'Adele',t:'Hello'},{a:'Adele',t:'Someone Like You'},{a:'Adele',t:'Easy On Me'},
+      {a:'Beyoncé',t:'Crazy in Love'},{a:'Beyoncé',t:'Single Ladies'},{a:'Beyoncé',t:'Halo'},{a:'Beyoncé',t:'Irreplaceable'},{a:'Beyoncé',t:'Texas Hold \'Em'},
+      {a:'Lady Gaga',t:'Bad Romance'},{a:'Lady Gaga',t:'Shallow'},{a:'Lady Gaga',t:'Poker Face'},{a:'Lady Gaga',t:'Born This Way'},
+      {a:'Katy Perry',t:'Roar'},{a:'Katy Perry',t:'Firework'},{a:'Katy Perry',t:'California Gurls'},{a:'Katy Perry',t:'Teenage Dream'},
+      {a:'Miley Cyrus',t:'Wrecking Ball'},{a:'Miley Cyrus',t:'The Climb'},{a:'Miley Cyrus',t:'Party in the USA'},
+      {a:'Dua Lipa',t:'Levitating'},{a:'Dua Lipa',t:"Don't Start Now"},{a:'Dua Lipa',t:'New Rules'},
+      {a:'Olivia Rodrigo',t:'drivers license'},{a:'Olivia Rodrigo',t:'good 4 u'},{a:'Olivia Rodrigo',t:'vampire'},{a:'Olivia Rodrigo',t:'brutal'},
+      {a:'Chappell Roan',t:'Pink Pony Club'},{a:'Chappell Roan',t:'Good Luck, Babe!'},
+      {a:'Sabrina Carpenter',t:'Espresso'},{a:'Sabrina Carpenter',t:'Please Please Please'},
+      {a:'Ariana Grande',t:'Thank U, Next'},{a:'Ariana Grande',t:'7 Rings'},{a:'Ariana Grande',t:'Problem'},{a:'Ariana Grande',t:'Into You'},
+      {a:'Billie Eilish',t:'Bad Guy'},{a:'Billie Eilish',t:'Happier Than Ever'},
+      {a:'Post Malone',t:'Sunflower'},{a:'Post Malone',t:'Circles'},{a:'Post Malone',t:'Rockstar'},
+      {a:'The Weeknd',t:'Blinding Lights'},{a:'The Weeknd',t:'Save Your Tears'},{a:'The Weeknd',t:'Starboy'},
+      {a:'Drake',t:"God's Plan"},{a:'Drake',t:'Hotline Bling'},{a:'Drake',t:'One Dance'},{a:'Drake',t:'Started From the Bottom'},
+      {a:'Eminem',t:'Lose Yourself'},{a:'Eminem',t:'Without Me'},{a:'Eminem',t:'Not Afraid'},{a:'Eminem',t:'Rap God'},
+      {a:'Bruno Mars',t:'Uptown Funk'},{a:'Bruno Mars',t:'Just the Way You Are'},{a:'Bruno Mars',t:'Grenade'},{a:'Bruno Mars',t:'Locked Out of Heaven'},{a:'Bruno Mars',t:"That's What I Like"},
+      {a:'Usher',t:'Yeah!'},{a:'Usher',t:'Burn'},{a:'Usher',t:'U Got It Bad'},
+      {a:'Nicki Minaj',t:'Super Bass'},{a:'Nicki Minaj',t:'Anaconda'},{a:'Nicki Minaj',t:'Starships'},
+      {a:'Kendrick Lamar',t:'HUMBLE.'},{a:'Kendrick Lamar',t:'DNA.'},{a:'Kendrick Lamar',t:'All the Stars'},
+      {a:'SZA',t:'Kill Bill'},{a:'SZA',t:'Good Days'},{a:'SZA',t:'Snooze'},
+      {a:'Lizzo',t:'Truth Hurts'},{a:'Lizzo',t:'Good as Hell'},{a:'Lizzo',t:'Juice'},
+      {a:'Rihanna',t:'Umbrella'},{a:'Rihanna',t:'We Found Love'},{a:'Rihanna',t:'Diamonds'},{a:'Rihanna',t:'Work'},{a:'Rihanna',t:'Stay'},
+      {a:'Chris Stapleton',t:'Tennessee Whiskey'},{a:'Chris Stapleton',t:'Broken Halos'},
+      {a:'Garth Brooks',t:'Friends in Low Places'},{a:'Garth Brooks',t:'The Dance'},{a:'Garth Brooks',t:'Shameless'},
+      {a:'Luke Bryan',t:'Country Girl (Shake It for Me)'},{a:'Luke Bryan',t:'Play It Again'},{a:'Luke Bryan',t:'Drunk on a Plane'},
+      {a:'Blake Shelton',t:"God's Country"},{a:'Blake Shelton',t:'God Gave Me You'},{a:'Blake Shelton',t:'Sangria'},
+      {a:'Carrie Underwood',t:'Before He Cheats'},{a:'Carrie Underwood',t:'Blown Away'},{a:'Carrie Underwood',t:'Jesus, Take the Wheel'},
+      {a:'Miranda Lambert',t:'The House That Built Me'},{a:'Miranda Lambert',t:'White Liar'},{a:'Miranda Lambert',t:'Mama\'s Broken Heart'},
+      {a:'Dolly Parton',t:'Jolene'},{a:'Dolly Parton',t:'9 to 5'},
+      {a:'Johnny Cash',t:'Ring of Fire'},{a:'Johnny Cash',t:'Walk the Line'},{a:'Johnny Cash',t:'Hurt'},
+      {a:'Shania Twain',t:'Man! I Feel Like a Woman!'},{a:'Shania Twain',t:"You're Still the One"},{a:'Shania Twain',t:"That Don't Impress Me Much"},
+      {a:'Brooks & Dunn',t:'Neon Moon'},{a:'Brooks & Dunn',t:"Boot Scootin' Boogie"},
+      {a:'Zac Brown Band',t:'Chicken Fried'},{a:'Zac Brown Band',t:'Colder Weather'},
+      {a:'Eric Church',t:'Springsteen'},{a:'Jason Aldean',t:'Big Green Tractor'},
+      {a:'Journey',t:"Don't Stop Believin'"},{a:'Journey',t:'Any Way You Want It'},{a:'Journey',t:'Open Arms'},
+      {a:'Bon Jovi',t:"Livin' on a Prayer"},{a:'Bon Jovi',t:'You Give Love a Bad Name'},{a:'Bon Jovi',t:'Wanted Dead or Alive'},
+      {a:'Queen',t:'Bohemian Rhapsody'},{a:'Queen',t:"Don't Stop Me Now"},{a:'Queen',t:'We Will Rock You'},{a:'Queen',t:'We Are the Champions'},
+      {a:'AC/DC',t:'Highway to Hell'},{a:'AC/DC',t:'Back in Black'},{a:'AC/DC',t:'Thunderstruck'},
+      {a:"Guns N' Roses",t:"Sweet Child O' Mine"},{a:"Guns N' Roses",t:'November Rain'},{a:"Guns N' Roses",t:'Welcome to the Jungle'},
+      {a:'Nirvana',t:'Smells Like Teen Spirit'},{a:'Nirvana',t:'Come as You Are'},
+      {a:'Radiohead',t:'Creep'},{a:'The Killers',t:'Mr. Brightside'},{a:'The Killers',t:'Somebody Told Me'},
+      {a:'Green Day',t:'Basket Case'},{a:'Green Day',t:'American Idiot'},{a:'Green Day',t:'Boulevard of Broken Dreams'},
+      {a:'Foo Fighters',t:'Everlong'},{a:'Foo Fighters',t:'Best of You'},
+      {a:'Red Hot Chili Peppers',t:'Under the Bridge'},{a:'Red Hot Chili Peppers',t:'Californication'},
+      {a:'Aerosmith',t:'Dream On'},{a:"Aerosmith",t:"I Don't Want to Miss a Thing"},
+      {a:'Linkin Park',t:'In the End'},{a:'Linkin Park',t:'Numb'},{a:'Linkin Park',t:'Crawling'},
+      {a:'Metallica',t:'Nothing Else Matters'},{a:'Metallica',t:'Enter Sandman'},
+      {a:'Fleetwood Mac',t:'Dreams'},{a:'Fleetwood Mac',t:'Go Your Own Way'},{a:'Fleetwood Mac',t:'The Chain'},
+      {a:'The Eagles',t:'Hotel California'},{a:'The Eagles',t:'Take It Easy'},
+      {a:'Neil Diamond',t:'Sweet Caroline'},{a:'Neil Diamond',t:'Cherry Cherry'},
+      {a:'Elvis Presley',t:'Jailhouse Rock'},{a:'Elvis Presley',t:'Hound Dog'},{a:'Elvis Presley',t:"Can't Help Falling in Love"},
+      {a:'The Beatles',t:'Hey Jude'},{a:'The Beatles',t:'Let It Be'},{a:'The Beatles',t:'Come Together'},
+      {a:'Frank Sinatra',t:'My Way'},{a:'Frank Sinatra',t:'New York, New York'},
+      {a:'Michael Jackson',t:'Thriller'},{a:'Michael Jackson',t:'Billie Jean'},{a:'Michael Jackson',t:'Beat It'},
+      {a:'Prince',t:'Purple Rain'},{a:'Prince',t:'Kiss'},
+      {a:'Whitney Houston',t:'I Will Always Love You'},{a:'Whitney Houston',t:'Greatest Love of All'},
+      {a:'Mariah Carey',t:'All I Want for Christmas Is You'},{a:'Mariah Carey',t:'Hero'},
+      {a:'Elton John',t:'Tiny Dancer'},{a:'Elton John',t:'Rocket Man'},{a:'Elton John',t:'Crocodile Rock'},
+      {a:'Billy Joel',t:'Piano Man'},{a:"Billy Joel",t:"We Didn't Start the Fire"},
+      {a:'David Bowie',t:'Heroes'},{a:'David Bowie',t:'Space Oddity'},
+      {a:'John Denver',t:'Take Me Home, Country Roads'},{a:'John Denver',t:'Rocky Mountain High'},
+      {a:'Rick Astley',t:'Never Gonna Give You Up'},{a:'A-ha',t:'Take On Me'},
+      {a:'Toto',t:'Africa'},{a:"Wham!",t:'Wake Me Up Before You Go-Go'},
+      {a:'George Michael',t:'Careless Whisper'},{a:'George Michael',t:'Faith'},
+      {a:'ABBA',t:'Dancing Queen'},{a:'ABBA',t:'Waterloo'},{a:'ABBA',t:'Mamma Mia'},
+      {a:'Cyndi Lauper',t:'Girls Just Want to Have Fun'},{a:'Cyndi Lauper',t:'Time After Time'},
+      {a:'Heart',t:'Alone'},{a:'Heart',t:'Barracuda'},
+      {a:'Backstreet Boys',t:'I Want It That Way'},{a:'Backstreet Boys',t:'Everybody'},
+      {a:'NSYNC',t:'Bye Bye Bye'},{a:'Spice Girls',t:'Wannabe'},
+      {a:"Destiny's Child",t:'Say My Name'},{a:"Destiny's Child",t:'Bootylicious'},
+      {a:'TLC',t:'Waterfalls'},{a:'TLC',t:'No Scrubs'},
+      {a:'Alanis Morissette',t:'You Oughta Know'},{a:'Alanis Morissette',t:'Ironic'},
+      {a:'No Doubt',t:"Don't Speak"},{a:'Gwen Stefani',t:'Hollaback Girl'},
+      {a:'Bad Bunny',t:'Dakiti'},{a:'Bad Bunny',t:'Tití Me Preguntó'},{a:'Bad Bunny',t:'Me Porto Bonito'},
+      {a:'J Balvin',t:'Mi Gente'},{a:'Ozuna',t:'Taki Taki'},{a:'Maluma',t:'Hawái'},
+      {a:'Marc Anthony',t:'Vivir Mi Vida'},{a:'Shakira',t:"Hips Don't Lie"},{a:'Shakira',t:'Waka Waka'},
+      {a:'Pitbull',t:'Give Me Everything'},{a:'Pitbull',t:'Timber'},
+      {a:'Luis Fonsi',t:'Despacito'},{a:'Daddy Yankee',t:'Gasolina'},
+      {a:'Paramore',t:'The Only Exception'},{a:'Fall Out Boy',t:"Sugar, We're Goin Down"},
+      {a:'Panic! at the Disco',t:'I Write Sins Not Tragedies'},{a:'Panic! at the Disco',t:'High Hopes'},
+      {a:'My Chemical Romance',t:'Welcome to the Black Parade'},
+      {a:'Daft Punk',t:'Get Lucky'},{a:'Daft Punk',t:'One More Time'},
+      {a:'Kid Rock',t:'Picture'},{a:'Don McLean',t:'American Pie'},
+      {a:'Bonnie Tyler',t:'Total Eclipse of the Heart'},
+      {a:'Meat Loaf',t:"I'd Do Anything for Love"},
+      {a:'The Proclaimers',t:'500 Miles'},{a:'Vanessa Carlton',t:'A Thousand Miles'},
+      {a:'Outkast',t:'Hey Ya!'},{a:'Sir Mix-a-Lot',t:'Baby Got Back'},
+      {a:'Lou Bega',t:'Mambo No. 5'},{a:'Blink-182',t:'All the Small Things'},
+      {a:'Smash Mouth',t:'All Star'},{a:'Wheatus',t:'Teenage Dirtbag'},
+      {a:'Third Eye Blind',t:'Semi-Charmed Life'},{a:'Counting Crows',t:'Mr. Jones'},
+      {a:'Chris Brown',t:'Yeah 3x'},{a:'Chris Brown',t:'With You'},
+      {a:'Jay-Z',t:'Empire State of Mind'},{a:'Kanye West',t:'Gold Digger'},
+      {a:'Cardi B',t:'Bodak Yellow'},{a:'David Guetta',t:'Titanium'},
+      {a:'Calvin Harris',t:'Summer'},{a:'Sam Smith',t:'Stay With Me'},
+      {a:'Ed Sheeran',t:'Shape of You'},{a:'Ed Sheeran',t:'Perfect'},{a:'Ed Sheeran',t:'Thinking Out Loud'},
+      {a:'Harry Styles',t:"Watermelon Sugar"},{a:'Harry Styles',t:'As It Was'},
+      {a:'Shawn Mendes',t:'Treat You Better'},{a:'Charlie Puth',t:'Attention'},
+      {a:'John Legend',t:'All of Me'},{a:'Sam Cooke',t:"A Change Is Gonna Come"},
+      {a:'Stevie Wonder',t:'Superstition'},{a:'Marvin Gaye',t:"Let's Get It On"},
+      {a:'Al Green',t:"Let's Stay Together"},{a:'Aretha Franklin',t:'Respect'},
+    ];
+    var input=document.getElementById('songSearchInput');
+    var results=document.getElementById('songSearchResults');
+    var clearBtn=document.getElementById('songSearchClear');
+    if(!input)return;
+    function search(q){
+      q=q.trim().toLowerCase();
+      if(!q){results.innerHTML='';clearBtn.classList.remove('visible');return;}
+      clearBtn.classList.add('visible');
+      var matches=SONGS.filter(function(s){
+        return s.t.toLowerCase().indexOf(q)!==-1||s.a.toLowerCase().indexOf(q)!==-1;
+      }).slice(0,8);
+      if(matches.length){
+        results.innerHTML=matches.map(function(s){
+          return '<div class="song-result-item">'
+            +'<div><div class="song-result-title">'+s.t+'</div><div class="song-result-artist">'+s.a+'</div></div>'
+            +'<span class="song-result-check">✓ In Library</span>'
+            +'</div>';
+        }).join('')+'<p class="song-search-count">Showing '+matches.length+' of '+SONGS.filter(function(s){return s.t.toLowerCase().indexOf(q)!==-1||s.a.toLowerCase().indexOf(q)!==-1;}).length+' matches — 61,000+ total songs available</p>';
+      } else {
+        results.innerHTML='<div class="song-search-not-found"><p>Not in our preview list — but with 61,000+ songs we very likely have it!</p><a href="#contact" class="btn btn-primary" style="font-size:0.85rem;padding:0.5rem 1rem;">Request This Song</a></div>';
+      }
+    }
+    input.addEventListener('input',function(){search(this.value);});
+    clearBtn.addEventListener('click',function(){input.value='';results.innerHTML='';clearBtn.classList.remove('visible');input.focus();});
+  })();</script>
+
+  <!-- QUIZ -->
+  <script>(function(){
+    'use strict';
+    var answers={};
+    var steps=['quizStep1','quizStep2','quizStep3','quizResult'];
+    var dots=['qd1','qd2','qd3'];
+    var current=0;
+    var RESULTS={
+      birthday:{emoji:'🎂',title:"Let's Make It Unforgettable",msg:"Birthday parties are our specialty. We'll personalize the setlist, hype up the guest of honor, and keep the energy electric all night. Perfect for any age, any size."},
+      wedding:{emoji:'💒',title:"Your Reception Just Got Better",msg:"Karaoke is the surprise your guests will talk about for years. We'll work seamlessly alongside your DJ or band, and make sure every generation gets on the mic."},
+      corporate:{emoji:'🏢',title:"Team Bonding Done Right",msg:"Karaoke is hands-down the best icebreaker for corporate events. We handle everything — COI included — so you can focus on your team having a great time."},
+      bar:{emoji:'🍺',title:"Turn Slow Nights Into Packed Ones",msg:"We already run weekly residencies at 18th Street Brewery, Flights Taproom, and El Capitán. A karaoke night drives repeat traffic and loyal regulars. Let's talk residency options."},
+      party:{emoji:'🎉',title:"Let's Get This Party Started",msg:"Whatever the occasion, we bring the full show — sound, lights, host, and 61,000+ songs. Just tell us the vibe and we'll dial it in perfectly."},
+      curious:{emoji:'🎵',title:"Glad You're Here!",msg:"No pressure — just explore. We'd love to show you what a PopUp Karaoke experience looks like. Check out our videos or reach out with any questions."}
+    };
+    function show(stepId){
+      steps.forEach(function(id){
+        var el=document.getElementById(id);
+        if(el)el.classList.toggle('quiz-hidden',id!==stepId);
+      });
+      dots.forEach(function(id,i){
+        var el=document.getElementById(id);
+        if(el)el.classList.toggle('active',i<=current-1);
+      });
+    }
+    function showResult(){
+      var r=RESULTS[answers[1]]||RESULTS.curious;
+      document.getElementById('quizEmoji').textContent=r.emoji;
+      document.getElementById('quizResultTitle').textContent=r.title;
+      document.getElementById('quizResultMsg').textContent=r.msg;
+      show('quizResult');
+    }
+    document.querySelectorAll('.quiz-opt').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var step=parseInt(this.dataset.step,10);
+        answers[step]=this.dataset.val;
+        current=step;
+        if(step===1){show('quizStep2');dots[0].classList&&document.getElementById('qd1').classList.add('active');}
+        else if(step===2){show('quizStep3');document.getElementById('qd2').classList.add('active');}
+        else if(step===3){showResult();document.getElementById('qd3').classList.add('active');}
+      });
+    });
+    var restart=document.getElementById('quizRestart');
+    if(restart){restart.addEventListener('click',function(){answers={};current=0;show('quizStep1');dots.forEach(function(id){var el=document.getElementById(id);if(el)el.classList.remove('active');});});}
+  })();</script>
+
+  <!-- FAQ ACCORDION -->
+  <script>(function(){
+    'use strict';
+    document.querySelectorAll('.faq-q').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var item=btn.closest('.faq-item');
+        var isOpen=item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(function(i){
+          i.classList.remove('open');
+          i.querySelector('.faq-q').setAttribute('aria-expanded','false');
+        });
+        if(!isOpen){
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded','true');
+        }
+      });
+    });
+  })();</script>
+
+  <!-- STICKY BAR -->
+  <script>(function(){
+    'use strict';
+    var bar=document.getElementById('stickyBar');
+    var hero=document.querySelector('.hero');
+    if(!bar)return;
+    function check(){
+      var threshold=hero?hero.offsetTop+hero.offsetHeight:400;
+      if(window.scrollY>threshold){bar.classList.add('visible');bar.setAttribute('aria-hidden','false');}
+      else{bar.classList.remove('visible');bar.setAttribute('aria-hidden','true');}
+    }
+    window.addEventListener('scroll',check,{passive:true});
+    check();
+    bar.querySelectorAll('a[href="#contact"]').forEach(function(a){
+      a.addEventListener('click',function(){bar.classList.remove('visible');});
+    });
+  })();</script>
+
+  <!-- EXIT INTENT -->
+  <script>(function(){
+    'use strict';
+    if(sessionStorage.getItem('puk_exit_shown'))return;
+    var modal=document.getElementById('exitModal');
+    var closeBtn=document.getElementById('exitModalClose');
+    var dismiss=document.getElementById('exitModalDismiss');
+    var cta=document.getElementById('exitModalCta');
+    if(!modal)return;
+    var shown=false;
+    function show(){
+      if(shown)return;
+      shown=true;
+      sessionStorage.setItem('puk_exit_shown','1');
+      modal.classList.add('visible');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    }
+    function hide(){
+      modal.classList.remove('visible');
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+    }
+    setTimeout(function(){
+      document.addEventListener('mouseleave',function onLeave(e){
+        if(e.clientY<5){show();document.removeEventListener('mouseleave',onLeave);}
+      });
+    },8000);
+    if(closeBtn)closeBtn.addEventListener('click',hide);
+    if(dismiss)dismiss.addEventListener('click',hide);
+    if(cta)cta.addEventListener('click',hide);
+    modal.addEventListener('click',function(e){if(e.target===modal)hide();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&shown)hide();});
+  })();</script>
+
+  <!-- AVAILABILITY CHECKER -->
+  <script>(function(){
+    'use strict';
+    var btn=document.getElementById('availBtn');
+    var dateInput=document.getElementById('availDate');
+    var feedback=document.getElementById('availFeedback');
+    var bookDate=document.getElementById('b-date');
+    if(!btn||!dateInput)return;
+    // Set min date to today
+    var today=new Date();
+    var mm=String(today.getMonth()+1).padStart(2,'0');
+    var dd=String(today.getDate()).padStart(2,'0');
+    dateInput.min=today.getFullYear()+'-'+mm+'-'+dd;
+    btn.addEventListener('click',function(){
+      var val=dateInput.value;
+      if(!val){feedback.textContent='Please select a date first.';feedback.className='avail-feedback warn';return;}
+      var d=new Date(val+'T12:00:00');
+      var dayOfWeek=d.getDay();
+      var formatted=d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+      // Pre-fill the booking form date
+      if(bookDate)bookDate.value=val;
+      feedback.className='avail-feedback ok';
+      feedback.textContent='Great! We\'ve pre-filled '+formatted+' in the form below. Send your request and we\'ll confirm availability within 24 hours!';
+      // Smooth scroll to form
+      var form=document.getElementById('bookingForm');
+      if(form)setTimeout(function(){form.scrollIntoView({behavior:'smooth',block:'center'});},400);
+    });
+  })();</script>
+
+  <!-- TICKER DUPLICATION (infinite loop) -->
+  <script>(function(){
+    var inner=document.getElementById('tickerInner');
+    if(!inner)return;
+    inner.innerHTML+=inner.innerHTML;
   })();</script>
 
   <!-- SCRIPTS -->
