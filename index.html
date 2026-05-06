@@ -1831,11 +1831,13 @@
   <!-- FAQ ACCORDION -->
   <script>(function(){
     'use strict';
-    document.querySelectorAll('.faq-q').forEach(function(btn){
+    var faqSection=document.getElementById('faq');
+    if(!faqSection)return;
+    faqSection.querySelectorAll('.faq-q').forEach(function(btn){
       btn.addEventListener('click',function(){
         var item=btn.closest('.faq-item');
         var isOpen=item.classList.contains('open');
-        document.querySelectorAll('.faq-item.open').forEach(function(i){
+        faqSection.querySelectorAll('.faq-item.open').forEach(function(i){
           i.classList.remove('open');
           i.querySelector('.faq-q').setAttribute('aria-expanded','false');
         });
