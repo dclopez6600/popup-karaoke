@@ -60,7 +60,7 @@
   <link rel="dns-prefetch" href="https://connect.facebook.net">
 
   <!-- Performance: preconnect + preload -->
-  <link rel="preload" as="image" href="puklogo.png" fetchpriority="high">
+  <link rel="preload" as="image" href="puklogo.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="style" href="style.css">
 
   <!-- Critical CSS — inlined for instant first paint while style.css loads -->
@@ -424,7 +424,10 @@
   <header class="nav" id="nav">
     <div class="nav-row">
       <a class="nav-logo" href="#home" aria-label="PopUp Karaoke home">
-        <img src="puklogo.png" alt="PopUp Karaoke" width="38" height="38" loading="eager" decoding="async">
+        <picture>
+          <source srcset="puklogo.webp" type="image/webp">
+          <img src="puklogo.png" alt="PopUp Karaoke" width="38" height="38" loading="eager" decoding="async">
+        </picture>
         <span>PopUp Karaoke</span>
       </a>
       <button class="nav-toggle" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle menu">
@@ -479,7 +482,10 @@
 
       <div class="hero-inner">
         <!-- Floating brand logo -->
-        <img class="hero-mic" src="puklogo.png" alt="PopUp Karaoke" width="220" height="220" decoding="async" fetchpriority="high">
+        <picture>
+          <source srcset="puklogo.webp" type="image/webp">
+          <img class="hero-mic" src="puklogo.png" alt="PopUp Karaoke" width="220" height="220" decoding="async" fetchpriority="high">
+        </picture>
         <span class="hero-brand">PopUp Karaoke</span>
 
         <div class="hero-badges">
@@ -1499,7 +1505,10 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <div class="foot-brand-row">
-          <img src="puklogo.png" alt="PopUp Karaoke" width="44" height="44" loading="lazy" decoding="async">
+          <picture>
+            <source srcset="puklogo.webp" type="image/webp">
+            <img src="puklogo.png" alt="PopUp Karaoke" width="44" height="44" loading="lazy" decoding="async">
+          </picture>
           <span class="foot-brand-name">PopUp Karaoke</span>
         </div>
         <p>NW Indiana &amp; Chicagoland's premier mobile karaoke. Bringing the party to weddings, bars, birthdays, and corporate events since 2020.</p>
