@@ -1237,6 +1237,32 @@
       </div>
     </section>
 
+    <!-- JOIN KARAOKE -->
+    <section class="join-karaoke-section" id="join">
+      <div class="container">
+        <div class="join-karaoke-inner reveal">
+          <div class="join-karaoke-text">
+            <span class="section-label">At the Event?</span>
+            <h2 class="section-title">Join the <span class="grad">Karaoke Queue</span></h2>
+            <p>Scan the QR code or tap the button below to add yourself to the queue, request a song, and see who's up next — right from your phone.</p>
+            <ul class="join-steps">
+              <li><span class="join-step-num">1</span><span>Scan the QR code or tap "Join Now"</span></li>
+              <li><span class="join-step-num">2</span><span>Enter your name and pick your song</span></li>
+              <li><span class="join-step-num">3</span><span>Watch for your name on the screen — you're up!</span></li>
+            </ul>
+            <a class="btn btn-primary join-btn" href="https://www.karafun.com/062552/" target="_blank" rel="noopener">🎤 Join the Queue Now</a>
+            <p class="join-sub">No app download needed. Works on any phone.</p>
+          </div>
+          <div class="join-karaoke-qr">
+            <div class="qr-card">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=ffffff&bgcolor=6d28d9&data=https://www.karafun.com/062552/" alt="Scan to join PopUp Karaoke queue" width="200" height="200" loading="lazy">
+              <p class="qr-label">Scan to join the queue</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- PHOTO GALLERY -->
     <section class="gallery-section" id="gallery">
       <div class="container">
@@ -1475,7 +1501,7 @@
           <h3>🎤 Request a Booking</h3>
           <div class="deposit-cta">
             <p class="deposit-label">⚡ Ready to lock in your date right now?</p>
-            <a class="btn btn-deposit" href="https://square.link/u/CmsBTgrE?src=web" target="_blank" rel="noopener">💳 Pay $50 Deposit to Hold Your Date</a>
+            <a class="btn btn-deposit" href="https://square.link/u/CmsBTgrE?src=web" target="_blank" rel="noopener">💳 Pay $100 Deposit to Hold Your Date</a>
             <p class="deposit-note">Or fill out the form below and we'll reach out within 24 hours.</p>
           </div>
           <!-- Posts to FormSubmit (no backend needed). -->
@@ -2005,11 +2031,13 @@
     var feedback=document.getElementById('availFeedback');
     var bookDate=document.getElementById('b-date');
     if(!btn||!dateInput)return;
-    // Set min date to today
+    // Set min date to today and pre-fill with today's date so the field isn't blank on mobile
     var today=new Date();
     var mm=String(today.getMonth()+1).padStart(2,'0');
     var dd=String(today.getDate()).padStart(2,'0');
-    dateInput.min=today.getFullYear()+'-'+mm+'-'+dd;
+    var todayStr=today.getFullYear()+'-'+mm+'-'+dd;
+    dateInput.min=todayStr;
+    dateInput.value=todayStr;
     btn.addEventListener('click',function(){
       var val=dateInput.value;
       if(!val){feedback.textContent='Please select a date first.';feedback.className='avail-feedback warn';return;}

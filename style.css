@@ -2424,6 +2424,7 @@
        ============================================================ */
     .form-card-trust {
       display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem;
+      justify-content: center;
     }
     .trust-badge {
       display: inline-flex; align-items: center; gap: 0.35rem;
@@ -2458,4 +2459,53 @@
     .btn-deposit:hover { opacity: 0.9; transform: translateY(-2px); }
     .deposit-note {
       font-size: 0.72rem; color: var(--text-mute); margin-top: 0.6rem; margin-bottom: 0;
+    }
+
+    /* ============================================================
+       JOIN KARAOKE SECTION
+       ============================================================ */
+    .join-karaoke-section {
+      padding: clamp(4rem, 8vw, 6rem) 0;
+      background: linear-gradient(180deg, transparent, rgba(109,40,217,0.08) 50%, transparent);
+    }
+    .join-karaoke-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+    }
+    .join-karaoke-text p { color: var(--text-dim); line-height: 1.7; margin-bottom: 1.5rem; }
+    .join-steps {
+      list-style: none; padding: 0; margin: 0 0 1.75rem;
+      display: flex; flex-direction: column; gap: 0.85rem;
+    }
+    .join-steps li {
+      display: flex; align-items: center; gap: 0.9rem;
+      color: var(--text-dim); font-size: 0.95rem;
+    }
+    .join-step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--neon-pink), var(--purple-600));
+      color: #fff; font-weight: 800; font-size: 0.8rem;
+    }
+    .join-btn { display: inline-block; }
+    .join-sub { font-size: 0.78rem; color: var(--text-mute); margin-top: 0.75rem; margin-bottom: 0; }
+    .join-karaoke-qr { flex-shrink: 0; }
+    .qr-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 1.25rem; padding: 1.5rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+      box-shadow: 0 0 40px rgba(109,40,217,0.25);
+    }
+    .qr-card img { border-radius: 0.75rem; display: block; }
+    .qr-label {
+      font-size: 0.78rem; font-weight: 700; color: var(--text-mute);
+      text-align: center; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    @media (max-width: 700px) {
+      .join-karaoke-inner {
+        grid-template-columns: 1fr;
+      }
+      .join-karaoke-qr { display: flex; justify-content: center; }
     }
