@@ -1,0 +1,51 @@
+{
+  "name": "PopUp Karaoke",
+  "short_name": "PopUp Karaoke",
+  "description": "Mobile karaoke DJ for NW Indiana & Chicagoland — weddings, birthdays, corporate events, bars & breweries.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060010",
+  "theme_color": "#7c3aed",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": ["entertainment", "music", "events"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "label": "PopUp Karaoke homepage"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Book Now",
+      "short_name": "Book",
+      "description": "Request a karaoke booking",
+      "url": "/#contact",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Call Us",
+      "short_name": "Call",
+      "description": "Call PopUp Karaoke",
+      "url": "tel:+12197581313",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
