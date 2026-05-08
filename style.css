@@ -62,5 +62,6 @@
 .gallery-item .caption{opacity:1;transform:none}
 
 /* ── MOBILE NAV: Call & Book prominent ───────────────────────────── */
+.mobile-overlay-links li{text-align:center}
 .mobile-overlay-links .mob-phone{font-size:1.5rem;font-weight:800;color:var(--neon-cyan) !important}
 .mobile-overlay-links .mob-cta{background:var(--neon-pink);color:#fff !important;border-radius:999px;padding:0.75rem 2rem !important;display:inline-block;font-weight:800;font-size:1.1rem}
