@@ -2337,6 +2337,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
     var exitModal=document.getElementById('exitModal');
     var byeOverlay=document.getElementById('byeOverlay');
     var shown=false;
+    var engaged=false;
 
     function showExitModal(){
       if(shown||sessionStorage.getItem('puk_exit'))return;
@@ -2351,51 +2352,79 @@ booking@popupkaraoke.net | popupkaraoke.net">
       exitModal.style.display='none';
       exitModal.setAttribute('aria-hidden','true');
       document.body.style.overflow='';
+      byeOverlay.style.opacity='0';
       byeOverlay.style.display='flex';
       byeOverlay.setAttribute('aria-hidden','false');
-      byeOverlay.style.opacity='1';
-      // Stagger Bye words
-      var words=['byeWord1','byeWord2','byeWord3','byeSub'];
-      words.forEach(function(id,i){
-        setTimeout(function(){
-          var el=document.getElementById(id);
-          if(el){el.style.opacity='1';el.style.transform='translateY(0)';}
-        },i*650+100);
+      // Reset words
+      ['byeWord1','byeWord2','byeWord3','byeSub'].forEach(function(id){
+        var el=document.getElementById(id);
+        if(el){el.style.opacity='0';el.style.transform='translateY(24px)';}
       });
-      // Spawn floating musical notes
+      document.getElementById('byeNotes').innerHTML='';
+      // Small delay then animate
+      setTimeout(function(){
+        byeOverlay.style.opacity='1';
+        ['byeWord1','byeWord2','byeWord3','byeSub'].forEach(function(id,i){
+          setTimeout(function(){
+            var el=document.getElementById(id);
+            if(el){el.style.opacity='1';el.style.transform='translateY(0)';}
+          },i*650+80);
+        });
+        spawnNotes();
+        setTimeout(function(){
+          byeOverlay.style.opacity='0';
+          setTimeout(function(){
+            byeOverlay.style.display='none';
+            byeOverlay.setAttribute('aria-hidden','true');
+          },520);
+        },4500);
+      },50);
+    }
+
+    function spawnNotes(){
       var notes=['♪','♫','♩','♬'];
       var colors=['#ff2d92','#a855f7','#c084fc','#f472b6','#e879f9'];
       var container=document.getElementById('byeNotes');
-      for(var n=0;n<18;n++){
+      for(var n=0;n<20;n++){
         (function(idx){
           setTimeout(function(){
             var el=document.createElement('span');
             el.textContent=notes[idx%4];
-            var size=(1.2+Math.random()*2).toFixed(1);
-            var left=(3+Math.random()*94).toFixed(1);
-            var dur=(1.8+Math.random()*1.6).toFixed(1);
+            var size=(1.2+Math.random()*2.2).toFixed(1);
+            var left=(2+Math.random()*96).toFixed(1);
+            var dur=(1.6+Math.random()*1.8).toFixed(1);
             var color=colors[Math.floor(Math.random()*colors.length)];
             el.style.cssText='position:absolute;font-size:'+size+'rem;color:'+color+';left:'+left+'%;bottom:-3rem;animation:noteFloat '+dur+'s ease-out forwards;pointer-events:none;';
             container.appendChild(el);
-          },idx*150);
+          },idx*120);
         })(n);
       }
-      // Auto-fade after 4.2s
-      setTimeout(function(){
-        byeOverlay.style.opacity='0';
-        setTimeout(function(){
-          byeOverlay.style.display='none';
-          byeOverlay.setAttribute('aria-hidden','true');
-        },520);
-      },4200);
     }
 
-    // Desktop: mouse leaving toward top of browser
-    document.addEventListener('mouseleave',function(e){
-      if(e.clientY<5)showExitModal();
+    // Mark user as engaged after 5s on page
+    setTimeout(function(){engaged=true;},5000);
+
+    // PRIMARY TRIGGER: mouse leaves through top of viewport
+    document.documentElement.addEventListener('mouseleave',function(e){
+      if(e.clientY<=20&&engaged)showExitModal();
     });
 
-    // Book btn: close modal, scroll to form
+    // FALLBACK: rapid scroll to top after scrolling down (back-button intent)
+    var lastScrollY=0;
+    var scrolledDown=false;
+    window.addEventListener('scroll',function(){
+      var y=window.scrollY;
+      if(y>300)scrolledDown=true;
+      if(scrolledDown&&y<lastScrollY-200&&y<100)showExitModal();
+      lastScrollY=y;
+    },{passive:true});
+
+    // MOBILE: page visibility hidden (switching tabs / swiping away)
+    document.addEventListener('visibilitychange',function(){
+      if(document.visibilityState==='hidden'&&engaged&&scrolledDown)showExitModal();
+    });
+
+    // Book btn
     var bookBtn=document.getElementById('exitBookBtn');
     if(bookBtn){bookBtn.addEventListener('click',function(){
       exitModal.style.display='none';
@@ -2407,10 +2436,10 @@ booking@popupkaraoke.net | popupkaraoke.net">
     var dismissBtn=document.getElementById('exitDismiss');
     if(dismissBtn){dismissBtn.addEventListener('click',showBye);}
 
-    // Click backdrop → Bye
+    // Backdrop click → Bye
     exitModal.addEventListener('click',function(e){if(e.target===exitModal)showBye();});
 
-    // Escape key → Bye
+    // Escape → Bye
     document.addEventListener('keydown',function(e){
       if(e.key==='Escape'&&exitModal.style.display==='flex')showBye();
     });
