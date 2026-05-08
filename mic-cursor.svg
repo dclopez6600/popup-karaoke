@@ -1,17 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-  <!-- Mic capsule -->
-  <rect x="11" y="1" width="10" height="16" rx="5" fill="#ff2d92" stroke="#1a0008" stroke-width="1.5"/>
-  <!-- Grille lines -->
-  <line x1="12.5" y1="7"  x2="19.5" y2="7"  stroke="rgba(255,255,255,0.55)" stroke-width="1" stroke-linecap="round"/>
-  <line x1="12.5" y1="10" x2="19.5" y2="10" stroke="rgba(255,255,255,0.55)" stroke-width="1" stroke-linecap="round"/>
-  <line x1="12.5" y1="13" x2="19.5" y2="13" stroke="rgba(255,255,255,0.55)" stroke-width="1" stroke-linecap="round"/>
-  <!-- Stand arc -->
-  <path d="M6 17 Q6 25 16 25 Q26 25 26 17" stroke="#1a0008" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <path d="M6 17 Q6 25 16 25 Q26 25 26 17" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-  <!-- Pole -->
-  <line x1="16" y1="25" x2="16" y2="30" stroke="#1a0008" stroke-width="3" stroke-linecap="round"/>
-  <line x1="16" y1="25" x2="16" y2="30" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-  <!-- Base -->
-  <line x1="10" y1="30" x2="22" y2="30" stroke="#1a0008" stroke-width="3" stroke-linecap="round"/>
-  <line x1="10" y1="30" x2="22" y2="30" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- === HEAD / GRILLE === -->
+  <!-- Outer shadow shape -->
+  <path d="M9,18 L9,9 A7,9 0 0 1 23,9 L23,18 Z" fill="#0d0015"/>
+  <!-- Pink grille fill -->
+  <path d="M10,18 L10,9 A6,8 0 0 1 22,9 L22,18 Z" fill="#ff2d92"/>
+  <!-- Horizontal mesh lines on grille -->
+  <line x1="10.5" y1="5.5"  x2="21.5" y2="5.5"  stroke="rgba(0,0,0,0.28)" stroke-width="1"/>
+  <line x1="10"   y1="8.5"  x2="22"   y2="8.5"  stroke="rgba(0,0,0,0.28)" stroke-width="1"/>
+  <line x1="10"   y1="11.5" x2="22"   y2="11.5" stroke="rgba(0,0,0,0.28)" stroke-width="1"/>
+  <line x1="10"   y1="14.5" x2="22"   y2="14.5" stroke="rgba(0,0,0,0.28)" stroke-width="1"/>
+  <line x1="10"   y1="17.2" x2="22"   y2="17.2" stroke="rgba(0,0,0,0.28)" stroke-width="0.7"/>
+  <!-- Vertical mesh lines -->
+  <line x1="13.5" y1="1.8"  x2="13.5" y2="18" stroke="rgba(0,0,0,0.18)" stroke-width="0.8"/>
+  <line x1="16"   y1="1"    x2="16"   y2="18" stroke="rgba(0,0,0,0.18)" stroke-width="0.8"/>
+  <line x1="18.5" y1="1.8"  x2="18.5" y2="18" stroke="rgba(0,0,0,0.18)" stroke-width="0.8"/>
+  <!-- Head outline -->
+  <path d="M10,18 L10,9 A6,8 0 0 1 22,9 L22,18 Z" fill="none" stroke="#0d0015" stroke-width="1"/>
+
+  <!-- === COLLAR / NECK RING === -->
+  <!-- Outer ring (dark) -->
+  <rect x="9.5" y="18" width="13" height="3.5" rx="0.5" fill="#0d0015"/>
+  <!-- Inner ring highlight (silver) -->
+  <rect x="10.5" y="18.4" width="11" height="2.6" rx="0.3" fill="#d8d8d8"/>
+  <!-- Collar shine line -->
+  <line x1="11" y1="19.3" x2="21" y2="19.3" stroke="rgba(255,255,255,0.6)" stroke-width="0.6"/>
+
+  <!-- === HANDLE BODY === -->
+  <!-- Handle outline -->
+  <rect x="11" y="21.5" width="10" height="10" rx="1.5" fill="#0d0015"/>
+  <!-- Handle silver fill -->
+  <rect x="11.8" y="21.5" width="8.4" height="9.5" rx="1" fill="#c8c8c8"/>
+  <!-- Handle left-edge shadow (depth) -->
+  <rect x="11.8" y="21.5" width="1.8" height="9.5" rx="0" fill="rgba(0,0,0,0.12)"/>
+  <!-- Grip lines (horizontal knurling) -->
+  <line x1="12.2" y1="23.5" x2="19.8" y2="23.5" stroke="#999" stroke-width="0.9"/>
+  <line x1="12.2" y1="25.5" x2="19.8" y2="25.5" stroke="#999" stroke-width="0.9"/>
+  <line x1="12.2" y1="27.5" x2="19.8" y2="27.5" stroke="#999" stroke-width="0.9"/>
+  <line x1="12.2" y1="29.5" x2="19.8" y2="29.5" stroke="#999" stroke-width="0.9"/>
+  <!-- Bottom end cap -->
+  <rect x="11" y="30.5" width="10" height="1.5" rx="1" fill="#888" stroke="#0d0015" stroke-width="0.5"/>
+
 </svg>
