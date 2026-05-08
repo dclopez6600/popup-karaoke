@@ -1,44 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
 
-  <!-- === HEAD / GRILLE === -->
-  <!-- Outer shadow shape -->
-  <path d="M9,18 L9,9 A7,9 0 0 1 23,9 L23,18 Z" fill="#0d0015"/>
-  <!-- Pink grille fill -->
-  <path d="M10,18 L10,9 A6,8 0 0 1 22,9 L22,18 Z" fill="#ff2d92"/>
-  <!-- Horizontal mesh lines on grille -->
-  <line x1="10.5" y1="5.5"  x2="21.5" y2="5.5"  stroke="rgba(0,0,0,0.28)" stroke-width="1"/>
-  <line x1="10"   y1="8.5"  x2="22"   y2="8.5"  stroke="rgba(0,0,0,0.28)" stroke-width="1"/>
-  <line x1="10"   y1="11.5" x2="22"   y2="11.5" stroke="rgba(0,0,0,0.28)" stroke-width="1"/>
-  <line x1="10"   y1="14.5" x2="22"   y2="14.5" stroke="rgba(0,0,0,0.28)" stroke-width="1"/>
-  <line x1="10"   y1="17.2" x2="22"   y2="17.2" stroke="rgba(0,0,0,0.28)" stroke-width="0.7"/>
+  <!-- === GRILLE HEAD (round ball like logo emoji mic) === -->
+  <!-- Shadow ring -->
+  <circle cx="16" cy="9" r="7" fill="#2a1255"/>
+  <!-- Silver grille -->
+  <circle cx="16" cy="9" r="6.2" fill="#c8c8d8"/>
+  <!-- Specular highlight -->
+  <ellipse cx="13.5" cy="6.5" rx="2.2" ry="1.5" fill="rgba(255,255,255,0.45)"/>
+  <!-- Horizontal mesh lines -->
+  <line x1="10"   y1="9"    x2="22"   y2="9"    stroke="rgba(30,10,80,0.25)" stroke-width="0.9"/>
+  <line x1="10.5" y1="6.3"  x2="21.5" y2="6.3"  stroke="rgba(30,10,80,0.2)"  stroke-width="0.8"/>
+  <line x1="11.2" y1="11.7" x2="20.8" y2="11.7" stroke="rgba(30,10,80,0.2)"  stroke-width="0.8"/>
+  <line x1="12.3" y1="4.2"  x2="19.7" y2="4.2"  stroke="rgba(30,10,80,0.15)" stroke-width="0.7"/>
+  <line x1="12.8" y1="13.8" x2="19.2" y2="13.8" stroke="rgba(30,10,80,0.15)" stroke-width="0.7"/>
   <!-- Vertical mesh lines -->
-  <line x1="13.5" y1="1.8"  x2="13.5" y2="18" stroke="rgba(0,0,0,0.18)" stroke-width="0.8"/>
-  <line x1="16"   y1="1"    x2="16"   y2="18" stroke="rgba(0,0,0,0.18)" stroke-width="0.8"/>
-  <line x1="18.5" y1="1.8"  x2="18.5" y2="18" stroke="rgba(0,0,0,0.18)" stroke-width="0.8"/>
-  <!-- Head outline -->
-  <path d="M10,18 L10,9 A6,8 0 0 1 22,9 L22,18 Z" fill="none" stroke="#0d0015" stroke-width="1"/>
+  <line x1="16" y1="3"   x2="16" y2="15.2" stroke="rgba(30,10,80,0.2)"  stroke-width="0.8"/>
+  <line x1="13" y1="3.5" x2="13" y2="15.2" stroke="rgba(30,10,80,0.15)" stroke-width="0.7"/>
+  <line x1="19" y1="3.5" x2="19" y2="15.2" stroke="rgba(30,10,80,0.15)" stroke-width="0.7"/>
+  <!-- Grille outline -->
+  <circle cx="16" cy="9" r="6.2" fill="none" stroke="#2a1255" stroke-width="0.8"/>
 
-  <!-- === COLLAR / NECK RING === -->
-  <!-- Outer ring (dark) -->
-  <rect x="9.5" y="18" width="13" height="3.5" rx="0.5" fill="#0d0015"/>
-  <!-- Inner ring highlight (silver) -->
-  <rect x="10.5" y="18.4" width="11" height="2.6" rx="0.3" fill="#d8d8d8"/>
-  <!-- Collar shine line -->
-  <line x1="11" y1="19.3" x2="21" y2="19.3" stroke="rgba(255,255,255,0.6)" stroke-width="0.6"/>
+  <!-- === COLLAR === -->
+  <rect x="11.5" y="14.8" width="9"   height="2.8" rx="0.5" fill="#2a1255"/>
+  <rect x="12.2" y="15.2" width="7.6" height="1.9" rx="0.3" fill="#a090c8"/>
+  <line x1="12.5" y1="16" x2="19.5" y2="16" stroke="rgba(255,255,255,0.35)" stroke-width="0.5"/>
 
-  <!-- === HANDLE BODY === -->
-  <!-- Handle outline -->
-  <rect x="11" y="21.5" width="10" height="10" rx="1.5" fill="#0d0015"/>
-  <!-- Handle silver fill -->
-  <rect x="11.8" y="21.5" width="8.4" height="9.5" rx="1" fill="#c8c8c8"/>
-  <!-- Handle left-edge shadow (depth) -->
-  <rect x="11.8" y="21.5" width="1.8" height="9.5" rx="0" fill="rgba(0,0,0,0.12)"/>
-  <!-- Grip lines (horizontal knurling) -->
-  <line x1="12.2" y1="23.5" x2="19.8" y2="23.5" stroke="#999" stroke-width="0.9"/>
-  <line x1="12.2" y1="25.5" x2="19.8" y2="25.5" stroke="#999" stroke-width="0.9"/>
-  <line x1="12.2" y1="27.5" x2="19.8" y2="27.5" stroke="#999" stroke-width="0.9"/>
-  <line x1="12.2" y1="29.5" x2="19.8" y2="29.5" stroke="#999" stroke-width="0.9"/>
-  <!-- Bottom end cap -->
-  <rect x="11" y="30.5" width="10" height="1.5" rx="1" fill="#888" stroke="#0d0015" stroke-width="0.5"/>
+  <!-- === HANDLE === -->
+  <!-- Body -->
+  <rect x="12.5" y="17.5" width="7" height="11" rx="1.5" fill="#1a0a2e"/>
+  <!-- Pink accent strip -->
+  <rect x="13"   y="17.5" width="2.2" height="10.5" rx="0" fill="rgba(255,45,146,0.5)"/>
+  <!-- Grip lines -->
+  <line x1="13" y1="19.5" x2="19" y2="19.5" stroke="#4a2080" stroke-width="0.9"/>
+  <line x1="13" y1="22"   x2="19" y2="22"   stroke="#4a2080" stroke-width="0.9"/>
+  <line x1="13" y1="24.5" x2="19" y2="24.5" stroke="#4a2080" stroke-width="0.9"/>
+  <line x1="13" y1="27"   x2="19" y2="27"   stroke="#4a2080" stroke-width="0.9"/>
+  <!-- End cap (brand pink) -->
+  <rect x="12.5" y="28" width="7" height="1.5" rx="1" fill="#ff2d92" stroke="#1a0a2e" stroke-width="0.4"/>
 
 </svg>
