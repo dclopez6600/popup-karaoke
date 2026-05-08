@@ -729,6 +729,12 @@
             </ul>
           </div>
         </div>
+        <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+          <p style="color:var(--text-mute);font-size:0.92rem;margin-bottom:0.75rem;">Not sure which package is right for your event?</p>
+          <button type="button" class="btn btn-secondary" data-open-modal="quizModal" aria-haspopup="dialog" style="gap:0.6rem;">
+            🎯 Take Our 3-Question Quiz
+          </button>
+        </div>
       </div>
     </section>
 
@@ -957,14 +963,14 @@
          =========================================================== -->
     <script>
       window.PUK_GALLERY = [
-        { src: "photos/18thstbrewery-1.webp", fallback: "photos/18thstbrewery-1.JPG", caption: "Karaoke Wednesdays at 18th Street Brewery" },
-        { src: "photos/18thstbrewery-2.webp", fallback: "photos/18thstbrewery-2.JPG", caption: "Karaoke Wednesdays at 18th Street Brewery" },
-        { src: "photos/18thstbrewery-4.webp", fallback: "photos/18thstbrewery-4.jpg", caption: "Karaoke Wednesdays at 18th Street Brewery" },
-        { src: "photos/18thstbrewery-6.webp", fallback: "photos/18thstbrewery-6.jpg", caption: "Karaoke Wednesdays at 18th Street Brewery" },
-        { src: "photos/corporate-event-1.webp", fallback: "photos/corporate-event-1.jpg", caption: "Corporate Event Karaoke" },
-        { src: "photos/corporate-event-2.webp", fallback: "photos/corporate-event-2.jpg", caption: "Corporate Event Karaoke" },
-        { src: "photos/moods-1.webp", fallback: "photos/moods-1.jpg", caption: "Sing Along Brunch at Moods" },
-        { src: "photos/moods-2.webp", fallback: "photos/moods-2.jpg", caption: "Sing Along Brunch at Moods" }
+        { src: "photos/18thstbrewery-1.webp", fallback: "photos/18thstbrewery-1.JPG", caption: "Karaoke Wednesdays at 18th Street Brewery", w: 1080, h: 810 },
+        { src: "photos/18thstbrewery-2.webp", fallback: "photos/18thstbrewery-2.JPG", caption: "Karaoke Wednesdays at 18th Street Brewery", w: 1080, h: 810 },
+        { src: "photos/18thstbrewery-4.webp", fallback: "photos/18thstbrewery-4.jpg", caption: "Karaoke Wednesdays at 18th Street Brewery", w: 1080, h: 810 },
+        { src: "photos/18thstbrewery-6.webp", fallback: "photos/18thstbrewery-6.jpg", caption: "Karaoke Wednesdays at 18th Street Brewery", w: 1080, h: 810 },
+        { src: "photos/corporate-event-1.webp", fallback: "photos/corporate-event-1.jpg", caption: "Corporate Event Karaoke", w: 1080, h: 810 },
+        { src: "photos/corporate-event-2.webp", fallback: "photos/corporate-event-2.jpg", caption: "Corporate Event Karaoke", w: 1080, h: 810 },
+        { src: "photos/moods-1.webp", fallback: "photos/moods-1.jpg", caption: "Sing Along Brunch at Moods", w: 1080, h: 810 },
+        { src: "photos/moods-2.webp", fallback: "photos/moods-2.jpg", caption: "Sing Along Brunch at Moods", w: 1080, h: 810 }
       ];
     </script>
 
@@ -979,12 +985,13 @@
 
     <script>(function(){var grid=document.getElementById('galleryGrid');var section=document.getElementById('gallery');var photos=(window.PUK_GALLERY||[]).filter(function(p){return p&&p.src;});if(!photos.length){if(section)section.style.display='none';return;}function esc(s){return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
         grid.innerHTML = photos.map(function (p, i) {
+          var wAttr = p.w ? ' width="'+p.w+'" height="'+p.h+'"' : '';
           var imgTag = p.fallback
             ? '<picture>'
               + '<source srcset="' + esc(p.src) + '" type="image/webp">'
-              + '<img src="' + esc(p.fallback) + '" alt="' + esc(p.caption || 'Event photo') + '" loading="lazy" decoding="async">'
+              + '<img src="' + esc(p.fallback) + '" alt="' + esc(p.caption || 'Event photo') + '" loading="lazy" decoding="async"' + wAttr + '>'
               + '</picture>'
-            : '<img src="' + esc(p.src) + '" alt="' + esc(p.caption || 'Event photo') + '" loading="lazy" decoding="async">';
+            : '<img src="' + esc(p.src) + '" alt="' + esc(p.caption || 'Event photo') + '" loading="lazy" decoding="async"' + wAttr + '>';
           return '<button class="gallery-item" type="button" data-i="' + i + '" aria-label="View photo ' + (i+1) + '">'
             +    imgTag
             +    (p.caption ? '<span class="caption">' + esc(p.caption) + '</span>' : '')
@@ -1339,61 +1346,7 @@
       </div>
     </section>
 
-    <!-- QUIZ -->
-    <section class="quiz-section" id="quiz">
-      <div class="container">
-        <div class="quiz-header reveal">
-          <span class="section-label">Find Your Fit</span>
-          <h2 class="section-title">What Kind of Party Are You <span class="grad">Throwing?</span></h2>
-          <p class="quiz-sub">Answer 3 quick questions and we'll tell you exactly what to expect.</p>
-        </div>
-        <div class="quiz-card reveal" id="quizCard">
-          <div class="quiz-step" id="quizStep1">
-            <p class="quiz-q">What's the occasion?</p>
-            <div class="quiz-options">
-              <button class="quiz-opt" data-step="1" data-val="birthday">🎂 Birthday Party</button>
-              <button class="quiz-opt" data-step="1" data-val="wedding">💒 Wedding</button>
-              <button class="quiz-opt" data-step="1" data-val="corporate">🏢 Corporate Event</button>
-              <button class="quiz-opt" data-step="1" data-val="bar">🍺 Bar / Venue</button>
-              <button class="quiz-opt" data-step="1" data-val="party">🎉 Private Party</button>
-              <button class="quiz-opt" data-step="1" data-val="curious">❓ Just Exploring</button>
-            </div>
-          </div>
-          <div class="quiz-step quiz-hidden" id="quizStep2">
-            <p class="quiz-q">How many guests?</p>
-            <div class="quiz-options">
-              <button class="quiz-opt" data-step="2" data-val="small">👥 Under 25</button>
-              <button class="quiz-opt" data-step="2" data-val="medium">👥 25 – 75</button>
-              <button class="quiz-opt" data-step="2" data-val="large">👥 75 – 150</button>
-              <button class="quiz-opt" data-step="2" data-val="xlarge">👥 150+</button>
-            </div>
-          </div>
-          <div class="quiz-step quiz-hidden" id="quizStep3">
-            <p class="quiz-q">When are you thinking?</p>
-            <div class="quiz-options">
-              <button class="quiz-opt" data-step="3" data-val="soon">📅 This month</button>
-              <button class="quiz-opt" data-step="3" data-val="near">📅 1 – 3 months</button>
-              <button class="quiz-opt" data-step="3" data-val="far">📅 3 – 6 months</button>
-              <button class="quiz-opt" data-step="3" data-val="exploring">📅 Just exploring</button>
-            </div>
-          </div>
-          <div class="quiz-step quiz-hidden" id="quizResult">
-            <div class="quiz-result-inner">
-              <span class="quiz-result-emoji" id="quizEmoji">🎉</span>
-              <h3 class="quiz-result-title" id="quizResultTitle"></h3>
-              <p class="quiz-result-msg" id="quizResultMsg"></p>
-              <a href="#contact" class="btn btn-primary quiz-result-cta">🎤 Book Your Event</a>
-              <button type="button" class="quiz-restart" id="quizRestart">Start Over</button>
-            </div>
-          </div>
-          <div class="quiz-progress" id="quizProgress" aria-hidden="true">
-            <span class="quiz-dot active" id="qd1"></span>
-            <span class="quiz-dot" id="qd2"></span>
-            <span class="quiz-dot" id="qd3"></span>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- QUIZ SECTION — now a modal trigger (quiz lives in #quizModal below) -->
 
     <!-- VIDEO -->
     <section class="video-section" id="video">
@@ -1450,24 +1403,31 @@
     </section>
 
 
-    <!-- SPOTIFY -->
+    <!-- CROWD FAVORITES -->
     <section class="spotify-section" id="playlist">
       <div class="container">
         <div class="spotify-header reveal" style="text-align:center;">
           <span class="section-label">Crowd Favorites</span>
-          <h2 class="section-title">Our <span class="grad">Karaoke Playlist</span></h2>
-          <p style="color:var(--text-dim);max-width:480px;margin:0.75rem auto 0;">A taste of what gets the crowd going. Press play and start planning your setlist.</p>
+          <h2 class="section-title">Most Requested Songs <span class="grad">At Our Events</span></h2>
+          <p style="color:var(--text-dim);max-width:520px;margin:0.75rem auto 0;">These are the songs that get the room on their feet every single time. See yourself singing any of them? Book your event and request away.</p>
         </div>
-        <div class="spotify-embed reveal">
-          <iframe
-            src="https://open.spotify.com/embed/playlist/4EWnnMHBQF6z5ARoZBH9Qb?utm_source=generator&theme=0"
-            width="100%"
-            height="380"
-            frameborder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-            title="PopUp Karaoke crowd favorites playlist on Spotify">
-          </iframe>
+        <div class="reveal" style="max-width:720px;margin:2rem auto 0;">
+          <ol style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0.6rem;">
+            <li style="background:var(--card);border:1px solid var(--border);border-radius:0.75rem;padding:0.9rem 1.1rem;display:flex;align-items:center;gap:1rem;"><span style="font-size:1.4rem;font-weight:900;color:var(--neon-pink);min-width:2rem;text-align:center;">1</span><div><div style="font-weight:700;font-size:0.95rem;">Bohemian Rhapsody</div><div style="color:var(--text-mute);font-size:0.82rem;">Queen</div></div></li>
+            <li style="background:var(--card);border:1px solid var(--border);border-radius:0.75rem;padding:0.9rem 1.1rem;display:flex;align-items:center;gap:1rem;"><span style="font-size:1.4rem;font-weight:900;color:var(--neon-pink);min-width:2rem;text-align:center;">2</span><div><div style="font-weight:700;font-size:0.95rem;">Don't Stop Believin'</div><div style="color:var(--text-mute);font-size:0.82rem;">Journey</div></div></li>
+            <li style="background:var(--card);border:1px solid var(--border);border-radius:0.75rem;padding:0.9rem 1.1rem;display:flex;align-items:center;gap:1rem;"><span style="font-size:1.4rem;font-weight:900;color:var(--neon-pink);min-width:2rem;text-align:center;">3</span><div><div style="font-weight:700;font-size:0.95rem;">Sweet Caroline</div><div style="color:var(--text-mute);font-size:0.82rem;">Neil Diamond</div></div></li>
+            <li style="background:var(--card);border:1px solid var(--border);border-radius:0.75rem;padding:0.9rem 1.1rem;display:flex;align-items:center;gap:1rem;"><span style="font-size:1.4rem;font-weight:900;color:var(--neon-pink);min-width:2rem;text-align:center;">4</span><div><div style="font-weight:700;font-size:0.95rem;">Tennessee Whiskey</div><div style="color:var(--text-mute);font-size:0.82rem;">Chris Stapleton</div></div></li>
+            <li style="background:var(--card);border:1px solid var(--border);border-radius:0.75rem;padding:0.9rem 1.1rem;display:flex;align-items:center;gap:1rem;"><span style="font-size:1.4rem;font-weight:900;color:var(--neon-pink);min-width:2rem;text-align:center;">5</span><div><div style="font-weight:700;font-size:0.95rem;">Friends in Low Places</div><div style="color:var(--text-mute);font-size:0.82rem;">Garth Brooks</div></div></li>
+            <li style="background:var(--card);border:1px solid var(--border);border-radius:0.75rem;padding:0.9rem 1.1rem;display:flex;align-items:center;gap:1rem;"><span style="font-size:1.4rem;font-weight:900;color:var(--neon-pink);min-width:2rem;text-align:center;">6</span><div><div style="font-weight:700;font-size:0.95rem;">Livin' on a Prayer</div><div style="color:var(--text-mute);font-size:0.82rem;">Bon Jovi</div></div></li>
+            <li style="background:var(--card);border:1px solid var(--border);border-radius:0.75rem;padding:0.9rem 1.1rem;display:flex;align-items:center;gap:1rem;"><span style="font-size:1.4rem;font-weight:900;color:var(--neon-pink);min-width:2rem;text-align:center;">7</span><div><div style="font-weight:700;font-size:0.95rem;">Take Me Home, Country Roads</div><div style="color:var(--text-mute);font-size:0.82rem;">John Denver</div></div></li>
+            <li style="background:var(--card);border:1px solid var(--border);border-radius:0.75rem;padding:0.9rem 1.1rem;display:flex;align-items:center;gap:1rem;"><span style="font-size:1.4rem;font-weight:900;color:var(--neon-pink);min-width:2rem;text-align:center;">8</span><div><div style="font-weight:700;font-size:0.95rem;">Before He Cheats</div><div style="color:var(--text-mute);font-size:0.82rem;">Carrie Underwood</div></div></li>
+            <li style="background:var(--card);border:1px solid var(--border);border-radius:0.75rem;padding:0.9rem 1.1rem;display:flex;align-items:center;gap:1rem;"><span style="font-size:1.4rem;font-weight:900;color:var(--neon-pink);min-width:2rem;text-align:center;">9</span><div><div style="font-weight:700;font-size:0.95rem;">I Will Always Love You</div><div style="color:var(--text-mute);font-size:0.82rem;">Whitney Houston</div></div></li>
+            <li style="background:var(--card);border:1px solid var(--border);border-radius:0.75rem;padding:0.9rem 1.1rem;display:flex;align-items:center;gap:1rem;"><span style="font-size:1.4rem;font-weight:900;color:var(--neon-pink);min-width:2rem;text-align:center;">10</span><div><div style="font-weight:700;font-size:0.95rem;">Pink Pony Club</div><div style="color:var(--text-mute);font-size:0.82rem;">Chappell Roan</div></div></li>
+          </ol>
+          <div style="text-align:center;margin-top:1.75rem;">
+            <p style="color:var(--text-mute);font-size:0.88rem;margin-bottom:1rem;">These are your guests' favorites waiting to happen. Ready to make it official?</p>
+            <a href="#contact" class="btn btn-primary">🎤 Book Now &amp; Request Your Songs</a>
+          </div>
         </div>
       </div>
     </section>
@@ -1673,7 +1633,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
             <input type="hidden" name="_subject" value="New Booking Request from popupkaraoke.net">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="true">
-            <input type="hidden" name="_next" value="https://popupkaraoke.net/?sent=1">
+            <input type="hidden" name="_next" value="https://popupkaraoke.net/thank-you.html">
             <input type="hidden" name="_autoresponse" value="Hi! Thanks for reaching out to PopUp Karaoke — we got your booking request and will respond within 24 hours (usually much sooner). In the meantime, save our number 219.758.1313 in case you have any questions, and feel free to follow us on Facebook (PopUpKaraoke219), Instagram (@popupkaraoke219), or TikTok (@popupkaraoke219) for clips from past events. Talk soon! — Daniel, PopUp Karaoke (Veteran-Owned & Operated)">
             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
@@ -1880,6 +1840,61 @@ booking@popupkaraoke.net | popupkaraoke.net">
       </div>
     </div>
   </footer>
+
+  <!-- QUIZ MODAL -->
+  <div class="modal" id="quizModal" role="dialog" aria-modal="true" aria-labelledby="quizModalTitle" aria-hidden="true">
+    <div class="modal-card" style="max-width:540px;">
+      <button type="button" class="modal-close" data-close-modal aria-label="Close">✕</button>
+      <span class="section-label">Find Your Fit</span>
+      <h3 id="quizModalTitle" style="font-size:clamp(1.2rem,3vw,1.6rem);margin-bottom:0.5rem;">What Kind of Party Are You <span class="grad">Throwing?</span></h3>
+      <p class="quiz-sub" style="color:var(--text-dim);margin-bottom:1.5rem;font-size:0.95rem;">3 quick questions — we'll tell you exactly what to expect.</p>
+      <div class="quiz-card" id="quizCard" style="border:none;padding:0;background:none;box-shadow:none;">
+        <div class="quiz-step" id="quizStep1">
+          <p class="quiz-q">What's the occasion?</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-step="1" data-val="birthday">🎂 Birthday Party</button>
+            <button class="quiz-opt" data-step="1" data-val="wedding">💒 Wedding</button>
+            <button class="quiz-opt" data-step="1" data-val="corporate">🏢 Corporate Event</button>
+            <button class="quiz-opt" data-step="1" data-val="bar">🍺 Bar / Venue</button>
+            <button class="quiz-opt" data-step="1" data-val="party">🎉 Private Party</button>
+            <button class="quiz-opt" data-step="1" data-val="curious">❓ Just Exploring</button>
+          </div>
+        </div>
+        <div class="quiz-step quiz-hidden" id="quizStep2">
+          <p class="quiz-q">How many guests?</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-step="2" data-val="small">👥 Under 25</button>
+            <button class="quiz-opt" data-step="2" data-val="medium">👥 25 – 75</button>
+            <button class="quiz-opt" data-step="2" data-val="large">👥 75 – 150</button>
+            <button class="quiz-opt" data-step="2" data-val="xlarge">👥 150+</button>
+          </div>
+        </div>
+        <div class="quiz-step quiz-hidden" id="quizStep3">
+          <p class="quiz-q">When are you thinking?</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-step="3" data-val="soon">📅 This month</button>
+            <button class="quiz-opt" data-step="3" data-val="near">📅 1 – 3 months</button>
+            <button class="quiz-opt" data-step="3" data-val="far">📅 3 – 6 months</button>
+            <button class="quiz-opt" data-step="3" data-val="exploring">📅 Just exploring</button>
+          </div>
+        </div>
+        <div class="quiz-step quiz-hidden" id="quizResult">
+          <div class="quiz-result-inner">
+            <span class="quiz-result-emoji" id="quizEmoji">🎉</span>
+            <h3 class="quiz-result-title" id="quizResultTitle"></h3>
+            <p class="quiz-result-msg" id="quizResultMsg"></p>
+            <a href="#contact" class="btn btn-primary quiz-result-cta" data-close-modal>🎤 Book Your Event</a>
+            <button type="button" class="quiz-restart" id="quizRestart">Start Over</button>
+          </div>
+        </div>
+        <div class="quiz-progress" id="quizProgress" aria-hidden="true">
+          <span class="quiz-dot active" id="qd1"></span>
+          <span class="quiz-dot" id="qd2"></span>
+          <span class="quiz-dot" id="qd3"></span>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- SONG REQUEST MODAL -->
   <div class="modal" id="songRequest" role="dialog" aria-modal="true" aria-labelledby="srTitle" aria-hidden="true">
@@ -2095,7 +2110,11 @@ booking@popupkaraoke.net | popupkaraoke.net">
             +'<div><div class="song-result-title">'+s.t+'</div><div class="song-result-artist">'+s.a+'</div></div>'
             +'<span class="song-result-check">✓ In Library</span>'
             +'</div>';
-        }).join('')+'<p class="song-search-count">Showing '+matches.length+' of '+SONGS.filter(function(s){return s.t.toLowerCase().indexOf(q)!==-1||s.a.toLowerCase().indexOf(q)!==-1;}).length+' matches — 61,000+ total songs available</p>';
+        }).join('')+'<p class="song-search-count">Showing '+matches.length+' of '+SONGS.filter(function(s){return s.t.toLowerCase().indexOf(q)!==-1||s.a.toLowerCase().indexOf(q)!==-1;}).length+' matches — 61,000+ total songs available</p>'
+        +'<div style="background:rgba(255,45,146,0.08);border:1px solid rgba(255,45,146,0.25);border-radius:0.75rem;padding:1rem 1.25rem;margin-top:0.75rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">'
+        +'<div><div style="font-weight:700;font-size:0.95rem;margin-bottom:0.2rem;">🎤 Found a song you love?</div><div style="color:var(--text-mute);font-size:0.85rem;">Request it at your event — we\'ll have it ready.</div></div>'
+        +'<a href="#contact" class="btn btn-primary" style="font-size:0.85rem;padding:0.6rem 1.25rem;white-space:nowrap;">Book Now & Request This Song →</a>'
+        +'</div>';
       } else {
         results.innerHTML='<div class="song-search-not-found"><p>Not in our preview list — but with 61,000+ songs we very likely have it!</p><a href="#contact" class="btn btn-primary" style="font-size:0.85rem;padding:0.5rem 1rem;">Request This Song</a></div>';
       }
@@ -2112,12 +2131,12 @@ booking@popupkaraoke.net | popupkaraoke.net">
     var dots=['qd1','qd2','qd3'];
     var current=0;
     var RESULTS={
-      birthday:{emoji:'🎂',title:"Let's Make It Unforgettable",msg:"Birthday parties are our specialty. We'll personalize the setlist, hype up the guest of honor, and keep the energy electric all night. Perfect for any age, any size."},
-      wedding:{emoji:'💒',title:"Your Reception Just Got Better",msg:"Karaoke is the surprise your guests will talk about for years. We'll work seamlessly alongside your DJ or band, and make sure every generation gets on the mic."},
-      corporate:{emoji:'🏢',title:"Team Bonding Done Right",msg:"Karaoke is hands-down the best icebreaker for corporate events. We handle everything — COI included — so you can focus on your team having a great time."},
-      bar:{emoji:'🍺',title:"Turn Slow Nights Into Packed Ones",msg:"We already run weekly residencies at 18th Street Brewery, Flights Taproom, and El Capitán. A karaoke night drives repeat traffic and loyal regulars. Let's talk residency options."},
-      party:{emoji:'🎉',title:"Let's Get This Party Started",msg:"Whatever the occasion, we bring the full show — sound, lights, host, and 61,000+ songs. Just tell us the vibe and we'll dial it in perfectly."},
-      curious:{emoji:'🎵',title:"Glad You're Here!",msg:"No pressure — just explore. We'd love to show you what a PopUp Karaoke experience looks like. Check out our videos or reach out with any questions."}
+      birthday:{emoji:'🎂',title:"Sounds Like You Need a Birthday Party Package",msg:"Birthday parties are our specialty. We'll personalize the setlist, hype up the guest of honor, and keep the energy electric all night. Perfect for any age, any size.",eventType:"Birthday Party",cta:"🎂 Book My Birthday Party"},
+      wedding:{emoji:'💒',title:"Sounds Like You Need Our Wedding Package",msg:"Karaoke is the surprise your guests will talk about for years. We'll work seamlessly alongside your DJ or band, and make sure every generation gets on the mic.",eventType:"Wedding",cta:"💒 Book Wedding Karaoke"},
+      corporate:{emoji:'🏢',title:"Sounds Like You Need Our Corporate Package",msg:"Karaoke is hands-down the best icebreaker for corporate events. We handle everything — COI included — so you can focus on your team having a great time.",eventType:"Corporate Event",cta:"🏢 Book Corporate Karaoke"},
+      bar:{emoji:'🍺',title:"Sounds Like You Need a Bar Residency",msg:"We already run weekly residencies at 18th Street Brewery, Flights Taproom, and El Capitán. A karaoke night drives repeat traffic and loyal regulars. Let's talk residency options.",eventType:"Bar / Brewery",cta:"🍺 Talk Residency Options"},
+      party:{emoji:'🎉',title:"Sounds Like You Need a Private Party Package",msg:"Whatever the occasion, we bring the full show — sound, lights, host, and 61,000+ songs. Just tell us the vibe and we'll dial it in perfectly.",eventType:"Private Party",cta:"🎉 Book My Private Party"},
+      curious:{emoji:'🎵',title:"We'd Love To Show You What We Do",msg:"No pressure — just explore. We'd love to show you what a PopUp Karaoke experience looks like. Check out our videos or reach out with any questions.",eventType:"",cta:"🎤 Get In Touch"}
     };
     function show(stepId){
       steps.forEach(function(id){
@@ -2134,6 +2153,17 @@ booking@popupkaraoke.net | popupkaraoke.net">
       document.getElementById('quizEmoji').textContent=r.emoji;
       document.getElementById('quizResultTitle').textContent=r.title;
       document.getElementById('quizResultMsg').textContent=r.msg;
+      var cta=document.querySelector('.quiz-result-cta');
+      if(cta){cta.textContent=r.cta;}
+      // Pre-fill the event type dropdown in the booking form
+      var typeSelect=document.getElementById('b-type');
+      if(typeSelect&&r.eventType){
+        for(var i=0;i<typeSelect.options.length;i++){
+          if(typeSelect.options[i].value===r.eventType||typeSelect.options[i].text===r.eventType){
+            typeSelect.selectedIndex=i;break;
+          }
+        }
+      }
       show('quizResult');
     }
     document.querySelectorAll('.quiz-opt').forEach(function(btn){
@@ -2266,7 +2296,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
   <!-- Back to top -->
   <script>(function(){var btn=document.getElementById('backToTop');if(!btn)return;window.addEventListener('scroll',function(){if(window.scrollY>400){btn.classList.add('visible');}else{btn.classList.remove('visible');}},{passive:true});btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});})();</script>
 
-  <script>(function(){'use strict';var yr=document.getElementById('year');if(yr)yr.textContent=new Date().getFullYear();var nav=document.getElementById('nav');function onScroll(){if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');}window.addEventListener('scroll',onScroll,{passive:true});onScroll();var navToggle=document.getElementById('navToggle');var mobileOverlay=document.getElementById('mobileOverlay');function closeMobileNav(){if(mobileOverlay)mobileOverlay.classList.remove('open');if(navToggle)navToggle.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open');if(mobileOverlay)mobileOverlay.setAttribute('aria-hidden','true');}if(navToggle&&mobileOverlay){navToggle.addEventListener('click',function(){var open=mobileOverlay.classList.toggle('open');navToggle.setAttribute('aria-expanded',open?'true':'false');document.body.classList.toggle('menu-open',open);mobileOverlay.setAttribute('aria-hidden',open?'false':'true');});mobileOverlay.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){closeMobileNav();});});mobileOverlay.addEventListener('click',function(e){if(e.target===mobileOverlay)closeMobileNav();});var mobileOverlayClose=document.getElementById('mobileOverlayClose');if(mobileOverlayClose)mobileOverlayClose.addEventListener('click',closeMobileNav);}document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mobileOverlay&&mobileOverlay.classList.contains('open'))closeMobileNav();});var openers=document.querySelectorAll('[data-open-modal]');var closers=document.querySelectorAll('[data-close-modal]');function openModal(id){var m=document.getElementById(id);if(!m)return;m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';var firstInput=m.querySelector('input, textarea, select, button');if(firstInput)setTimeout(function(){firstInput.focus();},50);}function closeAllModals(){document.querySelectorAll('.modal').forEach(function(m){m.setAttribute('aria-hidden','true');});document.body.style.overflow='';}openers.forEach(function(b){b.addEventListener('click',function(){openModal(b.getAttribute('data-open-modal'));});});closers.forEach(function(b){b.addEventListener('click',closeAllModals);});document.querySelectorAll('.modal').forEach(function(m){m.addEventListener('click',function(e){if(e.target===m)closeAllModals();});});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAllModals();});if('IntersectionObserver'in window){var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}try{if(location.search.indexOf('sent=1')!==-1){alert("Thanks! We got your request and will be in touch soon. 🎤");if(history.replaceState)history.replaceState({},'',location.pathname);}}catch(e){}function validateField(field){var msg='';var v=(field.value||'').trim();if(field.required&&!v){msg='This field is required.';}else if(field.type==='email'&&v&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){msg='Please enter a valid email address.';}else if(field.type==='tel'&&v&&v.replace(/\D/g,'').length<7){msg='Please enter a valid phone number.';}else if(field.tagName==='SELECT'&&field.required&&!v){msg='Please select an option.';}var errorEl=field.parentElement.querySelector('.form-error');if(msg){field.classList.add('invalid');field.classList.remove('valid');field.setAttribute('aria-invalid','true');if(errorEl){errorEl.textContent=msg;errorEl.classList.add('show');}return false;}else{field.classList.remove('invalid');if(v)field.classList.add('valid');field.setAttribute('aria-invalid','false');if(errorEl)errorEl.classList.remove('show');return true;}}function setupForm(form){if(!form)return;Array.prototype.forEach.call(form.querySelectorAll('.form-group'),function(g){if(g.querySelector('.form-error'))return;var err=document.createElement('div');err.className='form-error';err.setAttribute('role','alert');g.appendChild(err);});var fields=form.querySelectorAll('input:not([type=hidden]):not([name=_honey]), select, textarea');Array.prototype.forEach.call(fields,function(f){f.addEventListener('blur',function(){validateField(f);});f.addEventListener('input',function(){if(f.classList.contains('invalid'))validateField(f);});});form.addEventListener('submit',function(e){var allValid=true;Array.prototype.forEach.call(fields,function(f){if(!validateField(f))allValid=false;});if(!allValid){e.preventDefault();var firstInvalid=form.querySelector('.invalid');if(firstInvalid)firstInvalid.focus();return;}var btn=form.querySelector('button[type="submit"]');if(btn){btn.classList.add('submitting');btn.dataset.originalText=btn.innerHTML;btn.innerHTML='Sending…';btn.setAttribute('disabled','disabled');}});}setupForm(document.getElementById('bookingForm'));setupForm(document.getElementById('songForm'));window.dataLayer=window.dataLayer||[];function trackEvent(eventName,fbEvent,params){params=params||{};try{window.dataLayer.push(Object.assign({event:eventName},params));}catch(e){}try{if(typeof window.fbq==='function'){window.fbq('track',fbEvent,params);}}catch(e){}}var bookingForm=document.getElementById('bookingForm');if(bookingForm){bookingForm.addEventListener('submit',function(){trackEvent('lead_submit','Lead',{content_name:'Booking Request',content_category:'booking',value:0,currency:'USD'});});}var songForm=document.getElementById('songForm');if(songForm){songForm.addEventListener('submit',function(){trackEvent('lead_submit','Lead',{content_name:'Song Request',content_category:'song_request',value:0,currency:'USD'});});}Array.prototype.forEach.call(document.querySelectorAll('a[href*="square.link"]'),function(a){a.addEventListener('click',function(){var src='unknown';try{var u=new URL(a.href);src=u.searchParams.get('src')||'unknown';}catch(e){}trackEvent('initiate_checkout','InitiateCheckout',{content_name:'Square Payment',payment_method:'square',link_source:src,currency:'USD'});});});Array.prototype.forEach.call(document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]'),function(a){a.addEventListener('click',function(){var kind=a.getAttribute('href').indexOf('tel:')===0?'phone':'email';trackEvent('contact_click','Contact',{content_name:kind==='phone'?'Call':'Email',contact_method:kind});});});})();</script>
+  <script>(function(){'use strict';var yr=document.getElementById('year');if(yr)yr.textContent=new Date().getFullYear();var nav=document.getElementById('nav');function onScroll(){if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');}window.addEventListener('scroll',onScroll,{passive:true});onScroll();var navToggle=document.getElementById('navToggle');var mobileOverlay=document.getElementById('mobileOverlay');function closeMobileNav(){if(mobileOverlay)mobileOverlay.classList.remove('open');if(navToggle)navToggle.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open');if(mobileOverlay)mobileOverlay.setAttribute('aria-hidden','true');}if(navToggle&&mobileOverlay){navToggle.addEventListener('click',function(){var open=mobileOverlay.classList.toggle('open');navToggle.setAttribute('aria-expanded',open?'true':'false');document.body.classList.toggle('menu-open',open);mobileOverlay.setAttribute('aria-hidden',open?'false':'true');});mobileOverlay.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){closeMobileNav();});});mobileOverlay.addEventListener('click',function(e){if(e.target===mobileOverlay)closeMobileNav();});var mobileOverlayClose=document.getElementById('mobileOverlayClose');if(mobileOverlayClose)mobileOverlayClose.addEventListener('click',closeMobileNav);}document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mobileOverlay&&mobileOverlay.classList.contains('open'))closeMobileNav();});var openers=document.querySelectorAll('[data-open-modal]');var closers=document.querySelectorAll('[data-close-modal]');function openModal(id){var m=document.getElementById(id);if(!m)return;m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';var firstInput=m.querySelector('input, textarea, select, button');if(firstInput)setTimeout(function(){firstInput.focus();},50);}function closeAllModals(){document.querySelectorAll('.modal').forEach(function(m){m.setAttribute('aria-hidden','true');});document.body.style.overflow='';}openers.forEach(function(b){b.addEventListener('click',function(){openModal(b.getAttribute('data-open-modal'));});});closers.forEach(function(b){b.addEventListener('click',closeAllModals);});document.querySelectorAll('.modal').forEach(function(m){m.addEventListener('click',function(e){if(e.target===m)closeAllModals();});});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAllModals();});if('IntersectionObserver'in window){var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}function validateField(field){var msg='';var v=(field.value||'').trim();if(field.required&&!v){msg='This field is required.';}else if(field.type==='email'&&v&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){msg='Please enter a valid email address.';}else if(field.type==='tel'&&v&&v.replace(/\D/g,'').length<7){msg='Please enter a valid phone number.';}else if(field.tagName==='SELECT'&&field.required&&!v){msg='Please select an option.';}var errorEl=field.parentElement.querySelector('.form-error');if(msg){field.classList.add('invalid');field.classList.remove('valid');field.setAttribute('aria-invalid','true');if(errorEl){errorEl.textContent=msg;errorEl.classList.add('show');}return false;}else{field.classList.remove('invalid');if(v)field.classList.add('valid');field.setAttribute('aria-invalid','false');if(errorEl)errorEl.classList.remove('show');return true;}}function setupForm(form){if(!form)return;Array.prototype.forEach.call(form.querySelectorAll('.form-group'),function(g){if(g.querySelector('.form-error'))return;var err=document.createElement('div');err.className='form-error';err.setAttribute('role','alert');g.appendChild(err);});var fields=form.querySelectorAll('input:not([type=hidden]):not([name=_honey]), select, textarea');Array.prototype.forEach.call(fields,function(f){f.addEventListener('blur',function(){validateField(f);});f.addEventListener('input',function(){if(f.classList.contains('invalid'))validateField(f);});});form.addEventListener('submit',function(e){var allValid=true;Array.prototype.forEach.call(fields,function(f){if(!validateField(f))allValid=false;});if(!allValid){e.preventDefault();var firstInvalid=form.querySelector('.invalid');if(firstInvalid)firstInvalid.focus();return;}var btn=form.querySelector('button[type="submit"]');if(btn){btn.classList.add('submitting');btn.dataset.originalText=btn.innerHTML;btn.innerHTML='Sending…';btn.setAttribute('disabled','disabled');}});}setupForm(document.getElementById('bookingForm'));setupForm(document.getElementById('songForm'));window.dataLayer=window.dataLayer||[];function trackEvent(eventName,fbEvent,params){params=params||{};try{window.dataLayer.push(Object.assign({event:eventName},params));}catch(e){}try{if(typeof window.fbq==='function'){window.fbq('track',fbEvent,params);}}catch(e){}}var bookingForm=document.getElementById('bookingForm');if(bookingForm){bookingForm.addEventListener('submit',function(){trackEvent('lead_submit','Lead',{content_name:'Booking Request',content_category:'booking',value:0,currency:'USD'});});}var songForm=document.getElementById('songForm');if(songForm){songForm.addEventListener('submit',function(){trackEvent('lead_submit','Lead',{content_name:'Song Request',content_category:'song_request',value:0,currency:'USD'});});}Array.prototype.forEach.call(document.querySelectorAll('a[href*="square.link"]'),function(a){a.addEventListener('click',function(){var src='unknown';try{var u=new URL(a.href);src=u.searchParams.get('src')||'unknown';}catch(e){}trackEvent('initiate_checkout','InitiateCheckout',{content_name:'Square Payment',payment_method:'square',link_source:src,currency:'USD'});});});Array.prototype.forEach.call(document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]'),function(a){a.addEventListener('click',function(){var kind=a.getAttribute('href').indexOf('tel:')===0?'phone':'email';trackEvent('contact_click','Contact',{content_name:kind==='phone'?'Call':'Email',contact_method:kind});});});})();</script>
 
   <!-- PWA Service Worker Registration -->
   <script>if('serviceWorker'in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}</script>
