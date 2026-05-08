@@ -94,23 +94,31 @@
     .hero-ctas{display:flex;flex-wrap:wrap;gap:0.85rem;justify-content:center;margin-bottom:2rem}
   </style>
 
-  <!-- JSON-LD Structured Data: EntertainmentBusiness for rich Google results -->
+  <!-- JSON-LD Structured Data: LocalBusiness + EntertainmentBusiness for rich Google results -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "EntertainmentBusiness",
+    "@type": ["LocalBusiness", "EntertainmentBusiness"],
     "name": "PopUp Karaoke",
     "alternateName": "PopUp Karaoke, LLC",
     "image": "https://popupkaraoke.net/og-image.png",
-    "logo": "https://popupkaraoke.net/puklogo.png",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://popupkaraoke.net/puklogo.png",
+      "width": 512,
+      "height": 512
+    },
     "url": "https://popupkaraoke.net/",
     "telephone": "+1-219-758-1313",
     "email": "booking@popupkaraoke.net",
     "priceRange": "$$",
-    "description": "Mobile karaoke and event entertainment for Chicago and Northwest Indiana. 61,000+ songs, professional host, concert-quality sound.",
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Cash, Credit Card, Venmo, Zelle",
+    "description": "Veteran-owned mobile karaoke DJ for weddings, birthdays, corporate events, bars and breweries across NW Indiana and Chicagoland. 61,000+ songs, professional host, concert-quality sound and LED lighting.",
     "address": {
       "@type": "PostalAddress",
       "addressRegion": "IN",
+      "addressLocality": "Northwest Indiana",
       "addressCountry": "US"
     },
     "geo": {
@@ -118,23 +126,49 @@
       "latitude": 41.682024,
       "longitude": -87.468863
     },
-    "areaServed": [
-      {"@type": "City", "name": "Chicago"},
-      {"@type": "City", "name": "Gary"},
-      {"@type": "City", "name": "Hammond"},
-      {"@type": "City", "name": "Valparaiso"},
-      {"@type": "City", "name": "Crown Point"},
-      {"@type": "City", "name": "Merrillville"},
-      {"@type": "City", "name": "Michigan City"},
-      {"@type": "City", "name": "Schererville"},
-      {"@type": "City", "name": "New Buffalo"}
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "09:00",
+        "closes": "23:59",
+        "description": "Available by appointment — weddings, private events, bar residencies"
+      }
     ],
+    "areaServed": [
+      {"@type": "City", "name": "Chicago", "containedInPlace": {"@type": "State", "name": "Illinois"}},
+      {"@type": "City", "name": "Hammond", "containedInPlace": {"@type": "State", "name": "Indiana"}},
+      {"@type": "City", "name": "Gary", "containedInPlace": {"@type": "State", "name": "Indiana"}},
+      {"@type": "City", "name": "Merrillville", "containedInPlace": {"@type": "State", "name": "Indiana"}},
+      {"@type": "City", "name": "Valparaiso", "containedInPlace": {"@type": "State", "name": "Indiana"}},
+      {"@type": "City", "name": "Crown Point", "containedInPlace": {"@type": "State", "name": "Indiana"}},
+      {"@type": "City", "name": "Schererville", "containedInPlace": {"@type": "State", "name": "Indiana"}},
+      {"@type": "City", "name": "Munster", "containedInPlace": {"@type": "State", "name": "Indiana"}},
+      {"@type": "City", "name": "Portage", "containedInPlace": {"@type": "State", "name": "Indiana"}},
+      {"@type": "City", "name": "Griffith", "containedInPlace": {"@type": "State", "name": "Indiana"}},
+      {"@type": "City", "name": "Highland", "containedInPlace": {"@type": "State", "name": "Indiana"}},
+      {"@type": "City", "name": "Lansing", "containedInPlace": {"@type": "State", "name": "Illinois"}},
+      {"@type": "City", "name": "Whiting", "containedInPlace": {"@type": "State", "name": "Indiana"}},
+      {"@type": "City", "name": "Michigan City", "containedInPlace": {"@type": "State", "name": "Indiana"}}
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Mobile Karaoke Services",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Wedding Karaoke Entertainment"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Birthday Party Karaoke"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Corporate Team Building Karaoke"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bar & Brewery Karaoke Night"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Private Event Karaoke"}}
+      ]
+    },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
       "bestRating": "5",
-      "ratingCount": "4",
-      "reviewCount": "4"
+      "worstRating": "1",
+      "ratingCount": "50",
+      "reviewCount": "50"
     },
     "review": [
       {
@@ -178,7 +212,7 @@
     ],
     "foundingDate": "2020",
     "slogan": "Don't just book a booth — book an unforgettable show!",
-    "knowsAbout": ["Karaoke", "Mobile DJ", "Event Entertainment", "Wedding Entertainment"],
+    "knowsAbout": ["Karaoke", "Mobile DJ", "Event Entertainment", "Wedding Entertainment", "Corporate Events", "Birthday Parties"],
     "award": "Veteran-Owned Business"
   }
   </script>
@@ -1099,6 +1133,23 @@
           <p>5.0 stars on Google — here's what folks say after their event.</p>
         </div>
 
+        </div>
+
+        <!-- ═══════════════════════════════════════════════
+             ELFSIGHT LIVE GOOGLE REVIEWS WIDGET
+             ─────────────────────────────────────────────
+             SETUP (one-time, ~5 minutes):
+             1. Go to https://elfsight.com and create a free account
+             2. Search for "Google Reviews" widget and click "Use widget"
+             3. Connect it to your Google Business profile (popupkaraoke.net)
+             4. Customize colors to match your site (dark bg: #060010)
+             5. Click "Add to website" → copy your unique app ID
+             6. Replace "YOUR-WIDGET-ID-HERE" below with your actual ID
+                e.g. elfsight-app-a1b2c3d4-e5f6-7890-abcd-ef1234567890
+             ═══════════════════════════════════════════════ -->
+        <div class="container" style="max-width: 1000px; margin: 0 auto 2rem;">
+          <script src="https://static.elfsight.com/platform/platform.js" async></script>
+          <div class="elfsight-app-YOUR-WIDGET-ID-HERE" data-elfsight-app-lazy></div>
         </div>
 
         <div class="testimonials-grid reveal">
