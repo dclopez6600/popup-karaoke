@@ -2300,5 +2300,121 @@ booking@popupkaraoke.net | popupkaraoke.net">
 
   <!-- PWA Service Worker Registration -->
   <script>if('serviceWorker'in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}</script>
+
+  <!-- EXIT INTENT MODAL -->
+  <style>
+    @keyframes noteFloat{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+    #exitModal{display:none;position:fixed;inset:0;z-index:9990;background:rgba(10,0,20,0.88);align-items:center;justify-content:center;padding:1.5rem;}
+    #byeOverlay{display:none;position:fixed;inset:0;z-index:9995;background:rgba(10,0,20,0.93);align-items:center;justify-content:center;flex-direction:column;transition:opacity 0.5s;}
+  </style>
+
+  <div id="exitModal" role="dialog" aria-modal="true" aria-labelledby="exitModalTitle" aria-hidden="true">
+    <div style="background:#1a0a2e;border:1px solid rgba(168,85,247,0.35);border-radius:18px;padding:2.5rem 2rem;max-width:460px;width:100%;text-align:center;position:relative;box-shadow:0 0 60px rgba(168,85,247,0.2);">
+      <span style="font-size:3rem;display:block;margin-bottom:0.75rem;">🎤</span>
+      <h2 id="exitModalTitle" style="font-size:1.65rem;font-weight:900;color:#fff;margin-bottom:0.75rem;line-height:1.2;">Wait — Before You Go!</h2>
+      <p style="color:rgba(255,255,255,0.72);font-size:1rem;line-height:1.65;margin-bottom:1.5rem;">Your next karaoke night is one click away.<br><strong style="color:#ff2d92;">Dates fill up fast</strong> — lock yours in and we handle everything else.</p>
+      <div style="display:flex;flex-direction:column;gap:0.7rem;">
+        <a href="#contact" id="exitBookBtn" style="background:#ff2d92;color:#fff;padding:0.9rem 2rem;border-radius:50px;font-weight:800;font-size:1rem;text-decoration:none;display:block;transition:opacity 0.2s;" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">🎉 Book My Event Now</a>
+        <a href="tel:+12197581313" style="background:rgba(168,85,247,0.15);border:1px solid rgba(168,85,247,0.4);color:#c084fc;padding:0.75rem 2rem;border-radius:50px;font-weight:700;font-size:0.95rem;text-decoration:none;display:block;">📞 Call Us: 219.758.1313</a>
+        <button id="exitDismiss" style="background:none;border:none;color:rgba(255,255,255,0.3);font-size:0.82rem;cursor:pointer;padding:0.5rem;margin-top:0.15rem;font-family:inherit;">No thanks, I'll skip the good time</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BYE OVERLAY -->
+  <div id="byeOverlay" aria-hidden="true">
+    <div id="byeNotes" style="position:absolute;inset:0;pointer-events:none;overflow:hidden;"></div>
+    <div style="text-align:center;position:relative;z-index:1;user-select:none;">
+      <p id="byeWord1" style="font-size:3.5rem;font-weight:900;color:#ff2d92;opacity:0;transform:translateY(24px);transition:opacity 0.55s ease,transform 0.55s ease;margin:0 0 0.1rem;">Bye...</p>
+      <p id="byeWord2" style="font-size:3.5rem;font-weight:900;color:#a855f7;opacity:0;transform:translateY(24px);transition:opacity 0.55s ease,transform 0.55s ease;margin:0 0 0.1rem;">Bye...</p>
+      <p id="byeWord3" style="font-size:3.5rem;font-weight:900;color:#c084fc;opacity:0;transform:translateY(24px);transition:opacity 0.55s ease,transform 0.55s ease;margin:0;">Bye...</p>
+      <p id="byeSub" style="color:rgba(255,255,255,0.4);font-size:0.9rem;margin-top:1.5rem;opacity:0;transition:opacity 0.55s ease;">Come back when you're ready to sing! 🎤</p>
+    </div>
+  </div>
+
+  <!-- EXIT INTENT SCRIPT -->
+  <script>(function(){
+    var exitModal=document.getElementById('exitModal');
+    var byeOverlay=document.getElementById('byeOverlay');
+    var shown=false;
+
+    function showExitModal(){
+      if(shown||sessionStorage.getItem('puk_exit'))return;
+      shown=true;
+      sessionStorage.setItem('puk_exit','1');
+      exitModal.style.display='flex';
+      exitModal.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    }
+
+    function showBye(){
+      exitModal.style.display='none';
+      exitModal.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+      byeOverlay.style.display='flex';
+      byeOverlay.setAttribute('aria-hidden','false');
+      byeOverlay.style.opacity='1';
+      // Stagger Bye words
+      var words=['byeWord1','byeWord2','byeWord3','byeSub'];
+      words.forEach(function(id,i){
+        setTimeout(function(){
+          var el=document.getElementById(id);
+          if(el){el.style.opacity='1';el.style.transform='translateY(0)';}
+        },i*650+100);
+      });
+      // Spawn floating musical notes
+      var notes=['♪','♫','♩','♬'];
+      var colors=['#ff2d92','#a855f7','#c084fc','#f472b6','#e879f9'];
+      var container=document.getElementById('byeNotes');
+      for(var n=0;n<18;n++){
+        (function(idx){
+          setTimeout(function(){
+            var el=document.createElement('span');
+            el.textContent=notes[idx%4];
+            var size=(1.2+Math.random()*2).toFixed(1);
+            var left=(3+Math.random()*94).toFixed(1);
+            var dur=(1.8+Math.random()*1.6).toFixed(1);
+            var color=colors[Math.floor(Math.random()*colors.length)];
+            el.style.cssText='position:absolute;font-size:'+size+'rem;color:'+color+';left:'+left+'%;bottom:-3rem;animation:noteFloat '+dur+'s ease-out forwards;pointer-events:none;';
+            container.appendChild(el);
+          },idx*150);
+        })(n);
+      }
+      // Auto-fade after 4.2s
+      setTimeout(function(){
+        byeOverlay.style.opacity='0';
+        setTimeout(function(){
+          byeOverlay.style.display='none';
+          byeOverlay.setAttribute('aria-hidden','true');
+        },520);
+      },4200);
+    }
+
+    // Desktop: mouse leaving toward top of browser
+    document.addEventListener('mouseleave',function(e){
+      if(e.clientY<5)showExitModal();
+    });
+
+    // Book btn: close modal, scroll to form
+    var bookBtn=document.getElementById('exitBookBtn');
+    if(bookBtn){bookBtn.addEventListener('click',function(){
+      exitModal.style.display='none';
+      exitModal.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+    });}
+
+    // Dismiss → Bye
+    var dismissBtn=document.getElementById('exitDismiss');
+    if(dismissBtn){dismissBtn.addEventListener('click',showBye);}
+
+    // Click backdrop → Bye
+    exitModal.addEventListener('click',function(e){if(e.target===exitModal)showBye();});
+
+    // Escape key → Bye
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape'&&exitModal.style.display==='flex')showBye();
+    });
+  })();</script>
+
 </body>
 </html>
