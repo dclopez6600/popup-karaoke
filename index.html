@@ -729,9 +729,9 @@
             </ul>
           </div>
         </div>
-        <div style="text-align:center;margin-top:2.5rem;" class="reveal">
-          <p style="color:var(--text-mute);font-size:0.92rem;margin-bottom:0.75rem;">Not sure which package is right for your event?</p>
-          <button type="button" class="btn btn-secondary" data-open-modal="quizModal" aria-haspopup="dialog" style="gap:0.6rem;">
+        <div style="text-align:center;margin-top:3rem;padding:2rem 0;" class="reveal">
+          <p style="color:var(--text-mute);font-size:1rem;margin-bottom:1.25rem;">Not sure which package is right for your event?</p>
+          <button type="button" class="btn btn-secondary" data-open-modal="quizModal" aria-haspopup="dialog" style="gap:0.7rem;font-size:1.15rem;padding:1rem 2.5rem;min-width:280px;">
             🎯 Take Our 3-Question Quiz
           </button>
         </div>
@@ -2401,28 +2401,35 @@ booking@popupkaraoke.net | popupkaraoke.net">
       }
     }
 
-    // Mark user as engaged after 5s on page
-    setTimeout(function(){engaged=true;},5000);
+    // Mark user as engaged after 3s on page
+    setTimeout(function(){engaged=true;},3000);
 
-    // PRIMARY TRIGGER: mouse leaves through top of viewport
+    // PRIMARY TRIGGER: mouse leaves through top — works in all browsers incl. Safari
+    document.addEventListener('mouseleave',function(e){
+      if((e.clientY<=30)&&engaged)showExitModal();
+    });
+    // Safari often fires on documentElement instead
     document.documentElement.addEventListener('mouseleave',function(e){
-      if(e.clientY<=20&&engaged)showExitModal();
+      if((e.clientY<=30)&&engaged)showExitModal();
     });
 
-    // FALLBACK: rapid scroll to top after scrolling down (back-button intent)
+    // FALLBACK: rapid scroll back to top after scrolling down
     var lastScrollY=0;
     var scrolledDown=false;
     window.addEventListener('scroll',function(){
       var y=window.scrollY;
-      if(y>300)scrolledDown=true;
-      if(scrolledDown&&y<lastScrollY-200&&y<100)showExitModal();
+      if(y>400)scrolledDown=true;
+      if(scrolledDown&&y<lastScrollY-250&&y<80)showExitModal();
       lastScrollY=y;
     },{passive:true});
 
-    // MOBILE: page visibility hidden (switching tabs / swiping away)
+    // MOBILE: tab switch / home button
     document.addEventListener('visibilitychange',function(){
       if(document.visibilityState==='hidden'&&engaged&&scrolledDown)showExitModal();
     });
+
+    // AUTO FALLBACK: show after 45s if still on page and haven't converted
+    setTimeout(function(){if(engaged)showExitModal();},45000);
 
     // Book btn
     var bookBtn=document.getElementById('exitBookBtn');
