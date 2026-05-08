@@ -616,7 +616,7 @@
         <!-- Floating brand logo -->
         <picture>
           <source srcset="puklogo.webp" type="image/webp">
-          <img class="hero-mic" src="puklogo.png" alt="PopUp Karaoke" width="220" height="220" decoding="async" fetchpriority="high">
+          <img loading="lazy" class="hero-mic" src="puklogo.png" alt="PopUp Karaoke" width="220" height="220" decoding="async" fetchpriority="high">
         </picture>
         <span class="hero-brand">PopUp Karaoke</span>
 
@@ -1288,6 +1288,33 @@
       </div>
     </section>
 
+    <!-- SOCIAL FEED -->
+    <section style="padding: 4rem 0 2rem;">
+      <div class="container" style="text-align: center; max-width: 1100px;">
+        <span class="section-label">Follow Along</span>
+        <h2 class="section-title" style="margin-bottom: 0.5rem;">Latest from <span class="grad">@popupkaraoke219</span></h2>
+        <p style="color: var(--text-dim); margin-bottom: 2rem; max-width: 480px; margin-left: auto; margin-right: auto;">Real events, real energy — updated automatically from Instagram & TikTok.</p>
+        <!-- ═══════════════════════════════════════════════════════════
+             ELFSIGHT SOCIAL MEDIA FEED WIDGET
+             ─────────────────────────────────────────────────────────
+             SETUP (one-time, ~5 minutes):
+             1. Go to https://elfsight.com → sign in (same account as reviews widget)
+             2. Search "Instagram Feed" or "TikTok Feed" → click "Use widget"
+             3. Connect your @popupkaraoke219 account
+             4. Set layout to Grid, 2–3 rows, dark theme (#060010 background)
+             5. Click "Add to website" → copy your unique app ID
+             6. Replace "YOUR-SOCIAL-WIDGET-ID-HERE" below with your actual ID
+             ═══════════════════════════════════════════════════════════ -->
+        <script src="https://static.elfsight.com/platform/platform.js" async></script>
+        <div class="elfsight-app-YOUR-SOCIAL-WIDGET-ID-HERE" data-elfsight-app-lazy></div>
+        <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://www.instagram.com/popupkaraoke219/" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">📸 Instagram</a>
+          <a href="https://www.tiktok.com/@popupkaraoke219" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">🎵 TikTok</a>
+          <a href="https://www.facebook.com/PopUpKaraoke219" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">👍 Facebook</a>
+        </div>
+      </div>
+    </section>
+
     <!-- SPOTIFY -->
     <section class="spotify-section" id="playlist">
       <div class="container">
@@ -1328,7 +1355,7 @@
           </div>
           <div class="join-karaoke-qr">
             <div class="qr-card">
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=ffffff&bgcolor=6d28d9&data=https://www.karafun.com/062552/" alt="Scan to join PopUp Karaoke queue" width="200" height="200" loading="lazy">
+              <img decoding="async" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=ffffff&bgcolor=6d28d9&data=https://www.karafun.com/062552/" alt="Scan to join PopUp Karaoke queue" width="200" height="200" loading="lazy">
               <p class="qr-label">Scan to join the queue</p>
             </div>
           </div>
@@ -1373,7 +1400,7 @@
       <button class="lightbox-close" type="button" aria-label="Close">✕</button>
       <button class="lightbox-prev" type="button" aria-label="Previous photo">‹</button>
       <button class="lightbox-next" type="button" aria-label="Next photo">›</button>
-      <img class="lightbox-img" id="lightboxImg" alt="">
+      <img decoding="async" loading="lazy" class="lightbox-img" id="lightboxImg" alt="">
       <div class="lightbox-caption" id="lightboxCaption"></div>
     </div>
 
