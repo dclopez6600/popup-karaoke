@@ -92,6 +92,27 @@
     .btn-cyan{background:linear-gradient(135deg,var(--neon-cyan),var(--purple-500));color:#060010}
     .btn-pay{background:linear-gradient(135deg,var(--neon-gold),var(--neon-pink));color:#1a0008}
     .hero-ctas{display:flex;flex-wrap:wrap;gap:0.85rem;justify-content:center;margin-bottom:2rem}
+
+    /* ── Two-step booking form ───────────────────── */
+    .form-progress{margin-bottom:1.5rem}
+    .form-progress-steps{display:flex;align-items:center;justify-content:center}
+    .fp-step{display:flex;flex-direction:column;align-items:center;gap:0.3rem;opacity:0.4;transition:opacity .3s}
+    .fp-step.fp-active{opacity:1}
+    .fp-num{width:2rem;height:2rem;border-radius:50%;background:var(--border);color:var(--text);font-weight:800;font-size:0.9rem;display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s}
+    .fp-step.fp-active .fp-num{background:var(--neon-pink);color:#fff}
+    .fp-step.fp-done .fp-num{background:#22c55e;color:#fff}
+    .fp-label{font-size:0.75rem;color:var(--text-mute);white-space:nowrap;text-transform:uppercase;letter-spacing:.05em}
+    .fp-connector{flex:0 0 3rem;height:2px;background:var(--border);margin:0 0.5rem 1.2rem}
+    .form-step-hint{color:var(--text-mute);font-size:0.88rem;margin:0 0 1.25rem;line-height:1.5}
+    .form-step{animation:fadeStepIn .25s ease}
+    @keyframes fadeStepIn{from{opacity:0;transform:translateX(8px)}to{opacity:1;transform:translateX(0)}}
+    /* ── Upgraded availability checker ──────────────── */
+    .avail-checker{background:var(--bg);border:1px solid var(--border);border-radius:0.875rem;padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+    .avail-header{display:flex;align-items:flex-start;gap:0.75rem;margin-bottom:1rem}
+    .avail-icon{font-size:1.5rem;flex-shrink:0;margin-top:0.1rem}
+    .avail-feedback-wrap{margin-top:0.75rem}
+    .avail-feedback.ok{background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);color:#bbf7d0;border-radius:0.5rem;padding:0.75rem 1rem;font-size:0.9rem;line-height:1.5}
+    .avail-feedback.warn{background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.25);color:#fde68a;border-radius:0.5rem;padding:0.75rem 1rem;font-size:0.9rem;line-height:1.5}
   </style>
 
   <!-- JSON-LD Structured Data: LocalBusiness + EntertainmentBusiness for rich Google results -->
@@ -1591,14 +1612,22 @@ booking@popupkaraoke.net | popupkaraoke.net">
           <h2>Ready to Book Your <span class="grad">Unforgettable Event?</span></h2>
           <p>Fill out the form and we'll get back to you fast. Or reach out directly using the contacts below.</p>
 
-          <div class="avail-checker">
-            <p class="avail-label">⚡ Check your date</p>
-            <p class="avail-hint">📅 Click the box below to open a calendar and select your event date</p>
-            <div class="avail-row">
-              <input type="date" id="availDate" class="avail-input" aria-label="Event date">
-              <button type="button" class="btn btn-primary avail-btn" id="availBtn">Check Availability</button>
+          <div class="avail-checker" id="availChecker">
+            <div class="avail-header">
+              <span class="avail-icon">📅</span>
+              <div>
+                <p class="avail-label">Check Your Date</p>
+                <p class="avail-hint">See if we're available before filling out the form</p>
+              </div>
             </div>
-            <p class="avail-feedback" id="availFeedback"></p>
+            <div class="avail-row">
+              <input type="date" id="availDate" class="avail-input" aria-label="Select your event date">
+              <button type="button" class="btn btn-primary avail-btn" id="availBtn">Check →</button>
+            </div>
+            <div class="avail-feedback-wrap" id="availFeedbackWrap" style="display:none;">
+              <p class="avail-feedback" id="availFeedback"></p>
+              <button type="button" class="btn btn-primary avail-cta-btn" id="availCtaBtn" style="display:none;margin-top:0.75rem;width:100%;">🎉 Request This Date →</button>
+            </div>
           </div>
 
           <div class="contact-methods">
@@ -1628,7 +1657,22 @@ booking@popupkaraoke.net | popupkaraoke.net">
             <a class="btn btn-deposit" href="https://square.link/u/CmsBTgrE?src=web" target="_blank" rel="noopener">💳 Pay $100 Deposit to Hold Your Date</a>
             <p class="deposit-note">Or fill out the form below and we'll reach out within 24 hours.</p>
           </div>
-          <!-- Posts to FormSubmit (no backend needed). -->
+          <!-- Two-step booking form — Posts to FormSubmit -->
+          <!-- Step progress indicator -->
+          <div class="form-progress" id="formProgress" aria-label="Form progress">
+            <div class="form-progress-steps">
+              <div class="fp-step fp-active" id="fp1">
+                <span class="fp-num">1</span>
+                <span class="fp-label">Your Info</span>
+              </div>
+              <div class="fp-connector"></div>
+              <div class="fp-step" id="fp2">
+                <span class="fp-num">2</span>
+                <span class="fp-label">Event Details</span>
+              </div>
+            </div>
+          </div>
+
           <form id="bookingForm" action="https://formsubmit.co/booking@popupkaraoke.net" method="POST" novalidate>
             <input type="hidden" name="_subject" value="New Booking Request from popupkaraoke.net">
             <input type="hidden" name="_template" value="table">
@@ -1637,23 +1681,19 @@ booking@popupkaraoke.net | popupkaraoke.net">
             <input type="hidden" name="_autoresponse" value="Hi! Thanks for reaching out to PopUp Karaoke — we got your booking request and will respond within 24 hours (usually much sooner). In the meantime, save our number 219.758.1313 in case you have any questions, and feel free to follow us on Facebook (PopUpKaraoke219), Instagram (@popupkaraoke219), or TikTok (@popupkaraoke219) for clips from past events. Talk soon! — Daniel, PopUp Karaoke (Veteran-Owned & Operated)">
             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
-            <div class="form-row">
+            <!-- STEP 1: Name, Email, Event Type -->
+            <div class="form-step" id="formStep1">
+              <p class="form-step-hint">Takes under 60 seconds — we do the rest.</p>
               <div class="form-group">
-                <label for="b-name">Your Name</label>
+                <label for="b-name">Your Name <span aria-hidden="true" style="color:var(--neon-pink)">*</span></label>
                 <input id="b-name" name="name" type="text" placeholder="John Doe" autocomplete="name" required>
               </div>
               <div class="form-group">
-                <label for="b-email">Email Address</label>
+                <label for="b-email">Email Address <span aria-hidden="true" style="color:var(--neon-pink)">*</span></label>
                 <input id="b-email" name="email" type="email" placeholder="john@example.com" autocomplete="email" required>
               </div>
-            </div>
-            <div class="form-row">
               <div class="form-group">
-                <label for="b-phone">Phone Number</label>
-                <input id="b-phone" name="phone" type="tel" placeholder="(219) 555-1234" autocomplete="tel">
-              </div>
-              <div class="form-group">
-                <label for="b-type">Event Type</label>
+                <label for="b-type">Event Type <span aria-hidden="true" style="color:var(--neon-pink)">*</span></label>
                 <select id="b-type" name="event_type" required>
                   <option value="">Select event type…</option>
                   <option>Birthday Party</option>
@@ -1664,11 +1704,21 @@ booking@popupkaraoke.net | popupkaraoke.net">
                   <option>Other</option>
                 </select>
               </div>
+              <button type="button" class="btn btn-primary submit-btn" id="formNextBtn">Next — Event Details →</button>
             </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="b-date">Event Date</label>
-                <input id="b-date" name="event_date" type="date">
+
+            <!-- STEP 2: Phone, Date, Guests, Message -->
+            <div class="form-step" id="formStep2" style="display:none;">
+              <p class="form-step-hint">Almost done! A few details help us give you an accurate quote.</p>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="b-phone">Phone Number</label>
+                  <input id="b-phone" name="phone" type="tel" placeholder="(219) 555-1234" autocomplete="tel">
+                </div>
+                <div class="form-group">
+                  <label for="b-date">Event Date</label>
+                  <input id="b-date" name="event_date" type="date">
+                </div>
               </div>
               <div class="form-group">
                 <label for="b-guests">Expected Guests</label>
@@ -1683,13 +1733,16 @@ booking@popupkaraoke.net | popupkaraoke.net">
                   <option>200+ guests</option>
                 </select>
               </div>
+              <div class="form-group">
+                <label for="b-msg">Tell Us About Your Event</label>
+                <textarea id="b-msg" name="message" placeholder="Venue address, start time, special requests, vibe you're going for…"></textarea>
+              </div>
+              <div class="urgency-badge">⚡ Booking fast for summer 2026 — only a few weekends left</div>
+              <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+                <button type="button" class="btn btn-secondary" id="formBackBtn" style="flex:0 0 auto;">← Back</button>
+                <button type="submit" class="btn btn-primary submit-btn" style="flex:1;">🎉 Send Booking Request</button>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="b-msg">Tell Us About Your Event</label>
-              <textarea id="b-msg" name="message" placeholder="Venue, special requests, vibe, etc."></textarea>
-            </div>
-            <div class="urgency-badge">⚡ Booking fast for summer 2026 — only a few weekends left</div>
-            <button type="submit" class="btn btn-primary submit-btn">🎉 Send Booking Request</button>
           </form>
         </div>
       </div>
@@ -2203,29 +2256,51 @@ booking@popupkaraoke.net | popupkaraoke.net">
     var btn=document.getElementById('availBtn');
     var dateInput=document.getElementById('availDate');
     var feedback=document.getElementById('availFeedback');
+    var feedbackWrap=document.getElementById('availFeedbackWrap');
+    var ctaBtn=document.getElementById('availCtaBtn');
     var bookDate=document.getElementById('b-date');
     if(!btn||!dateInput)return;
-    // Set min date to today and pre-fill with today's date so the field isn't blank on mobile
     var today=new Date();
     var mm=String(today.getMonth()+1).padStart(2,'0');
     var dd=String(today.getDate()).padStart(2,'0');
     var todayStr=today.getFullYear()+'-'+mm+'-'+dd;
     dateInput.min=todayStr;
-    dateInput.value=todayStr;
-    btn.addEventListener('click',function(){
+    // Booked-out dates (update these as needed — format: YYYY-MM-DD)
+    var bookedDates=[];
+    function isBooked(dateStr){return bookedDates.indexOf(dateStr)!==-1;}
+    function checkDate(){
       var val=dateInput.value;
-      if(!val){feedback.textContent='Please select a date first.';feedback.className='avail-feedback warn';return;}
+      if(!val){feedback.textContent='Please select a date first.';feedback.className='avail-feedback warn';if(feedbackWrap)feedbackWrap.style.display='block';if(ctaBtn)ctaBtn.style.display='none';return;}
       var d=new Date(val+'T12:00:00');
-      var dayOfWeek=d.getDay();
+      var dayOfWeek=d.getDay(); // 0=Sun,6=Sat
       var formatted=d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
-      // Pre-fill the booking form date
-      if(bookDate)bookDate.value=val;
-      feedback.className='avail-feedback ok';
-      feedback.textContent='Great! We\'ve pre-filled '+formatted+' in the form below. Send your request and we\'ll confirm availability within 24 hours!';
-      // Smooth scroll to form
-      var form=document.getElementById('bookingForm');
-      if(form)setTimeout(function(){form.scrollIntoView({behavior:'smooth',block:'center'});},400);
-    });
+      var isWeekend=(dayOfWeek===5||dayOfWeek===6||dayOfWeek===0);
+      if(feedbackWrap)feedbackWrap.style.display='block';
+      if(isBooked(val)){
+        feedback.className='avail-feedback warn';
+        feedback.textContent='😔 That date is already booked. Pick another date or give us a call — we may be able to work something out.';
+        if(ctaBtn)ctaBtn.style.display='none';
+      } else if(isWeekend){
+        feedback.className='avail-feedback ok';
+        feedback.innerHTML='<strong>🎉 That date looks open!</strong> '+formatted+' is a popular '+(['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][dayOfWeek])+' — weekend dates fill up fast. Lock it in before someone else does.';
+        if(bookDate)bookDate.value=val;
+        if(ctaBtn){ctaBtn.style.display='block';}
+      } else {
+        feedback.className='avail-feedback ok';
+        feedback.innerHTML='<strong>✅ That date looks open!</strong> We\'re available '+formatted+'. Fill out the form below to request your event.';
+        if(bookDate)bookDate.value=val;
+        if(ctaBtn){ctaBtn.style.display='block';}
+      }
+    }
+    btn.addEventListener('click',checkDate);
+    dateInput.addEventListener('change',function(){if(dateInput.value)checkDate();});
+    if(ctaBtn){
+      ctaBtn.addEventListener('click',function(){
+        var form=document.getElementById('bookingForm');
+        if(form)form.scrollIntoView({behavior:'smooth',block:'center'});
+        setTimeout(function(){var nameF=document.getElementById('b-name');if(nameF)nameF.focus();},600);
+      });
+    }
   })();</script>
 
   <!-- TICKER DUPLICATION (infinite loop) -->
@@ -2239,7 +2314,44 @@ booking@popupkaraoke.net | popupkaraoke.net">
   <!-- Back to top -->
   <script>(function(){var btn=document.getElementById('backToTop');if(!btn)return;window.addEventListener('scroll',function(){if(window.scrollY>400){btn.classList.add('visible');}else{btn.classList.remove('visible');}},{passive:true});btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});})();</script>
 
-  <script>(function(){'use strict';var yr=document.getElementById('year');if(yr)yr.textContent=new Date().getFullYear();var nav=document.getElementById('nav');function onScroll(){if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');}window.addEventListener('scroll',onScroll,{passive:true});onScroll();var navToggle=document.getElementById('navToggle');var mobileOverlay=document.getElementById('mobileOverlay');function closeMobileNav(){if(mobileOverlay)mobileOverlay.classList.remove('open');if(navToggle)navToggle.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open');if(mobileOverlay)mobileOverlay.setAttribute('aria-hidden','true');}if(navToggle&&mobileOverlay){navToggle.addEventListener('click',function(){var open=mobileOverlay.classList.toggle('open');navToggle.setAttribute('aria-expanded',open?'true':'false');document.body.classList.toggle('menu-open',open);mobileOverlay.setAttribute('aria-hidden',open?'false':'true');});mobileOverlay.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){closeMobileNav();});});mobileOverlay.addEventListener('click',function(e){if(e.target===mobileOverlay)closeMobileNav();});}document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mobileOverlay&&mobileOverlay.classList.contains('open'))closeMobileNav();});var mobileOverlayClose=document.getElementById('mobileOverlayClose');if(mobileOverlayClose)mobileOverlayClose.addEventListener('click',closeMobileNav);var openers=document.querySelectorAll('[data-open-modal]');var closers=document.querySelectorAll('[data-close-modal]');function openModal(id){var m=document.getElementById(id);if(!m)return;m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';var firstInput=m.querySelector('input, textarea, select, button');if(firstInput)setTimeout(function(){firstInput.focus();},50);}function closeAllModals(){document.querySelectorAll('.modal').forEach(function(m){m.setAttribute('aria-hidden','true');});document.body.style.overflow='';}openers.forEach(function(b){b.addEventListener('click',function(){openModal(b.getAttribute('data-open-modal'));});});closers.forEach(function(b){b.addEventListener('click',closeAllModals);});document.querySelectorAll('.modal').forEach(function(m){m.addEventListener('click',function(e){if(e.target===m)closeAllModals();});});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAllModals();});if('IntersectionObserver'in window){var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}try{if(location.search.indexOf('sent=1')!==-1){alert("Thanks! We got your request and will be in touch soon. 🎤");if(history.replaceState)history.replaceState({},'',location.pathname);}}catch(e){}function validateField(field){var msg='';var v=(field.value||'').trim();if(field.required&&!v){msg='This field is required.';}else if(field.type==='email'&&v&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){msg='Please enter a valid email address.';}else if(field.type==='tel'&&v&&v.replace(/\D/g,'').length<7){msg='Please enter a valid phone number.';}else if(field.tagName==='SELECT'&&field.required&&!v){msg='Please select an option.';}var errorEl=field.parentElement.querySelector('.form-error');if(msg){field.classList.add('invalid');field.classList.remove('valid');field.setAttribute('aria-invalid','true');if(errorEl){errorEl.textContent=msg;errorEl.classList.add('show');}return false;}else{field.classList.remove('invalid');if(v)field.classList.add('valid');field.setAttribute('aria-invalid','false');if(errorEl)errorEl.classList.remove('show');return true;}}function setupForm(form){if(!form)return;Array.prototype.forEach.call(form.querySelectorAll('.form-group'),function(g){if(g.querySelector('.form-error'))return;var err=document.createElement('div');err.className='form-error';err.setAttribute('role','alert');g.appendChild(err);});var fields=form.querySelectorAll('input:not([type=hidden]):not([name=_honey]), select, textarea');Array.prototype.forEach.call(fields,function(f){f.addEventListener('blur',function(){validateField(f);});f.addEventListener('input',function(){if(f.classList.contains('invalid'))validateField(f);});});form.addEventListener('submit',function(e){var allValid=true;Array.prototype.forEach.call(fields,function(f){if(!validateField(f))allValid=false;});if(!allValid){e.preventDefault();var firstInvalid=form.querySelector('.invalid');if(firstInvalid)firstInvalid.focus();return;}var btn=form.querySelector('button[type="submit"]');if(btn){btn.classList.add('submitting');btn.dataset.originalText=btn.innerHTML;btn.innerHTML='Sending…';btn.setAttribute('disabled','disabled');}});}setupForm(document.getElementById('bookingForm'));setupForm(document.getElementById('songForm'));window.dataLayer=window.dataLayer||[];function trackEvent(eventName,fbEvent,params){params=params||{};try{window.dataLayer.push(Object.assign({event:eventName},params));}catch(e){}try{if(typeof window.fbq==='function'){window.fbq('track',fbEvent,params);}}catch(e){}}var bookingForm=document.getElementById('bookingForm');if(bookingForm){bookingForm.addEventListener('submit',function(){trackEvent('lead_submit','Lead',{content_name:'Booking Request',content_category:'booking',value:0,currency:'USD'});});}var songForm=document.getElementById('songForm');if(songForm){songForm.addEventListener('submit',function(){trackEvent('lead_submit','Lead',{content_name:'Song Request',content_category:'song_request',value:0,currency:'USD'});});}Array.prototype.forEach.call(document.querySelectorAll('a[href*="square.link"]'),function(a){a.addEventListener('click',function(){var src='unknown';try{var u=new URL(a.href);src=u.searchParams.get('src')||'unknown';}catch(e){}trackEvent('initiate_checkout','InitiateCheckout',{content_name:'Square Payment',payment_method:'square',link_source:src,currency:'USD'});});});Array.prototype.forEach.call(document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]'),function(a){a.addEventListener('click',function(){var kind=a.getAttribute('href').indexOf('tel:')===0?'phone':'email';trackEvent('contact_click','Contact',{content_name:kind==='phone'?'Call':'Email',contact_method:kind});});});})();</script>
+  <script>(function(){'use strict';var yr=document.getElementById('year');if(yr)yr.textContent=new Date().getFullYear();var nav=document.getElementById('nav');function onScroll(){if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');}window.addEventListener('scroll',onScroll,{passive:true});onScroll();var navToggle=document.getElementById('navToggle');var mobileOverlay=document.getElementById('mobileOverlay');function closeMobileNav(){if(mobileOverlay)mobileOverlay.classList.remove('open');if(navToggle)navToggle.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open');if(mobileOverlay)mobileOverlay.setAttribute('aria-hidden','true');}if(navToggle&&mobileOverlay){navToggle.addEventListener('click',function(){var open=mobileOverlay.classList.toggle('open');navToggle.setAttribute('aria-expanded',open?'true':'false');document.body.classList.toggle('menu-open',open);mobileOverlay.setAttribute('aria-hidden',open?'false':'true');});mobileOverlay.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){closeMobileNav();});});mobileOverlay.addEventListener('click',function(e){if(e.target===mobileOverlay)closeMobileNav();});}document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mobileOverlay&&mobileOverlay.classList.contains('open'))closeMobileNav();});var mobileOverlayClose=document.getElementById('mobileOverlayClose');if(mobileOverlayClose)mobileOverlayClose.addEventListener('click',closeMobileNav);var openers=document.querySelectorAll('[data-open-modal]');var closers=document.querySelectorAll('[data-close-modal]');function openModal(id){var m=document.getElementById(id);if(!m)return;m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';var firstInput=m.querySelector('input, textarea, select, button');if(firstInput)setTimeout(function(){firstInput.focus();},50);}function closeAllModals(){document.querySelectorAll('.modal').forEach(function(m){m.setAttribute('aria-hidden','true');});document.body.style.overflow='';}openers.forEach(function(b){b.addEventListener('click',function(){openModal(b.getAttribute('data-open-modal'));});});closers.forEach(function(b){b.addEventListener('click',closeAllModals);});document.querySelectorAll('.modal').forEach(function(m){m.addEventListener('click',function(e){if(e.target===m)closeAllModals();});});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAllModals();});if('IntersectionObserver'in window){var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}try{if(location.search.indexOf('sent=1')!==-1){alert("Thanks! We got your request and will be in touch soon. 🎤");if(history.replaceState)history.replaceState({},'',location.pathname);}}catch(e){}function validateField(field){var msg='';var v=(field.value||'').trim();if(field.required&&!v){msg='This field is required.';}else if(field.type==='email'&&v&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){msg='Please enter a valid email address.';}else if(field.type==='tel'&&v&&v.replace(/\D/g,'').length<7){msg='Please enter a valid phone number.';}else if(field.tagName==='SELECT'&&field.required&&!v){msg='Please select an option.';}var errorEl=field.parentElement.querySelector('.form-error');if(msg){field.classList.add('invalid');field.classList.remove('valid');field.setAttribute('aria-invalid','true');if(errorEl){errorEl.textContent=msg;errorEl.classList.add('show');}return false;}else{field.classList.remove('invalid');if(v)field.classList.add('valid');field.setAttribute('aria-invalid','false');if(errorEl)errorEl.classList.remove('show');return true;}}function setupForm(form){if(!form)return;Array.prototype.forEach.call(form.querySelectorAll('.form-group'),function(g){if(g.querySelector('.form-error'))return;var err=document.createElement('div');err.className='form-error';err.setAttribute('role','alert');g.appendChild(err);});var fields=form.querySelectorAll('input:not([type=hidden]):not([name=_honey]), select, textarea');Array.prototype.forEach.call(fields,function(f){f.addEventListener('blur',function(){validateField(f);});f.addEventListener('input',function(){if(f.classList.contains('invalid'))validateField(f);});});form.addEventListener('submit',function(e){var allValid=true;Array.prototype.forEach.call(fields,function(f){if(!validateField(f))allValid=false;});if(!allValid){e.preventDefault();var firstInvalid=form.querySelector('.invalid');if(firstInvalid)firstInvalid.focus();return;}var btn=form.querySelector('button[type="submit"]');if(btn){btn.classList.add('submitting');btn.dataset.originalText=btn.innerHTML;btn.innerHTML='Sending…';btn.setAttribute('disabled','disabled');}});}// Two-step booking form
+(function(){
+  var step1=document.getElementById('formStep1');
+  var step2=document.getElementById('formStep2');
+  var fp1=document.getElementById('fp1');
+  var fp2=document.getElementById('fp2');
+  var nextBtn=document.getElementById('formNextBtn');
+  var backBtn=document.getElementById('formBackBtn');
+  if(!step1||!step2||!nextBtn||!backBtn)return;
+  function goStep2(){
+    // Validate step 1 fields
+    var nameF=document.getElementById('b-name');
+    var emailF=document.getElementById('b-email');
+    var typeF=document.getElementById('b-type');
+    var valid=true;
+    [nameF,emailF,typeF].forEach(function(f){if(!validateField(f))valid=false;});
+    if(!valid)return;
+    step1.style.display='none';
+    step2.style.display='block';
+    if(fp1){fp1.classList.remove('fp-active');fp1.classList.add('fp-done');fp1.querySelector('.fp-num').textContent='✓';}
+    if(fp2){fp2.classList.add('fp-active');}
+    // Pre-fill date from availability checker if set
+    var availDate=document.getElementById('availDate');
+    var bookDate=document.getElementById('b-date');
+    if(availDate&&bookDate&&availDate.value&&!bookDate.value)bookDate.value=availDate.value;
+    step2.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+  function goStep1(){
+    step2.style.display='none';
+    step1.style.display='block';
+    if(fp1){fp1.classList.add('fp-active');fp1.classList.remove('fp-done');fp1.querySelector('.fp-num').textContent='1';}
+    if(fp2){fp2.classList.remove('fp-active');}
+    step1.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+  nextBtn.addEventListener('click',goStep2);
+  backBtn.addEventListener('click',goStep1);
+})();
+setupForm(document.getElementById('bookingForm'));setupForm(document.getElementById('songForm'));window.dataLayer=window.dataLayer||[];function trackEvent(eventName,fbEvent,params){params=params||{};try{window.dataLayer.push(Object.assign({event:eventName},params));}catch(e){}try{if(typeof window.fbq==='function'){window.fbq('track',fbEvent,params);}}catch(e){}}var bookingForm=document.getElementById('bookingForm');if(bookingForm){bookingForm.addEventListener('submit',function(){trackEvent('lead_submit','Lead',{content_name:'Booking Request',content_category:'booking',value:0,currency:'USD'});});}var songForm=document.getElementById('songForm');if(songForm){songForm.addEventListener('submit',function(){trackEvent('lead_submit','Lead',{content_name:'Song Request',content_category:'song_request',value:0,currency:'USD'});});}Array.prototype.forEach.call(document.querySelectorAll('a[href*="square.link"]'),function(a){a.addEventListener('click',function(){var src='unknown';try{var u=new URL(a.href);src=u.searchParams.get('src')||'unknown';}catch(e){}trackEvent('initiate_checkout','InitiateCheckout',{content_name:'Square Payment',payment_method:'square',link_source:src,currency:'USD'});});});Array.prototype.forEach.call(document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]'),function(a){a.addEventListener('click',function(){var kind=a.getAttribute('href').indexOf('tel:')===0?'phone':'email';trackEvent('contact_click','Contact',{content_name:kind==='phone'?'Call':'Email',contact_method:kind});});});})();</script>
 
   <!-- PWA Service Worker Registration -->
   <script>if('serviceWorker'in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}</script>
