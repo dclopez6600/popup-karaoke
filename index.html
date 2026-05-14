@@ -63,7 +63,9 @@
 
   <!-- Performance: preconnect + preload -->
   <link rel="preload" as="image" href="puklogo.webp" type="image/webp" fetchpriority="high">
+  <link rel="preload" as="image" href="highlight-poster.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="style" href="style.css">
+  <link rel="manifest" href="/manifest.json">
 
   <!-- Critical CSS — inlined for instant first paint while style.css loads -->
   <style>
@@ -557,6 +559,50 @@
       "target": "https://popupkaraoke.net/#highlight",
       "startOffset-input": "required name=startOffset"
     }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "PopUp Karaoke",
+    "review": [
+      {
+        "@type": "Review",
+        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+        "author": {"@type": "Person", "name": "Jesse G."},
+        "reviewBody": "Danny is absolutely phenomenal — the best karaoke DJ in the Chicagoland area. Nobody has ever balanced their sound equipment as well as Danny does.",
+        "datePublished": "2024-06-01"
+      },
+      {
+        "@type": "Review",
+        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+        "author": {"@type": "Person", "name": "Sonal P."},
+        "reviewBody": "Daniel is amazing at what he does — DJ turntables, top-notch karaoke screen, lights, and 61,000 songs. He turns any venue into a party.",
+        "datePublished": "2024-08-01"
+      },
+      {
+        "@type": "Review",
+        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+        "author": {"@type": "Person", "name": "Gigi M."},
+        "reviewBody": "Easy to use, attentive leading up to the event, and provided everything you could need. I'm already thinking of other parties I can throw just to use them!",
+        "datePublished": "2024-09-01"
+      },
+      {
+        "@type": "Review",
+        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+        "author": {"@type": "Person", "name": "Jessica R."},
+        "reviewBody": "Daniel is amazing — he turned our party into an event everyone still talks about!",
+        "datePublished": "2024-07-01"
+      },
+      {
+        "@type": "Review",
+        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+        "author": {"@type": "Person", "name": "Amanda L."},
+        "reviewBody": "Book with PopUp Karaoke — 61,000 songs, pro setup, and a host who keeps the energy high all night.",
+        "datePublished": "2024-10-01"
+      }
+    ]
   }
   </script>
 </head>
@@ -1652,6 +1698,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
               <div>
                 <p class="avail-label">Check Your Date</p>
                 <p class="avail-hint">See if we're available before filling out the form</p>
+                <p class="avail-urgency" id="availUrgency" style="display:none;font-size:0.78rem;font-weight:600;color:#fb923c;margin-top:0.25rem;"></p>
               </div>
             </div>
             <div class="avail-row">
@@ -2346,6 +2393,37 @@ booking@popupkaraoke.net | popupkaraoke.net">
     }
   })();</script>
 
+
+
+  <!-- URGENCY SIGNAL — real date math -->
+  <script>(function(){
+    var el=document.getElementById('availUrgency');
+    if(!el)return;
+    var now=new Date();
+    var month=now.getMonth();
+    var year=now.getFullYear();
+    var monthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    // Count remaining Fri/Sat/Sun in current month
+    var lastDay=new Date(year,month+1,0).getDate();
+    var remaining=0;
+    for(var d=now.getDate();d<=lastDay;d++){
+      var day=new Date(year,month,d).getDay();
+      if(day===5||day===6||day===0)remaining++;
+    }
+    // Also count next month's to decide messaging
+    var nextMonth=(month+1)%12;
+    var nextMonthName=monthNames[nextMonth];
+    var msg='';
+    if(remaining<=4){
+      msg='⚡ Only '+remaining+' weekend days left in '+monthNames[month]+'!';
+    } else if(remaining<=8){
+      msg='📅 '+remaining+' weekend dates still open in '+monthNames[month]+' — check yours now.';
+    } else {
+      msg='📅 '+nextMonthName+' weekends filling up — lock in your date early.';
+    }
+    el.textContent=msg;
+    el.style.display='block';
+  })();</script>
   <!-- TICKER DUPLICATION (infinite loop) -->
   <script>(function(){
     var inner=document.getElementById('tickerInner');
@@ -2520,6 +2598,13 @@ setupForm(document.getElementById('bookingForm'));setupForm(document.getElementB
       if(e.key==='Escape' && modal.style.display==='flex') showBye();
     });
   })();</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js').catch(function(){});
+    });
+  }
+</script>
 
 </body>
 </html>
