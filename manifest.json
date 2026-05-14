@@ -1,15 +1,14 @@
 {
   "name": "PopUp Karaoke",
   "short_name": "PopUp Karaoke",
-  "description": "Mobile karaoke DJ for NW Indiana & Chicagoland — weddings, birthdays, corporate events, bars & breweries.",
+  "description": "Veteran-owned mobile karaoke for NW Indiana & Chicagoland — weddings, corporate, birthdays, bars.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#060010",
-  "theme_color": "#7c3aed",
   "orientation": "portrait-primary",
-  "scope": "/",
+  "background_color": "#0a0a0f",
+  "theme_color": "#7c3aed",
   "lang": "en-US",
-  "categories": ["entertainment", "music", "events"],
+  "categories": ["entertainment", "events"],
   "icons": [
     {
       "src": "/icon-192.png",
@@ -24,19 +23,11 @@
       "purpose": "any maskable"
     }
   ],
-  "screenshots": [
-    {
-      "src": "/og-image.png",
-      "sizes": "1200x630",
-      "type": "image/png",
-      "label": "PopUp Karaoke homepage"
-    }
-  ],
   "shortcuts": [
     {
       "name": "Book Now",
       "short_name": "Book",
-      "description": "Request a karaoke booking",
+      "description": "Book your karaoke event",
       "url": "/#contact",
       "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     },
