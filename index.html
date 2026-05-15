@@ -735,28 +735,8 @@
  <p class="hero-song-link">Want to see if we have your song?
  <button type="button" class="hero-song-link-btn" data-open-modal="songRequest" aria-haspopup="dialog">Search our song list →</button>
  </p>
-
- <div class="proof" aria-label="Highlights">
- <a class="proof-item proof-google-link" href="https://maps.app.goo.gl/k6X7ETF24b8YAou7A?g_st=ic" target="_blank" rel="noopener" aria-label="See our Google reviews">
- <span class="proof-stars" aria-label="5 stars">★★★★★</span>
- <span class="proof-num" data-count="5.0" data-suffix="" data-decimals="1" data-duration="1800">5.0</span>
- <span class="proof-label">Google · 50+ Reviews ↗</span>
- </a>
- <div class="proof-item">
- <span class="proof-num" data-count="61" data-suffix="K+" data-decimals="0" data-duration="2200">61K+</span>
- <span class="proof-label">Songs Available</span>
- </div>
- <div class="proof-item">
- <span class="proof-num" data-count="200" data-suffix="+" data-decimals="0" data-duration="2000">200+</span>
- <span class="proof-label">Events Hosted</span>
- </div>
- <div class="proof-item">
- <span class="proof-num">Since 2020</span>
- <span class="proof-label">NW IN &amp; Chicago</span>
- </div>
- </div>
- </div>
- </section>
+      </div>
+    </section>
 
  <section class="video-reel-section" id="highlight" aria-label="Event highlight video">
  <div class="container">
@@ -792,6 +772,32 @@
  </div>
  </div>
  </section>
+    <!-- PROOF STRIP — moved from hero -->
+    <section class="proof-strip-section" aria-label="At a glance">
+      <div class="container">
+        <div class="proof proof-strip" aria-label="Highlights">
+          <a class="proof-item proof-google-link" href="https://maps.app.goo.gl/k6X7ETF24b8YAou7A?g_st=ic" target="_blank" rel="noopener" aria-label="See our Google reviews">
+            <span class="proof-stars" aria-label="5 stars">★★★★★</span>
+            <span class="proof-num" data-count="5.0" data-suffix="" data-decimals="1" data-duration="1800">5.0</span>
+            <span class="proof-label">Google · 50+ Reviews ↗</span>
+          </a>
+          <div class="proof-item">
+            <span class="proof-num" data-count="61" data-suffix="K+" data-decimals="0" data-duration="2200">61K+</span>
+            <span class="proof-label">Songs Available</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-num" data-count="200" data-suffix="+" data-decimals="0" data-duration="2000">200+</span>
+            <span class="proof-label">Events Hosted</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-num">Since 2020</span>
+            <span class="proof-label">NW IN &amp; Chicago</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
 
 
  <!-- SERVICES -->
@@ -1119,7 +1125,7 @@
 
  <!-- Lightbox -->
  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Photo viewer">
- <button class="lightbox-close" type="button" aria-label="Close"></button>
+ <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
  <button class="lightbox-prev" type="button" aria-label="Previous photo">‹</button>
  <button class="lightbox-next" type="button" aria-label="Next photo">›</button>
  <img decoding="async" loading="lazy" class="lightbox-img" id="lightboxImg" alt="">
@@ -1599,7 +1605,7 @@
  </div>
  </div>
  <div class="foot-bottom">
- <p>© <span id="year">2026</span>PopUp Karaoke, LLC. All rights reserved.</p>
+ <p>© <span id="year">2026</span> PopUp Karaoke, LLC. All rights reserved.</p>
  <div class="foot-links">
  <a href="/privacy.html">Privacy</a>
  <a href="/terms.html">Terms</a>

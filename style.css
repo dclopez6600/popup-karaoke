@@ -229,3 +229,63 @@ a,button,input,select,textarea,[role="button"],[tabindex]{cursor:url('mic-cursor
   gap: 0.5rem !important;
   white-space: nowrap;
 }
+
+/* ── FINAL POLISH FIXES ─────────────────────────────────────── */
+
+/* Card hover differentiation: services keep pink, what's-included gets cyan */
+.wi-item {
+  transition: transform 0.28s, border-color 0.28s, box-shadow 0.28s !important;
+}
+.wi-item:hover,
+.wi-item:focus-within {
+  transform: translateY(-5px) !important;
+  border-color: var(--neon-cyan) !important;
+  box-shadow: 0 8px 32px rgba(0,245,255,0.22), 0 0 0 1px rgba(0,245,255,0.15) inset !important;
+}
+
+/* Proof strip — horizontal version moved out of hero */
+.proof-strip-section {
+  padding: clamp(2rem, 4vw, 3rem) 0 0 !important;
+}
+.proof.proof-strip {
+  margin: 0 auto;
+  max-width: 1000px;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 1.25rem 1.5rem;
+}
+@media (max-width: 720px) {
+  .proof.proof-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Tighten hero — now that proof is out, hero can shrink */
+.hero.hero-photo {
+  min-height: 85vh !important;
+  min-height: 85dvh !important;
+  padding-bottom: clamp(2.5rem, 5vh, 4rem) !important;
+}
+@media (max-height: 760px) and (min-width: 720px) {
+  .hero.hero-photo {
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+  }
+  .hero-mini-logo {
+    width: 48px !important;
+    height: 48px !important;
+    margin-bottom: 0.75rem !important;
+  }
+}
+
+/* Make sure lightbox × is visible and properly sized */
+.lightbox-close {
+  font-size: 1.8rem !important;
+  font-weight: 300 !important;
+  line-height: 1 !important;
+}
+.lightbox-prev,
+.lightbox-next {
+  font-size: 1.8rem !important;
+  line-height: 1 !important;
+}
