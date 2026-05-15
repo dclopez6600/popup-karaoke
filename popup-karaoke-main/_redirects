@@ -1,0 +1,58 @@
+# Netlify Redirects — PopUp Karaoke
+
+# ── Blog directory ──────────────────────────────────────
+/blog                     /blog/index.html          301
+/blog/                    /blog/index.html          301
+
+# ── Trailing-slash normalization (non-blog pages) ───────
+/about/                   /about.html               301
+/faq/                     /faq.html                 301
+/wedding-karaoke/         /wedding-karaoke.html     301
+/corporate-karaoke/       /corporate-karaoke.html   301
+/birthday-karaoke/        /birthday-karaoke.html    301
+/holiday-party-karaoke/   /holiday-party-karaoke.html 301
+/bachelorette-karaoke/    /bachelorette-karaoke.html  301
+/success-stories/         /success-stories.html     301
+/karaoke-dj-cost/         /karaoke-dj-cost.html     301
+/thank-you/               /thank-you.html           301
+/what-to-expect/          /what-to-expect.html      301
+/song-request/            /song-request.html        301
+
+# ── City page trailing slashes ───────────────────────────
+/chicago-karaoke/         /chicago-karaoke.html     301
+/northwest-indiana-karaoke/ /northwest-indiana-karaoke.html 301
+/hammond-karaoke/         /hammond-karaoke.html     301
+/gary-karaoke/            /gary-karaoke.html        301
+/griffith-karaoke/        /griffith-karaoke.html    301
+/highland-karaoke/        /highland-karaoke.html    301
+/munster-karaoke/         /munster-karaoke.html     301
+/merrillville-karaoke/    /merrillville-karaoke.html 301
+/schererville-karaoke/    /schererville-karaoke.html 301
+/portage-karaoke/         /portage-karaoke.html     301
+/valparaiso-karaoke/      /valparaiso-karaoke.html  301
+/crown-point-karaoke/     /crown-point-karaoke.html 301
+/lansing-karaoke/         /lansing-karaoke.html     301
+/calumet-city-karaoke/    /calumet-city-karaoke.html 301
+
+# ── Common typos / alternate slugs ──────────────────────
+/bachelorette              /bachelorette-karaoke.html 301
+/bachelorette/             /bachelorette-karaoke.html 301
+/holiday                   /holiday-party-karaoke.html 301
+/holiday/                  /holiday-party-karaoke.html 301
+/wedding                   /wedding-karaoke.html    301
+/corporate                 /corporate-karaoke.html  301
+/birthday                  /birthday-karaoke.html   301
+/pricing                   /karaoke-dj-cost.html    301
+/price                     /karaoke-dj-cost.html    301
+/cost                      /karaoke-dj-cost.html    301
+/reviews                   /#reviews                301
+/contact                   /#contact                301
+/book                      /#contact                301
+/booking                   /#contact                301
+
+# ── Old blog slugs that may exist in the wild ───────────
+/blog/karaoke-dj-cost      /blog/how-much-does-a-karaoke-dj-cost.html 301
+/blog/cost                 /blog/how-much-does-a-karaoke-dj-cost.html 301
+
+# ── Catch-all 404 → custom 404 page ─────────────────────
+/*                        /404.html                 404
