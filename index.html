@@ -62,7 +62,8 @@
  <link rel="dns-prefetch" href="https://connect.facebook.net">
 
  <!-- Performance: preconnect + preload -->
- <link rel="preload" as="image" href="puklogo.webp" type="image/webp" fetchpriority="high">
+ <link rel="preload" as="image" href="photos/18thstbrewery-6.webp" type="image/webp" fetchpriority="high" imagesrcset="photos/18thstbrewery-6.webp" media="(min-width: 0px)">
+  <link rel="preload" as="image" href="puklogo.webp" type="image/webp">
  <link rel="preload" as="image" href="highlight-poster.webp" type="image/webp" fetchpriority="high">
  <link rel="preload" as="style" href="style.css">
  <link rel="manifest" href="/manifest.json">
@@ -682,7 +683,7 @@
  <li><a href="#services">Services</a></li>
  <li><a href="#events">Events</a></li>
  <li><a href="song-request.html">Songs</a></li>
- <li><a href="#about">About</a></li>
+ <li><a href="about.html">About</a></li>
  <li class="mob-section-label"><span>Areas We Serve</span></li>
  <li><a href="chicago-karaoke.html">Chicago</a></li>
  <li><a href="northwest-indiana-karaoke.html">NW Indiana</a></li>
@@ -708,9 +709,13 @@
  <span class="float-emoji" aria-hidden="true">🎙️</span>
 
  <div class="hero-inner">
+ <picture>
+ <source srcset="puklogo.webp" type="image/webp">
+ <img class="hero-mini-logo" src="puklogo.png" alt="PopUp Karaoke" width="64" height="64" loading="eager" decoding="async">
+ </picture>
  <div class="hero-badges">
  <span class="hero-badge">★★★★★ 5.0 on Google · 50+ Reviews</span>
- <span class="hero-badge veteran-badge"><span class="vet-flag" aria-hidden="true">🇺🇸</span>Veteran-Owned &amp; Operated</span>
+ <span class="hero-badge veteran-badge"><span class="vet-flag" aria-hidden="true">🇺🇸</span> Veteran-Owned &amp; Operated</span>
  </div>
 
  <h1 id="hero-title" class="hero-h1-redesign">
@@ -761,10 +766,10 @@
  <h2 class="section-title">The <span class="grad">Real Deal</span></h2>
  <p class="video-reel-desc">This is what a PopUp Karaoke night actually looks like — the crowd, the energy, the lights, the moment. No staged demos. No stock footage. Just real people having the time of their lives.</p>
  <div class="video-trust-row">
- <span>Professional host &amp; MC</span>
- <span>Concert-quality sound</span>
- <span>Stage lighting</span>
- <span> 61,000+ songs</span>
+ <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--neon-cyan);flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> Professional host &amp; MC</span>
+ <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--neon-cyan);flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> Concert-quality sound</span>
+ <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--neon-cyan);flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> Stage lighting</span>
+ <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--neon-cyan);flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>  61,000+ songs</span>
  </div>
  <a class="btn btn-primary" href="#contact" style="margin-top:1.5rem;display:inline-block;">Book Your Event</a>
  </div>
@@ -798,7 +803,7 @@
  </div>
  <div class="services-grid">
  <div class="service reveal">
- <span class="service-ico" aria-hidden="true"></span>
+ <span class="service-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-8"/><rect x="3" y="11" width="18" height="4" rx="1"/><path d="M12 7v4M8 7v4M16 7v4"/><circle cx="12" cy="4" r="1.2" fill="currentColor"/><circle cx="8" cy="4" r="1.2" fill="currentColor"/><circle cx="16" cy="4" r="1.2" fill="currentColor"/></svg></span>
  <h3>Birthday Parties</h3>
  <p>Make any age unforgettable with a live karaoke celebration — from sweet sixteens to milestone birthdays.</p>
  <ul class="service-features">
@@ -809,7 +814,7 @@
  </ul>
  </div>
  <div class="service reveal">
- <span class="service-ico" aria-hidden="true"></span>
+ <span class="service-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="14" r="6"/><circle cx="15" cy="14" r="6"/><path d="M12 8l-2-4M12 8l2-4"/><circle cx="10" cy="4" r="0.8" fill="currentColor"/><circle cx="14" cy="4" r="0.8" fill="currentColor"/></svg></span>
  <h3>Weddings</h3>
  <p>Add a crowd-pleasing entertainment moment that gets every generation on their feet.</p>
  <ul class="service-features">
@@ -820,7 +825,7 @@
  </ul>
  </div>
  <div class="service reveal">
- <span class="service-ico" aria-hidden="true"></span>
+ <span class="service-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="6" width="16" height="14" rx="1"/><path d="M9 10v.01M15 10v.01M9 14v.01M15 14v.01M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></span>
  <h3>Corporate Events</h3>
  <p>Break the ice, boost morale, and build real team bonds — karaoke is the team activity everyone actually enjoys.</p>
  <ul class="service-features">
@@ -831,7 +836,7 @@
  </ul>
  </div>
  <div class="service reveal">
- <span class="service-ico" aria-hidden="true"></span>
+ <span class="service-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21h12M9 21V11M15 21V11M5 4h14l-1.5 7h-11z"/><path d="M9 7h6"/></svg></span>
  <h3>Bars &amp; Breweries</h3>
  <p>Turn a slow Tuesday into a packed house. Recurring karaoke residencies build loyal crowds and drive repeat business.</p>
  <ul class="service-features">
@@ -860,42 +865,42 @@
  </div>
  <div class="wi-grid reveal">
  <div class="wi-item">
- <span class="wi-ico" aria-hidden="true"></span>
+ <span class="wi-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3,10 7,10 12,5 12,19 7,14 3,14" fill="currentColor"/><path d="M16 8a5 5 0 0 1 0 8M18.5 5.5a9 9 0 0 1 0 13"/></svg></span>
  <h4>Concert-Quality Sound</h4>
  <p>Pro speakers that fill any room — from a backyard to a ballroom.</p>
  </div>
  <div class="wi-item">
- <span class="wi-ico" aria-hidden="true"></span>
+ <span class="wi-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v4M9 21h6"/></svg></span>
  <h4>Wireless Microphones</h4>
  <p>Multiple wireless mics so the crowd can share the spotlight.</p>
  </div>
  <div class="wi-item">
- <span class="wi-ico" aria-hidden="true"></span>
+ <span class="wi-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2v1M5 5l.7.7M19 5l-.7.7M12 14a5 5 0 0 0 5-5 5 5 0 1 0-10 0 5 5 0 0 0 5 5z"/></svg></span>
  <h4>Stage Lighting</h4>
  <p>Dynamic LED lighting that transforms any space into a stage.</p>
  </div>
  <div class="wi-item">
- <span class="wi-ico" aria-hidden="true"></span>
+ <span class="wi-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="11" rx="3" fill="currentColor" opacity="0.2"/><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v4M8 21h8"/></svg></span>
  <h4>Pro Host &amp; MC</h4>
  <p>An experienced host who keeps energy high and the crowd engaged all night.</p>
  </div>
  <div class="wi-item">
- <span class="wi-ico" aria-hidden="true"></span>
+ <span class="wi-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="1"/><path d="M8 22h8M12 18v4M7 9h10M7 13h6"/></svg></span>
  <h4>Lyrics Screen</h4>
  <p>Large display so every singer can see the words — no excuses not to sing.</p>
  </div>
  <div class="wi-item">
- <span class="wi-ico" aria-hidden="true"></span>
+ <span class="wi-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/><circle cx="12" cy="9" r="2.5"/></svg></span>
  <h4>Social Media Content</h4>
  <p>We capture and post highlights from your event at no extra charge.</p>
  </div>
  <div class="wi-item">
- <span class="wi-ico" aria-hidden="true"></span>
+ <span class="wi-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><path d="M9 18V5l12-2v13"/></svg></span>
  <h4>61,000+ Songs</h4>
  <p>Pop, hip-hop, country, rock, Spanish, oldies — every genre, every era.</p>
  </div>
  <div class="wi-item">
- <span class="wi-ico" aria-hidden="true"></span>
+ <span class="wi-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="6" width="15" height="11" rx="1"/><path d="M16 10h4l3 4v3h-7M5 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM19 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></span>
  <h4>Full Setup &amp; Teardown</h4>
  <p>We handle everything — you just show up and enjoy the party.</p>
  </div>
@@ -1391,7 +1396,7 @@
 
  <div class="form-card reveal">
  <div class="form-card-trust">
- <span class="trust-badge vet-trust"><span aria-hidden="true">🇺🇸</span>Veteran-Owned &amp; Operated</span>
+ <span class="trust-badge vet-trust"><span aria-hidden="true">🇺🇸</span> Veteran-Owned &amp; Operated</span>
  <span class="trust-badge google-trust"><span aria-hidden="true"></span> 5.0 on Google</span>
  </div>
  <h3>Request a Booking</h3>

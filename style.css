@@ -90,7 +90,7 @@ a,button,input,select,textarea,[role="button"],[tabindex]{cursor:url('mic-cursor
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: brightness(0.45) saturate(1.1) hue-rotate(-8deg);
+  filter: brightness(0.6) saturate(1.15) hue-rotate(-8deg);
 }
 .hero.hero-photo .hero-bg-overlay {
   position: absolute;
@@ -98,9 +98,9 @@ a,button,input,select,textarea,[role="button"],[tabindex]{cursor:url('mic-cursor
   z-index: 1;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(6,0,16,0.55) 0%, rgba(6,0,16,0.65) 50%, rgba(6,0,16,0.92) 100%),
-    radial-gradient(ellipse 80% 60% at 50% 30%, rgba(168,85,247,0.35) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 85% 80%, rgba(255,45,146,0.25) 0%, transparent 60%);
+    linear-gradient(180deg, rgba(6,0,16,0.35) 0%, rgba(6,0,16,0.55) 60%, rgba(6,0,16,0.88) 100%),
+    radial-gradient(ellipse 80% 60% at 50% 30%, rgba(168,85,247,0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 80%, rgba(255,45,146,0.18) 0%, transparent 60%);
 }
 .hero.hero-photo .hero-inner {
   position: relative;
@@ -174,4 +174,58 @@ a,button,input,select,textarea,[role="button"],[tabindex]{cursor:url('mic-cursor
 /* Cap h1 size more aggressively on the original hero variable too */
 .hero h1 {
   font-size: clamp(2.5rem, 1.5rem + 4.8vw, 4.5rem) !important;
+}
+
+/* Mini logo above hero headline */
+.hero-mini-logo {
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.25rem;
+  filter: drop-shadow(0 0 18px rgba(168,85,247,0.55)) drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+  -webkit-animation: miniLogoFloat 5s ease-in-out infinite;
+  animation: miniLogoFloat 5s ease-in-out infinite;
+}
+@keyframes miniLogoFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+/* SVG icons inside service-ico (replacing emoji) */
+.service-ico svg {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto;
+  color: var(--neon-pink);
+  filter: drop-shadow(0 0 10px rgba(255,45,146,0.4));
+}
+.service-ico {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  margin-bottom: 0.5rem;
+}
+
+/* SVG icons inside wi-ico (what's included) */
+.wi-ico svg {
+  width: 32px;
+  height: 32px;
+  color: var(--neon-cyan);
+  filter: drop-shadow(0 0 8px rgba(0,245,255,0.35));
+}
+.wi-ico {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  height: 40px;
+  margin-bottom: 0.5rem;
+}
+
+/* Video trust row checkmark spacing */
+.video-trust-row span {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.5rem !important;
+  white-space: nowrap;
 }
