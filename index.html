@@ -37,7 +37,7 @@
   <meta property="og:title" content="PopUp Karaoke | Mobile Karaoke for Chicago & NW Indiana">
   <meta property="og:description" content="Mobile karaoke for parties, weddings, bars & corporate events. 61,000+ songs, pro host, concert sound. 5★ rated. Book online today.">
   <meta property="og:url" content="https://popupkaraoke.net/">
-  <meta property="og:image" content="https://popupkaraoke.net/og-image.webp">
+  <meta property="og:image" content="https://popupkaraoke.net/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="PopUp Karaoke logo">
@@ -47,9 +47,10 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="PopUp Karaoke | Mobile Karaoke for Chicago & NW Indiana">
   <meta name="twitter:description" content="Mobile karaoke for parties, weddings, bars & corporate events. 61,000+ songs. 5★ rated. Book online.">
-  <meta name="twitter:image" content="https://popupkaraoke.net/og-image.webp">
+  <meta name="twitter:image" content="https://popupkaraoke.net/og-image.png">
 
   <!-- Favicons & PWA -->
+  <link rel="icon" type="image/svg+xml" href="puklogo.svg">
   <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -123,7 +124,7 @@
     "@type": ["LocalBusiness", "EntertainmentBusiness"],
     "name": "PopUp Karaoke",
     "alternateName": "PopUp Karaoke, LLC",
-    "image": "https://popupkaraoke.net/og-image.webp",
+    "image": "https://popupkaraoke.net/og-image.png",
     "logo": {
       "@type": "ImageObject",
       "url": "https://popupkaraoke.net/puklogo.png",
@@ -280,7 +281,7 @@
         "validFrom": "2026-01-01T00:00:00-06:00"
       },
       "isAccessibleForFree": true,
-      "image": "https://popupkaraoke.net/og-image.webp"
+      "image": "https://popupkaraoke.net/og-image.png"
     },
     {
       "@context": "https://schema.org",
@@ -322,7 +323,7 @@
         "validFrom": "2026-01-01T00:00:00-06:00"
       },
       "isAccessibleForFree": true,
-      "image": "https://popupkaraoke.net/og-image.webp"
+      "image": "https://popupkaraoke.net/og-image.png"
     },
     {
       "@context": "https://schema.org",
@@ -364,7 +365,7 @@
         "validFrom": "2026-01-01T00:00:00-06:00"
       },
       "isAccessibleForFree": true,
-      "image": "https://popupkaraoke.net/og-image.webp"
+      "image": "https://popupkaraoke.net/og-image.png"
     }
   ]
   </script>
@@ -396,7 +397,7 @@
     "@type": "HowTo",
     "name": "How to Book PopUp Karaoke for Your Event",
     "description": "Step-by-step process to book PopUp Karaoke mobile karaoke service for weddings, birthdays, corporate events, and bar nights in NW Indiana and Chicagoland.",
-    "image": "https://popupkaraoke.net/og-image.webp",
+    "image": "https://popupkaraoke.net/og-image.png",
     "totalTime": "PT10M",
     "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": "0" },
     "supply": [],
@@ -541,7 +542,7 @@
     "description": "Real crowd footage from a PopUp Karaoke event in Northwest Indiana. See the energy, the lights, the wireless mics, and guests singing their hearts out at a private karaoke party.",
     "thumbnailUrl": "https://popupkaraoke.net/highlight-poster.webp",
     "contentUrl": "https://popupkaraoke.net/highlight.mp4",
-    "uploadDate": "2024-01-01T00:00:00-06:00",
+    "uploadDate": "2024-01-01",
     "duration": "PT0M30S",
     "publisher": {
       "@type": "Organization",
@@ -554,15 +555,9 @@
     "embedUrl": "https://popupkaraoke.net/#highlight",
     "regionsAllowed": "US",
     "potentialAction": {
-      "@type": "WatchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://popupkaraoke.net/#highlight",
-        "actionPlatform": [
-          "http://schema.org/DesktopWebPlatform",
-          "http://schema.org/MobileWebPlatform"
-        ]
-      }
+      "@type": "SeekToAction",
+      "target": "https://popupkaraoke.net/#highlight",
+      "startOffset-input": "required name=startOffset"
     }
   }
   </script>
@@ -571,15 +566,6 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "PopUp Karaoke",
-    "url": "https://popupkaraoke.net/",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "bestRating": "5",
-      "worstRating": "1",
-      "ratingCount": "50",
-      "reviewCount": "50"
-    },
     "review": [
       {
         "@type": "Review",
@@ -973,25 +959,18 @@
             <a class="btn btn-primary" href="#contact" style="margin-top:1.5rem;display:inline-block;">🎉 Book Your Event</a>
           </div>
           <div class="video-reel-player">
-            <div class="video-phone-frame" id="videoPhoneFrame">
-              <img
-                src="highlight-poster.webp"
-                alt="PopUp Karaoke highlight reel — tap to play"
-                width="260" height="462"
-                loading="lazy"
-                decoding="async"
-                id="videoFacade"
-                style="width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;"
-                onclick="this.parentElement.innerHTML='<video src="highlight.mp4" playsinline autoplay muted loop preload="auto" aria-label="PopUp Karaoke highlight reel" style="width:100%;height:100%;object-fit:cover;display:block;"></video><div class="video-phone-notch" aria-hidden="true"></div>';"
-                role="button"
-                tabindex="0"
-                aria-label="Play PopUp Karaoke highlight reel"
-                onkeydown="if(event.key==='Enter'||event.key===' '){this.click();}"
-              >
+            <div class="video-phone-frame">
+              <video
+                src="highlight.mp4"
+                playsinline
+                autoplay
+                muted
+                loop
+                preload="metadata"
+                aria-label="PopUp Karaoke highlight reel — crowd singing at a live karaoke event"
+                poster="highlight-poster.webp"
+              ></video>
               <div class="video-phone-notch" aria-hidden="true"></div>
-              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:rgba(255,45,146,0.85);display:flex;align-items:center;justify-content:center;pointer-events:none;box-shadow:0 0 24px rgba(255,45,146,0.5);">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="white" aria-hidden="true"><polygon points="6,3 17,10 6,17"/></svg>
-              </div>
             </div>
             <div class="video-caption">📱 Real crowd. Real energy.</div>
           </div>
