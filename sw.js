@@ -1,7 +1,8 @@
 // PopUp Karaoke Service Worker
 // Strategy: cache-first for assets, network-first for HTML
+// Cache name includes build date — update this date on each deploy to bust stale caches
 
-const CACHE_NAME = 'popupkaraoke-v1';
+const CACHE_NAME = 'popupkaraoke-2026-05-14';
 const STATIC_ASSETS = [
   '/',
   '/style.css',

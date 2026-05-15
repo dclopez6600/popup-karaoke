@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#060010"/>
+      <stop offset="100%" style="stop-color:#0a1a2d"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f5ff"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="1050" cy="120" r="200" fill="#00f5ff" opacity="0.08"/>
+  <circle cx="150" cy="500" r="160" fill="#7c3aed" opacity="0.10"/>
+  
+  <!-- Left accent bar -->
+  <rect x="60" y="80" width="6" height="470" fill="url(#accent)" rx="3"/>
+  
+  <!-- Emoji -->
+  <text x="100" y="230" font-size="110" font-family="Apple Color Emoji, Segoe UI Emoji, sans-serif">🏢</text>
+  
+  <!-- Title -->
+  <text x="100" y="340" font-size="72" font-weight="900" font-family="system-ui, -apple-system, sans-serif" fill="white" letter-spacing="-2">Corporate Karaoke</text>
+  
+  <!-- Subtitle -->
+  <text x="100" y="405" font-size="34" font-family="system-ui, -apple-system, sans-serif" fill="rgba(255,255,255,0.65)">Team building that actually works</text>
+  
+  <!-- Bottom bar -->
+  <rect x="0" y="540" width="1200" height="90" fill="rgba(0,0,0,0.35)"/>
+  
+  <!-- Brand name -->
+  <text x="100" y="598" font-size="30" font-weight="800" font-family="system-ui, -apple-system, sans-serif" fill="#00f5ff">PopUp Karaoke</text>
+  
+  <!-- Tag line -->
+  <text x="100" y="620" font-size="18" font-family="system-ui, -apple-system, sans-serif" fill="rgba(255,255,255,0.45)">NW Indiana &amp; Chicagoland • Veteran-Owned • 61,000+ Songs</text>
+  
+  <!-- Stars -->
+  <text x="1060" y="598" font-size="22" font-family="system-ui, sans-serif" fill="#ffd54a" text-anchor="end">★★★★★ 5.0 on Google</text>
+</svg>
