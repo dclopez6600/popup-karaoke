@@ -19,6 +19,7 @@
   <!-- Primary SEO -->
   <title>PopUp Karaoke | Mobile Karaoke for Chicago & NW Indiana | Book Online</title>
   <meta name="description" content="Mobile karaoke for weddings, bars & corporate events in Chicago and NW Indiana. 61,000+ songs, pro host, concert sound. 5★ rated. Book today.">
+  <meta name="keywords" content="mobile karaoke, karaoke service, NW Indiana karaoke, Chicago karaoke, karaoke for parties, wedding karaoke, corporate karaoke, karaoke DJ, PopUp Karaoke, karaoke night, party entertainment">
   <meta name="author" content="PopUp Karaoke, LLC">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="googlebot" content="index, follow">
@@ -36,7 +37,7 @@
   <meta property="og:title" content="PopUp Karaoke | Mobile Karaoke for Chicago & NW Indiana">
   <meta property="og:description" content="Mobile karaoke for parties, weddings, bars & corporate events. 61,000+ songs, pro host, concert sound. 5★ rated. Book online today.">
   <meta property="og:url" content="https://popupkaraoke.net/">
-  <meta property="og:image" content="https://popupkaraoke.net/og-image.png">
+  <meta property="og:image" content="https://popupkaraoke.net/og-image.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="PopUp Karaoke logo">
@@ -46,28 +47,22 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="PopUp Karaoke | Mobile Karaoke for Chicago & NW Indiana">
   <meta name="twitter:description" content="Mobile karaoke for parties, weddings, bars & corporate events. 61,000+ songs. 5★ rated. Book online.">
-  <meta name="twitter:image" content="https://popupkaraoke.net/og-image.png">
+  <meta name="twitter:image" content="https://popupkaraoke.net/og-image.webp">
 
   <!-- Favicons & PWA -->
-  <link rel="icon" type="image/svg+xml" href="puklogo.svg">
   <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
   <link rel="dns-prefetch" href="https://square.link">
-  <link rel="preconnect" href="https://formsubmit.co">
   <link rel="dns-prefetch" href="https://formsubmit.co">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="dns-prefetch" href="https://connect.facebook.net">
-  <link rel="preconnect" href="https://player.vimeo.com">
-  <link rel="preconnect" href="https://i.vimeocdn.com">
-  <link rel="dns-prefetch" href="https://f.vimeocdn.com">
 
   <!-- Performance: preconnect + preload -->
-  <link rel="preload" as="font" href="fonts/outfit-v15-latin-400.woff2" type="font/woff2" crossorigin>
-  <link rel="preload" as="font" href="fonts/outfit-v15-latin-700.woff2" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="puklogo.webp" type="image/webp" fetchpriority="high">
-  <link rel="preload" as="image" href="karafun-qr.png" type="image/png">
+  <link rel="preload" as="image" href="highlight-poster.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="style" href="style.css">
   <link rel="manifest" href="/manifest.json">
 
@@ -119,10 +114,6 @@
     .avail-feedback-wrap{margin-top:0.75rem}
     .avail-feedback.ok{background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);color:#bbf7d0;border-radius:0.5rem;padding:0.75rem 1rem;font-size:0.9rem;line-height:1.5}
     .avail-feedback.warn{background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.25);color:#fde68a;border-radius:0.5rem;padding:0.75rem 1rem;font-size:0.9rem;line-height:1.5}
-    /* Exit intent modal */
-    @keyframes noteFloat{0%{transform:translateY(0) rotate(-15deg);opacity:1}100%{transform:translateY(-115vh) rotate(25deg);opacity:0}}
-    #exitModal{display:none;position:fixed;inset:0;z-index:9990;background:rgba(6,0,16,0.9);align-items:center;justify-content:center;padding:1.5rem;}
-    #byeOverlay{display:none;position:fixed;inset:0;z-index:9995;background:rgba(6,0,16,0.94);align-items:center;justify-content:center;flex-direction:column;transition:opacity 0.5s;}
   </style>
 
   <!-- JSON-LD Structured Data: LocalBusiness + EntertainmentBusiness for rich Google results -->
@@ -132,7 +123,7 @@
     "@type": ["LocalBusiness", "EntertainmentBusiness"],
     "name": "PopUp Karaoke",
     "alternateName": "PopUp Karaoke, LLC",
-    "image": "https://popupkaraoke.net/og-image.png",
+    "image": "https://popupkaraoke.net/og-image.webp",
     "logo": {
       "@type": "ImageObject",
       "url": "https://popupkaraoke.net/puklogo.png",
@@ -255,8 +246,8 @@
       "@type": "Event",
       "name": "Karaoke Night at 18th Street Brewery — Hosted by PopUp Karaoke",
       "description": "Weekly live karaoke at 18th Street Brewery in Gary, IN. Pro host, 61,000+ songs, full sound and lights. Free to attend, all ages welcome where the venue allows.",
-      "startDate": "2026-05-20T19:00:00-05:00",
-      "endDate": "2026-05-20T22:00:00-05:00",
+      "startDate": "2026-05-06T19:00:00-05:00",
+      "endDate": "2026-05-06T22:00:00-05:00",
       "eventSchedule": {
         "@type": "Schedule",
         "byDay": "https://schema.org/Wednesday",
@@ -289,15 +280,15 @@
         "validFrom": "2026-01-01T00:00:00-06:00"
       },
       "isAccessibleForFree": true,
-      "image": "https://popupkaraoke.net/og-image.png"
+      "image": "https://popupkaraoke.net/og-image.webp"
     },
     {
       "@context": "https://schema.org",
       "@type": "Event",
       "name": "Karaoke Night at Flights Taproom & Whiskey Lounge — Hosted by PopUp Karaoke",
       "description": "Karaoke every 1st and 3rd Tuesday at Flights Taproom & Whiskey Lounge in Hammond, IN. Pro host, 61,000+ songs, concert-quality sound.",
-      "startDate": "2026-06-02T20:00:00-05:00",
-      "endDate": "2026-06-02T23:00:00-05:00",
+      "startDate": "2026-05-05T20:00:00-05:00",
+      "endDate": "2026-05-05T23:00:00-05:00",
       "eventSchedule": {
         "@type": "Schedule",
         "byDay": "https://schema.org/Tuesday",
@@ -331,15 +322,15 @@
         "validFrom": "2026-01-01T00:00:00-06:00"
       },
       "isAccessibleForFree": true,
-      "image": "https://popupkaraoke.net/og-image.png"
+      "image": "https://popupkaraoke.net/og-image.webp"
     },
     {
       "@context": "https://schema.org",
       "@type": "Event",
       "name": "Karaoke Night at El Capitan — Hosted by PopUp Karaoke",
       "description": "Karaoke every 2nd and 4th Friday at El Capitan in Hobart, IN. Pro host, 61,000+ songs, full sound and lights. Late-night singing till midnight.",
-      "startDate": "2026-05-22T20:00:00-05:00",
-      "endDate": "2026-05-23T00:00:00-05:00",
+      "startDate": "2026-05-08T20:00:00-05:00",
+      "endDate": "2026-05-09T00:00:00-05:00",
       "eventSchedule": {
         "@type": "Schedule",
         "byDay": "https://schema.org/Friday",
@@ -373,7 +364,7 @@
         "validFrom": "2026-01-01T00:00:00-06:00"
       },
       "isAccessibleForFree": true,
-      "image": "https://popupkaraoke.net/og-image.png"
+      "image": "https://popupkaraoke.net/og-image.webp"
     }
   ]
   </script>
@@ -405,7 +396,7 @@
     "@type": "HowTo",
     "name": "How to Book PopUp Karaoke for Your Event",
     "description": "Step-by-step process to book PopUp Karaoke mobile karaoke service for weddings, birthdays, corporate events, and bar nights in NW Indiana and Chicagoland.",
-    "image": "https://popupkaraoke.net/og-image.png",
+    "image": "https://popupkaraoke.net/og-image.webp",
     "totalTime": "PT10M",
     "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": "0" },
     "supply": [],
@@ -457,29 +448,12 @@
   }
   </script>
 
-  <!-- Google Tag Manager — deferred until first user interaction for better TBT/CLS scores -->
-  <script>
-    (function(){
-      window.dataLayer = window.dataLayer || [];
-      var GTM_ID = 'GTM-WNX6WZJZ';
-      var gtmLoaded = false;
-      function loadGTM(){
-        if(gtmLoaded) return;
-        gtmLoaded = true;
-        var s=document.createElement('script');
-        s.async=true;
-        s.src='https://www.googletagmanager.com/gtm.js?id='+GTM_ID+'&l=dataLayer';
-        document.head.appendChild(s);
-        dataLayer.push({'gtm.start':new Date().getTime(), event:'gtm.js'});
-      }
-      // Fire on first meaningful interaction
-      ['click','scroll','keydown','touchstart'].forEach(function(ev){
-        window.addEventListener(ev, loadGTM, {once:true, passive:true});
-      });
-      // Fallback: load after 5 seconds regardless
-      setTimeout(loadGTM, 5000);
-    })();
-  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WNX6WZJZ');</script>
   <!-- End Google Tag Manager -->
 
   <!-- Meta Pixel: managed via GTM (container GTM-WNX6WZJZ). See GTM_SETUP.md Step 7. -->
@@ -566,17 +540,30 @@
     "name": "PopUp Karaoke Highlight Reel — Live Event",
     "description": "Real crowd footage from a PopUp Karaoke event in Northwest Indiana. See the energy, the lights, the wireless mics, and guests singing their hearts out at a private karaoke party.",
     "thumbnailUrl": "https://popupkaraoke.net/highlight-poster.webp",
-    "uploadDate": "2025-06-01",
+    "contentUrl": "https://popupkaraoke.net/highlight.mp4",
+    "uploadDate": "2024-01-01T00:00:00-06:00",
     "duration": "PT0M30S",
     "publisher": {
       "@type": "Organization",
       "name": "PopUp Karaoke",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://popupkaraoke.net/puklogo.webp"
+        "url": "https://popupkaraoke.net/logo.webp"
       }
     },
-    "embedUrl": "https://player.vimeo.com/video/1192398024"
+    "embedUrl": "https://popupkaraoke.net/#highlight",
+    "regionsAllowed": "US",
+    "potentialAction": {
+      "@type": "WatchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://popupkaraoke.net/#highlight",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform"
+        ]
+      }
+    }
   }
   </script>
   <script type="application/ld+json">
@@ -584,6 +571,15 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "PopUp Karaoke",
+    "url": "https://popupkaraoke.net/",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "50",
+      "reviewCount": "50"
+    },
     "review": [
       {
         "@type": "Review",
@@ -660,39 +656,38 @@
         <li><a href="#songs">Songs</a></li>
         <li><a href="#services">Services</a></li>
         <li class="nav-dropdown" id="navAreasDd">
-          <button class="nav-dd-toggle" type="button" aria-expanded="false" aria-haspopup="menu" aria-controls="navAreasDdMenu">
+          <button class="nav-dd-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="navAreasDdMenu">
             Areas
             <svg aria-hidden="true" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <ul class="nav-dd-menu" id="navAreasDdMenu" role="menu">
-            <li><a role="menuitem" href="chicago-karaoke.html">🏙️ Chicago</a></li>
-            <li><a role="menuitem" href="northwest-indiana-karaoke.html">📍 NW Indiana</a></li>
+          <ul class="nav-dd-menu" id="navAreasDdMenu">
+            <li><a href="chicago-karaoke.html">🏙️ Chicago</a></li>
+            <li><a href="northwest-indiana-karaoke.html">📍 NW Indiana</a></li>
             <li class="nav-dd-divider" role="separator"></li>
-            <li><a role="menuitem" href="hammond-karaoke.html">Hammond</a></li>
-            <li><a role="menuitem" href="gary-karaoke.html">Gary</a></li>
-            <li><a role="menuitem" href="griffith-karaoke.html">Griffith</a></li>
-            <li><a role="menuitem" href="highland-karaoke.html">Highland</a></li>
-            <li><a role="menuitem" href="munster-karaoke.html">Munster</a></li>
-            <li><a role="menuitem" href="merrillville-karaoke.html">Merrillville</a></li>
-            <li><a role="menuitem" href="schererville-karaoke.html">Schererville</a></li>
-            <li><a role="menuitem" href="portage-karaoke.html">Portage</a></li>
-            <li><a role="menuitem" href="valparaiso-karaoke.html">Valparaiso</a></li>
-            <li><a role="menuitem" href="crown-point-karaoke.html">Crown Point</a></li>
-            <li><a role="menuitem" href="lansing-karaoke.html">Lansing, IL</a></li>
-            <li><a role="menuitem" href="calumet-city-karaoke.html">Calumet City, IL</a></li>
+            <li><a href="hammond-karaoke.html">Hammond</a></li>
+            <li><a href="gary-karaoke.html">Gary</a></li>
+            <li><a href="griffith-karaoke.html">Griffith</a></li>
+            <li><a href="highland-karaoke.html">Highland</a></li>
+            <li><a href="munster-karaoke.html">Munster</a></li>
+            <li><a href="merrillville-karaoke.html">Merrillville</a></li>
+            <li><a href="schererville-karaoke.html">Schererville</a></li>
+            <li><a href="portage-karaoke.html">Portage</a></li>
+            <li><a href="valparaiso-karaoke.html">Valparaiso</a></li>
+            <li><a href="crown-point-karaoke.html">Crown Point</a></li>
+            <li><a href="lansing-karaoke.html">Lansing, IL</a></li>
+            <li><a href="calumet-city-karaoke.html">Calumet City, IL</a></li>
             <li class="nav-dd-divider" role="separator"></li>
-            <li><a role="menuitem" href="wedding-karaoke.html">💍 Weddings</a></li>
-            <li><a role="menuitem" href="corporate-karaoke.html">🏢 Corporate</a></li>
-            <li><a role="menuitem" href="birthday-karaoke.html">🎂 Birthdays</a></li>
+            <li><a href="wedding-karaoke.html">💍 Weddings</a></li>
+            <li><a href="corporate-karaoke.html">🏢 Corporate</a></li>
+            <li><a href="birthday-karaoke.html">🎂 Birthdays</a></li>
           </ul>
         </li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="blog/index.html">Blog</a></li>
-        <li><a href="success-stories.html">⭐ Reviews</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a class="nav-phone" href="tel:+12197581313" aria-label="Call PopUp Karaoke">📞 219.758.1313</a></li>
-        <li><a class="nav-cta" href="#contact">🎤 Book Now</a></li>
+        <li><a class="nav-cta" href="https://square.link/u/CmsBTgrE?src=web" target="_blank" rel="noopener">💳 Pay</a></li>
       </ul>
     </div>
   </header>
@@ -711,30 +706,10 @@
       <li><a href="#events">Events</a></li>
       <li><a href="#songs">Songs</a></li>
       <li><a href="#about">About</a></li>
-      <li class="mob-section-label"><span>Event Types</span></li>
-      <li><a href="wedding-karaoke.html">💍 Weddings</a></li>
-      <li><a href="corporate-karaoke.html">🏢 Corporate</a></li>
-      <li><a href="birthday-karaoke.html">🎂 Birthdays</a></li>
-      <li><a href="bachelorette-karaoke.html">🥂 Bachelorette</a></li>
       <li class="mob-section-label"><span>Areas We Serve</span></li>
       <li><a href="chicago-karaoke.html">🏙️ Chicago</a></li>
       <li><a href="northwest-indiana-karaoke.html">📍 NW Indiana</a></li>
-      <li><a href="hammond-karaoke.html">Hammond</a></li>
-      <li><a href="gary-karaoke.html">Gary</a></li>
-      <li><a href="griffith-karaoke.html">Griffith</a></li>
-      <li><a href="highland-karaoke.html">Highland</a></li>
-      <li><a href="munster-karaoke.html">Munster</a></li>
-      <li><a href="merrillville-karaoke.html">Merrillville</a></li>
-      <li><a href="schererville-karaoke.html">Schererville</a></li>
-      <li><a href="portage-karaoke.html">Portage</a></li>
-      <li><a href="valparaiso-karaoke.html">Valparaiso</a></li>
-      <li><a href="crown-point-karaoke.html">Crown Point</a></li>
-      <li><a href="lansing-karaoke.html">Lansing, IL</a></li>
-      <li><a href="calumet-city-karaoke.html">Calumet City, IL</a></li>
-      <li class="mob-section-label"><span>Learn More</span></li>
       <li><a href="faq.html">FAQ</a></li>
-      <li><a href="success-stories.html">⭐ Success Stories</a></li>
-      <li><a href="what-to-expect.html">What to Expect</a></li>
       <li><a href="blog/index.html">Blog</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -773,12 +748,12 @@
         </div>
 
         <h1 id="hero-title">
-          <span class="word">NW</span>
-          <span class="word">Indiana's</span>
-          <span class="word">#1</span>
-          <span class="word accent">Karaoke DJ</span>
+          <span class="word">Get</span>
+          <span class="word">Ready</span>
+          <span class="word">To</span>
+          <span class="word accent">Sing!</span>
         </h1>
-        <p class="lead">Weddings, bars, birthdays &amp; corporate events across <strong>NW Indiana &amp; Chicagoland</strong> — fully equipped, veteran-run, and ready to make your event unforgettable.</p>
+        <p class="lead">Mobile karaoke DJ for weddings, bars, birthdays &amp; corporate events across <strong>NW Indiana &amp; Chicagoland</strong> — fully equipped, veteran-run, and ready to make your event unforgettable.</p>
 
         <div class="soundwave" aria-hidden="true">
           <span></span><span></span><span></span><span></span><span></span><span></span>
@@ -834,7 +809,6 @@
               <li>Fits any home, backyard, or rented venue</li>
               <li>61,000+ songs across every genre</li>
             </ul>
-            <a href="birthday-karaoke.html" class="service-link" aria-label="Learn about birthday party karaoke">See details →</a>
           </div>
           <div class="service reveal">
             <span class="service-ico" aria-hidden="true">💒</span>
@@ -846,7 +820,6 @@
               <li>Complements your DJ or band seamlessly</li>
               <li>Guests can request songs in advance</li>
             </ul>
-            <a href="wedding-karaoke.html" class="service-link" aria-label="Learn about wedding karaoke">See details →</a>
           </div>
           <div class="service reveal">
             <span class="service-ico" aria-hidden="true">🏢</span>
@@ -858,7 +831,6 @@
               <li>Social media content included at no extra charge</li>
               <li>Handles groups from 10 to 200+ guests</li>
             </ul>
-            <a href="corporate-karaoke.html" class="service-link" aria-label="Learn about corporate event karaoke">See details →</a>
           </div>
           <div class="service reveal">
             <span class="service-ico" aria-hidden="true">🍺</span>
@@ -870,11 +842,10 @@
               <li>Full setup &amp; teardown — you just pour drinks</li>
               <li>Already live at 18th St, Flights &amp; El Capitán</li>
             </ul>
-            <a href="#contact" class="service-link" aria-label="Inquire about a bar or brewery residency">Book a residency →</a>
           </div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;margin-top:3.5rem;padding:3rem 1rem;" class="reveal">
-          <p style="color:var(--text-mute);font-size:1.05rem;margin-bottom:1.5rem;text-align:center;">Not sure which package fits your event? Take the quiz to find out.</p>
+          <p style="color:var(--text-mute);font-size:1.05rem;margin-bottom:1.5rem;text-align:center;">Not sure which package is right for your event?</p>
           <button type="button" class="btn btn-secondary" data-open-modal="quizModal" aria-haspopup="dialog" style="gap:0.75rem;font-size:1.3rem;padding:1.25rem 3.5rem;min-width:360px;max-width:100%;display:inline-flex;align-items:center;justify-content:center;">
             🎯 Take Our 3-Question Quiz
           </button>
@@ -967,7 +938,7 @@
           <div class="step reveal">
             <div class="step-num">5</div>
             <h4>We Show Up Early</h4>
-            <p>We arrive <strong>60–90 minutes before showtime</strong> to set up the full rig — sound, lights, mics, song display — and do a sound check. Teardown takes 30–45 minutes after the last song.</p>
+            <p>We arrive ahead of your guests, set up the full rig — sound, lights, mics, song display — and do a sound check.</p>
           </div>
           <div class="step reveal">
             <div class="step-num">6</div>
@@ -978,8 +949,8 @@
         <div class="cta-wrap">
           <div class="cta-block reveal">
             <h3 class="cta-headline">Ready to get started?</h3>
-            <p class="cta-sub">Weekends book fast — especially in summer. Tell us about your event and we'll get back to you quickly.</p>
-            <a href="#contact" class="btn btn-primary btn-xl">📅 Check Your Date &amp; Get a Quote</a>
+            <p class="cta-sub">Weekends book fast — especially in summer. Fill out the form below and we'll get back to you quickly.</p>
+            <a href="#contact" class="btn btn-primary btn-xl">🎤 Request a Quote</a>
           </div>
         </div>
       </div>
@@ -999,23 +970,28 @@
               <span>💡 Stage lighting</span>
               <span>🎵 61,000+ songs</span>
             </div>
-            <a class="btn btn-primary" href="#contact" style="margin-top:1.5rem;display:inline-block;">🎤 Get a Free Quote</a>
+            <a class="btn btn-primary" href="#contact" style="margin-top:1.5rem;display:inline-block;">🎉 Book Your Event</a>
           </div>
           <div class="video-reel-player">
-            <div class="video-phone-frame">
-              <div style="padding:75% 0 0 0;position:relative;contain:layout style;">
-                <iframe
-                  src="https://player.vimeo.com/video/1192398024?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1"
-                  frameborder="0"
-                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:inherit;"
-                  title="PopUp Karaoke highlight reel"
-                  aria-label="PopUp Karaoke highlight reel — crowd singing at a live karaoke event"
-                  loading="lazy"
-                ></iframe>
-              </div>
+            <div class="video-phone-frame" id="videoPhoneFrame">
+              <img
+                src="highlight-poster.webp"
+                alt="PopUp Karaoke highlight reel — tap to play"
+                width="260" height="462"
+                loading="lazy"
+                decoding="async"
+                id="videoFacade"
+                style="width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;"
+                onclick="this.parentElement.innerHTML='<video src="highlight.mp4" playsinline autoplay muted loop preload="auto" aria-label="PopUp Karaoke highlight reel" style="width:100%;height:100%;object-fit:cover;display:block;"></video><div class="video-phone-notch" aria-hidden="true"></div>';"
+                role="button"
+                tabindex="0"
+                aria-label="Play PopUp Karaoke highlight reel"
+                onkeydown="if(event.key==='Enter'||event.key===' '){this.click();}"
+              >
               <div class="video-phone-notch" aria-hidden="true"></div>
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:rgba(255,45,146,0.85);display:flex;align-items:center;justify-content:center;pointer-events:none;box-shadow:0 0 24px rgba(255,45,146,0.5);">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="white" aria-hidden="true"><polygon points="6,3 17,10 6,17"/></svg>
+              </div>
             </div>
             <div class="video-caption">📱 Real crowd. Real energy.</div>
           </div>
@@ -1054,34 +1030,11 @@
 
         <!-- ═══════════════════════════════════════════════
              ELFSIGHT LIVE GOOGLE REVIEWS WIDGET
-             Loaded lazily — script only injected when widget scrolls into view
              ═══════════════════════════════════════════════ -->
         <div class="container" style="max-width: 1000px; margin: 0 auto 2rem;">
-          <div class="elfsight-app-27e4a763-8bd7-4f68-8085-65d27a79fedd" data-elfsight-app-lazy id="elfsightWidget"></div>
+          <script src="https://elfsightcdn.com/platform.js" async></script>
+          <div class="elfsight-app-27e4a763-8bd7-4f68-8085-65d27a79fedd" data-elfsight-app-lazy></div>
         </div>
-        <script>
-          (function() {
-            var loaded = false;
-            var el = document.getElementById('elfsightWidget');
-            if (!el) return;
-            function loadElfsight() {
-              if (loaded) return;
-              loaded = true;
-              var s = document.createElement('script');
-              s.src = 'https://elfsightcdn.com/platform.js';
-              s.async = true;
-              document.head.appendChild(s);
-            }
-            if ('IntersectionObserver' in window) {
-              var io = new IntersectionObserver(function(entries) {
-                if (entries[0].isIntersecting) { loadElfsight(); io.disconnect(); }
-              }, { rootMargin: '200px' });
-              io.observe(el);
-            } else {
-              loadElfsight(); // fallback for old browsers
-            }
-          })();
-        </script>
 
         <div class="container">
 
@@ -1148,7 +1101,7 @@
       <button class="lightbox-close" type="button" aria-label="Close">✕</button>
       <button class="lightbox-prev" type="button" aria-label="Previous photo">‹</button>
       <button class="lightbox-next" type="button" aria-label="Next photo">›</button>
-      <img decoding="async" class="lightbox-img" id="lightboxImg" alt="" style="width:100%;height:auto;max-height:80vh;object-fit:contain;">
+      <img decoding="async" loading="lazy" class="lightbox-img" id="lightboxImg" alt="">
       <div class="lightbox-caption" id="lightboxCaption"></div>
     </div>
 
@@ -1171,7 +1124,6 @@
         var lbImg = document.getElementById('lightboxImg');
         var lbCap = document.getElementById('lightboxCaption');
         var current = 0;
-        var lastFocused = null;
         function open(i) {
           current = (i + photos.length) % photos.length;
           lbImg.src = photos[current].fallback || photos[current].src;
@@ -1179,16 +1131,10 @@
           lbCap.textContent = photos[current].caption || '';
           lb.setAttribute('aria-hidden', 'false');
           document.body.style.overflow = 'hidden';
-          lastFocused = document.activeElement;
-          // Move focus to close button
-          var closeBtn = lb.querySelector('.lightbox-close');
-          if (closeBtn) setTimeout(function(){ closeBtn.focus(); }, 50);
         }
         function close() {
           lb.setAttribute('aria-hidden', 'true');
           document.body.style.overflow = '';
-          // Return focus to the gallery item that opened the lightbox
-          if (lastFocused) lastFocused.focus();
         }
         grid.addEventListener('click', function (e) {
           var btn = e.target.closest('.gallery-item');
@@ -1234,12 +1180,11 @@
           </div>
         </div>
 
-        <!-- ================================================================
-             ⚠️  UPDATE MONTHLY — change month, year, and events below.
-             Set a recurring calendar reminder: 1st of each month → update this.
-             Paste next month dates, save, commit, and deploy.
+        <!-- ===========================================================
+             EDIT MONTHLY — change month, year, and events below.
              venueClass options: "flights" | "18thStreetBrewery" | "elCapitan"
-             ================================================================ -->
+             (or any custom name; will fall back to default purple style)
+             =========================================================== -->
         <script>
           window.PUK_CALENDAR = {
             month: "May",
@@ -1258,18 +1203,8 @@
           };
         </script>
 
-        <script>(function(){var d=window.PUK_CALENDAR;if(!d)return;var monthEl=document.getElementById('cal-month');var yearEl=document.getElementById('cal-year');var listEl=document.getElementById('cal-events');var factEl=document.querySelector('.cal-funfact-text');if(monthEl)monthEl.textContent=d.month;if(yearEl)yearEl.textContent=d.year;if(factEl&&d.funFact)factEl.textContent=d.funFact;if(!listEl)return;
-          // Auto-filter: hide events that have already passed this month
-          var today=new Date();var todayDate=today.getDate();var calYear=d.year||today.getFullYear();
-          var calMonthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
-          var calMonthIdx=calMonthNames.indexOf(d.month);
-          var calYear2=d.year||today.getFullYear();
-          var isCurrentMonth=(calMonthIdx===today.getMonth()&&calYear2===today.getFullYear());
-          var events=d.events||[];
-          if(isCurrentMonth){events=events.filter(function(e){return e.date>=todayDate;});}
-          if(!events.length){listEl.innerHTML='<p class="cal-empty">No upcoming public events this month — check back soon, or <a href="#contact" style="color:var(--neon-cyan);font-weight:600;">book a private event</a>.</p>';return;}
-          var dayShort={Sunday:'SUN',Monday:'MON',Tuesday:'TUE',Wednesday:'WED',Thursday:'THU',Friday:'FRI',Saturday:'SAT'};function esc(s){return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
-            var html = events.map(function(e){
+        <script>(function(){var d=window.PUK_CALENDAR;if(!d)return;var monthEl=document.getElementById('cal-month');var yearEl=document.getElementById('cal-year');var listEl=document.getElementById('cal-events');var factEl=document.querySelector('.cal-funfact-text');if(monthEl)monthEl.textContent=d.month;if(yearEl)yearEl.textContent=d.year;if(factEl&&d.funFact)factEl.textContent=d.funFact;if(!listEl)return;if(!d.events||!d.events.length){listEl.innerHTML='<p class="cal-empty">No public events scheduled this month — check back soon!</p>';return;}var dayShort={Sunday:'SUN',Monday:'MON',Tuesday:'TUE',Wednesday:'WED',Thursday:'THU',Friday:'FRI',Saturday:'SAT'};function esc(s){return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+            var html = d.events.map(function(e){
               var qs = encodeURIComponent(e.mapsQuery || (e.venue + ' ' + e.address));
               var maps = 'https://www.google.com/maps/search/?api=1&query=' + qs;
               var venueCls = (e.venueClass || '').replace(/[^A-Za-z0-9]/g,'');
@@ -1321,7 +1256,7 @@
           <div class="cta-block reveal">
             <h3 class="cta-headline">Want PopUp Karaoke at your <span class="grad">venue or private event?</span></h3>
             <p class="cta-sub">Tell us about your event and we'll send a custom quote — usually within 24 hours.</p>
-            <a href="#contact" class="btn btn-primary btn-xl">🎉 Book a Private Event</a>
+            <a href="#contact" class="btn btn-primary btn-xl">🎉 Book Now</a>
             <div class="cta-trust">
               <span><span class="dot">✓</span> Free quotes</span>
               <span><span class="dot">✓</span> Pro equipment &amp; host</span>
@@ -1351,7 +1286,7 @@
           </div>
           <div class="join-karaoke-qr">
             <div class="qr-card">
-              <img decoding="async" src="karafun-qr.png" alt="Scan to join PopUp Karaoke queue" width="200" height="200" loading="lazy">
+              <img decoding="async" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=ffffff&bgcolor=6d28d9&data=https://www.karafun.com/062552/" alt="Scan to join PopUp Karaoke queue" width="200" height="200" loading="lazy">
               <p class="qr-label">Scan to join the queue</p>
             </div>
           </div>
@@ -1456,75 +1391,57 @@
         <p class="as-seen-label">As Seen At</p>
         <div class="venue-strip">
           <div class="venue-logo-card">
-            <a href="gary-karaoke.html" class="vl-link" aria-label="Learn about karaoke in Gary at 18th Street Brewery">
             <picture>
               <source srcset="logos/18th-st-logo.webp" type="image/webp">
               <img src="logos/18th-st-logo.png" alt="18th Street Brewery" width="120" height="120" loading="lazy" decoding="async">
             </picture>
             <span class="vl-name">18th Street Brewery</span>
             <span class="vl-loc">Gary, IN</span>
-            </a>
-            <span class="vl-quote">"Our Wednesday nights haven't been the same since PopUp showed up."</span>
           </div>
           <div class="venue-strip-divider" aria-hidden="true"></div>
           <div class="venue-logo-card">
-            <a href="hammond-karaoke.html" class="vl-link" aria-label="Learn about karaoke in Hammond at Flights Taproom">
             <picture>
               <source srcset="logos/flights-logo.webp" type="image/webp">
               <img src="logos/flights-logo.png" alt="Flights Taproom &amp; Whiskey Lounge" width="120" height="120" loading="lazy" decoding="async">
             </picture>
             <span class="vl-name">Flights Taproom</span>
             <span class="vl-loc">Hammond, IN</span>
-            </a>
-            <span class="vl-quote">"Packed house every karaoke night. Our regulars request it every month."</span>
           </div>
           <div class="venue-strip-divider" aria-hidden="true"></div>
           <div class="venue-logo-card">
-            <a href="portage-karaoke.html" class="vl-link" aria-label="Learn about karaoke at El Capitan in Hobart">
             <picture>
               <source srcset="logos/el-capitan-logo.webp" type="image/webp">
               <img src="logos/el-capitan-logo.png" alt="El Capitán Seafood &amp; Mexican Grill" width="120" height="120" loading="lazy" decoding="async">
             </picture>
             <span class="vl-name">El Capitán</span>
             <span class="vl-loc">Hobart, IN</span>
-            </a>
-            <span class="vl-quote">"Professional setup every time. The crowd goes wild on karaoke Fridays."</span>
           </div>
           <div class="venue-strip-divider" aria-hidden="true"></div>
           <div class="venue-logo-card">
-            <a href="portage-karaoke.html" class="vl-link" aria-label="Learn about karaoke in Portage at Moods">
             <picture>
               <source srcset="logos/moods-logo.webp" type="image/webp">
               <img src="logos/moods-logo.png" alt="Moods" width="120" height="120" loading="lazy" decoding="async">
             </picture>
             <span class="vl-name">Moods</span>
             <span class="vl-loc">Portage, IN</span>
-            </a>
-            <span class="vl-quote">"Easy to work with, always on time, and the crowd loves it every time."</span>
           </div>
           <div class="venue-strip-divider" aria-hidden="true"></div>
           <div class="venue-logo-card">
-            <a href="crown-point-karaoke.html" class="vl-link" aria-label="Learn about karaoke in Crown Point">
             <picture>
               <source srcset="logos/19-hole-logo.webp" type="image/webp">
               <img src="logos/19-hole-logo.png" alt="19th Hole Bar &amp; Grille" width="120" height="120" loading="lazy" decoding="async">
             </picture>
             <span class="vl-name">19th Hole Bar &amp; Grille</span>
             <span class="vl-loc">Crown Point, IN</span>
-            </a>
-            <span class="vl-quote">"Reliable, professional, and the guests always have a blast."</span>
           </div>
           <div class="venue-strip-divider" aria-hidden="true"></div>
           <div class="venue-logo-card">
-            <a href="highland-karaoke.html" class="vl-link" aria-label="Learn about karaoke in Highland at Emilio's">
             <picture>
               <source srcset="logos/emilios-logo.webp" type="image/webp">
               <img src="logos/emilios-logo.png" alt="Emilio's Restaurante &amp; Cantina" width="120" height="120" loading="lazy" decoding="async">
             </picture>
             <span class="vl-name">Emilio's</span>
             <span class="vl-loc">Highland, IN</span>
-            </a>
-            <span class="vl-quote">"Our guests keep coming back just for karaoke night. Huge draw."</span>
           </div>
         </div>
       </div>
@@ -1573,7 +1490,7 @@
                 </div>
               </div>
               <a href="https://www.facebook.com/PopUpKaraoke219" target="_blank" rel="noopener" class="btn btn-secondary">
-                👍 Follow on Facebook <span style="opacity:0.65;font-size:0.8rem;font-weight:500;">· 1.2K followers</span>
+                👍 Follow on Facebook
               </a>
             </div>
             <!-- Instagram -->
@@ -1586,7 +1503,7 @@
                 </div>
               </div>
               <a href="https://www.instagram.com/popupkaraoke219/" target="_blank" rel="noopener" class="btn btn-secondary">
-                📸 Follow on Instagram <span style="opacity:0.65;font-size:0.8rem;font-weight:500;">· 900+ followers</span>
+                📸 Follow on Instagram
               </a>
             </div>
             <!-- TikTok -->
@@ -1599,7 +1516,7 @@
                 </div>
               </div>
               <a href="https://www.tiktok.com/@popupkaraoke219" target="_blank" rel="noopener" class="btn btn-secondary">
-                🎵 Follow on TikTok <span style="opacity:0.65;font-size:0.8rem;font-weight:500;">· 500+ followers</span>
+                🎵 Follow on TikTok
               </a>
             </div>
           </div>
@@ -1680,36 +1597,36 @@
         </div>
         <div class="faq-list reveal" id="faqList">
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-1">Do you travel to Chicago and the surrounding suburbs?<span class="faq-icon">+</span></button>
-            <div class="faq-a" id="faq-answer-1"><p>Yes! We regularly serve the entire Chicagoland area in addition to Northwest Indiana. That includes neighborhoods like the South Side, as well as suburbs like Orland Park, Tinley Park, Oak Lawn, and more. Travel fees may apply depending on distance — just mention your location when you reach out.</p></div>
+            <button class="faq-q" aria-expanded="false">Do you travel to Chicago and the surrounding suburbs?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Yes! We regularly serve the entire Chicagoland area in addition to Northwest Indiana. That includes neighborhoods like the South Side, as well as suburbs like Orland Park, Tinley Park, Oak Lawn, and more. Travel fees may apply depending on distance — just mention your location when you reach out.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-2">What's included with every booking?<span class="faq-icon">+</span></button>
-            <div class="faq-a" id="faq-answer-2"><p>Everything. Concert-quality speakers, wireless microphones, a large lyrics screen, dynamic LED stage lighting, a professional host/MC, 61,000+ songs, full setup and teardown, and social media content creation at no extra charge. You don't need to rent or bring a single thing.</p></div>
+            <button class="faq-q" aria-expanded="false">What's included with every booking?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Everything. Concert-quality speakers, wireless microphones, a large lyrics screen, dynamic LED stage lighting, a professional host/MC, 61,000+ songs, full setup and teardown, and social media content creation at no extra charge. You don't need to rent or bring a single thing.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-3">Can guests request songs in advance?<span class="faq-icon">+</span></button>
-            <div class="faq-a" id="faq-answer-3"><p>Absolutely. You and your guests can submit song requests ahead of the event, and we'll make sure they're ready to go. Just let us know when you book and we'll set up a request link or take requests directly.</p></div>
+            <button class="faq-q" aria-expanded="false">Can guests request songs in advance?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Absolutely. You and your guests can submit song requests ahead of the event, and we'll make sure they're ready to go. Just let us know when you book and we'll set up a request link or take requests directly.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-4">How far in advance should I book?<span class="faq-icon">+</span></button>
-            <div class="faq-a" id="faq-answer-4"><p>Summer and holiday weekends fill up fast — sometimes 4–6 weeks out. For the best availability, we recommend booking at least 2–3 weeks in advance. That said, if you have a last-minute event, reach out anyway — we'll do our best to make it work.</p></div>
+            <button class="faq-q" aria-expanded="false">How far in advance should I book?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Summer and holiday weekends fill up fast — sometimes 4–6 weeks out. For the best availability, we recommend booking at least 2–3 weeks in advance. That said, if you have a last-minute event, reach out anyway — we'll do our best to make it work.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-5">Do you need a stage or special power setup?<span class="faq-icon">+</span></button>
-            <div class="faq-a" id="faq-answer-5"><p>No stage needed. We work in backyards, living rooms, banquet halls, bars, breweries — anywhere there's enough space for guests to stand and sing. We just need access to standard electrical outlets (we'll confirm details when planning your event).</p></div>
+            <button class="faq-q" aria-expanded="false">Do you need a stage or special power setup?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>No stage needed. We work in backyards, living rooms, banquet halls, bars, breweries — anywhere there's enough space for guests to stand and sing. We just need access to standard electrical outlets (we'll confirm details when planning your event).</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-6">Can you handle large events with 100+ guests?<span class="faq-icon">+</span></button>
-            <div class="faq-a" id="faq-answer-6"><p>Yes — we've hosted events with 200+ guests. Our sound system is scaled to fill large spaces, and our host is experienced at managing big crowds and long song queues to keep things moving and fun for everyone.</p></div>
+            <button class="faq-q" aria-expanded="false">Can you handle large events with 100+ guests?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Yes — we've hosted events with 200+ guests. Our sound system is scaled to fill large spaces, and our host is experienced at managing big crowds and long song queues to keep things moving and fun for everyone.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-7">Do you provide a certificate of insurance?<span class="faq-icon">+</span></button>
-            <div class="faq-a" id="faq-answer-7"><p>Yes. If your venue requires a COI (certificate of insurance), we can provide one. Just let us know the venue's requirements when you book and we'll handle it before the event.</p></div>
+            <button class="faq-q" aria-expanded="false">Do you provide a certificate of insurance?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Yes. If your venue requires a COI (certificate of insurance), we can provide one. Just let us know the venue's requirements when you book and we'll handle it before the event.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-8">How does payment work?<span class="faq-icon">+</span></button>
-            <div class="faq-a" id="faq-answer-8"><p>We accept payment via Square (credit/debit card) or other arrangements. A deposit is typically required to secure your date, with the balance due on the day of the event. We'll walk you through everything when we confirm your booking.</p></div>
+            <button class="faq-q" aria-expanded="false">How does payment work?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>We accept payment via Square (credit/debit card) or other arrangements. A deposit is typically required to secure your date, with the balance due on the day of the event. We'll walk you through everything when we confirm your booking.</p></div>
           </div>
         </div>
       </div>
@@ -1726,7 +1643,7 @@
           </div>
           <form class="email-capture-form" action="https://formsubmit.co/booking@popupkaraoke.net" method="POST" id="emailCaptureForm">
             <input type="hidden" name="_subject" value="New Checklist Subscriber — PopUp Karaoke">
-            <input type="hidden" name="_next" value="https://popupkaraoke.net/subscribe-thanks">
+            <input type="hidden" name="_next" value="https://popupkaraoke.net/?subscribed=1">
             <input type="hidden" name="_autoresponse" value="Hey! Here's your free Karaoke Party Checklist from PopUp Karaoke 🎤
 
 KARAOKE PARTY CHECKLIST
@@ -1768,7 +1685,7 @@ Ready to book? Reply to this email or call/text 219.758.1313.
 
 🇺🇸 PopUp Karaoke — Veteran-Owned &amp; Operated
 booking@popupkaraoke.net | popupkaraoke.net">
-            <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="_captcha" value="false">
             <div class="email-capture-fields">
               <input type="text" name="name" placeholder="First name" autocomplete="given-name" required class="email-input" aria-label="First name">
               <input type="email" name="email" placeholder="Email address" autocomplete="email" required class="email-input" aria-label="Email address">
@@ -1795,7 +1712,6 @@ booking@popupkaraoke.net | popupkaraoke.net">
           <span class="section-label">Get In Touch</span>
           <h2>Ready to Book Your <span class="grad">Unforgettable Event?</span></h2>
           <p>Fill out the form and we'll get back to you fast. Or reach out directly using the contacts below.</p>
-          <p style="font-size:0.88rem;color:var(--text-mute);margin-top:0.4rem;">Not sure what happens after you submit? <a href="what-to-expect.html" style="color:var(--neon-cyan);font-weight:600;">See exactly how a booking works →</a></p>
 
           <div class="avail-checker" id="availChecker">
             <div class="avail-header">
@@ -1814,17 +1730,12 @@ booking@popupkaraoke.net | popupkaraoke.net">
               <p class="avail-feedback" id="availFeedback"></p>
               <button type="button" class="btn btn-primary avail-cta-btn" id="availCtaBtn" style="display:none;margin-top:0.75rem;width:100%;">🎉 Request This Date →</button>
             </div>
-            <p style="margin-top:0.75rem;font-size:0.82rem;text-align:center;color:var(--text-mute);">No specific date yet? <a href="#contact" style="color:var(--neon-cyan);font-weight:600;">Tell us you're flexible →</a></p>
           </div>
 
           <div class="contact-methods">
             <a class="contact-method" href="tel:+12197581313" aria-label="Call PopUp Karaoke at 219.758.1313">
               <span class="contact-method-ico" aria-hidden="true">📞</span>
               <div><h4>Call Us</h4><p>219.758.1313</p></div>
-            </a>
-            <a class="contact-method" href="sms:+12197581313" aria-label="Text PopUp Karaoke at 219.758.1313">
-              <span class="contact-method-ico" aria-hidden="true">💬</span>
-              <div><h4>Text Us</h4><p>219.758.1313</p></div>
             </a>
             <a class="contact-method" href="mailto:booking@popupkaraoke.net" aria-label="Email PopUp Karaoke">
               <span class="contact-method-ico" aria-hidden="true">✉️</span>
@@ -1868,7 +1779,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
             <input type="hidden" name="_subject" value="New Booking Request from popupkaraoke.net">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="true">
-            <input type="hidden" name="_next" value="https://popupkaraoke.net/thank-you">
+            <input type="hidden" name="_next" value="https://popupkaraoke.net/thank-you.html">
             <input type="hidden" name="_autoresponse" value="Hi! Thanks for reaching out to PopUp Karaoke — we got your booking request and will respond within 24 hours (usually much sooner). In the meantime, save our number 219.758.1313 in case you have any questions, and feel free to follow us on Facebook (PopUpKaraoke219), Instagram (@popupkaraoke219), or TikTok (@popupkaraoke219) for clips from past events. Talk soon! — Daniel, PopUp Karaoke (Veteran-Owned & Operated)">
             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
@@ -1898,7 +1809,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
               <button type="button" class="btn btn-primary submit-btn" id="formNextBtn">Next — Event Details →</button>
             </div>
 
-            <!-- STEP 2: Phone, Date, Guests, City, Message -->
+            <!-- STEP 2: Phone, Date, Guests, Message -->
             <div class="form-step" id="formStep2" style="display:none;">
               <p class="form-step-hint">Almost done! A few details help us give you an accurate quote.</p>
               <div class="form-row">
@@ -1911,50 +1822,22 @@ booking@popupkaraoke.net | popupkaraoke.net">
                   <input id="b-date" name="event_date" type="date">
                 </div>
               </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="b-city">Event City / Area</label>
-                  <select id="b-city" name="event_city">
-                    <option value="">Select city…</option>
-                    <optgroup label="Northwest Indiana">
-                      <option>Hammond, IN</option>
-                      <option>Gary, IN</option>
-                      <option>Griffith, IN</option>
-                      <option>Highland, IN</option>
-                      <option>Munster, IN</option>
-                      <option>Merrillville, IN</option>
-                      <option>Schererville, IN</option>
-                      <option>Portage, IN</option>
-                      <option>Valparaiso, IN</option>
-                      <option>Crown Point, IN</option>
-                      <option>Hobart, IN</option>
-                    </optgroup>
-                    <optgroup label="Chicagoland">
-                      <option>Chicago, IL</option>
-                      <option>Lansing, IL</option>
-                      <option>Calumet City, IL</option>
-                      <option>South Suburbs, IL</option>
-                    </optgroup>
-                    <option>Other / Not Listed</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="b-guests">Expected Guests</label>
-                  <select id="b-guests" name="guests">
-                    <option value="">Select range…</option>
-                    <option>10-25 guests</option>
-                    <option>25-50 guests</option>
-                    <option>50-75 guests</option>
-                    <option>75-100 guests</option>
-                    <option>100-150 guests</option>
-                    <option>150-200 guests</option>
-                    <option>200+ guests</option>
-                  </select>
-                </div>
+              <div class="form-group">
+                <label for="b-guests">Expected Guests</label>
+                <select id="b-guests" name="guests">
+                  <option value="">Select range…</option>
+                  <option>10-25 guests</option>
+                  <option>25-50 guests</option>
+                  <option>50-75 guests</option>
+                  <option>75-100 guests</option>
+                  <option>100-150 guests</option>
+                  <option>150-200 guests</option>
+                  <option>200+ guests</option>
+                </select>
               </div>
               <div class="form-group">
                 <label for="b-msg">Tell Us About Your Event</label>
-                <textarea id="b-msg" name="message" placeholder="Venue name/address, start time, special requests, vibe you're going for…"></textarea>
+                <textarea id="b-msg" name="message" placeholder="Venue address, start time, special requests, vibe you're going for…"></textarea>
               </div>
               <div class="urgency-badge">⚡ Booking fast for summer 2026 — only a few weekends left</div>
               <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
@@ -1986,7 +1869,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
   <div class="sticky-bar" id="stickyBar" aria-label="Quick booking bar" aria-hidden="true">
     <div class="sticky-bar-inner">
       <span class="sticky-bar-brand">⚡ PopUp Karaoke</span>
-      <span class="sticky-bar-msg" id="stickyBarMsg">Weekends booking fast</span>
+      <span class="sticky-bar-msg">Summer 2026 booking fast</span>
       <div class="sticky-bar-actions">
         <a href="tel:+12197581313" class="sticky-bar-phone">📞 219.758.1313</a>
         <a href="#contact" class="btn btn-primary sticky-bar-btn">Book Now</a>
@@ -2064,7 +1947,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
         <ul>
           <li><a href="tel:+12197581313">219.758.1313</a></li>
           <li><a href="mailto:booking@popupkaraoke.net">booking@popupkaraoke.net</a></li>
-          <li><a href="https://square.link/u/CmsBTgrE?src=footer" target="_blank" rel="noopener">💳 Pay Deposit</a></li>
+          <li><a href="https://square.link/u/CmsBTgrE?src=footer" target="_blank" rel="noopener">💳 Make a Payment</a></li>
           <li><a href="https://my-store-679618.creator-spring.com" target="_blank" rel="noopener">Shop Merch</a></li>
         </ul>
       </div>
@@ -2072,8 +1955,8 @@ booking@popupkaraoke.net | popupkaraoke.net">
     <div class="foot-bottom">
       <p>© <span id="year">2026</span> PopUp Karaoke, LLC. All rights reserved.</p>
       <div class="foot-links">
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
       </div>
     </div>
   </footer>
@@ -2162,7 +2045,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
         <div id="quizResultEmoji" style="font-size:3rem;margin-bottom:0.5rem;">🎤</div>
         <h4 id="quizResultTitle" style="font-size:1.3rem;font-weight:800;margin-bottom:0.75rem;"></h4>
         <p id="quizResultMsg" style="color:var(--text-dim);font-size:0.95rem;line-height:1.6;margin-bottom:1.5rem;"></p>
-        <a href="#contact" id="quizResultCta" class="btn btn-primary quiz-result-cta" data-close-modal>🎤 Book Your Event</a>
+        <a href="#contact" class="btn btn-primary quiz-result-cta" data-close-modal>🎤 Book Your Event</a>
       </div>
 
       <!-- Progress dots -->
@@ -2222,14 +2105,8 @@ booking@popupkaraoke.net | popupkaraoke.net">
     function close(){dd.classList.remove('open');toggle.setAttribute('aria-expanded','false');}
     toggle.addEventListener('click',function(e){dd.classList.contains('open')?close():open();e.stopPropagation();});
     document.addEventListener('click',function(e){if(!dd.contains(e.target))close();});
-    document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();toggle.focus();}});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
     dd.querySelectorAll('.nav-dd-menu a').forEach(function(a){a.addEventListener('click',close);});
-    // Close dropdown when Tab focus leaves it entirely
-    dd.addEventListener('focusout',function(e){
-      setTimeout(function(){
-        if(!dd.contains(document.activeElement)){close();}
-      },0);
-    });
   })();</script>
 
   <!-- SONG SEARCH -->
@@ -2357,7 +2234,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
             +'</div>';
         }).join('')+'<p class="song-search-count">Showing '+matches.length+' of '+SONGS.filter(function(s){return s.t.toLowerCase().indexOf(q)!==-1||s.a.toLowerCase().indexOf(q)!==-1;}).length+' matches — 61,000+ total songs available</p>';
       } else {
-        results.innerHTML='<div class="song-search-not-found"><p>Not in our preview list — but with 61,000+ songs we very likely have it! <a href="tel:+12197581313" style="color:var(--neon-cyan);font-weight:700;">Call 219.758.1313</a> and we\'ll confirm or add it before your event.</p><a href="#contact" class="btn btn-primary" style="font-size:0.85rem;padding:0.5rem 1rem;margin-top:0.5rem;">Request This Song →</a></div>';
+        results.innerHTML='<div class="song-search-not-found"><p>Not in our preview list — but with 61,000+ songs we very likely have it!</p><a href="#contact" class="btn btn-primary" style="font-size:0.85rem;padding:0.5rem 1rem;">Request This Song</a></div>';
       }
     }
     input.addEventListener('input',function(){search(this.value);});
@@ -2371,39 +2248,14 @@ booking@popupkaraoke.net | popupkaraoke.net">
     var steps=['quizStep1','quizStep2','quizStep3','quizResult'];
     var dots=['qd1','qd2','qd3'];
     var current=0;
-
-    // Base results by event type (Q1)
     var RESULTS={
       birthday:{emoji:'🎂',title:"Let's Make It Unforgettable",msg:"Birthday parties are our specialty. We'll personalize the setlist, hype up the guest of honor, and keep the energy electric all night. Perfect for any age, any size."},
       wedding:{emoji:'💒',title:"Your Reception Just Got Better",msg:"Karaoke is the surprise your guests will talk about for years. We'll work seamlessly alongside your DJ or band, and make sure every generation gets on the mic."},
-      corporate:{emoji:'🏢',title:"Team Bonding Done Right",msg:"Karaoke is the best icebreaker for corporate events. We handle everything — COI included — so you can focus on your team having a great time."},
-      bar:{emoji:'🍺',title:"Turn Slow Nights Into Packed Ones",msg:"We run weekly residencies at 18th Street Brewery, Flights Taproom, and El Capitán. Karaoke drives repeat traffic and loyal regulars. Let's talk residency options."},
+      corporate:{emoji:'🏢',title:"Team Bonding Done Right",msg:"Karaoke is hands-down the best icebreaker for corporate events. We handle everything — COI included — so you can focus on your team having a great time."},
+      bar:{emoji:'🍺',title:"Turn Slow Nights Into Packed Ones",msg:"We already run weekly residencies at 18th Street Brewery, Flights Taproom, and El Capitán. A karaoke night drives repeat traffic and loyal regulars. Let's talk residency options."},
       party:{emoji:'🎉',title:"Let's Get This Party Started",msg:"Whatever the occasion, we bring the full show — sound, lights, host, and 61,000+ songs. Just tell us the vibe and we'll dial it in perfectly."},
       curious:{emoji:'🎵',title:"Glad You're Here!",msg:"No pressure — just explore. We'd love to show you what a PopUp Karaoke experience looks like. Check out our videos or reach out with any questions."}
     };
-
-    // CTA config based on Q1 (type) + Q2 (size) + Q3 (timing)
-    function getCTA(type, size, timing){
-      // Urgency overrides for "within 30 days"
-      if(timing==='soon'){
-        return {href:'#contact',text:'🚨 Check Availability — Dates Fill Fast'};
-      }
-      // Large group → corporate quote path
-      if(size==='xlarge'||size==='large'){
-        return {href:'corporate-karaoke.html',text:'📋 Learn About Large Event Options'};
-      }
-      // Just exploring → checklist
-      if(timing==='early'){
-        return {href:'#newsletter',text:'📧 Get the Free Party Checklist First'};
-      }
-      // Type-specific CTAs
-      if(type==='wedding')  return {href:'wedding-karaoke.html',text:'💒 See Wedding Karaoke Details'};
-      if(type==='corporate')return {href:'corporate-karaoke.html',text:'🏢 See Corporate Event Details'};
-      if(type==='bar')      return {href:'#contact',text:'🍺 Discuss a Residency'};
-      if(type==='birthday') return {href:'birthday-karaoke.html',text:'🎂 See Birthday Packages'};
-      return {href:'#contact',text:'🎤 Book Your Event'};
-    }
-
     function show(stepId){
       steps.forEach(function(id){
         var el=document.getElementById(id);
@@ -2414,36 +2266,19 @@ booking@popupkaraoke.net | popupkaraoke.net">
         if(el)el.classList.toggle('active',i<=current-1);
       });
     }
-
     function showResult(){
-      var type=answers[1]||'curious';
-      var size=answers[2]||'medium';
-      var timing=answers[3]||'month';
-      var r=RESULTS[type]||RESULTS.curious;
-      var cta=getCTA(type,size,timing);
-
-      // Add size-aware suffix to message
-      var sizeNote='';
-      if(size==='xlarge')sizeNote=' Your 150+ guest event gets full large-format setup — bigger speakers, more mics, extended host coverage.';
-      else if(size==='small')sizeNote=' Intimate groups are some of our favorite events — everyone gets more mic time!';
-
+      var r=RESULTS[answers[1]]||RESULTS.curious;
       document.getElementById('quizEmoji').textContent=r.emoji;
       document.getElementById('quizResultTitle').textContent=r.title;
-      document.getElementById('quizResultMsg').textContent=r.msg+sizeNote;
-
-      // Update the CTA button href and text
-      var ctaBtn=document.getElementById('quizResultCta');
-      if(ctaBtn){ctaBtn.href=cta.href;ctaBtn.textContent=cta.text;}
-
+      document.getElementById('quizResultMsg').textContent=r.msg;
       show('quizResult');
     }
-
     document.querySelectorAll('.quiz-opt').forEach(function(btn){
       btn.addEventListener('click',function(){
         var step=parseInt(this.dataset.step,10);
         answers[step]=this.dataset.val;
         current=step;
-        if(step===1){show('quizStep2');document.getElementById('qd1').classList.add('active');}
+        if(step===1){show('quizStep2');dots[0].classList&&document.getElementById('qd1').classList.add('active');}
         else if(step===2){show('quizStep3');document.getElementById('qd2').classList.add('active');}
         else if(step===3){showResult();document.getElementById('qd3').classList.add('active');}
       });
@@ -2486,27 +2321,6 @@ booking@popupkaraoke.net | popupkaraoke.net">
     }
     window.addEventListener('scroll',check,{passive:true});
     check();
-    // Dynamic seasonal urgency message
-    (function(){
-      var msgEl = document.getElementById('stickyBarMsg');
-      if(!msgEl) return;
-      var m = new Date().getMonth(); // 0=Jan
-      var msgs = {
-        0: 'Valentine events booking up!',
-        1: 'Valentine events booking up!',
-        2: 'Spring events booking fast',
-        3: 'Spring events booking fast',
-        4: 'Summer weekends filling up',
-        5: 'Summer weekends filling up',
-        6: 'Summer booking fast — act now',
-        7: 'Late-summer dates going fast',
-        8: 'Fall events booking fast',
-        9: 'Holiday parties booking now',
-        10: 'Holiday weekends nearly full',
-        11: 'New Year events booking fast'
-      };
-      msgEl.textContent = msgs[m] || 'Weekends booking fast';
-    })();
     bar.querySelectorAll('a[href="#contact"]').forEach(function(a){
       a.addEventListener('click',function(){bar.classList.remove('visible');});
     });
@@ -2535,30 +2349,15 @@ booking@popupkaraoke.net | popupkaraoke.net">
       modal.setAttribute('aria-hidden','true');
       document.body.style.overflow='';
     }
-    function showBye(){
-      hide();
-      var bye=document.getElementById('byeOverlay');
-      if(!bye)return;
-      bye.style.opacity='0';bye.style.display='flex';
-      ['byeWord1','byeWord2','byeWord3','byeSub'].forEach(function(id){var el=document.getElementById(id);if(el){el.style.opacity='0';el.style.transform='translateY(24px)';}});
-      var nb=document.getElementById('byeNotes');if(nb)nb.innerHTML='';
-      setTimeout(function(){
-        bye.style.opacity='1';
-        ['byeWord1','byeWord2','byeWord3','byeSub'].forEach(function(id,i){setTimeout(function(){var el=document.getElementById(id);if(el){el.style.opacity='1';el.style.transform='translateY(0)';}},i*680+80);});
-        var notes=['♪','♫','♩','♬'],colors=['#ff2d92','#a855f7','#c084fc','#f472b6','#e879f9'];
-        if(nb){for(var n=0;n<22;n++){(function(i){setTimeout(function(){var s=document.createElement('span');s.textContent=notes[i%4];s.style.cssText='position:absolute;font-size:'+(1.2+Math.random()*2.2).toFixed(1)+'rem;color:'+colors[Math.floor(Math.random()*5)]+';left:'+(2+Math.random()*96).toFixed(1)+'%;bottom:-3rem;animation:noteFloat '+(1.6+Math.random()*1.8).toFixed(1)+'s ease-out forwards;pointer-events:none;';nb.appendChild(s);},i*110);})(n);}}
-        setTimeout(function(){bye.style.opacity='0';setTimeout(function(){bye.style.display='none';},520);},4500);
-      },40);
-    }
     setTimeout(function(){
       document.addEventListener('mouseleave',function onLeave(e){
         if(e.clientY<5){show();document.removeEventListener('mouseleave',onLeave);}
       });
     },8000);
     if(closeBtn)closeBtn.addEventListener('click',hide);
-    if(dismiss)dismiss.addEventListener('click',showBye);
+    if(dismiss)dismiss.addEventListener('click',hide);
     if(cta)cta.addEventListener('click',hide);
-    modal.addEventListener('click',function(e){if(e.target===modal)showBye();});
+    modal.addEventListener('click',function(e){if(e.target===modal)hide();});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&shown)hide();});
   })();</script>
 
@@ -2617,18 +2416,94 @@ booking@popupkaraoke.net | popupkaraoke.net">
 
 
 
-  <!-- app.js: urgency signal -->
-  <!-- app.js: ticker -->
+  <!-- URGENCY SIGNAL — real date math -->
+  <script>(function(){
+    var el=document.getElementById('availUrgency');
+    if(!el)return;
+    var now=new Date();
+    var month=now.getMonth();
+    var year=now.getFullYear();
+    var monthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    // Count remaining Fri/Sat/Sun in current month
+    var lastDay=new Date(year,month+1,0).getDate();
+    var remaining=0;
+    for(var d=now.getDate();d<=lastDay;d++){
+      var day=new Date(year,month,d).getDay();
+      if(day===5||day===6||day===0)remaining++;
+    }
+    // Also count next month's to decide messaging
+    var nextMonth=(month+1)%12;
+    var nextMonthName=monthNames[nextMonth];
+    var msg='';
+    if(remaining<=4){
+      msg='⚡ Only '+remaining+' weekend days left in '+monthNames[month]+'!';
+    } else if(remaining<=8){
+      msg='📅 '+remaining+' weekend dates still open in '+monthNames[month]+' — check yours now.';
+    } else {
+      msg='📅 '+nextMonthName+' weekends filling up — lock in your date early.';
+    }
+    el.textContent=msg;
+    el.style.display='block';
+  })();</script>
+  <!-- TICKER DUPLICATION (infinite loop) -->
+  <script>(function(){
+    var inner=document.getElementById('tickerInner');
+    if(!inner)return;
+    inner.innerHTML+=inner.innerHTML;
+  })();</script>
 
   <!-- SCRIPTS -->
   <!-- Back to top -->
-  <!-- app.js: back-to-top -->
+  <script>(function(){var btn=document.getElementById('backToTop');if(!btn)return;window.addEventListener('scroll',function(){if(window.scrollY>400){btn.classList.add('visible');}else{btn.classList.remove('visible');}},{passive:true});btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});})();</script>
 
-  <!-- app.js: main -->
+  <script>(function(){'use strict';var yr=document.getElementById('year');if(yr)yr.textContent=new Date().getFullYear();var nav=document.getElementById('nav');function onScroll(){if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');}window.addEventListener('scroll',onScroll,{passive:true});onScroll();var navToggle=document.getElementById('navToggle');var mobileOverlay=document.getElementById('mobileOverlay');function closeMobileNav(){if(mobileOverlay)mobileOverlay.classList.remove('open');if(navToggle)navToggle.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open');if(mobileOverlay)mobileOverlay.setAttribute('aria-hidden','true');}if(navToggle&&mobileOverlay){navToggle.addEventListener('click',function(){var open=mobileOverlay.classList.toggle('open');navToggle.setAttribute('aria-expanded',open?'true':'false');document.body.classList.toggle('menu-open',open);mobileOverlay.setAttribute('aria-hidden',open?'false':'true');});mobileOverlay.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){closeMobileNav();});});mobileOverlay.addEventListener('click',function(e){if(e.target===mobileOverlay)closeMobileNav();});}document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mobileOverlay&&mobileOverlay.classList.contains('open'))closeMobileNav();});var mobileOverlayClose=document.getElementById('mobileOverlayClose');if(mobileOverlayClose)mobileOverlayClose.addEventListener('click',closeMobileNav);var openers=document.querySelectorAll('[data-open-modal]');var closers=document.querySelectorAll('[data-close-modal]');function openModal(id){var m=document.getElementById(id);if(!m)return;m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';var firstInput=m.querySelector('input, textarea, select, button');if(firstInput)setTimeout(function(){firstInput.focus();},50);}function closeAllModals(){document.querySelectorAll('.modal').forEach(function(m){m.setAttribute('aria-hidden','true');});document.body.style.overflow='';}openers.forEach(function(b){b.addEventListener('click',function(){openModal(b.getAttribute('data-open-modal'));});});closers.forEach(function(b){b.addEventListener('click',closeAllModals);});document.querySelectorAll('.modal').forEach(function(m){m.addEventListener('click',function(e){if(e.target===m)closeAllModals();});});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAllModals();});if('IntersectionObserver'in window){var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}try{if(location.search.indexOf('sent=1')!==-1){alert("Thanks! We got your request and will be in touch soon. 🎤");if(history.replaceState)history.replaceState({},'',location.pathname);}}catch(e){}function validateField(field){var msg='';var v=(field.value||'').trim();if(field.required&&!v){msg='This field is required.';}else if(field.type==='email'&&v&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){msg='Please enter a valid email address.';}else if(field.type==='tel'&&v&&v.replace(/\D/g,'').length<7){msg='Please enter a valid phone number.';}else if(field.tagName==='SELECT'&&field.required&&!v){msg='Please select an option.';}var errorEl=field.parentElement.querySelector('.form-error');if(msg){field.classList.add('invalid');field.classList.remove('valid');field.setAttribute('aria-invalid','true');if(errorEl){errorEl.textContent=msg;errorEl.classList.add('show');}return false;}else{field.classList.remove('invalid');if(v)field.classList.add('valid');field.setAttribute('aria-invalid','false');if(errorEl)errorEl.classList.remove('show');return true;}}function setupForm(form){if(!form)return;Array.prototype.forEach.call(form.querySelectorAll('.form-group'),function(g){if(g.querySelector('.form-error'))return;var err=document.createElement('div');err.className='form-error';err.setAttribute('role','alert');g.appendChild(err);});var fields=form.querySelectorAll('input:not([type=hidden]):not([name=_honey]), select, textarea');Array.prototype.forEach.call(fields,function(f){f.addEventListener('blur',function(){validateField(f);});f.addEventListener('input',function(){if(f.classList.contains('invalid'))validateField(f);});});form.addEventListener('submit',function(e){var allValid=true;Array.prototype.forEach.call(fields,function(f){if(!validateField(f))allValid=false;});if(!allValid){e.preventDefault();var firstInvalid=form.querySelector('.invalid');if(firstInvalid)firstInvalid.focus();return;}var btn=form.querySelector('button[type="submit"]');if(btn){btn.classList.add('submitting');btn.dataset.originalText=btn.innerHTML;btn.innerHTML='Sending…';btn.setAttribute('disabled','disabled');}});}// Two-step booking form
+(function(){
+  var step1=document.getElementById('formStep1');
+  var step2=document.getElementById('formStep2');
+  var fp1=document.getElementById('fp1');
+  var fp2=document.getElementById('fp2');
+  var nextBtn=document.getElementById('formNextBtn');
+  var backBtn=document.getElementById('formBackBtn');
+  if(!step1||!step2||!nextBtn||!backBtn)return;
+  function goStep2(){
+    // Validate step 1 fields
+    var nameF=document.getElementById('b-name');
+    var emailF=document.getElementById('b-email');
+    var typeF=document.getElementById('b-type');
+    var valid=true;
+    [nameF,emailF,typeF].forEach(function(f){if(!validateField(f))valid=false;});
+    if(!valid)return;
+    step1.style.display='none';
+    step2.style.display='block';
+    if(fp1){fp1.classList.remove('fp-active');fp1.classList.add('fp-done');fp1.querySelector('.fp-num').textContent='✓';}
+    if(fp2){fp2.classList.add('fp-active');}
+    // Pre-fill date from availability checker if set
+    var availDate=document.getElementById('availDate');
+    var bookDate=document.getElementById('b-date');
+    if(availDate&&bookDate&&availDate.value&&!bookDate.value)bookDate.value=availDate.value;
+    step2.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+  function goStep1(){
+    step2.style.display='none';
+    step1.style.display='block';
+    if(fp1){fp1.classList.add('fp-active');fp1.classList.remove('fp-done');fp1.querySelector('.fp-num').textContent='1';}
+    if(fp2){fp2.classList.remove('fp-active');}
+    step1.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+  nextBtn.addEventListener('click',goStep2);
+  backBtn.addEventListener('click',goStep1);
+})();
+setupForm(document.getElementById('bookingForm'));setupForm(document.getElementById('songForm'));window.dataLayer=window.dataLayer||[];function trackEvent(eventName,fbEvent,params){params=params||{};try{window.dataLayer.push(Object.assign({event:eventName},params));}catch(e){}try{if(typeof window.fbq==='function'){window.fbq('track',fbEvent,params);}}catch(e){}}var bookingForm=document.getElementById('bookingForm');if(bookingForm){bookingForm.addEventListener('submit',function(){trackEvent('lead_submit','Lead',{content_name:'Booking Request',content_category:'booking',value:0,currency:'USD'});});}var songForm=document.getElementById('songForm');if(songForm){songForm.addEventListener('submit',function(){trackEvent('lead_submit','Lead',{content_name:'Song Request',content_category:'song_request',value:0,currency:'USD'});});}Array.prototype.forEach.call(document.querySelectorAll('a[href*="square.link"]'),function(a){a.addEventListener('click',function(){var src='unknown';try{var u=new URL(a.href);src=u.searchParams.get('src')||'unknown';}catch(e){}trackEvent('initiate_checkout','InitiateCheckout',{content_name:'Square Payment',payment_method:'square',link_source:src,currency:'USD'});});});Array.prototype.forEach.call(document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]'),function(a){a.addEventListener('click',function(){var kind=a.getAttribute('href').indexOf('tel:')===0?'phone':'email';trackEvent('contact_click','Contact',{content_name:kind==='phone'?'Call':'Email',contact_method:kind});});});})();</script>
 
-  <!-- app.js: service worker -->
+  <!-- PWA Service Worker Registration -->
+  <script>if('serviceWorker'in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}</script>
 
   <!-- EXIT INTENT MODAL -->
+  <style>
+    @keyframes noteFloat{0%{transform:translateY(0) rotate(-15deg);opacity:1}100%{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+    #exitModal{display:none;position:fixed;inset:0;z-index:9990;background:rgba(6,0,16,0.9);align-items:center;justify-content:center;padding:1.5rem;}
+    #byeOverlay{display:none;position:fixed;inset:0;z-index:9995;background:rgba(6,0,16,0.94);align-items:center;justify-content:center;flex-direction:column;transition:opacity 0.5s;}
+  </style>
 
   <div id="exitModal" role="dialog" aria-modal="true" aria-labelledby="exitModalTitle">
     <div style="background:#1a0a2e;border:1px solid rgba(168,85,247,0.35);border-radius:18px;padding:2.5rem 2rem;max-width:460px;width:100%;text-align:center;position:relative;box-shadow:0 0 80px rgba(168,85,247,0.18);">
@@ -2638,7 +2513,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
       <div style="display:flex;flex-direction:column;gap:0.7rem;">
         <a href="#contact" id="exitBookBtn" style="background:#ff2d92;color:#fff;padding:0.9rem 2rem;border-radius:50px;font-weight:800;font-size:1rem;text-decoration:none;display:block;">🎉 Book My Event Now</a>
         <a href="tel:+12197581313" style="background:rgba(168,85,247,0.15);border:1px solid rgba(168,85,247,0.4);color:#c084fc;padding:0.75rem 2rem;border-radius:50px;font-weight:700;font-size:0.95rem;text-decoration:none;display:block;">📞 Call Us: 219.758.1313</a>
-        <button id="exitDismiss" style="background:none;border:none;color:rgba(255,255,255,0.3);font-size:0.82rem;cursor:pointer;padding:0.5rem;font-family:inherit;">I'll reach out another time</button>
+        <button id="exitDismiss" style="background:none;border:none;color:rgba(255,255,255,0.3);font-size:0.82rem;cursor:pointer;padding:0.5rem;font-family:inherit;">No thanks, I'll skip the good time</button>
       </div>
     </div>
   </div>
@@ -2654,7 +2529,96 @@ booking@popupkaraoke.net | popupkaraoke.net">
     </div>
   </div>
 
+  <!-- EXIT INTENT SCRIPT -->
+  <script>(function(){
+    var modal = document.getElementById('exitModal');
+    var bye   = document.getElementById('byeOverlay');
+    var KEY   = 'puk_ei';
 
+    function show(){
+      if(sessionStorage.getItem(KEY)) return;
+      sessionStorage.setItem(KEY,'1');
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function showBye(){
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+      bye.style.opacity = '0';
+      bye.style.display = 'flex';
+      // reset words
+      ['byeWord1','byeWord2','byeWord3','byeSub'].forEach(function(id){
+        var el = document.getElementById(id);
+        if(el){ el.style.opacity='0'; el.style.transform='translateY(24px)'; }
+      });
+      document.getElementById('byeNotes').innerHTML = '';
+      setTimeout(function(){
+        bye.style.opacity = '1';
+        ['byeWord1','byeWord2','byeWord3','byeSub'].forEach(function(id,i){
+          setTimeout(function(){
+            var el = document.getElementById(id);
+            if(el){ el.style.opacity='1'; el.style.transform='translateY(0)'; }
+          }, i * 680 + 80);
+        });
+        // musical notes
+        var notes = ['♪','♫','♩','♬'];
+        var colors = ['#ff2d92','#a855f7','#c084fc','#f472b6','#e879f9'];
+        var nb = document.getElementById('byeNotes');
+        for(var n=0; n<22; n++){
+          (function(i){
+            setTimeout(function(){
+              var s = document.createElement('span');
+              s.textContent = notes[i%4];
+              s.style.cssText = 'position:absolute;font-size:'+(1.2+Math.random()*2.2).toFixed(1)+'rem;color:'+colors[Math.floor(Math.random()*5)]+';left:'+(2+Math.random()*96).toFixed(1)+'%;bottom:-3rem;animation:noteFloat '+(1.6+Math.random()*1.8).toFixed(1)+'s ease-out forwards;pointer-events:none;';
+              nb.appendChild(s);
+            }, i*110);
+          })(n);
+        }
+        setTimeout(function(){ bye.style.opacity='0'; setTimeout(function(){ bye.style.display='none'; },520); }, 4500);
+      }, 40);
+    }
+
+    // TRIGGER 1: mouse exits toward top (Safari + Chrome)
+    document.addEventListener('mouseleave', function(e){
+      if(e.clientY < 40) show();
+    });
+    document.documentElement.addEventListener('mouseleave', function(e){
+      if(e.clientY < 40) show();
+    });
+
+    // TRIGGER 2: rapid scroll back to top after scrolling down
+    var prevY = 0, scrolledFar = false;
+    window.addEventListener('scroll', function(){
+      var y = window.scrollY;
+      if(y > 500) scrolledFar = true;
+      if(scrolledFar && prevY - y > 300 && y < 100) show();
+      prevY = y;
+    }, {passive:true});
+
+    // TRIGGER 3: tab hidden on mobile (home button / app switch)
+    document.addEventListener('visibilitychange', function(){
+      if(document.visibilityState === 'hidden' && scrolledFar) show();
+    });
+
+    // TRIGGER 4: guaranteed timer — 40 seconds on page
+    setTimeout(show, 40000);
+
+    // BUTTONS
+    var bookBtn = document.getElementById('exitBookBtn');
+    if(bookBtn) bookBtn.addEventListener('click', function(){
+      modal.style.display='none'; document.body.style.overflow='';
+    });
+
+    var dismissBtn = document.getElementById('exitDismiss');
+    if(dismissBtn) dismissBtn.addEventListener('click', showBye);
+
+    modal.addEventListener('click', function(e){ if(e.target===modal) showBye(); });
+
+    document.addEventListener('keydown', function(e){
+      if(e.key==='Escape' && modal.style.display==='flex') showBye();
+    });
+  })();</script>
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
@@ -2662,12 +2626,6 @@ booking@popupkaraoke.net | popupkaraoke.net">
     });
   }
 </script>
-
-  <!-- Main app JS — deferred for performance -->
-  <script src="app.js" defer></script>
-
-  <!-- Vimeo player API — loaded async, only needed for background video -->
-  <script src="https://player.vimeo.com/api/player.js" async defer></script>
 
 </body>
 </html>

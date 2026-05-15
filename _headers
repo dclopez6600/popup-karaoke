@@ -17,11 +17,11 @@
 /
   Cache-Control: public, max-age=0, must-revalidate
 
-# CSS — 1 week with revalidation (no content hashing, so never immutable)
+# CSS — 1 week (no hash versioning, so don't go immutable)
 /*.css
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
-# JavaScript — 1 week with revalidation
+# JavaScript — 1 week
 /*.js
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
