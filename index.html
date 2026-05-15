@@ -67,6 +67,7 @@
   <link rel="preload" as="font" href="fonts/outfit-v15-latin-400.woff2" type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="fonts/outfit-v15-latin-700.woff2" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="puklogo.webp" type="image/webp" fetchpriority="high">
+  <link rel="preload" as="image" href="karafun-qr.png" type="image/png">
   <link rel="preload" as="style" href="style.css">
   <link rel="manifest" href="/manifest.json">
 
@@ -118,6 +119,10 @@
     .avail-feedback-wrap{margin-top:0.75rem}
     .avail-feedback.ok{background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);color:#bbf7d0;border-radius:0.5rem;padding:0.75rem 1rem;font-size:0.9rem;line-height:1.5}
     .avail-feedback.warn{background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.25);color:#fde68a;border-radius:0.5rem;padding:0.75rem 1rem;font-size:0.9rem;line-height:1.5}
+    /* Exit intent modal */
+    @keyframes noteFloat{0%{transform:translateY(0) rotate(-15deg);opacity:1}100%{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+    #exitModal{display:none;position:fixed;inset:0;z-index:9990;background:rgba(6,0,16,0.9);align-items:center;justify-content:center;padding:1.5rem;}
+    #byeOverlay{display:none;position:fixed;inset:0;z-index:9995;background:rgba(6,0,16,0.94);align-items:center;justify-content:center;flex-direction:column;transition:opacity 0.5s;}
   </style>
 
   <!-- JSON-LD Structured Data: LocalBusiness + EntertainmentBusiness for rich Google results -->
@@ -452,12 +457,29 @@
   }
   </script>
 
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-WNX6WZJZ');</script>
+  <!-- Google Tag Manager — deferred until first user interaction for better TBT/CLS scores -->
+  <script>
+    (function(){
+      window.dataLayer = window.dataLayer || [];
+      var GTM_ID = 'GTM-WNX6WZJZ';
+      var gtmLoaded = false;
+      function loadGTM(){
+        if(gtmLoaded) return;
+        gtmLoaded = true;
+        var s=document.createElement('script');
+        s.async=true;
+        s.src='https://www.googletagmanager.com/gtm.js?id='+GTM_ID+'&l=dataLayer';
+        document.head.appendChild(s);
+        dataLayer.push({'gtm.start':new Date().getTime(), event:'gtm.js'});
+      }
+      // Fire on first meaningful interaction
+      ['click','scroll','keydown','touchstart'].forEach(function(ev){
+        window.addEventListener(ev, loadGTM, {once:true, passive:true});
+      });
+      // Fallback: load after 5 seconds regardless
+      setTimeout(loadGTM, 5000);
+    })();
+  </script>
   <!-- End Google Tag Manager -->
 
   <!-- Meta Pixel: managed via GTM (container GTM-WNX6WZJZ). See GTM_SETUP.md Step 7. -->
@@ -753,7 +775,7 @@
         <h1 id="hero-title">
           <span class="word">NW</span>
           <span class="word">Indiana's</span>
-          <span class="word">Mobile</span>
+          <span class="word">#1</span>
           <span class="word accent">Karaoke DJ</span>
         </h1>
         <p class="lead">Weddings, bars, birthdays &amp; corporate events across <strong>NW Indiana &amp; Chicagoland</strong> — fully equipped, veteran-run, and ready to make your event unforgettable.</p>
@@ -852,7 +874,7 @@
           </div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;margin-top:3.5rem;padding:3rem 1rem;" class="reveal">
-          <p style="color:var(--text-mute);font-size:1.05rem;margin-bottom:1.5rem;text-align:center;">Not sure which package is right for your event?</p>
+          <p style="color:var(--text-mute);font-size:1.05rem;margin-bottom:1.5rem;text-align:center;">Not sure which package fits your event? Take the quiz to find out.</p>
           <button type="button" class="btn btn-secondary" data-open-modal="quizModal" aria-haspopup="dialog" style="gap:0.75rem;font-size:1.3rem;padding:1.25rem 3.5rem;min-width:360px;max-width:100%;display:inline-flex;align-items:center;justify-content:center;">
             🎯 Take Our 3-Question Quiz
           </button>
@@ -945,7 +967,7 @@
           <div class="step reveal">
             <div class="step-num">5</div>
             <h4>We Show Up Early</h4>
-            <p>We arrive ahead of your guests, set up the full rig — sound, lights, mics, song display — and do a sound check.</p>
+            <p>We arrive <strong>60–90 minutes before showtime</strong> to set up the full rig — sound, lights, mics, song display — and do a sound check. Teardown takes 30–45 minutes after the last song.</p>
           </div>
           <div class="step reveal">
             <div class="step-num">6</div>
@@ -956,8 +978,8 @@
         <div class="cta-wrap">
           <div class="cta-block reveal">
             <h3 class="cta-headline">Ready to get started?</h3>
-            <p class="cta-sub">Weekends book fast — especially in summer. Fill out the form below and we'll get back to you quickly.</p>
-            <a href="#contact" class="btn btn-primary btn-xl">🎤 Request a Quote</a>
+            <p class="cta-sub">Weekends book fast — especially in summer. Tell us about your event and we'll get back to you quickly.</p>
+            <a href="#contact" class="btn btn-primary btn-xl">📅 Check Your Date &amp; Get a Quote</a>
           </div>
         </div>
       </div>
@@ -977,11 +999,11 @@
               <span>💡 Stage lighting</span>
               <span>🎵 61,000+ songs</span>
             </div>
-            <a class="btn btn-primary" href="#contact" style="margin-top:1.5rem;display:inline-block;">🎉 Book Your Event</a>
+            <a class="btn btn-primary" href="#contact" style="margin-top:1.5rem;display:inline-block;">🎤 Get a Free Quote</a>
           </div>
           <div class="video-reel-player">
             <div class="video-phone-frame">
-              <div style="padding:75% 0 0 0;position:relative;">
+              <div style="padding:75% 0 0 0;position:relative;contain:layout style;">
                 <iframe
                   src="https://player.vimeo.com/video/1192398024?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1"
                   frameborder="0"
@@ -1212,11 +1234,12 @@
           </div>
         </div>
 
-        <!-- ===========================================================
-             EDIT MONTHLY — change month, year, and events below.
+        <!-- ================================================================
+             ⚠️  UPDATE MONTHLY — change month, year, and events below.
+             Set a recurring calendar reminder: 1st of each month → update this.
+             Paste next month dates, save, commit, and deploy.
              venueClass options: "flights" | "18thStreetBrewery" | "elCapitan"
-             (or any custom name; will fall back to default purple style)
-             =========================================================== -->
+             ================================================================ -->
         <script>
           window.PUK_CALENDAR = {
             month: "May",
@@ -1235,8 +1258,18 @@
           };
         </script>
 
-        <script>(function(){var d=window.PUK_CALENDAR;if(!d)return;var monthEl=document.getElementById('cal-month');var yearEl=document.getElementById('cal-year');var listEl=document.getElementById('cal-events');var factEl=document.querySelector('.cal-funfact-text');if(monthEl)monthEl.textContent=d.month;if(yearEl)yearEl.textContent=d.year;if(factEl&&d.funFact)factEl.textContent=d.funFact;if(!listEl)return;if(!d.events||!d.events.length){listEl.innerHTML='<p class="cal-empty">No public events scheduled this month — check back soon!</p>';return;}var dayShort={Sunday:'SUN',Monday:'MON',Tuesday:'TUE',Wednesday:'WED',Thursday:'THU',Friday:'FRI',Saturday:'SAT'};function esc(s){return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
-            var html = d.events.map(function(e){
+        <script>(function(){var d=window.PUK_CALENDAR;if(!d)return;var monthEl=document.getElementById('cal-month');var yearEl=document.getElementById('cal-year');var listEl=document.getElementById('cal-events');var factEl=document.querySelector('.cal-funfact-text');if(monthEl)monthEl.textContent=d.month;if(yearEl)yearEl.textContent=d.year;if(factEl&&d.funFact)factEl.textContent=d.funFact;if(!listEl)return;
+          // Auto-filter: hide events that have already passed this month
+          var today=new Date();var todayDate=today.getDate();var calYear=d.year||today.getFullYear();
+          var calMonthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
+          var calMonthIdx=calMonthNames.indexOf(d.month);
+          var calYear2=d.year||today.getFullYear();
+          var isCurrentMonth=(calMonthIdx===today.getMonth()&&calYear2===today.getFullYear());
+          var events=d.events||[];
+          if(isCurrentMonth){events=events.filter(function(e){return e.date>=todayDate;});}
+          if(!events.length){listEl.innerHTML='<p class="cal-empty">No upcoming public events this month — check back soon, or <a href="#contact" style="color:var(--neon-cyan);font-weight:600;">book a private event</a>.</p>';return;}
+          var dayShort={Sunday:'SUN',Monday:'MON',Tuesday:'TUE',Wednesday:'WED',Thursday:'THU',Friday:'FRI',Saturday:'SAT'};function esc(s){return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+            var html = events.map(function(e){
               var qs = encodeURIComponent(e.mapsQuery || (e.venue + ' ' + e.address));
               var maps = 'https://www.google.com/maps/search/?api=1&query=' + qs;
               var venueCls = (e.venueClass || '').replace(/[^A-Za-z0-9]/g,'');
@@ -1288,7 +1321,7 @@
           <div class="cta-block reveal">
             <h3 class="cta-headline">Want PopUp Karaoke at your <span class="grad">venue or private event?</span></h3>
             <p class="cta-sub">Tell us about your event and we'll send a custom quote — usually within 24 hours.</p>
-            <a href="#contact" class="btn btn-primary btn-xl">🎉 Book Now</a>
+            <a href="#contact" class="btn btn-primary btn-xl">🎉 Book a Private Event</a>
             <div class="cta-trust">
               <span><span class="dot">✓</span> Free quotes</span>
               <span><span class="dot">✓</span> Pro equipment &amp; host</span>
@@ -1865,7 +1898,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
               <button type="button" class="btn btn-primary submit-btn" id="formNextBtn">Next — Event Details →</button>
             </div>
 
-            <!-- STEP 2: Phone, Date, Guests, Message -->
+            <!-- STEP 2: Phone, Date, Guests, City, Message -->
             <div class="form-step" id="formStep2" style="display:none;">
               <p class="form-step-hint">Almost done! A few details help us give you an accurate quote.</p>
               <div class="form-row">
@@ -1878,22 +1911,50 @@ booking@popupkaraoke.net | popupkaraoke.net">
                   <input id="b-date" name="event_date" type="date">
                 </div>
               </div>
-              <div class="form-group">
-                <label for="b-guests">Expected Guests</label>
-                <select id="b-guests" name="guests">
-                  <option value="">Select range…</option>
-                  <option>10-25 guests</option>
-                  <option>25-50 guests</option>
-                  <option>50-75 guests</option>
-                  <option>75-100 guests</option>
-                  <option>100-150 guests</option>
-                  <option>150-200 guests</option>
-                  <option>200+ guests</option>
-                </select>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="b-city">Event City / Area</label>
+                  <select id="b-city" name="event_city">
+                    <option value="">Select city…</option>
+                    <optgroup label="Northwest Indiana">
+                      <option>Hammond, IN</option>
+                      <option>Gary, IN</option>
+                      <option>Griffith, IN</option>
+                      <option>Highland, IN</option>
+                      <option>Munster, IN</option>
+                      <option>Merrillville, IN</option>
+                      <option>Schererville, IN</option>
+                      <option>Portage, IN</option>
+                      <option>Valparaiso, IN</option>
+                      <option>Crown Point, IN</option>
+                      <option>Hobart, IN</option>
+                    </optgroup>
+                    <optgroup label="Chicagoland">
+                      <option>Chicago, IL</option>
+                      <option>Lansing, IL</option>
+                      <option>Calumet City, IL</option>
+                      <option>South Suburbs, IL</option>
+                    </optgroup>
+                    <option>Other / Not Listed</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="b-guests">Expected Guests</label>
+                  <select id="b-guests" name="guests">
+                    <option value="">Select range…</option>
+                    <option>10-25 guests</option>
+                    <option>25-50 guests</option>
+                    <option>50-75 guests</option>
+                    <option>75-100 guests</option>
+                    <option>100-150 guests</option>
+                    <option>150-200 guests</option>
+                    <option>200+ guests</option>
+                  </select>
+                </div>
               </div>
               <div class="form-group">
                 <label for="b-msg">Tell Us About Your Event</label>
-                <textarea id="b-msg" name="message" placeholder="Venue address, start time, special requests, vibe you're going for…"></textarea>
+                <textarea id="b-msg" name="message" placeholder="Venue name/address, start time, special requests, vibe you're going for…"></textarea>
               </div>
               <div class="urgency-badge">⚡ Booking fast for summer 2026 — only a few weekends left</div>
               <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
@@ -1925,7 +1986,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
   <div class="sticky-bar" id="stickyBar" aria-label="Quick booking bar" aria-hidden="true">
     <div class="sticky-bar-inner">
       <span class="sticky-bar-brand">⚡ PopUp Karaoke</span>
-      <span class="sticky-bar-msg">Summer 2026 booking fast</span>
+      <span class="sticky-bar-msg" id="stickyBarMsg">Weekends booking fast</span>
       <div class="sticky-bar-actions">
         <a href="tel:+12197581313" class="sticky-bar-phone">📞 219.758.1313</a>
         <a href="#contact" class="btn btn-primary sticky-bar-btn">Book Now</a>
@@ -2425,6 +2486,27 @@ booking@popupkaraoke.net | popupkaraoke.net">
     }
     window.addEventListener('scroll',check,{passive:true});
     check();
+    // Dynamic seasonal urgency message
+    (function(){
+      var msgEl = document.getElementById('stickyBarMsg');
+      if(!msgEl) return;
+      var m = new Date().getMonth(); // 0=Jan
+      var msgs = {
+        0: 'Valentine events booking up!',
+        1: 'Valentine events booking up!',
+        2: 'Spring events booking fast',
+        3: 'Spring events booking fast',
+        4: 'Summer weekends filling up',
+        5: 'Summer weekends filling up',
+        6: 'Summer booking fast — act now',
+        7: 'Late-summer dates going fast',
+        8: 'Fall events booking fast',
+        9: 'Holiday parties booking now',
+        10: 'Holiday weekends nearly full',
+        11: 'New Year events booking fast'
+      };
+      msgEl.textContent = msgs[m] || 'Weekends booking fast';
+    })();
     bar.querySelectorAll('a[href="#contact"]').forEach(function(a){
       a.addEventListener('click',function(){bar.classList.remove('visible');});
     });
@@ -2453,15 +2535,30 @@ booking@popupkaraoke.net | popupkaraoke.net">
       modal.setAttribute('aria-hidden','true');
       document.body.style.overflow='';
     }
+    function showBye(){
+      hide();
+      var bye=document.getElementById('byeOverlay');
+      if(!bye)return;
+      bye.style.opacity='0';bye.style.display='flex';
+      ['byeWord1','byeWord2','byeWord3','byeSub'].forEach(function(id){var el=document.getElementById(id);if(el){el.style.opacity='0';el.style.transform='translateY(24px)';}});
+      var nb=document.getElementById('byeNotes');if(nb)nb.innerHTML='';
+      setTimeout(function(){
+        bye.style.opacity='1';
+        ['byeWord1','byeWord2','byeWord3','byeSub'].forEach(function(id,i){setTimeout(function(){var el=document.getElementById(id);if(el){el.style.opacity='1';el.style.transform='translateY(0)';}},i*680+80);});
+        var notes=['♪','♫','♩','♬'],colors=['#ff2d92','#a855f7','#c084fc','#f472b6','#e879f9'];
+        if(nb){for(var n=0;n<22;n++){(function(i){setTimeout(function(){var s=document.createElement('span');s.textContent=notes[i%4];s.style.cssText='position:absolute;font-size:'+(1.2+Math.random()*2.2).toFixed(1)+'rem;color:'+colors[Math.floor(Math.random()*5)]+';left:'+(2+Math.random()*96).toFixed(1)+'%;bottom:-3rem;animation:noteFloat '+(1.6+Math.random()*1.8).toFixed(1)+'s ease-out forwards;pointer-events:none;';nb.appendChild(s);},i*110);})(n);}}
+        setTimeout(function(){bye.style.opacity='0';setTimeout(function(){bye.style.display='none';},520);},4500);
+      },40);
+    }
     setTimeout(function(){
       document.addEventListener('mouseleave',function onLeave(e){
         if(e.clientY<5){show();document.removeEventListener('mouseleave',onLeave);}
       });
     },8000);
     if(closeBtn)closeBtn.addEventListener('click',hide);
-    if(dismiss)dismiss.addEventListener('click',hide);
+    if(dismiss)dismiss.addEventListener('click',showBye);
     if(cta)cta.addEventListener('click',hide);
-    modal.addEventListener('click',function(e){if(e.target===modal)hide();});
+    modal.addEventListener('click',function(e){if(e.target===modal)showBye();});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&shown)hide();});
   })();</script>
 
@@ -2532,11 +2629,6 @@ booking@popupkaraoke.net | popupkaraoke.net">
   <!-- app.js: service worker -->
 
   <!-- EXIT INTENT MODAL -->
-  <style>
-    @keyframes noteFloat{0%{transform:translateY(0) rotate(-15deg);opacity:1}100%{transform:translateY(-115vh) rotate(25deg);opacity:0}}
-    #exitModal{display:none;position:fixed;inset:0;z-index:9990;background:rgba(6,0,16,0.9);align-items:center;justify-content:center;padding:1.5rem;}
-    #byeOverlay{display:none;position:fixed;inset:0;z-index:9995;background:rgba(6,0,16,0.94);align-items:center;justify-content:center;flex-direction:column;transition:opacity 0.5s;}
-  </style>
 
   <div id="exitModal" role="dialog" aria-modal="true" aria-labelledby="exitModalTitle">
     <div style="background:#1a0a2e;border:1px solid rgba(168,85,247,0.35);border-radius:18px;padding:2.5rem 2rem;max-width:460px;width:100%;text-align:center;position:relative;box-shadow:0 0 80px rgba(168,85,247,0.18);">
@@ -2562,96 +2654,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
     </div>
   </div>
 
-  <!-- EXIT INTENT SCRIPT -->
-  <script>(function(){
-    var modal = document.getElementById('exitModal');
-    var bye   = document.getElementById('byeOverlay');
-    var KEY   = 'puk_ei';
 
-    function show(){
-      if(sessionStorage.getItem(KEY)) return;
-      sessionStorage.setItem(KEY,'1');
-      modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function showBye(){
-      modal.style.display = 'none';
-      document.body.style.overflow = '';
-      bye.style.opacity = '0';
-      bye.style.display = 'flex';
-      // reset words
-      ['byeWord1','byeWord2','byeWord3','byeSub'].forEach(function(id){
-        var el = document.getElementById(id);
-        if(el){ el.style.opacity='0'; el.style.transform='translateY(24px)'; }
-      });
-      document.getElementById('byeNotes').innerHTML = '';
-      setTimeout(function(){
-        bye.style.opacity = '1';
-        ['byeWord1','byeWord2','byeWord3','byeSub'].forEach(function(id,i){
-          setTimeout(function(){
-            var el = document.getElementById(id);
-            if(el){ el.style.opacity='1'; el.style.transform='translateY(0)'; }
-          }, i * 680 + 80);
-        });
-        // musical notes
-        var notes = ['♪','♫','♩','♬'];
-        var colors = ['#ff2d92','#a855f7','#c084fc','#f472b6','#e879f9'];
-        var nb = document.getElementById('byeNotes');
-        for(var n=0; n<22; n++){
-          (function(i){
-            setTimeout(function(){
-              var s = document.createElement('span');
-              s.textContent = notes[i%4];
-              s.style.cssText = 'position:absolute;font-size:'+(1.2+Math.random()*2.2).toFixed(1)+'rem;color:'+colors[Math.floor(Math.random()*5)]+';left:'+(2+Math.random()*96).toFixed(1)+'%;bottom:-3rem;animation:noteFloat '+(1.6+Math.random()*1.8).toFixed(1)+'s ease-out forwards;pointer-events:none;';
-              nb.appendChild(s);
-            }, i*110);
-          })(n);
-        }
-        setTimeout(function(){ bye.style.opacity='0'; setTimeout(function(){ bye.style.display='none'; },520); }, 4500);
-      }, 40);
-    }
-
-    // TRIGGER 1: mouse exits toward top (Safari + Chrome)
-    document.addEventListener('mouseleave', function(e){
-      if(e.clientY < 40) show();
-    });
-    document.documentElement.addEventListener('mouseleave', function(e){
-      if(e.clientY < 40) show();
-    });
-
-    // TRIGGER 2: rapid scroll back to top after scrolling down
-    var prevY = 0, scrolledFar = false;
-    window.addEventListener('scroll', function(){
-      var y = window.scrollY;
-      if(y > 500) scrolledFar = true;
-      if(scrolledFar && prevY - y > 300 && y < 100) show();
-      prevY = y;
-    }, {passive:true});
-
-    // TRIGGER 3: tab hidden on mobile (home button / app switch)
-    document.addEventListener('visibilitychange', function(){
-      if(document.visibilityState === 'hidden' && scrolledFar) show();
-    });
-
-    // TRIGGER 4: guaranteed timer — 40 seconds on page
-    setTimeout(show, 40000);
-
-    // BUTTONS
-    var bookBtn = document.getElementById('exitBookBtn');
-    if(bookBtn) bookBtn.addEventListener('click', function(){
-      modal.style.display='none'; document.body.style.overflow='';
-    });
-
-    var dismissBtn = document.getElementById('exitDismiss');
-    if(dismissBtn) dismissBtn.addEventListener('click', showBye);
-
-    modal.addEventListener('click', function(e){ if(e.target===modal) showBye(); });
-
-    document.addEventListener('keydown', function(e){
-      if(e.key==='Escape' && modal.style.display==='flex') showBye();
-    });
-  })();</script>
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
