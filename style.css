@@ -69,3 +69,109 @@
 /* ── CUSTOM MICROPHONE CURSOR ─────────────────────────────────────── */
 html,body{cursor:url('mic-cursor.svg') 16 2,auto}
 a,button,input,select,textarea,[role="button"],[tabindex]{cursor:url('mic-cursor.svg') 16 2,pointer}
+
+/* ════════════════════════════════════════════════════════════
+   REDESIGNED HERO — photo background + single CTA
+   ════════════════════════════════════════════════════════════ */
+.hero.hero-photo {
+  position: relative;
+  min-height: 92vh;
+  min-height: 92dvh;
+  overflow: hidden;
+}
+.hero.hero-photo .hero-bg-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero.hero-photo .hero-bg-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.45) saturate(1.1) hue-rotate(-8deg);
+}
+.hero.hero-photo .hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(6,0,16,0.55) 0%, rgba(6,0,16,0.65) 50%, rgba(6,0,16,0.92) 100%),
+    radial-gradient(ellipse 80% 60% at 50% 30%, rgba(168,85,247,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 80%, rgba(255,45,146,0.25) 0%, transparent 60%);
+}
+.hero.hero-photo .hero-inner {
+  position: relative;
+  z-index: 2;
+}
+.hero.hero-photo .float-emoji {
+  z-index: 2;
+  opacity: 0.35;
+}
+.hero-h1-redesign {
+  font-size: clamp(2.5rem, 1.5rem + 4.8vw, 4.5rem) !important;
+  line-height: 1.02 !important;
+  max-width: 18ch;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.hero-h1-redesign .word.accent {
+  display: block;
+  margin-top: 0.2em;
+}
+.hero-cta-secondary {
+  display: inline-block;
+  margin-top: 0.85rem;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(255,255,255,0.25);
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+.hero-cta-secondary:hover,
+.hero-cta-secondary:focus-visible {
+  color: var(--neon-cyan);
+  text-decoration-color: var(--neon-cyan);
+}
+.hero-ctas {
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem !important;
+}
+.hero-song-link {
+  margin: 1.25rem 0 1.5rem !important;
+  font-size: 0.88rem;
+  color: var(--text-mute);
+}
+.hero-song-link-btn {
+  background: none;
+  border: none;
+  color: var(--neon-cyan);
+  font-size: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(0,245,255,0.4);
+  transition: text-decoration-color 0.2s;
+}
+.hero-song-link-btn:hover,
+.hero-song-link-btn:focus-visible {
+  text-decoration-color: var(--neon-cyan);
+}
+@media (max-width: 480px) {
+  .hero.hero-photo { min-height: 100vh; min-height: 100dvh; }
+  .hero-h1-redesign {
+    font-size: clamp(2.2rem, 9vw, 3.4rem) !important;
+  }
+  .hero-cta-glow .btn { width: 100%; }
+}
+
+/* Cap h1 size more aggressively on the original hero variable too */
+.hero h1 {
+  font-size: clamp(2.5rem, 1.5rem + 4.8vw, 4.5rem) !important;
+}

@@ -1,0 +1,33 @@
+# netlify.toml — PopUp Karaoke
+# Enables Netlify's "Pretty URLs" feature, which automatically serves
+# /hammond-karaoke.html at /hammond-karaoke (no extension, no trailing slash redirect needed).
+# Combined with the canonical tag updates, this gives clean URLs in Google SERPs.
+
+[build]
+  publish = "."
+
+[[plugins]]
+  # No build plugins needed — static site
+
+[build.environment]
+  # Set NODE_VERSION if you ever add a build step
+  NODE_VERSION = "20"
+
+# Pretty URLs: serve foo.html at /foo without redirect overhead
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+# Asset optimization (Netlify will minify CSS/JS/HTML on CDN)
+[build.processing.css]
+  bundle = false
+  minify = true
+
+[build.processing.js]
+  bundle = false
+  minify = true
+
+[build.processing.images]
+  compress = true
