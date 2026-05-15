@@ -84,13 +84,11 @@
   --purple-500: #a855f7;
   --purple-600: #9333ea;
   --purple-700: #7c3aed;
-  --purple-900: #4c1d95;
   --neon-pink: #ff2d92;
   --neon-cyan: #00f5ff;
   --neon-gold: #ffd54a;
   --neon-magenta: #d946ef;
   --bg: #060010;
-  --surface: #0d0820;
   --card: #150e2a;
   --card-hi: #1d1438;
   --border: rgba(168, 85, 247, 0.25);
@@ -98,8 +96,6 @@
   --text: #ffffff;
   --text-dim: rgba(255, 255, 255, 0.72);
   --text-mute: rgba(255, 255, 255, 0.55);
-  --fs-xs: clamp(0.75rem, 0.7rem+0.25vw, 0.875rem);
-  --fs-sm: clamp(0.875rem, 0.8rem+0.4vw, 1rem);
   --fs-base: clamp(1rem, 0.9rem+0.4vw, 1.125rem);
   --fs-lg: clamp(1.125rem, 1rem+0.6vw, 1.375rem);
   --fs-h3: clamp(1.5rem, 1.3rem+1vw, 2rem);
@@ -108,7 +104,6 @@
   --container: min(1200px, 92vw);
   --radius: 16px;
   --radius-lg: 24px;
-  --shadow-glow: 0 0 40px rgba(168, 85, 247, 0.4);
   --shadow-neon: 0 0 30px rgba(255, 45, 146, 0.5)
 }
 
@@ -5193,3 +5188,19 @@ textarea,
 }
 
 .service-link{display:inline-flex;align-items:center;gap:0.3rem;margin-top:1rem;color:var(--neon-cyan);font-weight:700;font-size:0.9rem;text-decoration:none;transition:gap 0.2s,opacity 0.2s;opacity:0.85}.service-link:hover{gap:0.5rem;opacity:1}.service-link:focus-visible{outline:2px solid var(--neon-cyan);outline-offset:3px;border-radius:4px}
+
+.vl-link {
+  display: contents;
+  text-decoration: none;
+  color: inherit
+}
+
+.vl-link:focus-visible .vl-name {
+  text-decoration: underline;
+  color: var(--neon-cyan)
+}
+
+.venue-logo-card:has(.vl-link):hover .vl-name {
+  color: var(--neon-cyan);
+  transition: color 0.2s
+}
