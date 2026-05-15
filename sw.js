@@ -2,16 +2,19 @@
 // Strategy: cache-first for assets, network-first for HTML
 // Cache name includes build date — update this date on each deploy to bust stale caches
 
-const CACHE_NAME = 'popupkaraoke-2026-05-14';
+const CACHE_NAME = 'popupkaraoke-2026-05-15';
 const STATIC_ASSETS = [
   '/',
   '/style.css',
+  '/app.js',
   '/puklogo.webp',
   '/puklogo.png',
-  '/highlight-poster.webp',
   '/manifest.json',
   '/icon-192.png',
   '/icon-512.png',
+  '/karafun-qr.png',
+  '/fonts/outfit-v15-latin-400.woff2',
+  '/fonts/outfit-v15-latin-700.woff2',
 ];
 
 // Install — precache static assets
