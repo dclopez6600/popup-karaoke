@@ -60,10 +60,12 @@
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="dns-prefetch" href="https://connect.facebook.net">
+  <link rel="preconnect" href="https://player.vimeo.com">
+  <link rel="preconnect" href="https://i.vimeocdn.com">
+  <link rel="dns-prefetch" href="https://f.vimeocdn.com">
 
   <!-- Performance: preconnect + preload -->
   <link rel="preload" as="image" href="puklogo.webp" type="image/webp" fetchpriority="high">
-  <link rel="preload" as="image" href="highlight-poster.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="style" href="style.css">
   <link rel="manifest" href="/manifest.json">
 
@@ -541,7 +543,7 @@
     "name": "PopUp Karaoke Highlight Reel — Live Event",
     "description": "Real crowd footage from a PopUp Karaoke event in Northwest Indiana. See the energy, the lights, the wireless mics, and guests singing their hearts out at a private karaoke party.",
     "thumbnailUrl": "https://popupkaraoke.net/highlight-poster.webp",
-    "contentUrl": "https://popupkaraoke.net/highlight.mp4",
+    "contentUrl": "https://vimeo.com/1192398024",
     "uploadDate": "2024-01-01",
     "duration": "PT0M30S",
     "publisher": {
@@ -552,7 +554,7 @@
         "url": "https://popupkaraoke.net/logo.webp"
       }
     },
-    "embedUrl": "https://popupkaraoke.net/#highlight",
+    "embedUrl": "https://player.vimeo.com/video/1192398024",
     "regionsAllowed": "US",
     "potentialAction": {
       "@type": "SeekToAction",
@@ -673,7 +675,7 @@
         <li><a href="about.html">About</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a class="nav-phone" href="tel:+12197581313" aria-label="Call PopUp Karaoke">📞 219.758.1313</a></li>
-        <li><a class="nav-cta" href="https://square.link/u/CmsBTgrE?src=web" target="_blank" rel="noopener">💳 Pay</a></li>
+        <li><a class="nav-cta" href="#contact">🎤 Book Now</a></li>
       </ul>
     </div>
   </header>
@@ -960,16 +962,18 @@
           </div>
           <div class="video-reel-player">
             <div class="video-phone-frame">
-              <video
-                src="highlight.mp4"
-                playsinline
-                autoplay
-                muted
-                loop
-                preload="metadata"
-                aria-label="PopUp Karaoke highlight reel — crowd singing at a live karaoke event"
-                poster="highlight-poster.webp"
-              ></video>
+              <div style="padding:75% 0 0 0;position:relative;">
+                <iframe
+                  src="https://player.vimeo.com/video/1192398024?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1"
+                  frameborder="0"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:inherit;"
+                  title="PopUp Karaoke highlight reel"
+                  aria-label="PopUp Karaoke highlight reel — crowd singing at a live karaoke event"
+                  loading="lazy"
+                ></iframe>
+              </div>
               <div class="video-phone-notch" aria-hidden="true"></div>
             </div>
             <div class="video-caption">📱 Real crowd. Real energy.</div>
@@ -1376,6 +1380,7 @@
             </picture>
             <span class="vl-name">18th Street Brewery</span>
             <span class="vl-loc">Gary, IN</span>
+            <span class="vl-quote">"Our Wednesday nights haven't been the same since PopUp showed up."</span>
           </div>
           <div class="venue-strip-divider" aria-hidden="true"></div>
           <div class="venue-logo-card">
@@ -1385,6 +1390,7 @@
             </picture>
             <span class="vl-name">Flights Taproom</span>
             <span class="vl-loc">Hammond, IN</span>
+            <span class="vl-quote">"Packed house every karaoke night. Our regulars request it every month."</span>
           </div>
           <div class="venue-strip-divider" aria-hidden="true"></div>
           <div class="venue-logo-card">
@@ -1394,6 +1400,7 @@
             </picture>
             <span class="vl-name">El Capitán</span>
             <span class="vl-loc">Hobart, IN</span>
+            <span class="vl-quote">"Professional setup every time. The crowd goes wild on karaoke Fridays."</span>
           </div>
           <div class="venue-strip-divider" aria-hidden="true"></div>
           <div class="venue-logo-card">
@@ -1403,6 +1410,7 @@
             </picture>
             <span class="vl-name">Moods</span>
             <span class="vl-loc">Portage, IN</span>
+            <span class="vl-quote">"Easy to work with, always on time, and the crowd loves it every time."</span>
           </div>
           <div class="venue-strip-divider" aria-hidden="true"></div>
           <div class="venue-logo-card">
@@ -1412,6 +1420,7 @@
             </picture>
             <span class="vl-name">19th Hole Bar &amp; Grille</span>
             <span class="vl-loc">Crown Point, IN</span>
+            <span class="vl-quote">"Reliable, professional, and the guests always have a blast."</span>
           </div>
           <div class="venue-strip-divider" aria-hidden="true"></div>
           <div class="venue-logo-card">
@@ -1421,6 +1430,7 @@
             </picture>
             <span class="vl-name">Emilio's</span>
             <span class="vl-loc">Highland, IN</span>
+            <span class="vl-quote">"Our guests keep coming back just for karaoke night. Huge draw."</span>
           </div>
         </div>
       </div>
@@ -1934,8 +1944,8 @@ booking@popupkaraoke.net | popupkaraoke.net">
     <div class="foot-bottom">
       <p>© <span id="year">2026</span> PopUp Karaoke, LLC. All rights reserved.</p>
       <div class="foot-links">
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms.html">Terms</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
       </div>
     </div>
   </footer>
@@ -2395,87 +2405,16 @@ booking@popupkaraoke.net | popupkaraoke.net">
 
 
 
-  <!-- URGENCY SIGNAL — real date math -->
-  <script>(function(){
-    var el=document.getElementById('availUrgency');
-    if(!el)return;
-    var now=new Date();
-    var month=now.getMonth();
-    var year=now.getFullYear();
-    var monthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
-    // Count remaining Fri/Sat/Sun in current month
-    var lastDay=new Date(year,month+1,0).getDate();
-    var remaining=0;
-    for(var d=now.getDate();d<=lastDay;d++){
-      var day=new Date(year,month,d).getDay();
-      if(day===5||day===6||day===0)remaining++;
-    }
-    // Also count next month's to decide messaging
-    var nextMonth=(month+1)%12;
-    var nextMonthName=monthNames[nextMonth];
-    var msg='';
-    if(remaining<=4){
-      msg='⚡ Only '+remaining+' weekend days left in '+monthNames[month]+'!';
-    } else if(remaining<=8){
-      msg='📅 '+remaining+' weekend dates still open in '+monthNames[month]+' — check yours now.';
-    } else {
-      msg='📅 '+nextMonthName+' weekends filling up — lock in your date early.';
-    }
-    el.textContent=msg;
-    el.style.display='block';
-  })();</script>
-  <!-- TICKER DUPLICATION (infinite loop) -->
-  <script>(function(){
-    var inner=document.getElementById('tickerInner');
-    if(!inner)return;
-    inner.innerHTML+=inner.innerHTML;
-  })();</script>
+  <!-- app.js: urgency signal -->
+  <!-- app.js: ticker -->
 
   <!-- SCRIPTS -->
   <!-- Back to top -->
-  <script>(function(){var btn=document.getElementById('backToTop');if(!btn)return;window.addEventListener('scroll',function(){if(window.scrollY>400){btn.classList.add('visible');}else{btn.classList.remove('visible');}},{passive:true});btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});})();</script>
+  <!-- app.js: back-to-top -->
 
-  <script>(function(){'use strict';var yr=document.getElementById('year');if(yr)yr.textContent=new Date().getFullYear();var nav=document.getElementById('nav');function onScroll(){if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');}window.addEventListener('scroll',onScroll,{passive:true});onScroll();var navToggle=document.getElementById('navToggle');var mobileOverlay=document.getElementById('mobileOverlay');function closeMobileNav(){if(mobileOverlay)mobileOverlay.classList.remove('open');if(navToggle)navToggle.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open');if(mobileOverlay)mobileOverlay.setAttribute('aria-hidden','true');}if(navToggle&&mobileOverlay){navToggle.addEventListener('click',function(){var open=mobileOverlay.classList.toggle('open');navToggle.setAttribute('aria-expanded',open?'true':'false');document.body.classList.toggle('menu-open',open);mobileOverlay.setAttribute('aria-hidden',open?'false':'true');});mobileOverlay.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){closeMobileNav();});});mobileOverlay.addEventListener('click',function(e){if(e.target===mobileOverlay)closeMobileNav();});}document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mobileOverlay&&mobileOverlay.classList.contains('open'))closeMobileNav();});var mobileOverlayClose=document.getElementById('mobileOverlayClose');if(mobileOverlayClose)mobileOverlayClose.addEventListener('click',closeMobileNav);var openers=document.querySelectorAll('[data-open-modal]');var closers=document.querySelectorAll('[data-close-modal]');function openModal(id){var m=document.getElementById(id);if(!m)return;m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';var firstInput=m.querySelector('input, textarea, select, button');if(firstInput)setTimeout(function(){firstInput.focus();},50);}function closeAllModals(){document.querySelectorAll('.modal').forEach(function(m){m.setAttribute('aria-hidden','true');});document.body.style.overflow='';}openers.forEach(function(b){b.addEventListener('click',function(){openModal(b.getAttribute('data-open-modal'));});});closers.forEach(function(b){b.addEventListener('click',closeAllModals);});document.querySelectorAll('.modal').forEach(function(m){m.addEventListener('click',function(e){if(e.target===m)closeAllModals();});});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAllModals();});if('IntersectionObserver'in window){var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}try{if(location.search.indexOf('sent=1')!==-1){alert("Thanks! We got your request and will be in touch soon. 🎤");if(history.replaceState)history.replaceState({},'',location.pathname);}}catch(e){}function validateField(field){var msg='';var v=(field.value||'').trim();if(field.required&&!v){msg='This field is required.';}else if(field.type==='email'&&v&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){msg='Please enter a valid email address.';}else if(field.type==='tel'&&v&&v.replace(/\D/g,'').length<7){msg='Please enter a valid phone number.';}else if(field.tagName==='SELECT'&&field.required&&!v){msg='Please select an option.';}var errorEl=field.parentElement.querySelector('.form-error');if(msg){field.classList.add('invalid');field.classList.remove('valid');field.setAttribute('aria-invalid','true');if(errorEl){errorEl.textContent=msg;errorEl.classList.add('show');}return false;}else{field.classList.remove('invalid');if(v)field.classList.add('valid');field.setAttribute('aria-invalid','false');if(errorEl)errorEl.classList.remove('show');return true;}}function setupForm(form){if(!form)return;Array.prototype.forEach.call(form.querySelectorAll('.form-group'),function(g){if(g.querySelector('.form-error'))return;var err=document.createElement('div');err.className='form-error';err.setAttribute('role','alert');g.appendChild(err);});var fields=form.querySelectorAll('input:not([type=hidden]):not([name=_honey]), select, textarea');Array.prototype.forEach.call(fields,function(f){f.addEventListener('blur',function(){validateField(f);});f.addEventListener('input',function(){if(f.classList.contains('invalid'))validateField(f);});});form.addEventListener('submit',function(e){var allValid=true;Array.prototype.forEach.call(fields,function(f){if(!validateField(f))allValid=false;});if(!allValid){e.preventDefault();var firstInvalid=form.querySelector('.invalid');if(firstInvalid)firstInvalid.focus();return;}var btn=form.querySelector('button[type="submit"]');if(btn){btn.classList.add('submitting');btn.dataset.originalText=btn.innerHTML;btn.innerHTML='Sending…';btn.setAttribute('disabled','disabled');}});}// Two-step booking form
-(function(){
-  var step1=document.getElementById('formStep1');
-  var step2=document.getElementById('formStep2');
-  var fp1=document.getElementById('fp1');
-  var fp2=document.getElementById('fp2');
-  var nextBtn=document.getElementById('formNextBtn');
-  var backBtn=document.getElementById('formBackBtn');
-  if(!step1||!step2||!nextBtn||!backBtn)return;
-  function goStep2(){
-    // Validate step 1 fields
-    var nameF=document.getElementById('b-name');
-    var emailF=document.getElementById('b-email');
-    var typeF=document.getElementById('b-type');
-    var valid=true;
-    [nameF,emailF,typeF].forEach(function(f){if(!validateField(f))valid=false;});
-    if(!valid)return;
-    step1.style.display='none';
-    step2.style.display='block';
-    if(fp1){fp1.classList.remove('fp-active');fp1.classList.add('fp-done');fp1.querySelector('.fp-num').textContent='✓';}
-    if(fp2){fp2.classList.add('fp-active');}
-    // Pre-fill date from availability checker if set
-    var availDate=document.getElementById('availDate');
-    var bookDate=document.getElementById('b-date');
-    if(availDate&&bookDate&&availDate.value&&!bookDate.value)bookDate.value=availDate.value;
-    step2.scrollIntoView({behavior:'smooth',block:'nearest'});
-  }
-  function goStep1(){
-    step2.style.display='none';
-    step1.style.display='block';
-    if(fp1){fp1.classList.add('fp-active');fp1.classList.remove('fp-done');fp1.querySelector('.fp-num').textContent='1';}
-    if(fp2){fp2.classList.remove('fp-active');}
-    step1.scrollIntoView({behavior:'smooth',block:'nearest'});
-  }
-  nextBtn.addEventListener('click',goStep2);
-  backBtn.addEventListener('click',goStep1);
-})();
-setupForm(document.getElementById('bookingForm'));setupForm(document.getElementById('songForm'));window.dataLayer=window.dataLayer||[];function trackEvent(eventName,fbEvent,params){params=params||{};try{window.dataLayer.push(Object.assign({event:eventName},params));}catch(e){}try{if(typeof window.fbq==='function'){window.fbq('track',fbEvent,params);}}catch(e){}}var bookingForm=document.getElementById('bookingForm');if(bookingForm){bookingForm.addEventListener('submit',function(){trackEvent('lead_submit','Lead',{content_name:'Booking Request',content_category:'booking',value:0,currency:'USD'});});}var songForm=document.getElementById('songForm');if(songForm){songForm.addEventListener('submit',function(){trackEvent('lead_submit','Lead',{content_name:'Song Request',content_category:'song_request',value:0,currency:'USD'});});}Array.prototype.forEach.call(document.querySelectorAll('a[href*="square.link"]'),function(a){a.addEventListener('click',function(){var src='unknown';try{var u=new URL(a.href);src=u.searchParams.get('src')||'unknown';}catch(e){}trackEvent('initiate_checkout','InitiateCheckout',{content_name:'Square Payment',payment_method:'square',link_source:src,currency:'USD'});});});Array.prototype.forEach.call(document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]'),function(a){a.addEventListener('click',function(){var kind=a.getAttribute('href').indexOf('tel:')===0?'phone':'email';trackEvent('contact_click','Contact',{content_name:kind==='phone'?'Call':'Email',contact_method:kind});});});})();</script>
+  <!-- app.js: main -->
 
-  <!-- PWA Service Worker Registration -->
-  <script>if('serviceWorker'in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}</script>
+  <!-- app.js: service worker -->
 
   <!-- EXIT INTENT MODAL -->
   <style>
@@ -2492,7 +2431,7 @@ setupForm(document.getElementById('bookingForm'));setupForm(document.getElementB
       <div style="display:flex;flex-direction:column;gap:0.7rem;">
         <a href="#contact" id="exitBookBtn" style="background:#ff2d92;color:#fff;padding:0.9rem 2rem;border-radius:50px;font-weight:800;font-size:1rem;text-decoration:none;display:block;">🎉 Book My Event Now</a>
         <a href="tel:+12197581313" style="background:rgba(168,85,247,0.15);border:1px solid rgba(168,85,247,0.4);color:#c084fc;padding:0.75rem 2rem;border-radius:50px;font-weight:700;font-size:0.95rem;text-decoration:none;display:block;">📞 Call Us: 219.758.1313</a>
-        <button id="exitDismiss" style="background:none;border:none;color:rgba(255,255,255,0.3);font-size:0.82rem;cursor:pointer;padding:0.5rem;font-family:inherit;">No thanks, I'll skip the good time</button>
+        <button id="exitDismiss" style="background:none;border:none;color:rgba(255,255,255,0.3);font-size:0.82rem;cursor:pointer;padding:0.5rem;font-family:inherit;">I'll reach out another time</button>
       </div>
     </div>
   </div>
@@ -2605,6 +2544,12 @@ setupForm(document.getElementById('bookingForm'));setupForm(document.getElementB
     });
   }
 </script>
+
+  <!-- Main app JS — deferred for performance -->
+  <script src="app.js" defer></script>
+
+  <!-- Vimeo player API — loaded async, only needed for background video -->
+  <script src="https://player.vimeo.com/api/player.js" async defer></script>
 
 </body>
 </html>
