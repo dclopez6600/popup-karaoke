@@ -123,7 +123,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%
 }
@@ -217,6 +216,12 @@ button {
   html {
     scroll-behavior: auto
   }
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth
+  }
+}
 
   *,
   *::before,
@@ -1814,6 +1819,12 @@ a.contact-method:hover {
 
 .modal-close:hover {
   background: rgba(255, 45, 146, 0.3)
+}
+
+.modal-close:focus-visible {
+  outline: 2px solid var(--neon-pink);
+  outline-offset: 3px;
+  background: rgba(255, 45, 146, 0.2)
 }
 
 .modal-card h3 {
@@ -5180,3 +5191,5 @@ textarea,
   margin-top: 0.25rem;
   display: block
 }
+
+.service-link{display:inline-flex;align-items:center;gap:0.3rem;margin-top:1rem;color:var(--neon-cyan);font-weight:700;font-size:0.9rem;text-decoration:none;transition:gap 0.2s,opacity 0.2s;opacity:0.85}.service-link:hover{gap:0.5rem;opacity:1}.service-link:focus-visible{outline:2px solid var(--neon-cyan);outline-offset:3px;border-radius:4px}

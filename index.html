@@ -56,6 +56,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="manifest.json">
   <link rel="dns-prefetch" href="https://square.link">
+  <link rel="preconnect" href="https://formsubmit.co">
   <link rel="dns-prefetch" href="https://formsubmit.co">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
@@ -65,6 +66,8 @@
   <link rel="dns-prefetch" href="https://f.vimeocdn.com">
 
   <!-- Performance: preconnect + preload -->
+  <link rel="preload" as="font" href="fonts/outfit-v15-latin-400.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="fonts/outfit-v15-latin-700.woff2" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="puklogo.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="style" href="style.css">
   <link rel="manifest" href="/manifest.json">
@@ -644,30 +647,30 @@
         <li><a href="#songs">Songs</a></li>
         <li><a href="#services">Services</a></li>
         <li class="nav-dropdown" id="navAreasDd">
-          <button class="nav-dd-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="navAreasDdMenu">
+          <button class="nav-dd-toggle" type="button" aria-expanded="false" aria-haspopup="menu" aria-controls="navAreasDdMenu">
             Areas
             <svg aria-hidden="true" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <ul class="nav-dd-menu" id="navAreasDdMenu">
-            <li><a href="chicago-karaoke.html">🏙️ Chicago</a></li>
-            <li><a href="northwest-indiana-karaoke.html">📍 NW Indiana</a></li>
+          <ul class="nav-dd-menu" id="navAreasDdMenu" role="menu">
+            <li><a role="menuitem" href="chicago-karaoke.html">🏙️ Chicago</a></li>
+            <li><a role="menuitem" href="northwest-indiana-karaoke.html">📍 NW Indiana</a></li>
             <li class="nav-dd-divider" role="separator"></li>
-            <li><a href="hammond-karaoke.html">Hammond</a></li>
-            <li><a href="gary-karaoke.html">Gary</a></li>
-            <li><a href="griffith-karaoke.html">Griffith</a></li>
-            <li><a href="highland-karaoke.html">Highland</a></li>
-            <li><a href="munster-karaoke.html">Munster</a></li>
-            <li><a href="merrillville-karaoke.html">Merrillville</a></li>
-            <li><a href="schererville-karaoke.html">Schererville</a></li>
-            <li><a href="portage-karaoke.html">Portage</a></li>
-            <li><a href="valparaiso-karaoke.html">Valparaiso</a></li>
-            <li><a href="crown-point-karaoke.html">Crown Point</a></li>
-            <li><a href="lansing-karaoke.html">Lansing, IL</a></li>
-            <li><a href="calumet-city-karaoke.html">Calumet City, IL</a></li>
+            <li><a role="menuitem" href="hammond-karaoke.html">Hammond</a></li>
+            <li><a role="menuitem" href="gary-karaoke.html">Gary</a></li>
+            <li><a role="menuitem" href="griffith-karaoke.html">Griffith</a></li>
+            <li><a role="menuitem" href="highland-karaoke.html">Highland</a></li>
+            <li><a role="menuitem" href="munster-karaoke.html">Munster</a></li>
+            <li><a role="menuitem" href="merrillville-karaoke.html">Merrillville</a></li>
+            <li><a role="menuitem" href="schererville-karaoke.html">Schererville</a></li>
+            <li><a role="menuitem" href="portage-karaoke.html">Portage</a></li>
+            <li><a role="menuitem" href="valparaiso-karaoke.html">Valparaiso</a></li>
+            <li><a role="menuitem" href="crown-point-karaoke.html">Crown Point</a></li>
+            <li><a role="menuitem" href="lansing-karaoke.html">Lansing, IL</a></li>
+            <li><a role="menuitem" href="calumet-city-karaoke.html">Calumet City, IL</a></li>
             <li class="nav-dd-divider" role="separator"></li>
-            <li><a href="wedding-karaoke.html">💍 Weddings</a></li>
-            <li><a href="corporate-karaoke.html">🏢 Corporate</a></li>
-            <li><a href="birthday-karaoke.html">🎂 Birthdays</a></li>
+            <li><a role="menuitem" href="wedding-karaoke.html">💍 Weddings</a></li>
+            <li><a role="menuitem" href="corporate-karaoke.html">🏢 Corporate</a></li>
+            <li><a role="menuitem" href="birthday-karaoke.html">🎂 Birthdays</a></li>
           </ul>
         </li>
         <li><a href="faq.html">FAQ</a></li>
@@ -818,6 +821,7 @@
               <li>Fits any home, backyard, or rented venue</li>
               <li>61,000+ songs across every genre</li>
             </ul>
+            <a href="birthday-karaoke.html" class="service-link" aria-label="Learn about birthday party karaoke">See details →</a>
           </div>
           <div class="service reveal">
             <span class="service-ico" aria-hidden="true">💒</span>
@@ -829,6 +833,7 @@
               <li>Complements your DJ or band seamlessly</li>
               <li>Guests can request songs in advance</li>
             </ul>
+            <a href="wedding-karaoke.html" class="service-link" aria-label="Learn about wedding karaoke">See details →</a>
           </div>
           <div class="service reveal">
             <span class="service-ico" aria-hidden="true">🏢</span>
@@ -840,6 +845,7 @@
               <li>Social media content included at no extra charge</li>
               <li>Handles groups from 10 to 200+ guests</li>
             </ul>
+            <a href="corporate-karaoke.html" class="service-link" aria-label="Learn about corporate event karaoke">See details →</a>
           </div>
           <div class="service reveal">
             <span class="service-ico" aria-hidden="true">🍺</span>
@@ -851,6 +857,7 @@
               <li>Full setup &amp; teardown — you just pour drinks</li>
               <li>Already live at 18th St, Flights &amp; El Capitán</li>
             </ul>
+            <a href="#contact" class="service-link" aria-label="Inquire about a bar or brewery residency">Book a residency →</a>
           </div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;margin-top:3.5rem;padding:3rem 1rem;" class="reveal">
@@ -1128,7 +1135,7 @@
       <button class="lightbox-close" type="button" aria-label="Close">✕</button>
       <button class="lightbox-prev" type="button" aria-label="Previous photo">‹</button>
       <button class="lightbox-next" type="button" aria-label="Next photo">›</button>
-      <img decoding="async" loading="lazy" class="lightbox-img" id="lightboxImg" alt="">
+      <img decoding="async" class="lightbox-img" id="lightboxImg" alt="" style="width:100%;height:auto;max-height:80vh;object-fit:contain;">
       <div class="lightbox-caption" id="lightboxCaption"></div>
     </div>
 
@@ -1151,6 +1158,7 @@
         var lbImg = document.getElementById('lightboxImg');
         var lbCap = document.getElementById('lightboxCaption');
         var current = 0;
+        var lastFocused = null;
         function open(i) {
           current = (i + photos.length) % photos.length;
           lbImg.src = photos[current].fallback || photos[current].src;
@@ -1158,10 +1166,16 @@
           lbCap.textContent = photos[current].caption || '';
           lb.setAttribute('aria-hidden', 'false');
           document.body.style.overflow = 'hidden';
+          lastFocused = document.activeElement;
+          // Move focus to close button
+          var closeBtn = lb.querySelector('.lightbox-close');
+          if (closeBtn) setTimeout(function(){ closeBtn.focus(); }, 50);
         }
         function close() {
           lb.setAttribute('aria-hidden', 'true');
           document.body.style.overflow = '';
+          // Return focus to the gallery item that opened the lightbox
+          if (lastFocused) lastFocused.focus();
         }
         grid.addEventListener('click', function (e) {
           var btn = e.target.closest('.gallery-item');
@@ -1630,36 +1644,36 @@
         </div>
         <div class="faq-list reveal" id="faqList">
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Do you travel to Chicago and the surrounding suburbs?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><p>Yes! We regularly serve the entire Chicagoland area in addition to Northwest Indiana. That includes neighborhoods like the South Side, as well as suburbs like Orland Park, Tinley Park, Oak Lawn, and more. Travel fees may apply depending on distance — just mention your location when you reach out.</p></div>
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-1">Do you travel to Chicago and the surrounding suburbs?<span class="faq-icon">+</span></button>
+            <div class="faq-a" id="faq-answer-1"><p>Yes! We regularly serve the entire Chicagoland area in addition to Northwest Indiana. That includes neighborhoods like the South Side, as well as suburbs like Orland Park, Tinley Park, Oak Lawn, and more. Travel fees may apply depending on distance — just mention your location when you reach out.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">What's included with every booking?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><p>Everything. Concert-quality speakers, wireless microphones, a large lyrics screen, dynamic LED stage lighting, a professional host/MC, 61,000+ songs, full setup and teardown, and social media content creation at no extra charge. You don't need to rent or bring a single thing.</p></div>
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-2">What's included with every booking?<span class="faq-icon">+</span></button>
+            <div class="faq-a" id="faq-answer-2"><p>Everything. Concert-quality speakers, wireless microphones, a large lyrics screen, dynamic LED stage lighting, a professional host/MC, 61,000+ songs, full setup and teardown, and social media content creation at no extra charge. You don't need to rent or bring a single thing.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Can guests request songs in advance?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><p>Absolutely. You and your guests can submit song requests ahead of the event, and we'll make sure they're ready to go. Just let us know when you book and we'll set up a request link or take requests directly.</p></div>
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-3">Can guests request songs in advance?<span class="faq-icon">+</span></button>
+            <div class="faq-a" id="faq-answer-3"><p>Absolutely. You and your guests can submit song requests ahead of the event, and we'll make sure they're ready to go. Just let us know when you book and we'll set up a request link or take requests directly.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">How far in advance should I book?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><p>Summer and holiday weekends fill up fast — sometimes 4–6 weeks out. For the best availability, we recommend booking at least 2–3 weeks in advance. That said, if you have a last-minute event, reach out anyway — we'll do our best to make it work.</p></div>
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-4">How far in advance should I book?<span class="faq-icon">+</span></button>
+            <div class="faq-a" id="faq-answer-4"><p>Summer and holiday weekends fill up fast — sometimes 4–6 weeks out. For the best availability, we recommend booking at least 2–3 weeks in advance. That said, if you have a last-minute event, reach out anyway — we'll do our best to make it work.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Do you need a stage or special power setup?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><p>No stage needed. We work in backyards, living rooms, banquet halls, bars, breweries — anywhere there's enough space for guests to stand and sing. We just need access to standard electrical outlets (we'll confirm details when planning your event).</p></div>
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-5">Do you need a stage or special power setup?<span class="faq-icon">+</span></button>
+            <div class="faq-a" id="faq-answer-5"><p>No stage needed. We work in backyards, living rooms, banquet halls, bars, breweries — anywhere there's enough space for guests to stand and sing. We just need access to standard electrical outlets (we'll confirm details when planning your event).</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Can you handle large events with 100+ guests?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><p>Yes — we've hosted events with 200+ guests. Our sound system is scaled to fill large spaces, and our host is experienced at managing big crowds and long song queues to keep things moving and fun for everyone.</p></div>
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-6">Can you handle large events with 100+ guests?<span class="faq-icon">+</span></button>
+            <div class="faq-a" id="faq-answer-6"><p>Yes — we've hosted events with 200+ guests. Our sound system is scaled to fill large spaces, and our host is experienced at managing big crowds and long song queues to keep things moving and fun for everyone.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Do you provide a certificate of insurance?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><p>Yes. If your venue requires a COI (certificate of insurance), we can provide one. Just let us know the venue's requirements when you book and we'll handle it before the event.</p></div>
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-7">Do you provide a certificate of insurance?<span class="faq-icon">+</span></button>
+            <div class="faq-a" id="faq-answer-7"><p>Yes. If your venue requires a COI (certificate of insurance), we can provide one. Just let us know the venue's requirements when you book and we'll handle it before the event.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">How does payment work?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><p>We accept payment via Square (credit/debit card) or other arrangements. A deposit is typically required to secure your date, with the balance due on the day of the event. We'll walk you through everything when we confirm your booking.</p></div>
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-8">How does payment work?<span class="faq-icon">+</span></button>
+            <div class="faq-a" id="faq-answer-8"><p>We accept payment via Square (credit/debit card) or other arrangements. A deposit is typically required to secure your date, with the balance due on the day of the event. We'll walk you through everything when we confirm your booking.</p></div>
           </div>
         </div>
       </div>
@@ -1676,7 +1690,7 @@
           </div>
           <form class="email-capture-form" action="https://formsubmit.co/booking@popupkaraoke.net" method="POST" id="emailCaptureForm">
             <input type="hidden" name="_subject" value="New Checklist Subscriber — PopUp Karaoke">
-            <input type="hidden" name="_next" value="https://popupkaraoke.net/?subscribed=1">
+            <input type="hidden" name="_next" value="https://popupkaraoke.net/subscribe-thanks">
             <input type="hidden" name="_autoresponse" value="Hey! Here's your free Karaoke Party Checklist from PopUp Karaoke 🎤
 
 KARAOKE PARTY CHECKLIST
@@ -1764,6 +1778,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
               <p class="avail-feedback" id="availFeedback"></p>
               <button type="button" class="btn btn-primary avail-cta-btn" id="availCtaBtn" style="display:none;margin-top:0.75rem;width:100%;">🎉 Request This Date →</button>
             </div>
+            <p style="margin-top:0.75rem;font-size:0.82rem;text-align:center;color:var(--text-mute);">No specific date yet? <a href="#contact" style="color:var(--neon-cyan);font-weight:600;">Tell us you're flexible →</a></p>
           </div>
 
           <div class="contact-methods">
@@ -1813,7 +1828,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
             <input type="hidden" name="_subject" value="New Booking Request from popupkaraoke.net">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="true">
-            <input type="hidden" name="_next" value="https://popupkaraoke.net/thank-you.html">
+            <input type="hidden" name="_next" value="https://popupkaraoke.net/thank-you">
             <input type="hidden" name="_autoresponse" value="Hi! Thanks for reaching out to PopUp Karaoke — we got your booking request and will respond within 24 hours (usually much sooner). In the meantime, save our number 219.758.1313 in case you have any questions, and feel free to follow us on Facebook (PopUpKaraoke219), Instagram (@popupkaraoke219), or TikTok (@popupkaraoke219) for clips from past events. Talk soon! — Daniel, PopUp Karaoke (Veteran-Owned & Operated)">
             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
@@ -2139,8 +2154,14 @@ booking@popupkaraoke.net | popupkaraoke.net">
     function close(){dd.classList.remove('open');toggle.setAttribute('aria-expanded','false');}
     toggle.addEventListener('click',function(e){dd.classList.contains('open')?close():open();e.stopPropagation();});
     document.addEventListener('click',function(e){if(!dd.contains(e.target))close();});
-    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();toggle.focus();}});
     dd.querySelectorAll('.nav-dd-menu a').forEach(function(a){a.addEventListener('click',close);});
+    // Close dropdown when Tab focus leaves it entirely
+    dd.addEventListener('focusout',function(e){
+      setTimeout(function(){
+        if(!dd.contains(document.activeElement)){close();}
+      },0);
+    });
   })();</script>
 
   <!-- SONG SEARCH -->
@@ -2268,7 +2289,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
             +'</div>';
         }).join('')+'<p class="song-search-count">Showing '+matches.length+' of '+SONGS.filter(function(s){return s.t.toLowerCase().indexOf(q)!==-1||s.a.toLowerCase().indexOf(q)!==-1;}).length+' matches — 61,000+ total songs available</p>';
       } else {
-        results.innerHTML='<div class="song-search-not-found"><p>Not in our preview list — but with 61,000+ songs we very likely have it!</p><a href="#contact" class="btn btn-primary" style="font-size:0.85rem;padding:0.5rem 1rem;">Request This Song</a></div>';
+        results.innerHTML='<div class="song-search-not-found"><p>Not in our preview list — but with 61,000+ songs we very likely have it! <a href="tel:+12197581313" style="color:var(--neon-cyan);font-weight:700;">Call 219.758.1313</a> and we\'ll confirm or add it before your event.</p><a href="#contact" class="btn btn-primary" style="font-size:0.85rem;padding:0.5rem 1rem;margin-top:0.5rem;">Request This Song →</a></div>';
       }
     }
     input.addEventListener('input',function(){search(this.value);});

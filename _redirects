@@ -54,5 +54,12 @@
 /blog/karaoke-dj-cost      /blog/how-much-does-a-karaoke-dj-cost 301
 /blog/cost                 /blog/how-much-does-a-karaoke-dj-cost 301
 
+
+# ── Query param cleanup ─────────────────────────────────
+/?subscribed=1             /subscribe-thanks          301
+
+# ── Subscribe thanks page ────────────────────────────────
+/subscribe-thanks/         /subscribe-thanks          301
+
 # ── Catch-all 404 → custom 404 page ─────────────────────
 /*                        /404                 404
