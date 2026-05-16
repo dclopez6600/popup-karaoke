@@ -6,20 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#7c3aed">
 
-  <title>Song Request List | Submit Your Karaoke Songs | PopUp Karaoke</title>
-  <meta name="description" content="Browse our 61,000+ song library by genre and submit your song requests before your event. Share this page with your guests so everyone can pick their songs in advance.">
+  <title>Song Request — Search 51,000+ Karaoke Songs | PopUp Karaoke</title>
+  <meta name="description" content="Search our full 51,000+ song library by title or artist. Pick your songs before your event and submit your request list. Serving NW Indiana &amp; Chicagoland.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://popupkaraoke.net/song-request.html">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Song Request List | PopUp Karaoke">
-  <meta property="og:description" content="Browse 61,000+ songs by genre and submit requests before your event. Share with your guests!">
+  <meta property="og:title" content="Song Request — Search 51,000+ Karaoke Songs | PopUp Karaoke">
+  <meta property="og:description" content="Search our full 51,000+ song library and submit your song requests before your event.">
   <meta property="og:url" content="https://popupkaraoke.net/song-request.html">
-  <meta property="og:image" content="https://popupkaraoke.net/og-image.webp">
+  <meta property="og:image" content="https://popupkaraoke.net/ogimage.webp">
 
-  <link rel="icon" type="image/png" sizes="512x512" href="puklogo.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/appletouchicon.png">
+  <link rel="stylesheet" href="/style.css">
 
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -28,34 +28,81 @@
   })(window,document,'script','dataLayer','GTM-WNX6WZJZ');</script>
 
   <style>
-    .sr-hero{padding:clamp(7rem,12vw,9rem) 0 3rem;text-align:center;}
-    .sr-hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:900;line-height:1.1;margin-bottom:0.75rem;}
-    .genre-nav{display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;margin:2rem 0;}
-    .genre-pill{background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:2rem;padding:0.4rem 1rem;font-size:0.82rem;color:var(--text-dim);cursor:pointer;transition:all 0.2s;}
-    .genre-pill:hover,.genre-pill.active{background:var(--neon-pink);border-color:var(--neon-pink);color:#fff;}
-    .song-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;margin:1.5rem 0 3rem;}
-    .song-card{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:0.75rem;padding:1rem 1.25rem;display:flex;align-items:center;gap:0.75rem;cursor:pointer;transition:border-color 0.2s;}
-    .song-card:hover{border-color:rgba(255,45,146,0.4);}
-    .song-card.selected{border-color:var(--neon-pink);background:rgba(255,45,146,0.08);}
-    .song-num{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:var(--text-mute);flex-shrink:0;}
-    .song-card.selected .song-num{background:var(--neon-pink);color:#fff;}
-    .song-info{min-width:0;}
-    .song-title{font-weight:600;font-size:0.9rem;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-    .song-artist{font-size:0.78rem;color:var(--text-mute);}
-    .request-bar{position:sticky;bottom:calc(60px + env(safe-area-inset-bottom));background:rgba(10,10,15,0.95);border-top:1px solid var(--border);padding:0.75rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;z-index:50;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
-    .request-bar-count{font-size:0.88rem;color:var(--text-dim);}
-    .request-bar-count strong{color:var(--neon-pink);}
-    .sr-form{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:1rem;padding:clamp(1.5rem,4vw,2.5rem);max-width:600px;margin:0 auto 4rem;}
-    .sr-form h2{font-size:1.3rem;margin-bottom:1.5rem;}
-    .sr-field{margin-bottom:1rem;}
-    .sr-field label{display:block;font-size:0.82rem;color:var(--text-mute);margin-bottom:0.35rem;font-weight:600;}
-    .sr-field input,.sr-field textarea,.sr-field select{width:100%;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:0.5rem;padding:0.65rem 0.9rem;color:var(--text);font-size:0.9rem;font-family:inherit;}
-    .sr-field textarea{resize:vertical;min-height:80px;}
-    .selected-list{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:0.5rem;padding:0.75rem 1rem;margin-bottom:1rem;min-height:50px;font-size:0.85rem;color:var(--text-dim);}
-    .custom-song-row{display:flex;gap:0.5rem;margin-bottom:0.5rem;}
-    .custom-song-row input{flex:1;}
-    .add-song-btn{background:transparent;border:1px solid var(--border);color:var(--text-mute);padding:0.5rem 0.9rem;border-radius:0.5rem;cursor:pointer;font-size:0.82rem;white-space:nowrap;}
-    @media(max-width:600px){.request-bar{flex-direction:column;align-items:stretch;}.request-bar .btn{text-align:center;}}
+    /* ── Song Request Page Styles ── */
+    .sr-hero{padding:clamp(6rem,10vw,8.5rem) 0 2rem;text-align:center}
+    .sr-hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:1.1;margin-bottom:.5rem}
+    .sr-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin:1.25rem 0 0;font-size:.85rem;color:var(--text-mute)}
+    .sr-stat strong{color:var(--neon-cyan);font-weight:700}
+
+    /* Search bar */
+    .search-wrap{max-width:680px;margin:2rem auto 0;position:relative}
+    .search-input{width:100%;background:rgba(255,255,255,.07);border:2px solid var(--border);border-radius:3rem;padding:1rem 1.25rem 1rem 3.5rem;color:var(--text);font-size:1rem;font-family:inherit;transition:border-color .2s,box-shadow .2s;box-sizing:border-box}
+    .search-input:focus{outline:none;border-color:var(--neon-pink);box-shadow:0 0 0 4px rgba(255,45,146,.15)}
+    .search-icon{position:absolute;left:1.2rem;top:50%;transform:translateY(-50%);color:var(--text-mute);pointer-events:none;font-size:1.1rem}
+    .search-clear{position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;color:var(--text-mute);font-size:.9rem;display:none;align-items:center;justify-content:center}
+    .search-clear.visible{display:flex}
+    .search-count{text-align:center;font-size:.82rem;color:var(--text-mute);margin:.6rem 0 0}
+
+    /* Genre filter pills */
+    .genre-strip{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin:1.5rem 0 1rem;padding:0 1rem}
+    .gpill{background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:2rem;padding:.35rem .9rem;font-size:.78rem;color:var(--text-mute);cursor:pointer;transition:all .2s;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+    .gpill:hover{background:rgba(255,45,146,.15);border-color:var(--neon-pink);color:#fff}
+    .gpill.active{background:var(--neon-pink);border-color:var(--neon-pink);color:#fff;font-weight:600}
+
+    /* Song grid */
+    .song-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.6rem;margin:0 0 1.5rem}
+    .sc{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:.75rem;padding:.85rem 1rem;display:flex;align-items:center;gap:.75rem;cursor:pointer;transition:border-color .2s,background .2s;text-align:left;width:100%;font-family:inherit;-webkit-tap-highlight-color:transparent}
+    .sc:hover{border-color:rgba(255,45,146,.45);background:rgba(255,45,146,.06)}
+    .sc.sel{border-color:var(--neon-pink);background:rgba(255,45,146,.1)}
+    .sc-num{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:var(--text-mute);flex-shrink:0;transition:background .2s,color .2s}
+    .sc.sel .sc-num{background:var(--neon-pink);color:#fff}
+    .sc-info{min-width:0;flex:1}
+    .sc-title{font-weight:600;font-size:.88rem;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .sc-artist{font-size:.76rem;color:var(--text-mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .duo-badge{font-size:.62rem;font-weight:700;padding:.15rem .4rem;border-radius:999px;background:linear-gradient(135deg,var(--neon-cyan),var(--purple-500));color:#060010;flex-shrink:0}
+
+    /* Load more */
+    .load-more-wrap{text-align:center;margin:1rem 0 2rem}
+    .load-more-btn{background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:2rem;padding:.65rem 2rem;color:var(--text-dim);font-size:.85rem;cursor:pointer;transition:all .2s;font-family:inherit}
+    .load-more-btn:hover{border-color:var(--neon-pink);color:#fff}
+
+    /* Sticky bar */
+    .req-bar{position:sticky;bottom:calc(60px + env(safe-area-inset-bottom));background:rgba(10,10,15,.96);border-top:1px solid var(--border-hi);padding:.75rem 1.5rem;display:none;align-items:center;justify-content:space-between;gap:1rem;z-index:50;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+    .req-bar.show{display:flex}
+    .req-bar-left{font-size:.88rem;color:var(--text-dim)}
+    .req-bar-left strong{color:var(--neon-pink)}
+    @media(max-width:560px){.req-bar{flex-direction:column;align-items:stretch}.req-bar .btn{text-align:center}}
+
+    /* Form */
+    .sr-section{max-width:640px;margin:3rem auto 0}
+    .sr-section h2{font-size:1.4rem;margin-bottom:1.25rem}
+    .sr-form{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:1rem;padding:clamp(1.25rem,4vw,2rem)}
+    .sr-field{margin-bottom:1rem}
+    .sr-field label{display:block;font-size:.8rem;color:var(--text-mute);margin-bottom:.3rem;font-weight:600;letter-spacing:.03em}
+    .sr-field input,.sr-field textarea,.sr-field select{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:.5rem;padding:.6rem .85rem;color:var(--text);font-size:.9rem;font-family:inherit;box-sizing:border-box;transition:border-color .2s}
+    .sr-field input:focus,.sr-field textarea:focus,.sr-field select:focus{outline:none;border-color:var(--neon-pink)}
+    .sr-field textarea{resize:vertical;min-height:80px}
+    .sel-display{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:.5rem;padding:.75rem 1rem;min-height:52px;font-size:.82rem;color:var(--text-dim);line-height:1.7;white-space:pre-wrap;word-break:break-word}
+    .custom-row{display:flex;gap:.5rem;margin-bottom:.5rem}
+    .custom-row input{flex:1}
+    .add-btn{background:transparent;border:1px solid var(--border);color:var(--text-mute);padding:.5rem .9rem;border-radius:.5rem;cursor:pointer;font-size:.8rem;white-space:nowrap;font-family:inherit;transition:border-color .2s,color .2s}
+    .add-btn:hover{border-color:var(--neon-pink);color:#fff}
+
+    /* Empty state */
+    .empty-state{text-align:center;padding:3rem 1rem;color:var(--text-mute)}
+    .empty-state .es-icon{font-size:2.5rem;margin-bottom:.75rem}
+    .empty-state p{font-size:.9rem}
+
+    /* Loading spinner */
+    .loading-songs{text-align:center;padding:2rem;color:var(--text-mute);font-size:.9rem}
+    .spinner{display:inline-block;width:20px;height:20px;border:2px solid rgba(255,45,146,.3);border-top-color:var(--neon-pink);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:.5rem}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* Full library loading banner */
+    .lib-banner{background:rgba(0,245,255,.08);border:1px solid rgba(0,245,255,.2);border-radius:.75rem;padding:.75rem 1.25rem;margin:.75rem 0 1rem;font-size:.82rem;color:var(--text-dim);text-align:center;display:none}
+    .lib-banner.show{display:block}
+    .lib-progress{display:inline-block;width:100px;height:4px;background:rgba(255,255,255,.1);border-radius:2px;vertical-align:middle;margin:0 .5rem;overflow:hidden}
+    .lib-progress-fill{height:100%;background:var(--neon-cyan);border-radius:2px;transition:width .3s;width:0%}
   </style>
 </head>
 <body>
@@ -74,7 +121,10 @@
   <header class="nav" id="nav">
     <div class="nav-row">
       <a class="nav-logo" href="/" aria-label="PopUp Karaoke home">
-        <img src="puklogo.png" alt="PopUp Karaoke" width="38" height="38" loading="eager" decoding="async">
+        <picture>
+          <source srcset="/puklogo.webp" type="image/webp">
+          <img src="/puklogo.png" alt="PopUp Karaoke" width="38" height="38" loading="eager" decoding="async">
+        </picture>
         <span>PopUp Karaoke</span>
       </a>
       <button class="nav-toggle" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle menu">
@@ -93,108 +143,170 @@
 
   <main id="main">
 
+    <!-- HERO -->
     <section class="sr-hero">
       <div class="container">
         <span class="section-label">Before Your Event</span>
-        <h1>Pick Your <span class="grad">Songs</span></h1>
-        <p class="lead" style="max-width:560px;margin:0 auto 1rem;">Browse our most popular songs by genre, pick your favorites, and submit your request list before the event. Share this page with your group so everyone can add their picks!</p>
-        <div style="display:inline-flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;">
-          <span style="font-size:0.82rem;color:var(--text-mute);">🎵 61,000+ songs total</span>
-          <span style="font-size:0.82rem;color:var(--text-mute);">✓ No account needed</span>
-          <span style="font-size:0.82rem;color:var(--text-mute);">📱 Works on any device</span>
+        <h1>Search <span class="grad">51,000+ Songs</span></h1>
+        <p style="color:var(--text-dim);max-width:540px;margin:.75rem auto 0;font-size:.95rem">
+          Our full KaraFun library — every song available at your event. Pick your favorites, 
+          then submit the list below so your DJ is ready.
+        </p>
+        <div class="sr-stats">
+          <span>🎵 <strong id="totalCount">51,878</strong> songs</span>
+          <span>🎤 <strong>2 mics</strong> always ready</span>
+          <span>🎶 <strong>Updated weekly</strong> by KaraFun</span>
         </div>
       </div>
     </section>
 
-    <!-- Genre Nav -->
-    <div class="container">
-      <div class="genre-nav" id="genreNav">
-        <button class="genre-pill active" data-genre="all">⭐ All Favorites</button>
-        <button class="genre-pill" data-genre="pop">💅 Pop</button>
-        <button class="genre-pill" data-genre="rock">🎸 Rock</button>
-        <button class="genre-pill" data-genre="country">🤠 Country</button>
-        <button class="genre-pill" data-genre="rnb">🎙️ R&amp;B / Soul</button>
-        <button class="genre-pill" data-genre="hiphop">🎤 Hip-Hop</button>
-        <button class="genre-pill" data-genre="classic">🎼 Classics</button>
-        <button class="genre-pill" data-genre="wedding">💍 Wedding</button>
-        <button class="genre-pill" data-genre="holiday">🎄 Holiday</button>
-        <button class="genre-pill" data-genre="crowd">🙌 Crowd Singalongs</button>
-        <button class="genre-pill" data-genre="latin">🌶️ Latin</button>
+    <!-- SEARCH + BROWSE -->
+    <section style="padding-bottom:2rem">
+      <div class="container">
+
+        <!-- Search input -->
+        <div class="search-wrap">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input
+            type="search"
+            id="searchInput"
+            class="search-input"
+            placeholder="Search by song title or artist…"
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false"
+            aria-label="Search songs"
+          >
+          <button class="search-clear" id="searchClear" aria-label="Clear search">✕</button>
+        </div>
+        <p class="search-count" id="searchCount"></p>
+
+        <!-- Loading banner for full library -->
+        <div class="lib-banner" id="libBanner">
+          <span class="spinner"></span>
+          Loading full library…
+          <span class="lib-progress"><span class="lib-progress-fill" id="libProgressFill"></span></span>
+          <span id="libLoadedCount">0</span> / 51,878 songs
+        </div>
+
+        <!-- Genre filter pills -->
+        <div class="genre-strip" id="genreStrip" role="group" aria-label="Filter by genre">
+          <button class="gpill active" data-genre="all">All Genres</button>
+          <button class="gpill" data-genre="pop">Pop</button>
+          <button class="gpill" data-genre="rock">Rock</button>
+          <button class="gpill" data-genre="country">Country</button>
+          <button class="gpill" data-genre="rnb">R&amp;B / Soul</button>
+          <button class="gpill" data-genre="hiphop">Hip-Hop</button>
+          <button class="gpill" data-genre="jazz">Jazz</button>
+          <button class="gpill" data-genre="musical">Musical</button>
+          <button class="gpill" data-genre="holiday">Holiday</button>
+          <button class="gpill" data-genre="latin">Latin</button>
+          <button class="gpill" data-genre="gospel">Gospel</button>
+          <button class="gpill" data-genre="duet">Duets 🎤🎤</button>
+        </div>
+
+        <!-- Song grid -->
+        <div class="song-grid" id="songGrid" aria-live="polite" aria-label="Song results"></div>
+
+        <!-- Load more -->
+        <div class="load-more-wrap" id="loadMoreWrap" style="display:none">
+          <button class="load-more-btn" id="loadMoreBtn">Load more songs</button>
+        </div>
+
+        <!-- Empty state (shown when no results) -->
+        <div class="empty-state" id="emptyState" style="display:none">
+          <div class="es-icon">🎵</div>
+          <p><strong>No matches found</strong></p>
+          <p>Try a different spelling, or add it manually in the form below.</p>
+        </div>
+
       </div>
+    </section>
 
-      <div class="song-grid" id="songGrid"></div>
-
-      <p style="text-align:center;color:var(--text-mute);font-size:0.82rem;margin-bottom:3rem;">Don't see your song? Add any song manually in the form below — we have 61,000+ total.</p>
+    <!-- STICKY SELECTION BAR -->
+    <div class="req-bar" id="reqBar" role="status" aria-live="polite">
+      <div class="req-bar-left">
+        <strong id="selCount">0</strong> song<span id="selPlural">s</span> selected
+      </div>
+      <a href="#request-form" class="btn btn-primary">Submit My List →</a>
     </div>
 
-    <!-- Sticky request bar -->
-    <div class="request-bar" id="requestBar" style="display:none;">
-      <div class="request-bar-count"><strong id="selectedCount">0</strong> songs selected</div>
-      <a href="#request-form" class="btn btn-primary" id="goToFormBtn">Submit My List →</a>
-    </div>
-
-    <!-- Request Form -->
-    <div class="container" id="request-form">
+    <!-- REQUEST FORM -->
+    <section class="sr-section container" id="request-form" style="padding-bottom:5rem">
+      <h2>🎤 Submit Your Song Request List</h2>
+      <p style="color:var(--text-mute);font-size:.88rem;margin-bottom:1.5rem">
+        Share this page with your guests so everyone can pick their songs in advance. 
+        Your DJ will have everything ready when you arrive.
+      </p>
       <div class="sr-form">
-        <h2>🎤 Submit Your Song Request List</h2>
         <form action="https://formsubmit.co/booking@popupkaraoke.net" method="POST">
-          <input type="hidden" name="_subject" value="Song Request List — PopUp Karaoke">
+          <input type="hidden" name="_subject" value="🎵 Song Request List — PopUp Karaoke">
           <input type="hidden" name="_next" value="https://popupkaraoke.net/thank-you.html">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="selected_songs" id="selectedSongsInput" value="">
 
-          <div class="sr-field">
-            <label for="req-name">Your Name *</label>
-            <input type="text" id="req-name" name="name" placeholder="First and last name" required autocomplete="name">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+            <div class="sr-field">
+              <label for="req-name">Your Name *</label>
+              <input type="text" id="req-name" name="name" placeholder="First and last name" required autocomplete="name">
+            </div>
+            <div class="sr-field">
+              <label for="req-email">Email Address *</label>
+              <input type="email" id="req-email" name="email" placeholder="your@email.com" required autocomplete="email">
+            </div>
           </div>
-          <div class="sr-field">
-            <label for="req-email">Email Address *</label>
-            <input type="email" id="req-email" name="email" placeholder="your@email.com" required autocomplete="email">
-          </div>
-          <div class="sr-field">
-            <label for="req-event">Event Type</label>
-            <select id="req-event" name="event_type">
-              <option value="">Select event type</option>
-              <option>Wedding Reception</option>
-              <option>Birthday Party</option>
-              <option>Bachelorette Party</option>
-              <option>Corporate / Company Event</option>
-              <option>Holiday Party</option>
-              <option>Bar / Brewery Night</option>
-              <option>Private Party</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="sr-field">
-            <label for="req-date">Event Date (if known)</label>
-            <input type="date" id="req-date" name="event_date" autocomplete="off">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+            <div class="sr-field">
+              <label for="req-event">Event Type</label>
+              <select id="req-event" name="event_type">
+                <option value="">Select event type</option>
+                <option>Wedding Reception</option>
+                <option>Birthday Party</option>
+                <option>Bachelorette Party</option>
+                <option>Corporate / Company Event</option>
+                <option>Holiday Party</option>
+                <option>Bar / Brewery Night</option>
+                <option>Private Party</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="sr-field">
+              <label for="req-date">Event Date (if known)</label>
+              <input type="date" id="req-date" name="event_date" autocomplete="off">
+            </div>
           </div>
 
           <div class="sr-field">
-            <label>Songs You Selected Above</label>
-            <div class="selected-list" id="selectedListDisplay">No songs selected yet — pick some above, or add manually below.</div>
+            <label>Songs You Selected Above (<span id="selCountForm">0</span>)</label>
+            <div class="sel-display" id="selDisplay">No songs selected yet — search above, or add manually below.</div>
           </div>
 
           <div class="sr-field">
-            <label>Add Songs Not Listed Above</label>
-            <div id="customSongsArea">
-              <div class="custom-song-row">
-                <input type="text" name="custom_song_1" placeholder="Song title — Artist" class="custom-song-input">
-                <button type="button" class="add-song-btn" id="addSongBtn">+ Add Another</button>
+            <label>Add Any Song Not Found Above</label>
+            <div id="customArea">
+              <div class="custom-row">
+                <input type="text" name="custom_song_1" placeholder="Song title — Artist name" class="custom-input">
+                <button type="button" class="add-btn" id="addCustomBtn">+ Add Row</button>
               </div>
             </div>
           </div>
 
           <div class="sr-field">
-            <label for="req-notes">Anything else? (special moments, must-plays, avoid list)</label>
-            <textarea id="req-notes" name="notes" placeholder="e.g. The bride loves 90s pop, please avoid heavy metal, the groom wants to open with Don't Stop Believin'..."></textarea>
+            <label for="req-notes">Anything else for your DJ?</label>
+            <textarea id="req-notes" name="notes" placeholder="Special requests, songs to avoid, event vibe…"></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:0.5rem;font-size:1rem;padding:0.85rem;">🎵 Send My Song List</button>
-          <p style="text-align:center;color:var(--text-mute);font-size:0.78rem;margin-top:0.75rem;">We'll have your songs queued and ready before the event.</p>
+          <button type="submit" class="btn btn-primary" style="width:100%;padding:1rem;font-size:1rem">
+            🎵 Send Song Request List
+          </button>
         </form>
       </div>
-    </div>
+
+      <p style="text-align:center;margin-top:1.5rem;color:var(--text-mute);font-size:.8rem">
+        Not all songs guaranteed — we'll do our best to have everything ready. 
+        Have questions? Call <a href="tel:+12197581313" style="color:var(--neon-cyan)">219.758.1313</a>
+      </p>
+    </section>
 
   </main>
 
@@ -202,7 +314,10 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <div class="foot-brand-row">
-          <img src="puklogo.png" alt="PopUp Karaoke" width="44" height="44" loading="lazy" decoding="async">
+          <picture>
+            <source srcset="/puklogo.webp" type="image/webp">
+            <img src="/puklogo.png" alt="PopUp Karaoke" width="44" height="44" loading="lazy" decoding="async">
+          </picture>
           <span class="foot-brand-name">PopUp Karaoke</span>
         </div>
         <p>Veteran-owned mobile karaoke serving NW Indiana and Chicagoland since 2020.</p>
@@ -236,7 +351,10 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <p>© <span id="year">2026</span> PopUp Karaoke, LLC. Veteran-owned. All rights reserved.</p>
+      <p>© <span id="footYear">2026</span> PopUp Karaoke, LLC. Veteran-owned. All rights reserved.
+        <a href="/privacy.html" style="margin-left:.75rem;color:var(--text-mute)">Privacy</a>
+        <a href="/terms.html" style="margin-left:.75rem;color:var(--text-mute)">Terms</a>
+      </p>
     </div>
   </footer>
 
@@ -247,151 +365,277 @@
     </div>
   </div>
 
+  <!-- Embed the top 2000 popular songs for instant load -->
+  <script>window.POPULAR_SONGS=[["'Til a Tear Becomes a Rose","Keith Whitley","country,duet,duet"],["(Anyone) Could Fall in Love with You","Elvis Presley","pop"],["(Everything I Do) I Do It for You","Bryan Adams","musical"],["(Hey Won't You Play) Another Somebody Done Somebody Wrong Song","B. J. Thomas","country"],["(I Can't Get No) Satisfaction","The Rolling Stones","rock,rnb"],["(I Can't Help) Falling in Love with You","UB40","pop,rock"],["(I Could Only) Whisper Your Name","Harry Connick Jr.","pop,rock,rnb,jazz"],["(I Never Promised You A) Rose Garden","Martina McBride","country"],["(I've Had) The Time of My Life","Dirty Dancing","musical,duet,duet"],["(Now and Then There's) A Fool Such as I","Elvis Presley","pop,rock"],["(Oh No) What You Got","Justin Timberlake","pop,rnb"],["(Sittin' on) The Dock of the Bay","Otis Redding","rnb"],["(There's Gotta Be) More To Life","Stacie Orrico","pop,rock"],["(There's No Place Like) Home for the Holidays","Perry Como","jazz,holiday"],["(You're the) Devil in Disguise","Elvis Presley","pop,rock"],["...Baby One More Time","Bowling for Soup","pop,rock,musical"],["...Baby One More Time","Britney Spears","pop"],["1 Thing","Amerie","rnb"],["100 Years","Five for Fighting","pop,rock"],["19 Somethin'","Mark Wills","country"],["A Bad Goodbye","Clint Black","country,duet,duet"],["A Better Man","Clint Black","country"],["A Big Hunk o' Love","Elvis Presley","rock"],["A Boy Like You","Trick Pony","country"],["A Fool Such As I (Now And Then)","Baillie and the Boys","country"],["A Good Day to Run","Darryl Worley","country"],["A Holly Jolly Christmas","Rudolph the Red-Nosed Reindeer (1964 TV special)","holiday,musical"],["A Little Gasoline","Terri Clark","country"],["A Little Less Conversation","Junkie XL","pop,rock"],["A Little Less Talk and a Lot More Action","Toby Keith","country"],["A Lot of Things Different","Kenny Chesney","country"],["A Mess of Blues","Elvis Presley","pop,rock"],["A Moment Like This","Kelly Clarkson","pop"],["A Natural Man","Lou Rawls","pop"],["A Night to Remember","Liberty X","pop,rnb"],["A Picture of Me (Without You)","Lorrie Morgan","country"],["A Place to Crash","Robbie Williams","pop,rock"],["A Real Fine Place to Start","Sara Evans","country"],["A Song and a Christmas Tree (The Twelve Days of Christmas)","Andy Williams","holiday"],["A Sorta Fairytale","Tori Amos","rock"],["A Thing Called Love","Elvis Presley","pop,gospel"],["A Thousand Miles From Nowhere","Dwight Yoakam","country"],["A Thousand Stars","Kathy Young","pop"],["A Whiter Shade of Pale","Procol Harum","pop,rock"],["A Whole New World (Aladdin's Theme)","Aladdin (1992 film)","musical,duet,duet"],["A Wink and a Smile","Harry Connick Jr.","jazz,musical"],["A World of Our Own","Elvis Presley","pop,rnb,musical"],["Absolutely (Story of a Girl)","Nine Days","pop,rock"],["Aces","Suzy Bogguss","country"],["Achy Breaky Heart","Billy Ray Cyrus","country"],["Achy Breaky Song","Weird Al Yankovic","rock"],["Across the River","Bruce Hornsby","pop,rock"],["Act Naturally","Buck Owens","country"],["Adam's Song","Blink-182","pop,rock"],["Addicted to Love","Robert Palmer","rock"],["Advertising Space","Robbie Williams","pop,rock,classic"],["Affirmation","Savage Garden","pop,rock"],["After All","Peter Cetera","pop,duet,duet"],["After the Lovin'","Engelbert Humperdinck","pop"],["Again","Janet Jackson","pop"],["Again","Lenny Kravitz","rock"],["Against All Odds (Take a Look at Me Now)","Phil Collins","pop,rock,musical"],["Against All Odds (Take a Look at Me Now)","Steve Brookstein","rock"],["Against the Grain","Garth Brooks","country"],["Ahab the Arab","Ray Stevens","pop,rock"],["Ain't Going Down ('Til the Sun Comes Up)","Garth Brooks","country"],["Ain't No Mountain High Enough","Marvin Gaye","pop,rnb,duet,duet"],["Ain't No Sunshine","Bill Withers","rnb"],["Ain't Nothing 'bout You","Brooks & Dunn","country"],["Ain't That a Shame","Fats Domino","rock"],["Ain't That Lovin' You, Baby","Elvis Presley","rock"],["Air Hostess","Busted","pop,rock"],["Alibis","Tracy Lawrence","country"],["Alive","Jennifer Lopez","rock"],["All About Soul","Billy Joel","pop,rock"],["All About You","McFly","pop,rock"],["All Around the World","Lisa Stansfield","pop"],["All by Myself","Céline Dion","pop"],["All by Myself","Tom Jones","rock"],["All I Can Do","Jump5","pop"],["All I Needed Was the Rain","Elvis Presley","country,musical"],["All I Wanna Do Is Make Love to You","Heart (band)","pop,rock"],["All Jacked Up","Gretchen Wilson","country"],["All My Life","Linda Ronstadt","pop,duet,duet"],["All Night Long (All Night)","Lionel Richie","pop"],["All of Me","Michael Bublé","jazz"],["All Over Again","Ronan Keating","rock,country,duet,duet"],["All Shook Up","Elvis Presley","rock"],["All That I'm Allowed (I'm Thankful)","Elton John","pop,rock"],["All That She Wants","Ace of Base","pop"],["All The Man That I Need","Whitney Houston","pop,rnb"],["All the Things She Said","t.A.T.u.","pop,duet,duet"],["All These Years","Sawyer Brown","country,classic"],["All Time Love","Will Young",""],["Allison Road","Gin Blossoms","pop,rock"],["Almost","Elvis Presley","jazz,musical"],["Almost Goodbye","Mark Chesnutt","country"],["Almost in Love","Elvis Presley","pop,musical"],["Alphabet Song","Nursery Rhyme","classic"],["Alright","Janet Jackson","pop,rnb"],["Always Look on the Bright Side of Life","Monty Python","musical"],["Always on My Mind","Elvis Presley","pop,rock"],["Always on Your Side","Sheryl Crow","pop,rock,duet,duet"],["AM Radio","Everclear","pop,rock"],["Amazing","George Michael","pop,rnb"],["Amazing","Josh Kelley","pop,rock"],["Amazing Grace","Traditional","classic,gospel"],["America The Beautiful","Whitney Houston","rnb,gospel"],["American Baby","Dave Matthews Band","pop,rock"],["American Child","Phil Vassar","country"],["American Girl","Tom Petty","rock"],["American Honky-Tonk Bar Association","Garth Brooks","country"],["American Idiot","Green Day","rock"],["American Life","Madonna","pop"],["American Pie","Madonna","pop,musical"],["American Soldier","Toby Keith","country"],["An Old Pair of Shoes","Randy Travis","country"],["Analogue (All I Want)","a-ha","pop,rock"],["And the Grass Won't Pay No Mind","Elvis Presley","pop,rock"],["Angel","Sarah McLachlan","pop,rnb"],["Angel","The Corrs","pop,rock,classic"],["Angel Baby","Rosie & The Originals","rock"],["Angel of Music","The Phantom of the Opera (musical)","musical,duet,duet"],["Angelia","Richard Marx","pop,rock"],["Angelo","Brotherhood Of Man","pop"],["Annie's Song","John Denver","rock,classic"],["Another Saturday Night","Jimmy Buffett","pop,rock"],["Anymore","Travis Tritt","country"],["Anything But Ordinary","Avril Lavigne","pop,rock"],["Anything That's Part of You","Elvis Presley","country"],["Are You Happy Now?","Michelle Branch","pop,rock"],["Are You Jimmy Ray?","Jimmy Ray","pop"],["Are You Lonesome Tonight","Elvis Presley","rnb"],["Are You Ready for Love","Elton John","pop,rnb"],["Are You Sleeping?","Nursery Rhyme","classic"],["Around the World (La La La La La)","A Touch of Class","pop"],["As If We Never Said Goodbye","Barbra Streisand","pop"],["As Long As He Needs Me","Oliver! (musical)","musical"],["As Time Goes By","Engelbert Humperdinck","pop,jazz"],["Ashes by Now","Lee Ann Womack","country"],["Avenues and Alleyways","Tony Christie","pop,musical"],["Awesome God","Rich Mullins","gospel"],["Aïcha","Outlandish","rnb"],["Baa, Baa, Black Sheep","Nursery Rhyme","classic"],["Baby (You've Got What It Takes)","Brook Benton","rock,duet,duet"],["Baby Baby","Amy Grant","pop"],["Baby Boy","Beyoncé","rnb"],["Baby Doll","Pat Green","country"],["Baby I'm Burning","Dolly Parton","pop,country"],["Baby I'm Yours","Barbara Lewis","rnb"],["Baby It's You","The Shirelles","pop,rnb"],["Baby Let's Play House","Elvis Presley","rock,rnb"],["Baby Love","The Supremes","pop,rnb"],["Baby, It's Cold Outside","Dean Martin","jazz,holiday,duet,duet"],["Babylon","David Gray","pop,rock,classic"],["Back Door Man","The Doors","rock"],["Back For Good","Take That","pop,rock"],["Back Here","BBMak","pop,rock"],["Back of the Bottom Drawer","Chely Wright","country"],["Bad Boys","Inner Circle","rnb,musical"],["Bad Day","Daniel Powter","pop,rock"],["Baila Morena","Zucchero","pop,rock,musical"],["Bang and Blame","R.E.M.","rock"],["Barbara Ann","The Beach Boys","pop,rock"],["Bare Naked","Jennifer Love Hewitt","pop,rock"],["Basketball","Lil' Bow Wow","hiphop,musical"],["Bathwater","No Doubt","rock"],["Be My Baby","The Ronettes","pop,rnb"],["Be My Baby Tonight","John Michael Montgomery","country"],["Be With You","Enrique Iglesias","pop,latin"],["Beach Baby","First Class","pop,rock"],["Beat Of My Heart","Hilary Duff","pop"],["Beatles Medley","Take That","pop,rock"],["Beautiful","Christina Aguilera","pop"],["Beautiful Day","U2","pop,rock"],["Beautiful Soul","Jesse McCartney","pop"],["Beauty and the Beast","Céline Dion","pop,musical,duet,duet"],["Because He Lives","The Bill Gaither Trio","gospel"],["Because I Love You","Stevie B","pop,rnb"],["Because of You","Kelly Clarkson","pop"],["Bed of Roses","Bon Jovi","rock"],["Beer for My Horses","Toby Keith","country,duet,duet"],["Before Your Love","Kelly Clarkson","rock"],["Behind These Hazel Eyes","Kelly Clarkson","pop,rock"],["Bent","Matchbox Twenty","rock"],["Best I Ever Had","Gary Allan","country"],["Best I Ever Had (Grey Sky Morning)","Vertical Horizon","pop,rock"],["Best of Intentions","Travis Tritt","country"],["Bette Davis Eyes","Kim Carnes","pop"],["Better Class of Losers","Randy Travis","country"],["Better Off Alone","Alice Deejay","pop"],["Big Blue Note","Toby Keith","country"],["Big Machine","Goo Goo Dolls","rock"],["Big Shot","Billy Joel","rock"],["Big Star","Kenny Chesney","rock,country"],["Big Time","Big & Rich","country"],["Big Yellow Taxi","Counting Crows","pop,rock,country"],["Bigger Than My Body","John Mayer","pop,rock"],["Black Cat","Janet Jackson","pop,rock"],["Black Horse And The Cherry Tree","KT Tunstall","rock,classic"],["Black Magic Woman / Gypsy Queen","Santana","rock,latin"],["Black or White","Michael Jackson","pop,rock"],["Black Suits Comin' (Nod Ya Head)","Will Smith","rnb,hiphop,musical"],["Black Velvet","Robin Lee","rock,country"],["Blame Canada","South Park","musical"],["Blame It on the Boogie","The Jackson 5","pop,rnb"],["Blame It on Your Heart","Patty Loveless","country"],["Blue Bayou","Linda Ronstadt","rock"],["Blue Christmas","Elvis Presley","pop,country,holiday"],["Blue Eyes Crying in the Rain","Willie Nelson","country"],["Blue Hawaii","Elvis Presley","musical"],["Blue Kentucky Girl","Emmylou Harris","country"],["Blue Moon","Elvis Presley","rnb"],["Blue Moon","The Marcels","rock"],["Blue Suede Shoes","Elvis Presley","rock"],["Blueberry Hill","Elvis Presley","rock,rnb"],["Bo Diddley","Bo Diddley","rock,rnb"],["Boot Scootin' Boogie","Brooks & Dunn","country"],["Bop Bop Baby","Westlife","pop"],["Borderline","Madonna","pop"],["Born Country","Alabama","country"],["Born to Be Wild","Steppenwolf","rock,rnb"],["Born to Fly","Sara Evans","country"],["Born to Make You Happy","Britney Spears","pop"],["Bossa Nova Baby","Elvis Presley","rock"],["Bother","Stone Sour","rock"],["Boulevard of Broken Dreams","Green Day","rock"],["Boyfriend","Ashlee Simpson","pop,rock"],["Boys","Britney Spears","rnb"],["Brass in Pocket","The Pretenders","rock"],["Break Down Here","Julie Roberts","country"],["Break It to Me Gently","Juice Newton","pop"],["Break the Night with Colour","Richard Ashcroft","rock"],["Breakaway","Kelly Clarkson","pop,classic"],["Breathe","Michelle Branch","pop,rock"],["Breathe Easy","Blue","pop,rock"],["Breathe In","Lucie Silvas","pop,rock"],["Breathe Your Name","Sixpence None the Richer","pop,rock"],["Breathless","The Corrs","pop,rock"],["Bright Eyes","Art Garfunkel","rock,musical"],["Bright Idea","Orson","pop,rock"],["Bright Lights","Matchbox Twenty","pop,rock"],["Bring Him Home","Les Misérables (film)","musical"],["Bring Me to Life","Evanescence","rock,musical,duet,duet"],["Bring On the Rain","Jo Dee Messina","country"],["Bringing it Back","Elvis Presley","pop,country"],["Broadway","Goo Goo Dolls","pop,rock"],["Brokenheartsville","Joe Nichols","country"],["Brother Jukebox","Mark Chesnutt","country"],["Brown Eyed Girl","Van Morrison","rock"],["Bubba Shot the Jukebox","Mark Chesnutt","country"],["Burn","Jo Dee Messina","country"],["Burn One Down","Clint Black","country"],["Burning Love","Elvis Presley","rock"],["But for the Grace of God","Keith Urban","country"],["But I Do Love You","LeAnn Rimes","country"],["Butterfly","Crazy Town","rock"],["Buttons","The Pussycat Dolls","pop,rnb"],["By and By","Elvis Presley","pop,gospel"],["By the Way","Red Hot Chili Peppers","rock"],["By Your Side","Sade","rnb"],["Bye Bye Love","The Everly Brothers","rock"],["California Dreamin'","DJ Sammy","pop"],["California Dreamin'","The Mamas and the Papas","pop,classic,duet,duet"],["Californication","Red Hot Chili Peppers","rock"],["Callin' Baton Rouge","Garth Brooks","country"],["Calling All Angels","Train","pop,rock"],["Calling You","Jevetta Steele","pop,musical"],["Can I Trust You with My Heart","Travis Tritt","country"],["Can You Hear Me When I Talk To You?","Ashley Gearing","rock,country"],["Can't Even Get The Blues No More","Reba McEntire","country"],["Can't Fight the Moonlight","LeAnn Rimes","pop,musical"],["Can't Fight This Feeling","REO Speedwagon","pop"],["Can't Help Falling in Love (live in Vegas)","Elvis Presley",""],["Can't Let Go","Mariah Carey","pop"],["Can't Stop Loving You","Phil Collins","pop,rock"],["Can't Stop This Thing We Started","Bryan Adams","rock"],["Candy Man","Sammy Davis Jr.","pop,jazz"],["Car Wash","Christina Aguilera","pop,rnb,hiphop,musical"],["Caroline","Status Quo","rock"],["Carry on Wayward Son","Kansas","rock"],["Caught Up in the Rapture","Anita Baker","pop,rnb"],["Celebrity","Brad Paisley","rock,country"],["Chain Gang","Sam Cooke","rnb"],["Change of Habit","Elvis Presley","pop,rock,musical"],["Changes","Kelly Osbourne","pop"],["Chantilly Lace","The Big Bopper","rock"],["Chariot","Gavin DeGraw","pop,rock"],["Charro!","Elvis Presley","country,musical"],["Chasin' That Neon Rainbow","Alan Jackson","country"],["Chasing Cars","Snow Patrol","pop,rock"],["Chattahoochee","Alan Jackson","country"],["Check on It","Beyoncé","rnb,hiphop,duet,duet"],["Cheek to Cheek","Ella Fitzgerald","jazz"],["Cherish","Madonna","pop"],["Chicks Dig It","Chris Cagle","country"],["Chihuahua","DJ Bobo","pop"],["Children Will Listen","Barbra Streisand","pop,musical"],["Chill of an Early Fall","George Strait","country"],["Chocolate","Kylie Minogue","pop"],["Christmas Wrapping","Waitresses","pop,holiday"],["Chug-A-Lug","Roger Miller","country"],["Cindy, Cindy","Elvis Presley","rock"],["Clocks","Coldplay","pop,rock"],["Cold Day in July","The Chicks","country"],["Collide","Howie Day","pop,rock"],["Come a Little Bit Closer","Jay and The Americans","pop"],["Come As You Are","Beverley Knight","pop,rock"],["Come Away With Me","Norah Jones","jazz"],["Come Clean","Hilary Duff","pop,rock"],["Come into My World","Kylie Minogue","pop"],["Complicated","Avril Lavigne","pop,rock"],["Concrete Angel","Martina McBride","country"],["Consider Yourself","Oliver! (musical)","musical"],["Cool to Be a Fool","Joe Nichols","country"],["Copperline","James Taylor","country,classic"],["Corner of the Sky","Pippin","musical"],["Could I Have This Kiss Forever","Enrique Iglesias","rnb,latin,duet,duet"],["Counting Down The Days","Natalie Imbruglia","pop,rock"],["Country Ain't Country","Travis Tritt","country"],["Country Comes to Town","Toby Keith","country"],["Courtesy of the Red, White and Blue (The Angry American)","Toby Keith","country"],["Cowboys Like Us","George Strait","country"],["Crash And Burn","Savage Garden","pop,rock"],["Crashed the Wedding","Busted","pop,rock"],["Crawfish","Elvis Presley","pop,musical"],["Crawling Up a Hill","Katie Melua","jazz"],["Crazy","Patsy Cline","jazz"],["Crazy Arms","Patsy Cline","country"],["Crazy Chick","Charlotte Church","pop,rock"],["Crazy for This Girl","Evan and Jaron","pop,rock"],["Crazy for You","Madonna","pop"],["Crazy in Love","Beyoncé","pop,rnb,hiphop,duet,duet"],["Crazy Little Thing Called Love","Michael Bublé","rock,rnb,jazz"],["Crocodile Rock","Elton John","rock"],["Cruisin'","Huey Lewis & The News","pop,rock,rnb,musical,duet,duet"],["Cry","Faith Hill","pop,country"],["Cry Me a River","Justin Timberlake","rnb"],["Cuts Both Ways","Gloria Estefan","pop"],["D.I.S.C.O","Ottawan","pop,rnb"],["Da Da Da (Ich Lieb' Dich Nicht, Du Liebst Mich Nicht)","Trio","pop,rock"],["Daddy Cool","Boney M.","pop"],["Daddy's Hands","Holly Dunn","country"],["Dakota","Stereophonics","rock"],["Damn I Wish I Was Your Lover","Sophie B. Hawkins","rock"],["Dance to the Music","Sly and the Family Stone","pop,rnb"],["Dance With Me","Debelah Morgan","rnb"],["Dance with My Father","Luther Vandross","rnb"],["Dancing Queen","ABBA","pop"],["Dang Me","Roger Miller","country"],["Daniel","Wilson Phillips","rock"],["Danny Boy","Traditional","jazz,classic"],["Dare to Dream","Jo Dee Messina","rock,country"],["Daydream Believer","The Monkees","pop,rock"],["Deck the Halls","Nat King Cole","pop,holiday"],["Delicious Surprise","Beth Hart","rock"],["Delilah","Tom Jones","pop,rock"],["Desperately","George Strait","country"],["Devil Went Down to Georgia","The Charlie Daniels Band","country"],["Didn't We Almost Have It All","Whitney Houston","rnb"],["Die Another Day","James Bond","pop,musical"],["Diggin' Up Bones","Randy Travis","country"],["Dirty Little Secret","The All-American Rejects","rock"],["Disco Duck","Rick Dees","pop,duet,duet"],["Disco Inferno","The Trammps","pop"],["Disease","Matchbox Twenty","rock"],["Dixie Chicken","Garth Brooks","country"],["Do It for Love","Hall & Oates","pop"],["Do That to Me One More Time","Captain & Tennille","rock"],["Do You Hear What I Hear?","Anne Murray","pop,holiday"],["Do You Know Where You're Going To","Diana Ross","rnb,musical"],["Do You Know Who I Am?","Elvis Presley","rock"],["Do You Remember?","Phil Collins","rock"],["Do You Want Fries with That","Tim McGraw","country"],["Doctor, My Eyes","Jackson Browne","pop,rock"],["Does He Love You","Reba McEntire","country,duet,duet"],["Doesn't Really Matter","Janet Jackson","pop,rnb"],["Doin' It (All For My Baby)","Huey Lewis & The News","pop,rock"],["Don't","Elvis Presley","pop"],["Don't","Shania Twain","pop,rock"],["Don't Ask Me How I Know","Bobby Pinson","country"],["Don't Be Cruel","Elvis Presley","rock"],["Don't Bother","Shakira","pop,rock"],["Don't Cha (radio edit)","The Pussycat Dolls","pop,rnb"],["Don't Cry Daddy","Elvis Presley","pop,rock,country"],["Don't Dream It's Over","Sixpence None the Richer","pop,rock"],["Don't Fall in Love with a Dreamer","Kenny Rogers","rock,duet,duet"],["Don't Get Me Wrong","The Pretenders","pop,rock"],["Don't Give Up On Us","David Soul","pop,rock"],["Don't Happen Twice","Kenny Chesney","country"],["Don't Know Much","Linda Ronstadt","duet,duet"],["Don't Know Why","Norah Jones","rnb,jazz"],["Don't Leave Home","Dido","rock"],["Don't Leave Me Now","Elvis Presley","rock,rnb,musical"],["Don't Let the Sun Go Down on Me","Elton John","pop,rock"],["Don't Make Me Come Over There and Love You","George Strait","country"],["Don't Phunk with My Heart","Black Eyed Peas","pop,rnb,hiphop"],["Don't Rain on My Parade","Funny Girl (film)","musical"],["Don't Rock the Jukebox","Alan Jackson","country"],["Don't Stop 'Til You Get Enough","Michael Jackson","pop"],["Don't Stop Dancing","Creed","rock"],["Don't Take Away My Heaven","Aaron Neville","pop,rnb"],["Don't Tell Me","Avril Lavigne","pop,rock"],["Don't Tell Me","Madonna","pop"],["Don't Tell Me It's Love","Marc Anthony","pop,latin"],["Don't Think Twice, It's All Right","Elvis Presley","country,classic"],["Don't Wanna Fall in Love","Jane Child","pop,rnb"],["Don't Worry 'bout a Thing","SHeDAISY","country"],["Doncha' Think It's Time","Elvis Presley","rock,rnb"],["Doraville","Atlanta Rhythm Section","rock"],["Down at the Twist and Shout","Mary Chapin Carpenter","country"],["Down by the Riverside / When the Saints Go Marching in","Elvis Presley","jazz,classic,musical,gospel"],["Down Down","Status Quo","rock"],["Down Home","Alabama","country"],["Down on My Knees","Trisha Yearwood","country"],["Down to My Last Teardrop","Tanya Tucker","country"],["Downtown","Petula Clark","rnb"],["Dream a Little Dream","Michael Bublé","jazz"],["Dream Lover","Mariah Carey","pop"],["Dream Police","Cheap Trick","pop,rock"],["Dream Weaver","Gary Wright","rock"],["Drift Away","Uncle Kracker","country,duet,duet"],["Drinkin' Bone","Tracy Byrd","country"],["Drinking Champagne","George Strait","country"],["Drugs or Jesus","Tim McGraw","country"],["Dumas Walker","The Kentucky Headhunters","rock,country"],["Eagle When She Flies","Dolly Parton","country"],["Easy Come, Easy Go","George Strait","rock,country"],["Easy Tonight","Five for Fighting","rock"],["Eighteen Wheels and a Dozen Roses","Kathy Mattea","country"],["El Shaddai","Amy Grant","rock,gospel"],["Electricity","Elton John","pop,musical"],["Elvira","The Oak Ridge Boys","country"],["Emotions","Mariah Carey","pop"],["Endless Love","Diana Ross","pop,duet,duet"],["Escapade","Janet Jackson","pop,rnb"],["Et c'est parti...","Nâdiya","pop,rnb,duet,duet"],["Even a Fool Can See","Peter Cetera","pop,rock"],["Even Angels Fall","Jessica Riddle","pop,rock,musical"],["Evergreen","A Star is Born (1976 film)","rock"],["Evergreen","Will Young","pop"],["Every Heartbeat","Amy Grant","pop"],["Every River","Brooks & Dunn","country"],["Every Which Way but Loose","Eddie Rabbitt","country"],["Everybody Plays the Fool","The Main Ingredient","rnb"],["Everybody's Changing","Keane","pop,rock"],["Everybody's Everything","Santana","rock,latin"],["Everybody's Fool","Evanescence","rock"],["Everything's Coming Up Roses","Gypsy (musical)","musical"],["Everytime","Britney Spears","pop"],["Evil Ways","Santana","rock"],["Except for Monday","Lorrie Morgan","country"],["Eye of the Tiger","Amel Bent","rock,rnb,musical"],["Eye of the Tiger","Survivor","rock,musical"],["Eyes Like Yours (Ojos Asi)","Shakira","pop,classic"],["Faded","SoulDecision","pop,rnb,duet,duet"],["Faded Love","Elvis Presley","rock,country,rnb"],["Fading Like a Flower","Roxette","pop,rock"],["Fairytale (live)","Elvis Presley","country"],["Fake","Simply Red","pop"],["Fallen","Sarah McLachlan","pop,rock"],["Fallin'","Alicia Keys","rnb"],["Family Portrait","Pink","pop,rnb"],["Fancy","Reba McEntire","rock,country"],["Far Away","Nickelback","rock"],["Farther Along","Elvis Presley","rock"],["Fast As You","Dwight Yoakam","country"],["Father and Daughter","Paul Simon","pop,rock"],["Father and Son","Ronan Keating",""],["Feel","Robbie Williams","pop,rock"],["Fernando","ABBA","pop"],["Fever","Elvis Presley","rnb"],["Fields of Gold","Sting","pop,rock"],["Fields of Gray","Bruce Hornsby","pop,rock"],["Fill My Little World","The Feeling","pop,rock"],["Finally","CeCe Peniston","pop"],["Find Out What's Happening","Elvis Presley","rock"],["First in Line","Elvis Presley","pop"],["Five Minutes","Lorrie Morgan","country"],["Fix You","Coldplay","rock"],["Flake","Jack Johnson","rock,classic"],["Flowers On The Wall","Eric Heatherly","country"],["Flying Without Wings","Ruben Studdard","rnb"],["Folsom Prison Blues","Johnny Cash","country"],["Foolish Pride","Travis Tritt","country"],["For He's a Jolly Good Fellow","Traditional","classic"],["For My Broken Heart","Reba McEntire","country"],["For Ol' Times Sake","Elvis Presley","pop,country"],["For Once in My Life","Tom Jones","pop,rnb"],["For the Good Times","Ray Price","country"],["For the Millionth and the Last Time","Elvis Presley","pop,rock"],["For Your Love","Ed Townsend","rnb"],["Forever and Ever, Amen","Randy Travis","country"],["Forever And For Always","Shania Twain","country"],["Forever Everyday","Lee Ann Womack","country"],["Forever in Blue Jeans","Neil Diamond","rock"],["Forever's as Far as I'll Go","Alabama","country"],["Forget Me Never","Elvis Presley","pop,classic"],["Forgive","Rebecca Lynn Howard","country"],["Fourteen Minutes Old","Doug Stone","country"],["Friends","Michael W. Smith","rock,gospel"],["Friends in Low Places","Garth Brooks","country"],["Friends Never Say Goodbye","The Road to El Dorado","pop,rock,musical"],["From a Distance","Bette Midler","pop,gospel"],["From Paris to Berlin","Infernal","pop"],["Funkytown","Lipps, Inc.","pop,rnb"],["Georgia on My Mind","Michael Bolton","pop"],["Georgia Rain","Trisha Yearwood","country"],["Get a Job","The Silhouettes","rock"],["Get Closer","Seals & Crofts","rock"],["Get Down on It","Blue","pop,rnb"],["Get Here","Oleta Adams","rock"],["Get Me to the Church on Time","1950s Standards","jazz"],["Get Me to the Church on Time","My Fair Lady (musical)","musical"],["Get Your Way","Jamie Cullum","pop,rnb,jazz"],["Gettin' in the Mood","Brian Setzer","rock,jazz"],["Ghosts","Robbie Williams","pop,rock"],["Gilligan's Island","Sherwood Schwartz","musical"],["Gimme Three Steps","Lynyrd Skynyrd","rock"],["Girl Next Door Went A-Walking","Elvis Presley","rock"],["Girl of Mine","Elvis Presley","rock,country"],["Girls & Boys","Good Charlotte","pop,rock"],["Girls Night Out","The Judds","country"],["Gitarzan","Ray Stevens","pop"],["Give a Little Bit","Goo Goo Dolls","pop,rock"],["Give Me Just One Night (Una Noche)","98 Degrees","pop"],["Give Me You","Mary J. Blige","rnb"],["Go Back","Chalee Tennison","country"],["Go Let It Out","Oasis","rock"],["Go On","George Strait","country"],["God Blessed Texas","Little Texas","country"],["God is a DJ","Pink","pop,rock"],["God Put a Smile Upon Your Face","Coldplay","rock"],["God Save the Queen","Anthem","classic"],["Godspeed (Sweet Dreams)","The Chicks","country"],["Going Under","Evanescence","rock"],["Good Boys","Blondie","pop,rock"],["Good Enough","Sarah McLachlan","pop,rock"],["Good Golly Miss Molly","Little Richard","rock"],["Good Is Good","Sheryl Crow","pop,rock"],["Good Little Girls","Blue County","country"],["Good Luck Charm","Elvis Presley","pop,rock"],["Good Rockin' Tonight","Elvis Presley","rock"],["Good Time","Jessica Andrews","country"],["Good Time Charlie's Got the Blues","Elvis Presley","rock"],["Good Vibrations","Marky Mark and The Funky Bunch","pop,hiphop"],["Goodbye My Lover","James Blunt","rock"],["Goodbye to You","Michelle Branch","pop,rock"],["Goodbye Yellow Brick Road","Elton John","pop,rock"],["Gospel Medley","Elvis Presley","rock,gospel"],["Got a Lot o' Livin' to Do","Elvis Presley","rock,musical"],["Got to Be Real","Cheryl Lynn","pop"],["Graduation","Vitamin C","pop,rnb"],["Grandpa (Tell Me 'Bout The Good Old Days)","The Judds","country"],["Great Balls of Fire","Jerry Lee Lewis","rock"],["Greatest Love of All","Whitney Houston","pop,rnb"],["Green, Green Grass of Home","Elvis Presley","country"],["Green, Green Grass of Home","Porter Wagoner","country"],["Greensleeves","Traditional","classic"],["Groove Me","Fern Kinney","pop"],["Guilty","The Rasmus","rock"],["Guitar Man","Elvis Presley","rock,country"],["Guitars, Cadillacs","Dwight Yoakam","country"],["Gypsy","Van Morrison","rock,classic"],["Half a Minute","Matt Bianco","latin"],["Handbags and Gladrags","Stereophonics","rock"],["Hang on Sloopy","The McCoys","pop,rock"],["Hanky Panky","Madonna","pop,jazz,musical"],["Hanky Panky","Tommy James and The Shondells","rock,rnb"],["Happy Birthday","Happy Birthday Songs","classic"],["Happy Ending","Elvis Presley","rock,musical"],["Happy Holiday / The Holiday Season","Andy Williams","pop,jazz,holiday"],["Happy Wanderer","Harry Simeone Chorale","pop"],["Happy, Happy Birthday Baby","The Tune Weavers","pop,rnb"],["Hard Headed Woman","Elvis Presley","rock,musical"],["Hard Knocks","Elvis Presley","rock,musical"],["Hard Luck Woman","Kiss","rock"],["Hard Workin' Man","Brooks & Dunn","country"],["Harden My Heart","Quarterflash","pop,rock"],["Harder to Breathe","Maroon 5","pop,rock"],["Have a Nice Day","Bon Jovi","pop,rock"],["Have I Told You Lately","Rod Stewart","rock"],["Have Mercy","The Judds","country"],["Have You Ever Been in Love","Céline Dion","pop"],["Have You Ever Really Loved a Woman?","Bryan Adams","rock"],["Have You Forgotten","Darryl Worley","country"],["Have Yourself a Merry Little Christmas","The Pretenders","pop,holiday"],["Hawaiian Sunset","Elvis Presley","pop,musical"],["Hazard","Richard Marx","rock"],["He Ain't Worth Missing","Toby Keith","country"],["He Drinks Tequila","Lorrie Morgan","country,duet,duet"],["He Oughta Know That By Now","Lee Ann Womack","country"],["He Touched Me","The Bill Gaither Trio","country,gospel"],["He Walked On Water","Randy Travis","country"],["He Wasn't Man Enough","Toni Braxton","rnb"],["He'll Have to Go","Elvis Presley","country"],["He's a Rebel","The Crystals","rnb"],["Heal the World","Michael Jackson","pop"],["Heart of Rome","Elvis Presley","rock"],["Heart of Stone","Cher","pop,rock"],["Heartaches by the Number","Ray Price","country"],["Heartbreak Hotel / Hound Dog / All Shook Up","Elvis Presley","rock"],["Heartland","George Strait","rock,country,musical"],["Heaven","Live","rock"],["Heaven Help Me","Wynonna Judd","country"],["Heaven Is a Place on Earth","Belinda Carlisle","pop"],["Heavy On My Heart","Anastacia","pop"],["Helena","My Chemical Romance","rock"],["Hell Yeah","Montgomery Gentry","country"],["Hella Good","No Doubt","pop,rock"],["Hello Again","Neil Diamond","rock"],["Hello Muddah! Hello Fadduh!","Allan Sherman",""],["Hello Walls","Faron Young","country"],["Help Me Make It Through the Night","Elvis Presley","country"],["Help Me Make It Through the Night","Tom Jones","rock"],["Help Pour Out the Rain","Buddy Jewell","country"],["Hemorrhage (In My Hands)","Fuel","rock"],["Here and Now","Luther Vandross","rnb"],["Here Comes Santa Claus","Gene Autry","pop,jazz,holiday"],["Here in the Real World","Alan Jackson","country"],["Here We Are","Gloria Estefan","pop"],["Here With Me","Dido","pop,musical"],["Here Without You","3 Doors Down","rock"],["Here's a Quarter (Call Someone Who Cares)","Travis Tritt","country"],["Hero","Chad Kroeger","pop,rock,musical"],["Hey Jude","Elvis Presley",""],["Hey Now (Girls Just Want to Have Fun)","Triple Image","pop"],["Hey Paula","Paul & Paula","duet,duet"],["Hey Ya!","OutKast","rnb,hiphop"],["Hey! Baby","Bruce Channel","pop,rock"],["Hi-Heel Sneakers","Elvis Presley","rock,rnb"],["Hi-Heel Sneakers","Tommy Tucker","rock,rnb"],["High","James Blunt","pop,rock"],["Hillbilly Rock","Marty Stuart","rock,country"],["Hips Don't Lie","Shakira","pop,latin,duet,duet"],["Hit the Road Jack","Ray Charles","rock,rnb"],["Hokey Pokey","Ray Anthony","pop,jazz"],["Hold Me, Thrill Me, Kiss Me","Mel Carter","rnb"],["Hold On","Santana","pop,rock"],["Hold On My Heart","Genesis","pop"],["Holding Back the Years","Simply Red","pop,rock,rnb"],["Hole In The Head","Sugababes","pop"],["Holiday","Green Day","rock"],["Holiday","Madonna","pop"],["Hollaback Girl","Gwen Stefani","pop,rnb"],["Hollywood","Madonna","pop"],["Home","Michael Bublé","pop"],["Homewrecker","Gretchen Wilson","country"],["Honesty","Billy Joel","rock"],["Honk If You Honky Tonk","George Strait","country"],["Honky Tonk Attitude","Joe Diffie","country"],["Honky Tonk Badonkadonk","Trace Adkins","rock,country"],["Honky Tonk Blues","Pirates of the Mississippi","rock,country"],["Honkytonk U","Toby Keith","country"],["Hope You're Feeling Better","Santana","rock"],["Hopelessly","Rick Astley","pop"],["Hot Fudge","Robbie Williams","pop,rock"],["Hot Hot Hot","Arrow","pop"],["Hot Hot Hot","Buster Poindexter","latin"],["Hot In Herre","Nelly","rnb,hiphop"],["Hot Mama","Trace Adkins","country"],["Hot Stuff","Donna Summer","pop"],["House of the Rising Sun","Traditional","rock,rnb,classic"],["How Am I Supposed to Live Without You","Michael Bolton","pop"],["How Can We Be Lovers?","Michael Bolton","pop,rock"],["How Do You Talk to an Angel?","The Heights","pop,rock"],["How Far","Martina McBride","country"],["How Wonderful You Are","Gordon Haskell","jazz"],["How's the World Treating You","Elvis Presley","rnb,gospel"],["Human Touch","Bruce Springsteen","pop,rock"],["Humpin' Around","Bobby Brown","rnb"],["Humpty Dumpty","Nursery Rhyme","classic"],["Hung Up","Madonna","pop"],["Hurt","Elvis Presley","rock"],["I Am a Man of Constant Sorrow","O Brother, Where Art Thou?","country,musical"],["I Am a Simple Man","Ricky Van Shelton","country"],["I Am Woman","Helen Reddy","pop,rock"],["I Am... I Said","Neil Diamond","pop"],["I Beg of You","Elvis Presley","rock,musical"],["I Believe","Diamond Rio","rock"],["I Believe","Elvis Presley","pop,rock,gospel"],["I Believe in a Thing Called Love","The Darkness","rock"],["I Believe in You","Kylie Minogue","pop"],["I Belong to You","Lenny Kravitz","rock"],["I Bet You Look Good On The Dancefloor","Arctic Monkeys","pop,rock"],["I Brake for Brunettes","Rhett Akins","country"],["I Bruise Easily","Natasha Bedingfield","pop,rock"],["I Call Your Name","The Mamas and the Papas","pop,rock"],["I Can Help","Elvis Presley","rock"],["I Can Love You Like That","John Michael Montgomery","country"],["I Can Only Imagine","Jeff Carson","country"],["I Can't Lie to Me","Clay Davidson","country"],["I Can't Make You Love Me","Bonnie Raitt","pop"],["I Can't Sleep","Clay Walker","country"],["I Can't Take You Anywhere","Scotty Emerick","country"],["I Could Not Ask For More","Sara Evans","country"],["I Cross My Heart","George Strait","country"],["I Don't Feel That Way Anymore","Danni Leigh","country"],["I Don't Paint Myself Into Corners","Trisha Yearwood","country"],["I Don't Wanna Be Tied","Elvis Presley","rock,musical"],["I Don't Wanna Cry","Mariah Carey","pop,rock"],["I Don't Wanna Dance","Eddy Grant","pop"],["I Don't Want to Be","Gavin DeGraw","rock,musical"],["I Drove All Night","Céline Dion","pop"],["I Drove All Night","Pinmonkey","country"],["I Fall To Pieces","Patsy Cline","country"],["I Feel Lucky","Mary Chapin Carpenter","rock,country"],["I Feel So Bad","Elvis Presley","rock"],["I Got a Feelin' in My Body","Elvis Presley","pop,rnb"],["I Got a Feeling","Billy Currington","country"],["I Got a Name","Jim Croce","rock,classic"],["I Got Stung","Elvis Presley","rock"],["I Got You (I Feel Good)","James Brown","pop,rnb"],["I Got You Babe","Sonny & Cher","pop,duet,duet"],["I Gotta Know","Elvis Presley","rock"],["I Guess That's Why They Call It the Blues","Elton John","rnb"],["I Guess You Had to Be There","Lorrie Morgan","country"],["I Have Nothing","The Bodyguard","rnb,musical"],["I Hope You Dance","Lee Ann Womack","pop,country"],["I Hope You Dance","Ronan Keating","pop"],["I Knew I Loved You","Daryle Singletary","country"],["I Know (You Don't Love Me No More)","Barbara George","pop,rnb"],["I Know a Place","Petula Clark","pop"],["I Know I'll Never Love This Way Again","Tom Jones","rock"],["I Left My Heart in San Francisco","Tony Bennett","jazz"],["I Lost It","Kenny Chesney","country"],["I Love the Nightlife","Alicia Bridges","pop"],["I Love the Way You Love Me","John Michael Montgomery","country"],["I Love This Bar","Toby Keith","country"],["I Love You This Much","Jimmy Wayne","country"],["I Love Your Smile","Shanice","pop"],["I Loved 'Em Every One","T. G. Sheppard","country,classic"],["I Meant Every Word He Said","Ricky Van Shelton","country"],["I Melt","Rascal Flatts","country"],["I Met Her Today","Elvis Presley","pop,rock"],["I Miss You","Elvis Presley",""],["I Need Somebody to Lean on","Elvis Presley","rnb,musical"],["I Need You","LeAnn Rimes","pop,rock,musical,gospel"],["I Need You So","Elvis Presley","rock,musical"],["I Need You Tonight","Backstreet Boys","pop"],["I Need Your Love Tonight","Elvis Presley","rock"],["I Predict a Riot","Kaiser Chiefs","rock"],["I Saw Mommy Kissing Santa Claus","Jimmy Boyd","holiday"],["I Saw The Light","Wynonna Judd","country"],["I Shall Not Be Moved","Elvis Presley","rock,classic"],["I Still","Backstreet Boys","pop,rock"],["I Take My Chances","Mary Chapin Carpenter","country"],["I Think God Can Explain","Splender","pop,rock"],["I Think I Love You","The Partridge Family","pop,rock"],["I Think I'm a Clone Now","Weird Al Yankovic","pop"],["I Think I'm in Love with You","Jessica Simpson","pop"],["I Wanna Be Rich","Calloway","pop,rnb"],["I Wanna Be With You","Mandy Moore","rock,musical"],["I Wanna Dance with Somebody","Whitney Houston","pop"],["I Wanna Know","Joe","rnb"],["I Wanna Make You Cry","Jeff Bates","country"],["I Want a Hippopotamus for Christmas","Joanie Bartels","holiday"],["I Want to Break Free","Queen","pop,rock"],["I Want to Know What Love Is","Foreigner","pop,rock"],["I Want You Bad (And That Ain't Good)","Collin Raye","country"],["I Want You to Need Me","Céline Dion","pop"],["I Want You to Want Me","Cheap Trick","pop,rock"],["I Want You, I Need You, I Love You","Elvis Presley","rock"],["I Was the One","Elvis Presley","rock"],["I Will Always Love You","The Bodyguard","musical"],["I Will Always Love You (film version)","Dolly Parton","country,musical"],["I Will Be Here for You","Michael W. Smith","rock"],["I Will Love Again","Lara Fabian","pop"],["I Will Remember You","Amy Grant","pop"],["I Will Survive","Gloria Gaynor","pop"],["I Wish","Jo Dee Messina","country"],["I Wish You'd Stay","Brad Paisley","country"],["I'd Be Better Off (In a Pine Box)","Doug Stone","country"],["I'd Do Anything","Oliver! (musical)","musical,duet,duet"],["I'd Do Anything for Love (But I Won't Do That)","Meat Loaf","rock,duet,duet"],["I'd Rather Jack","The Reynolds Girls","pop"],["I'll Be Home for Christmas","Elvis Presley","pop,holiday,gospel"],["I'll Be Home for Christmas","The Carpenters","holiday"],["I'll Be There","Mariah Carey","pop,duet,duet"],["I'll Never Get Over You Getting Over Me","Exposé",""],["I'll Never Know","Elvis Presley","country"],["I'll Never Love This Way Again","Dionne Warwick","pop,rnb"],["I'll Remember You","Elvis Presley","musical"],["I'll Stand By You","Girls Aloud","pop,rock"],["I'm a Better Man","Engelbert Humperdinck","pop"],["I'm a Ramblin' Man","Waylon Jennings","country"],["I'm Alive","Céline Dion","pop"],["I'm Comin' Home","Elvis Presley","rock"],["I'm Coming Home","Tom Jones","pop,rock"],["I'm Every Woman","The Bodyguard","pop,rnb,musical"],["I'm Feeling You","Santana","pop,rock"],["I'm Gonna Be (500 Miles)","The Proclaimers","rock"],["I'm Gonna Be Somebody","Travis Tritt","country"],["I'm Gonna Getcha Good! (Country Version)","Shania Twain","pop,country"],["I'm Gonna Getcha Good! (Pop Version)","Shania Twain","pop,rock"],["I'm Gonna Make You Love Me","Play","pop,duet,duet"],["I'm Gonna Take That Mountain","Reba McEntire","country"],["I'm in a Hurry (And Don't Know Why)","Alabama","country"],["I'm Leavin'","Elvis Presley","pop,rock"],["I'm Leaving It Up to You","Dale And Grace","pop,rnb,duet,duet"],["I'm Like a Bird","Nelly Furtado","pop,rnb,classic"],["I'm My Own Grandpaw","Ray Stevens","country"],["I'm Not Breakin'","Steve Holy","country"],["I'm Not the Marrying Kind","Elvis Presley","rock,musical"],["I'm on the Outside (Looking in)","Little Anthony and the Imperials","pop,rnb"],["I'm Over You","Keith Whitley","country"],["I'm Real","Jennifer Lopez","pop,rnb"],["I'm So Lonesome I Could Cry","Elvis Presley","rock"],["I'm Still Here","Vertical Horizon","pop,rock"],["I'm Too Sexy","Right Said Fred","pop"],["I'm With You","Avril Lavigne","pop,rock"],["I'm Your Baby Tonight","Whitney Houston","pop,rnb"],["I'm Your Boogie Man","KC & The Sunshine Band","pop"],["I've Been Loving You Too Long","Otis Redding","rnb"],["I've Got a Crush on You","Linda Ronstadt","jazz"],["I've Got The Music In Me","Kiki Dee","pop,rock"],["I've Got You","Marc Anthony","pop"],["I've Got You Under My Skin","Michael Bublé","jazz"],["I've Gotta Be Me","Sammy Davis Jr.","pop,musical"],["I, John","Elvis Presley","rock,gospel"],["If","Janet Jackson","pop,rock,rnb"],["If I Ain't Got You","Alicia Keys","rnb,jazz"],["If I Am","Nine Days","pop,rock,musical"],["If I Can Dream","Elvis Presley","pop"],["If I Could Turn Back Time","Cher","pop,rock"],["If I Ever Lose My Faith in You","Sting","pop,rock"],["If I Were a Rich Man","Fiddler on the Roof","musical"],["If I Were You","Collin Raye","rock,country"],["If I'm a Fool (For Loving You)","Elvis Presley","rock"],["If It Wasn't For Her I Wouldn't Have You","Daron Norwood","country"],["If My Heart Had Wings","Faith Hill","country"],["If She Were Any Other Woman","Buddy Jewell","country"],["If Something Should Happen","Darryl Worley","country"],["If There's Any Justice","Lemar","rnb"],["If Tomorrow Never Comes","Garth Brooks","country"],["If We Never Meet Again","Elvis Presley","gospel"],["If You Asked Me To","Céline Dion","rock"],["If You Came Back from Heaven","Lorrie Morgan","country"],["If You Don't Come Back","Elvis Presley","pop,rock"],["If You Ever Stop Loving Me","Montgomery Gentry","country"],["If You Know What I Mean","Neil Diamond","rock"],["If You Wanna Be Happy","Jimmy Soul","pop,rock,rnb"],["If You're Gone","Matchbox Twenty","pop,rock"],["If You're Not the One","Daniel Bedingfield","pop,rock"],["If Your Heart Ain't Busy Tonight","Tanya Tucker","country"],["Iko Iko","The Dixie Cups","pop,classic"],["In a Little While","Uncle Kracker","rock,country,hiphop"],["In My Daughter's Eyes","Martina McBride","country"],["In My Place","Coldplay","rock"],["In the Morning","The Coral","pop,rock"],["In The Shadows","The Rasmus","pop,rock"],["In the Summertime","Mungo Jerry","rnb,classic"],["In This Life","Collin Raye","country"],["In Time","Engelbert Humperdinck","pop"],["In Your Arms","Elvis Presley","rock"],["Incomplete","Backstreet Boys","pop"],["Independence Day","Martina McBride","country"],["Inherit the Wind","Elvis Presley","pop,rock"],["Innocent","Fuel","rock"],["Innocent Eyes","Delta Goodrem","pop,rock"],["Inside Your Heaven","Carrie Underwood","rock,country"],["Intuition","Jewel","pop"],["Invisible","Clay Aiken","pop,rock"],["Is Anybody Goin' to San Antone","Charley Pride","country"],["Is It Any Wonder","Keane","pop,rock"],["Is It Over Yet","Wynonna Judd","rock,country"],["Is She Really Going Out with Him?","Sugar Ray","rock"],["It Ain't No Big Thing (But It's Growing)","Elvis Presley","rock,country"],["It Ain't Nothin'","Keith Whitley","country"],["It Ain't Over 'til It's Over","Lenny Kravitz","pop,rock,rnb"],["It Came Upon a Midnight Clear","Anne Murray","holiday"],["It Don't Matter to Me","Bread","rock"],["It Had to Be You","Harry Connick Jr.","pop,jazz,musical"],["It Must Be Love","Alan Jackson","country"],["It Only Hurts When I'm Breathing","Shania Twain","country"],["It Sure Is Monday","Mark Chesnutt","country"],["It Wasn't God Who Made Honky Tonk Angels","Kitty Wells","country"],["It's a Great Day to Be Alive","Travis Tritt","country"],["It's a Heartache","Trick Pony","country"],["It's a Little Too Late","Tanya Tucker","country"],["It's a Matter of Time","Elvis Presley","pop,rock,country"],["It's About Time","Lillix","pop,rock"],["It's All Right With Me","Ella Fitzgerald","jazz"],["It's Always Somethin'","Joe Diffie","country"],["It's Chico Time","Chico","pop,rnb"],["It's Easy for You","Elvis Presley","rock"],["It's Five O'Clock Somewhere","Alan Jackson","country"],["It's Gonna Be Me","NSYNC","pop,rnb"],["It's Just a Matter of Time","Brook Benton","pop,rnb"],["It's Midnight","Elvis Presley","rock"],["It's My Life","Bon Jovi","pop,rock"],["It's My Life","No Doubt","pop,rock"],["It's My Party","Lesley Gore","pop"],["It's My Time","Martina McBride","country"],["It's Only Make Believe","Conway Twitty","pop,rock,country"],["It's Over","Elvis Presley","rock"],["It's Raining Again","Supertramp","pop,rock"],["It's So Easy","Linda Ronstadt","rock"],["It's Still Rock and Roll to Me","Billy Joel","rock"],["It's the Most Wonderful Time of the Year","Andy Williams","jazz,holiday"],["It's Your Baby You Rock It","Elvis Presley","rock,country"],["It's Your Call","Reba McEntire","country"],["It's Your Thing","The Isley Brothers","pop,rnb"],["Jaded","Aerosmith","rock"],["Je te donne","Jean-Jacques Goldman","pop,duet,duet"],["Jesus He Knows Me","Genesis","pop,rock"],["Jingle Bells","Christmas Carol","classic,holiday"],["John Deere Green","Joe Diffie","country"],["Judy","Elvis Presley","pop,rock"],["Jump","Girls Aloud","pop"],["Jump","Kris Kross","hiphop"],["Jump","Madonna","pop"],["Jumpin, Jumpin","Destiny's Child","pop,rnb"],["June Is Bustin' Out All Over","Carousel","musical"],["Just a Little","Liberty X","pop,rnb"],["Just Another Day","Jon Secada","pop"],["Just Another Day in Paradise","Bertie Higgins","rock"],["Just Another Day in Paradise","Phil Vassar","country"],["Just Like A Pill","Pink","pop,rock"],["Just Like a Woman","Bob Dylan","pop,rock"],["Just Like Jesse James","Cher","pop,rock"],["Just Once","James Ingram","rnb"],["Just One Look","Linda Ronstadt","rock"],["Just the Two of Us","Bill Withers","pop,rnb"],["Ka-ching!","Shania Twain","pop,rock,rnb"],["Kansas City","Wilbert Harrison","rock"],["Katie Wants a Fast One","Steve Wariner","rock,country,duet,duet"],["Kentucky Rain","Elvis Presley","pop,rock"],["Kids In America","No Secrets","pop"],["Killer Queen","Queen","pop,rock"],["Killin' Time","Clint Black","country"],["King Creole","Elvis Presley","rock,rnb,musical"],["King of the Road","Roger Miller","country"],["Kingston Town","UB40",""],["Kiss And Say Goodbye","The Manhattans","rnb"],["Kiss And Say Goodbye","UB40","pop"],["Kiss Him Goodbye","The Nylons","pop,rock"],["Kiss This","Aaron Tippin","country"],["Kissin' Cousins","Elvis Presley","rock,musical"],["Knockin' on Heaven's Door","Bob Dylan","rock"],["Kryptonite","3 Doors Down","rock"],["La Isla Bonita","Madonna","pop"],["Ladies Night","Atomic Kitten","pop,rnb"],["Ladies Night","Kool and the Gang","pop"],["Lady","Kenny Rogers","country"],["Land of 1000 Dances","Cannibal and the Headhunters","rock"],["Landslide","The Chicks","country"],["Last One Standing","Emerson Drive","country"],["Last Thing on My Mind","Ronan Keating","pop,country,duet,duet"],["Lawdy Miss Clawdy","Elvis Presley","rock"],["Lay Lady Lay","Bob Dylan","classic"],["Layla","Eric Clapton","rock,rnb"],["Leader of the Pack","The Shangri-Las","pop,rock"],["Lean on Me","Club Nouveau","pop,rnb"],["Learning to Live Again","Garth Brooks","country"],["Leave a Light On","Belinda Carlisle","pop,rock"],["Leave a Tender Moment Alone","Billy Joel","pop"],["Leave Right Now","Will Young","rock"],["Leavin' On Your Mind","Patsy Cline","country"],["Left Outside Alone","Anastacia","pop,rock"],["Les bicyclettes de Belsize","Engelbert Humperdinck","pop"],["Les mots","Mylène Farmer","pop,duet,duet"],["Let It Be","The Beatles","pop"],["Let Me Entertain You","Gypsy (musical)","musical"],["Let Me Entertain You","Robbie Williams","pop,rock"],["Let Me Go","3 Doors Down","rock"],["Let the Good Times Roll","Shirley and Lee","rock,duet,duet"],["Let's Be Us Again","Lonestar","country"],["Let's Hear It for the Boy","Footloose (1984 film)","pop,musical"],["Let's Twist Again","Chubby Checker","rock"],["Letter to Lucille","Tom Jones","pop,rock"],["Letters From Home","John Michael Montgomery","country"],["Life For Rent","Dido","pop,rock"],["Life Goes On","LeAnn Rimes","pop,country"],["Life Is a Highway","Tom Cochrane","rock"],["Life Is A Rollercoaster","Ronan Keating","pop,rock"],["Lifestyles of the Rich and Famous","Good Charlotte","rock"],["Lights","Journey","pop,rock"],["Like a Baby","Wanda Jackson","rnb"],["Like a Rolling Stone","Bob Dylan","rock,classic"],["Like I Love You","Justin Timberlake","pop"],["Limbo Rock","Chubby Checker","pop,rock"],["Linger","The Cranberries","rock"],["Listen to Your Heart","Roxette","pop,rock"],["Little Bird","Annie Lennox","pop,rock"],["Little Darlin'","The Diamonds","rock"],["Little Miss Honky Tonk","Brooks & Dunn","country"],["Little Moments","Brad Paisley","country"],["Little Old Lady from Pasadena","Jan And Dean","pop,rock"],["Little Sister","Elvis Presley","rock"],["Little Willy","Sweet (band)","pop,rock"],["Live for Loving You","Gloria Estefan","pop"],["Livin' for the Weekend","The O'Jays","pop,rnb"],["Livin' on Empty","Alan Jackson","country"],["Living Next Door to Alice","Smokie","pop,rock"],["Loco","David Lee Murphy","country"],["Lonely No More","Rob Thomas","pop,rock"],["Long Black Train","Josh Turner","country"],["Long Time Gone","The Chicks","country"],["Longfellow Serenade","Neil Diamond","pop,rock"],["Look Through My Eyes","Brother Bear","pop,rock,musical"],["Lookin' for Love","Sawyer Brown","country"],["Losing Grip","Avril Lavigne","pop,rock"],["Lost For Words","Ronan Keating","pop,rock"],["Lost in Love","Air Supply","pop,rock"],["Lost in the Fifties Tonight (In the Still of the Night)","Ronnie Milsap","pop,country"],["Lot of Leavin' Left to Do","Dierks Bentley","country"],["Love at First Sight","Kylie Minogue","pop"],["Love By Grace","Lara Fabian","rock"],["Love Can Build a Bridge","The Judds","rock,country"],["Love Don't Cost a Thing","Jennifer Lopez","rnb"],["Love Generation","Bob Sinclar","pop"],["Love Is","Vanessa Williams","musical,duet,duet"],["Love Is a Wonderful Thing","Michael Bolton","pop,rock"],["Love Is Only a Feeling","The Darkness","rock"],["Love Machine","Girls Aloud","pop,rock"],["Love Me","Elvis Presley",""],["Love Me","The Little Willies","country,rnb"],["Love Me Tender","Elvis Presley","classic,musical"],["Love Me Tonight","Elvis Presley","musical"],["Love of a Lifetime","Firehouse","pop,rock"],["Love on a Two-Way Street","Ray, Goodman & Brown","pop,rock"],["Love on the Rocks","Neil Diamond","rock"],["Love Really Hurts Without You","Billy Ocean","pop,rnb"],["Love Takes Time","Mariah Carey","pop,rnb"],["Love Will Lead You Back","Taylor Dayne","pop"],["Love Won't Get Any Better","Marc Anthony","pop"],["Love, Me","Collin Raye","country"],["Lovesick Blues","George Strait","country"],["Lovin' All Night","Patty Loveless","country"],["Lovin' Each Day","Ronan Keating","pop,rock"],["Lovin' You Against My Will","Gary Allan","country"],["Loving You","Elvis Presley","pop,musical"],["Low","Kelly Clarkson","pop,rock"],["Low Rider","War","pop,rock,rnb"],["Lucky","Britney Spears","pop"],["Lucky 4 You (Tonight I'm Just Me)","SHeDAISY","country"],["Lucky Star","Madonna","pop"],["Luka","Suzanne Vega","pop,rock"],["Lullaby of Broadway","42nd Street (musical)","musical"],["Lyla","Oasis","rock"],["Mack the Knife","Bobby Darin","jazz"],["Mad World","Michael Andrews","pop,musical"],["Make It Easy on Yourself","Jerry Butler","rnb"],["Make It Happen","Mariah Carey","pop"],["Make Luv","Room 5","pop"],["Make Me Pure","Robbie Williams","pop,rock"],["Makin' Whoopee!","Dr. John","pop,jazz,musical,duet,duet"],["Making Your Mind Up","Bucks Fizz","pop,rock"],["Mama He's Crazy","The Judds","country"],["Mama Liked the Roses","Elvis Presley","pop,gospel"],["Mama Tried","Merle Haggard","country"],["Mamma Mia","ABBA","pop"],["Man on the Moon","R.E.M.","rock"],["Man To Man","Gary Allan","country"],["Mandy","Westlife","pop,rock"],["Maniac","Flashdance","pop,musical"],["Marguerita","Elvis Presley","latin,musical"],["Maria (Shut Up and Kiss Me)","Willie Nelson","country"],["Masterpiece","Atlantic Starr","rnb"],["Material Girl","Madonna","pop"],["Maybe It Was Memphis","Pam Tillis","country"],["Maybe Tomorrow","Stereophonics","pop,rock,rnb"],["Maybellene","Chuck Berry","rock"],["Mayberry","Rascal Flatts","country"],["Me Against the Music","Britney Spears","pop,rnb"],["Me And Emily","Rachel Proctor","country"],["Me and You and a Dog Named Boo","Lobo","pop"],["Mean Woman Blues","Elvis Presley","rock"],["Meanwhile Back at the Ranch","The Clark Family Experience","country"],["Medley ABBA","Medley Covers","pop"],["Meet the Flintstones","Hoyt S. Curtin","musical"],["Melissa","The Allman Brothers Band","rock,country"],["Memories","Elvis Presley","pop,musical"],["Memories Are Made of This","Dean Martin","pop,country"],["Memphis Soul Song","Uncle Kracker","country"],["Men","The Forester Sisters","country"],["Men Don't Change","Amy Dalley","country"],["Mercury Blues","Alan Jackson","country"],["Mercy Mercy Me / I Want You","Robert Palmer","pop,rock"],["Message in a Bottle","The Police","pop,rock"],["Midnight in Montgomery","Alan Jackson","country"],["Milky White Way","Elvis Presley","rock,rnb,gospel"],["Mind Your Own Business","Hank Williams, Jr.","country"],["Mine All Mine","SHeDAISY","country"],["Minority","Green Day","rock"],["Missing You","Diana Ross","pop,rnb"],["Mistaken Identity","Delta Goodrem","pop,rock"],["Mistletoe and Holly","Frank Sinatra","jazz,holiday"],["Misunderstood","Bon Jovi","rock"],["Misunderstood","Robbie Williams","rock,musical"],["Mona Lisa","Engelbert Humperdinck","rock"],["Money in the Bank","John Anderson","country"],["Money, Money, Money","ABBA","pop"],["Monsoon","Robbie Williams","pop,rock"],["Monster Mash","Bobby Boris Pickett","rock"],["Moody Blue","Elvis Presley","rock"],["More Today Than Yesterday","Spiral Starecase","pop,rock"],["More, More, More","Andrea True","pop"],["Moses","Coldplay","pop,rock"],["Mother-in-Law","Ernie K-Doe","rnb"],["Mountain of Love","Molly and the Heymakers","country"],["Move On","The Warren Brothers","country"],["Move Your Feet","Junior Senior","pop,rnb"],["Movin' On Up","The Jeffersons","musical"],["Moving On Up","M People","pop"],["Mr. Brightside","The Killers","pop,rock"],["Mr. Sandman","Emmylou Harris","pop"],["Mr. Tambourine Man","The Byrds","rock"],["Much Too Young (To Feel This Damn Old)","Garth Brooks","country"],["Murder on Music Row","George Strait","country,duet,duet"],["Murder on the Dancefloor","Sophie Ellis Bextor","pop"],["Music","Madonna","pop"],["Must Get Out","Maroon 5","pop,rock"],["My Baby Loves Me","Martina McBride","country"],["My Baby You","Marc Anthony","rock"],["My Blue Heaven","Fats Domino","rock"],["My Boy Lollipop","Millie Small","pop"],["My Boyfriend's Back","The Angels","pop"],["My Everything","98 Degrees",""],["My Foolish Heart","Engelbert Humperdinck","pop"],["My Front Porch Looking In","Lonestar","country"],["My Funny Valentine","Barbra Streisand","musical"],["My Funny Valentine","Frank Sinatra","jazz"],["My Generation","The Who","rock"],["My Heart Is Lost to You","Brooks & Dunn","country"],["My Heart Will Go On","Céline Dion","pop,musical"],["My Immortal","Evanescence","rock"],["My Love Goes On and On","Chris Cagle","country"],["My Lovin' (You're Never Gonna Get It)","En Vogue","rnb,hiphop"],["My Marie","Engelbert Humperdinck","pop"],["My Melody of Love","Bobby Vinton","pop"],["My Next Thirty Years","Tim McGraw","country"],["My Old Friend","Tim McGraw","country"],["My Special Angel","Bobby Helms","pop"],["My Strongest Weakness","Wynonna Judd","country"],["My Sweet Lord","George Harrison","rock,classic"],["My Town","Montgomery Gentry","country"],["My Way","Frank Sinatra","pop,jazz"],["My Way","Tom Jones","rock"],["My Way (live Aloha from Hawaii via Satellite)","Elvis Presley","pop"],["My Way (live Elvis In Concert)","Elvis Presley","rock"],["Mysterious Girl","Peter Andre",""],["Naked","Avril Lavigne","pop,rock"],["Natural High","Bloodstone","rnb"],["Neon Moon","Brooks & Dunn","country"],["Never Again","Elvis Presley",""],["Never Again","Justin Timberlake","pop,rock"],["Never Gonna Let You Go","Sérgio Mendes","pop,duet,duet"],["Next Big Thing","Vince Gill","country"],["Next Year","Foo Fighters","rock"],["Nice Work If You Can Get It","Ella Fitzgerald","jazz"],["Nick of Time","Bonnie Raitt","pop,rock,rnb"],["Night Rider","Elvis Presley","rock"],["Nine Million Bicycles","Katie Melua","rock,classic"],["No More I Love You's","Annie Lennox","pop"],["No One Else Comes Close","Backstreet Boys","pop"],["No One Else On Earth","Wynonna Judd","pop,country"],["No One to Depend on","Santana","rock,latin"],["No Ordinary Love","Sade","rnb,jazz"],["No Promises","Shayne Ward","pop"],["No Rain","Blind Melon","pop,rock"],["No Shoes, No Shirt, No Problem","Kenny Chesney","country"],["No Such Thing","John Mayer","pop"],["No Time to Kill","Clint Black","country"],["No Tomorrow","Orson","pop,rock"],["Nobody Loves Me Like You Do","Whitney Houston","duet,duet"],["Nobody Wants to Be Lonely","Ricky Martin","pop,duet,duet"],["Not Counting You","Garth Brooks","country"],["Not Me, Not I","Delta Goodrem","rock"],["Not Ready to Make Nice","The Chicks","pop,classic"],["Nothing Short of Dying","Travis Tritt","country"],["Nothing's Gonna Stop Us Now","Starship","rock,duet,duet"],["November Rain","Guns N' Roses","rock"],["Nuttin' for Christmas","Stan Freberg","holiday"],["O Canada","Anthem","classic"],["O Christmas Tree","Christmas Carol","classic,holiday"],["O-o-h Child","The Five Stairsteps","pop,rock"],["Objection (Tango)","Shakira","pop,rock,latin"],["Obviously","McFly","pop,rock"],["Ocean Front Property","George Strait","country"],["Oh Girl","Paul Young","pop,rock"],["Oh, Boy!","Buddy Holly","rock"],["Oh, Happy Day","Elvis Presley","gospel"],["Oh, Pretty Woman","Roy Orbison","pop,rock"],["Oh, What A Night","The Dells","rnb"],["Okie From Muskogee","Merle Haggard","country"],["Ol' Red","Blake Shelton","country"],["Old Enough To Know Better","Wade Hayes","country"],["Old Shep","Elvis Presley",""],["Old Weakness (Coming on Strong)","Tanya Tucker","country"],["On a Clear Day (You Can See Forever)","Barbra Streisand","musical"],["On a Mission","Trick Pony","country"],["On My Own","Michael McDonald","pop,duet,duet"],["On the Street Where You Live","Harry Connick Jr.","jazz"],["On the Wings of Love","Jeffrey Osborne","pop,rnb"],["On Your Way Home","Patty Loveless","country"],["Once Upon a Time","Montell Jordan","rnb"],["One","A Chorus Line (film)","musical,duet,duet"],["One Broken Heart for Sale","Elvis Presley","rock,musical"],["One Day in Your Life","Anastacia","pop"],["One Fine Day","The Chiffons","pop,rock"],["One for My Baby (And One More for the Road)","Tony Bennett","jazz"],["One Heart","Céline Dion","pop"],["One Last Breath","Creed","rock"],["One Love","Blue","pop,rnb"],["One Moment In Time","Whitney Houston","pop,rnb"],["One More Chance","Michael Jackson","pop,rock"],["One More Day","Diamond Rio","country"],["One More Last Chance","Vince Gill","country"],["One More Try","Timmy T.",""],["One Night A Day","Garth Brooks","country"],["One Thing Leads to Another","The Fixx","pop"],["One Track Heart","Elvis Presley","rock,musical"],["One Way Ticket","The Darkness","rock"],["One-sided Love Affair","Elvis Presley","rock"],["Only Believe","Elvis Presley","pop,gospel"],["Only Sixteen","Sam Cooke","pop,rock,rnb"],["Only the Lonely","Roy Orbison","rock"],["Oops!... I Did It Again","Britney Spears","pop"],["Open Arms","Tina Turner","rock,rnb"],["Open Road","Bryan Adams","pop,rock"],["Opposites Attract","Paula Abdul","pop,duet,duet"],["Ordinary Day","Vanessa Carlton","pop,rock"],["Other Side Of The World","KT Tunstall","pop,rock"],["Our House","Madness","pop,rock"],["Out In The Fields","Gary Moore","rock"],["Out of Time","Blur","rock"],["Over","Lindsay Lohan","pop"],["Overnight Male","George Strait","country"],["Overture / And All That Jazz","Chicago (film)","jazz,musical"],["Paint Me A Birmingham","Tracy Lawrence","country"],["Papa Don't Preach","Kelly Osbourne","rock"],["Papa Loved Mama","Garth Brooks","country"],["Paper Roses","Marie Osmond","country"],["Paradise by the Dashboard Light","Meat Loaf","pop,rock,duet,duet"],["Party Doll","Buddy Knox","rock"],["Party for Two","Shania Twain","pop,rock,duet,duet"],["Passenger Seat","SHeDAISY","country"],["Passionate Kisses","Mary Chapin Carpenter","country"],["Peacekeeper","Fleetwood Mac","pop,rock"],["Peggy Sue","Buddy Holly","rock"],["People Like Us","Aaron Tippin","country"],["People Need The Lord","Steve Green","pop,gospel"],["Peppermint Twist","Joey Dee and the Starliters","rock"],["Perfect","Sara Evans","country"],["Perfect","Simple Plan","pop,rock"],["Perfect 10","The Beautiful South","pop,rock"],["Perfect Day","Lou Reed","rock"],["Personality","Lloyd Price","pop,rnb"],["Persuasion","Santana","rock"],["Philadelphia Freedom","Elton John","pop,rock"],["Picture","Kid Rock","country,duet,duet"],["Pieces of a Dream","Anastacia","pop,rock"],["Pieces of My Life","Elvis Presley","rock,country"],["Pinball Wizard","The Who","rock"],["Pinch Me","Barenaked Ladies","pop,rock,musical"],["Place in This World","Michael W. Smith","rock,gospel"],["Play Me","Neil Diamond","rock"],["Play Something Country","Brooks & Dunn","country"],["Playboys of the Southwestern World","Blake Shelton","country"],["Playing for Keeps","Elvis Presley","pop"],["Please Come Home For Christmas","Ricky Van Shelton","country,rnb,holiday"],["Please Forgive Me","Bryan Adams","rock"],["Please Remember","LeAnn Rimes","rock"],["Pledging My Love","Elvis Presley","pop,rock"],["Poison Ivy","The Coasters","rock"],["Polk Salad Annie (live 1970)","Elvis Presley","rock"],["Positivity","Stevie Wonder","pop,rnb"],["Pour Me","Trick Pony","country"],["Power of Love","Luther Vandross","pop"],["Pretty Green Eyes","Ultrabeat","pop"],["Pretty Paper","Roy Orbison","country,holiday"],["Probably Wouldn't Be This Way","LeAnn Rimes","country"],["Prop Me Up Beside the Jukebox (If I Die)","Joe Diffie","country"],["Proud Mary","Creedence Clearwater Revival","pop,classic"],["Puppet Man","Tom Jones","pop,rock"],["Purple People Eater","Sheb Wooley","rock"],["Push the Button","Sugababes","pop,rnb"],["Put the Blame on Me","Elvis Presley","rock"],["Put Your Hand in the Hand","Ocean","pop,classic,gospel"],["Put Your Records On","Corinne Bailey Rae","pop,rnb"],["Put Yourself in My Shoes","Clint Black","country"],["Puttin' on the Ritz","Ella Fitzgerald","jazz"],["Quando, Quando, Quando","Engelbert Humperdinck","pop,jazz,latin"],["Quando, Quando, Quando","Michael Bublé","jazz,latin,duet,duet"],["Queen of Memphis","Confederate Railroad","country"],["Queen of My Double Wide Trailer","Sammy Kershaw","country"],["Radio","Robbie Williams","pop,rock"],["Radio Ga Ga","Queen","pop,rock"],["Rags to Riches","Elvis Presley","country"],["Rags to Riches","Tony Bennett","pop,jazz"],["Rain","Madonna","pop"],["Raindrops Keep Falling on My Head","Engelbert Humperdinck","pop"],["Raining On Sunday","Keith Urban","country"],["Rainy Night in Georgia","Brook Benton","rnb"],["Ramblin' Man","The Allman Brothers Band","rock,country,rnb"],["Rawhide","Frankie Laine","country,musical"],["Reach Out (I'll Be There)","The Four Tops","rnb"],["Reach Out I'll Be There","Michael Bolton","pop,rock"],["Reach Up for the Sunrise","Duran Duran","pop,rock"],["Ready for the Good Times","Shakira","pop"],["Ready or Not","After 7","rnb"],["Real Good Man","Tim McGraw","rock,country"],["Real Love","Mary J. Blige","pop"],["Reason To Believe","Rod Stewart","rock"],["Red Blooded Woman","Kylie Minogue","pop,rnb"],["Red Dirt Road","Brooks & Dunn","country"],["Red Light Special","TLC","rnb"],["Red Ragtop","Tim McGraw","country"],["Red Red Wine","UB40","pop"],["Redneck Woman","Gretchen Wilson","country"],["Refried Dreams","Tim McGraw","country"],["Relax","Elvis Presley","pop,jazz,musical"],["Relax","Frankie Goes to Hollywood","pop"],["Release Me","Engelbert Humperdinck","pop,country"],["Remember the Time","Michael Jackson","pop,rnb"],["Remember When","Alan Jackson","country"],["Reno","Doug Supernaw","country"],["Rescue Me","Fontella Bass","pop,rnb"],["Respect","Aretha Franklin","rnb"],["Return to Sender","Elvis Presley","pop,rock,musical"],["Rhythm Of My Heart","Rod Stewart","pop,rock"],["Rich as Fuck","Lil Wayne","hiphop,duet,duet"],["Rich Girl","Gwen Stefani","pop,rnb"],["Right Place, Wrong Time","Dr. John","pop,rnb"],["Right Time of the Night","Jennifer Warnes","pop,country"],["Right to Be Wrong","Joss Stone","rock"],["Right Where I Need to Be","Gary Allan","rock,country"],["Righteously","Lucinda Williams","country,classic"],["Ring of Fire","Johnny Cash","rock,country"],["Rise and Fall","Craig David","rnb"],["Rock Bottom","Wynonna Judd","country"],["Rock Me Baby","B.B. King","rnb"],["Rock On","David Essex","rock,rnb"],["Rock the Boat","The Hues Corporation","pop,rnb"],["Rock You Baby","Toby Keith","country"],["Rock Your Body","Justin Timberlake","pop,rnb"],["Rockin' All Over the World","Status Quo","pop,rock"],["Rockin' Around the Christmas Tree","Brenda Lee","pop,rock,holiday"],["Rodeo","Garth Brooks","country"],["Roll Over Beethoven","Chuck Berry","rock"],["Roll With It","Steve Winwood","pop,rock"],["Romeo","Dolly Parton","country,duet,duet"],["Romeo & Juliet","Stacy Earl","pop,duet,duet"],["Rubberneckin' Remix","Elvis Presley","pop,rock"],["Rumor Has It","Reba McEntire","country"],["Run It!","Chris Brown","rnb,hiphop,duet,duet"],["Run On","Elvis Presley","rock,gospel"],["Run to You","Roxette","pop,rock"],["Run to You","The Bodyguard","rnb,musical"],["Runaround Sue","Dion & The Belmonts","pop,rock"],["Runaway","Elvis Presley","pop,rock"],["Runaway Train","Elton John","rock,duet,duet"],["Runaway Train","Soul Asylum","rock"],["Running on Empty","Jackson Browne","pop,rock"],["Said I Loved You... But I Lied","Michael Bolton","pop,rock"],["Sailing","Rod Stewart","rock"],["Same Old Story","Garth Brooks","country"],["Sand In My Shoes","Dido","pop"],["Sara Smile","Hall & Oates","rock,rnb"],["Satisfied","Ashley Monroe","country"],["Save the Last Dance for Me","Michael Bublé","pop,jazz,latin"],["Save the Last Dance for Me","The Drifters","pop,rnb"],["Say You Will","Fleetwood Mac","pop,rock"],["Scars","Papa Roach","rock"],["School of Rock","School of Rock","rock,musical,duet,duet"],["Sea Cruise","Frankie Ford","rock"],["Sea of Love","The Honeydrippers","pop"],["See See Rider","Elvis Presley","pop,rock"],["Seeing Is Believing","Elvis Presley","rock,gospel"],["Send Your Love","Sting","pop,rock"],["Separate Lives","Phil Collins","pop,rock,musical,duet,duet"],["September Morn","Neil Diamond","pop"],["Set the Night to Music","Roberta Flack","rnb,duet,duet"],["Seventy Six Trombones","The Music Man (1957 musical)","musical"],["Sex Bomb","Tom Jones","pop"],["Sexed Up","Robbie Williams","pop,rock"],["Señorita","Justin Timberlake","pop,rnb,duet,duet"],["Shake the Sugar Tree","Pam Tillis","country"],["Shake Your Groove Thing","Peaches And Herb","pop"],["Shake, Rattle and Roll","Big Joe Turner","rock"],["Shameless","Garth Brooks","country"],["Shape of My Heart","Backstreet Boys","pop"],["She Bangs","Ricky Martin","pop,latin"],["She Believes In Me","Ronan Keating","rock"],["She Couldn't Change Me","Montgomery Gentry","country"],["She Don't Know She's Beautiful","Sammy Kershaw","country"],["She Hates Me","Puddle of Mudd","rock"],["She Is His Only Need","Wynonna Judd","country"],["She Let Herself Go","George Strait","country"],["She Mends Me","Marc Anthony","rock"],["She Misses Him","Tim Rushlow","country"],["She Thinks She Needs Me","Andy Griggs","country"],["She Used to Be Mine","Brooks & Dunn","country"],["She Wears My Ring","Elvis Presley","country"],["She Will Be Loved","Maroon 5","pop"],["She'll Leave You with a Smile","George Strait","country"],["She's a Miracle","Exile","country"],["She's All That","Collin Raye","country"],["She's Got the Rhythm (And I Got the Blues)","Alan Jackson","country,rnb"],["She's in Love with the Boy","Trisha Yearwood","country"],["She's My Kind Of Rain","Tim McGraw","country"],["She's Not Cryin' Anymore","Billy Ray Cyrus","country"],["She's Not Just a Pretty Face","Shania Twain","pop,rock,country"],["She's Not There","Santana","rock"],["She's Not You","Elvis Presley","rock"],["Shoes","Shania Twain","pop,country"],["Should've Been a Cowboy","Toby Keith","country"],["Shout","The Isley Brothers","rock,gospel"],["Show And Tell","Al Wilson","rnb"],["Shower Me with Your Love","Surface","rnb"],["Shut Up","Black Eyed Peas","pop,rnb,hiphop"],["Shut Up and Kiss Me","Mary Chapin Carpenter","rock,country"],["Sick and Tired","Anastacia","rock,rnb"],["Signed, Sealed, Delivered I'm Yours","Blue","pop,rnb"],["Silence is Golden","Frankie Valli & The Four Seasons","pop"],["Silent Night","Christmas Carol","classic,holiday"],["Silver and Gold","Dolly Parton","country"],["Silver Bells","Andy Williams","jazz,holiday"],["Simple Kind of Life","No Doubt","pop,rock"],["Simple Life","Elton John","pop"],["Sin Sin Sin","Robbie Williams","pop,rock"],["Since I Don't Have You","The Skyliners","pop,rnb"],["Since I Fell for You","Lenny Welch","rnb"],["Since U Been Gone","Kelly Clarkson","pop,rock"],["Singing Tree","Elvis Presley","pop,musical"],["Sister Golden Hair (live)","America","pop"],["Sit Down, You're Rockin' the Boat","Don Henley","rock"],["Sixteen Tons","Tennessee Ernie Ford","country"],["Sk8er Boi","Avril Lavigne","pop"],["Sleepwalker","The Wallflowers","pop,rock"],["Sleigh Ride","Neil Diamond","holiday"],["Slow","Kylie Minogue","pop"],["Slowly But Surely","Elvis Presley","pop,rock,musical"],["Smells Like Nirvana","Weird Al Yankovic","rock"],["Smokey Joe's Café","The Robins","rock,rnb"],["Smooth Operator","Sade","pop,rnb,latin"],["Snowbird","Elvis Presley","rock,country"],["So Far Away","Staind","rock"],["So Help Me Girl","Joe Diffie","country"],["So High","Elvis Presley","pop,rock,gospel"],["So What the Fuss","Stevie Wonder","pop,rnb"],["So Wrong","Patsy Cline","pop"],["So Yesterday","Hilary Duff","pop"],["Sock it to Me-Baby","Mitch Ryder","rock"],["Soldier Boy","Elvis Presley","pop,rock"],["Soldier Boy","The Shirelles","pop,rnb"],["Solitaire","Elvis Presley","pop"],["Some Gave All","Billy Ray Cyrus","country"],["Some Kind of Trouble","Tanya Tucker","rock,country"],["Some Say","Sum 41","pop,rock"],["Somebody","Reba McEntire","country"],["Somebody Like You (radio edit)","Keith Urban","country"],["Somebody's Baby","Jackson Browne","pop,rock"],["Somebody's Hero","Jamie O'Neal","country"],["Someday","Alan Jackson","country"],["Someday","Mariah Carey","pop"],["Someday","Nickelback","rock"],["Someday","Vince Gill","rock,country"],["Someday Out of the Blue","The Road to El Dorado","pop,rock,musical"],["Somethin' Stupid","Robbie Williams","duet,duet"],["Something","Elvis Presley","rock"],["Something Beautiful","Robbie Williams","pop,rock"],["Something Blue","Elvis Presley",""],["Something in Red","Lorrie Morgan","rock,country"],["Something Like a Broken Heart","Hanna-McEuen","country"],["Something More","Sugarland","country"],["Something to Talk About","Bonnie Raitt","pop,rock,country"],["Something Worth Leaving Behind","Lee Ann Womack","country"],["Sometimes","Clay Davidson","country"],["Sometimes Love Just Ain't Enough","Patty Smyth","duet,duet"],["Sometimes When We Touch","Dan Hill","rock"],["Somewhere Only We Know","Keane","pop,rock"],["Somewhere Other Than the Night","Garth Brooks","country"],["Somewhere Out There","An American Tail","rnb,duet,duet"],["Somewhere Out There","Our Lady Peace","rock"],["Somewhere Over the Rainbow","Shayne Ward","pop"],["Son of Man","Tarzan (1999 film)","musical"],["Song for the Life","Alan Jackson","country"],["Soolaimon","Neil Diamond","pop,rock"],["Soon","Tanya Tucker","country"],["Sooner or Later","Madonna","jazz"],["Sorry","Madonna","pop"],["Soul to Squeeze","Red Hot Chili Peppers","rock"],["Sour Girl","Stone Temple Pilots","rock"],["Spanish Eyes","Al Martino","pop"],["Spanish Eyes","Tom Jones","pop,rnb"],["Spanish Guitar","Toni Braxton","pop,rnb"],["Speed of Sound","Coldplay","pop,rock"],["Spider's Web","Katie Melua","classic"],["Spinnin' Around","Jump5","pop,gospel"],["Spirit in the Sky","Gareth Gates","pop,rock,gospel"],["Spirit in the Sky","Norman Greenbaum","rock"],["Splish Splash","Bobby Darin","rock"],["Spoiled","Joss Stone","rock,rnb"],["Spooky","Classics IV","rock,jazz"],["Stacy's Mom","Fountains of Wayne","pop,rock"],["Stagger Lee","Lloyd Price","rock"],["Stainsby Girls","Chris Rea","pop,rock"],["Stand By Your Man","Tammy Wynette","country"],["Stand By Your Side","Céline Dion","pop"],["Standing Outside the Fire","Garth Brooks","rock,country"],["Stardust","Engelbert Humperdinck","pop,jazz"],["Starlight Express","Starlight Express","pop,musical"],["Statue of a Fool","Ricky Van Shelton","country"],["Stay Gone","Jimmy Wayne","country"],["Stay or Let It Go","Brian McKnight","rnb"],["Stay with Me (Brass Bed)","Josh Gracin","country"],["Stay With Me Tonight","Jeffrey Osborne","pop"],["Steal My Kisses","Ben Harper","pop,rnb,classic"],["Steamroller Blues (live)","Elvis Presley","pop,country,rnb"],["Steve McQueen","Sheryl Crow","pop,rock"],["Stickwitu","The Pussycat Dolls","rnb"],["Stiff Upper Lip","AC / DC","rock"],["Still Got the Blues","Gary Moore","rock,rnb"],["Still on My Brain","Justin Timberlake","pop,rnb"],["Still on Your Side","BBMak","pop"],["Still Waiting","Sum 41","rock"],["Stillness of Heart","Lenny Kravitz","rock"],["Stormy","Santana","rock,latin"],["Stormy Weather","Stormy Weather (1943 film)","jazz,musical"],["Straight Tequila Night","John Anderson","country"],["Strange","Patsy Cline","pop,country"],["Stranger in the Crowd","Elvis Presley","rock,country"],["Strength of a Woman","Shaggy","pop"],["Strokin'","Clarence Carter","pop,rnb"],["Stronger","Britney Spears","pop"],["Stuck","Stacie Orrico","pop,rock"],["Stuck in the Middle with You","Louise","pop,rock"],["Stuck on You","Elvis Presley","rock"],["Stupid Girls","Pink","pop,rock"],["Such a Night","Elvis Presley","rock"],["Suddenly","LeAnn Rimes","pop,rock"],["Suddenly I See","KT Tunstall","pop,classic"],["Summer Holiday","Cliff Richard","pop,musical"],["Summer Kisses, Winter Tears","Elvis Presley","pop,musical"],["Summer of '69","Bryan Adams","pop,rock"],["Summer Sunshine","The Corrs","pop,rock"],["Sunday Morning","Maroon 5","pop,rock,rnb"],["Sunny","Bobby Hebb","rnb"],["Sunny","Boney M.","pop"],["Sunrise","Norah Jones","pop,rnb,classic"],["Sunrise","Simply Red","pop,rock,rnb"],["Super Duper Love","Joss Stone","pop,rnb,musical"],["Super Trouper","ABBA","pop"],["Supermodel (You Better Work)","RuPaul","pop"],["Superstar","Jamelia","rnb"],["Superstition","Stevie Wonder","pop,rnb"],["Supreme","Robbie Williams","pop"],["Susan When She Tried","Elvis Presley","rock,country"],["Suspicion","Elvis Presley","pop"],["Suspicious Minds","Elvis Presley","rock"],["Sway","Michael Bublé","latin"],["Swear It Again","Westlife","pop"],["Sweat (A La La La La Long)","Inner Circle","pop"],["Sweet Angeline","Elvis Presley","rock"],["Sweet Caroline","Neil Diamond","pop"],["Sweet Dreams","Patsy Cline","country"],["Sweet Dreams (Are Made of This) (long version)","Eurythmics","pop"],["Sweet Home Alabama","Lynyrd Skynyrd","rock,rnb"],["Sweet Southern Comfort","Buddy Jewell","country"],["Sweetness","Jimmy Eat World","rock"],["Switch","Will Smith","hiphop"],["Sympathy","Goo Goo Dolls","pop,rock"],["Take a Chance on Me","ABBA","pop"],["Take a Look","Natalie Cole","jazz"],["Take It Back","Reba McEntire","country,rnb"],["Take It Easy","Travis Tritt","country"],["Take It Like a Man","Michelle Wright","country"],["Take It Off","The Donnas","pop,rock"],["Take It On the Run","REO Speedwagon","rock"],["Take Me","Papa Roach","rock"],["Take Me as I Am","Faith Hill","country"],["Take Me Out","Franz Ferdinand","rock"],["Take Me to the River","Talking Heads","rock,rnb"],["Take This Job And Shove It","Johnny Paycheck","country"],["Talk","Coldplay","rock"],["Talk About the Good Times","Elvis Presley","pop,rock,country"],["Talkin' Song Repair Blues","Alan Jackson","country"],["Talking in Your Sleep","The Romantics","pop,rock"],["Tears in Heaven","Eric Clapton","rock"],["Tell Her","Lonestar","country"],["Tell It Like It Is","Aaron Neville","rnb"],["Tell Me I Was Dreaming","Travis Tritt","country"],["Tell Me Something Bad About Tulsa","George Strait","country"],["Tell Me Where It Hurts","Tommy Shane Steiner","country"],["Tell Me Why","Elvis Presley","rock,rnb"],["Tell Me Why","Wynonna Judd","country"],["Tender Feeling","Elvis Presley","pop,musical"],["Tennessee Flat Top Box","Rosanne Cash","country"],["Tennessee River Run","Darryl Worley","country"],["Texas Plates","Kellie Coffey","country"],["Texas Tornado","Tracy Lawrence","country"],["Thank You","Dido","pop,musical"],["Thank You Baby! (For Makin' Someday Come So Soon)","Shania Twain","pop,rock,country"],["Thank You for Loving Me","Bon Jovi","rock"],["Thank You in Advance","Boyz II Men","rnb"],["That Girl","McFly","pop,rock"],["That Summer","Garth Brooks","country"],["That'd Be Alright","Alan Jackson","country"],["That's My Goal","Shayne Ward","pop,rock"],["That's Someone You Never Forget","Elvis Presley",""],["That's the Beat of a Heart","The Warren Brothers","country,musical,duet,duet"],["That's the Way","Jo Dee Messina","country"],["That's the Way Love Goes","Janet Jackson","pop,rnb"],["That's What Love Is All About","Michael Bolton","rock"],["That's What She Gets for Loving Me","Brooks & Dunn","country"],["That's When Your Heartaches Begin","Elvis Presley","pop"],["The Addams Family","Andrew Gold","musical"],["The Anniversary Song","Dinah Shore","pop"],["The Baby","Blake Shelton","country"],["The Bear Went Over the Mountain","Nursery Rhyme","classic"],["The Best","Tina Turner","pop,rock"],["The Blue Train","Linda Ronstadt","pop,rock,country"],["The Book of Love","Monotones","pop,rock"],["The Boy from New York City","The Ad Libs","pop,rnb"],["The Boys Are Back In Town","Thin Lizzy","rock"],["The Brady Bunch","Sherwood Schwartz","musical"],["The Call","Backstreet Boys","pop,rnb"],["The Chain of Love","Clay Walker","country"],["The Chair","George Strait","country"],["The Closest Thing to Crazy","Katie Melua","rock"],["The Crying Game","Boy George","pop"],["The Dance","Garth Brooks","country"],["The End of the World","Skeeter Davis","pop,country"],["The Final Countdown","Europe","rock"],["The First Cut Is the Deepest","Sheryl Crow","pop,rock"],["The First Time","Surface","rnb"],["The First Time Ever I Saw Your Face","Elvis Presley","rock"],["The Fool","Elvis Presley","rock,country"],["The Game Is Won","Lucie Silvas","pop"],["The Game of Love","Santana","pop,rock"],["The Girl I Never Loved","Elvis Presley","musical"],["The Girl Is Mine","Michael Jackson","pop,duet,duet"],["The Good Stuff","Kenny Chesney","country"],["The Greatest Gift of All","Dolly Parton","holiday,duet,duet"],["The Greatest Man I Never Knew","Reba McEntire","rock"],["The Hard Way","Mary Chapin Carpenter","country"],["The Hardest Part","Coldplay","rock"],["The Heart Is a Lonely Hunter","Reba McEntire","country"],["The Heart Won't Lie","Reba McEntire","country,duet,duet"],["The Hunger","Steve Holy","country"],["The Keeper of the Stars","Tracy Byrd","country"],["The Ketchup Song (Aserejé)","Las Ketchup","pop,latin"],["The Lady in Red","Chris De Burgh","pop,rnb"],["The Last Man Committed","Eric Heatherly","country"],["The Last Thing on My Mind","Patty Loveless","country"],["The Little Drummer Boy","Andy Williams","holiday"],["The Little Drummer Boy","Anne Murray","holiday"],["The Little Girl","John Michael Montgomery","country"],["The Living Years","Mike and The Mechanics","pop,rock"],["The Loco-Motion","Little Eva","pop,rock"],["The Logical Song","Supertramp","pop,rock"],["The Love Boat","Jack Jones","pop,musical"],["The Man I Love","Barbra Streisand","jazz"],["The Mighty Quinn (Quinn The Eskimo)","Manfred Mann","pop,rock"],["The Morning After","Maureen McGovern","pop,rock"],["The Motown Song","Rod Stewart","pop"],["The Muppet Show Theme","The Muppets","musical"],["The Name Game","Shirley Ellis","pop,rnb"],["The Next Time I Fall","Peter Cetera","pop,rock,duet,duet"],["The Night Chicago Died","Paper Lace","pop,rock"],["The Night I Called The Old Man Out","Garth Brooks","rock,country"],["The Night the Lights Went Out in Georgia","Reba McEntire","country"],["The One","Elton John","pop,rock"],["The One","Shakira","pop,rock"],["The One I Love","David Gray","pop,rock"],["The Other Woman","Ray Parker Jr.","pop,rock"],["The Perfect Fan","Backstreet Boys","pop,rock"],["The Phantom of the Opera","The Phantom of the Opera (musical)","musical,duet,duet"],["The Rainbow Connection","Kermit","pop,musical"],["The Real Slim Shady","Eminem","hiphop"],["The Remedy (I Won't Worry)","Jason Mraz","pop,rock"],["The Right Kind of Wrong","LeAnn Rimes","pop,rock,musical"],["The Rising","Bruce Springsteen","pop,rock"],["The River","Garth Brooks","country"],["The River of Dreams","Billy Joel","pop,rock,gospel"],["The Rose","Bette Midler","pop,musical"],["The Safety Dance","Men Without Hats","pop"],["The Scientist","Coldplay","pop,rock"],["The Second Time Around","Shalamar","pop"],["The Sensitive Kind","Santana","rock,latin"],["The Shadow of Your Smile","The Sandpiper","jazz,musical"],["The Shoop Shoop Song (It's in His Kiss)","Mermaids","pop,musical"],["The Show Must Go On","Queen","pop,rock"],["The Song Remembers When","Trisha Yearwood","country"],["The Star-Spangled Banner","Anthem","classic"],["The Stranger","Billy Joel","rock"],["The Stroll","The Diamonds","rock"],["The Thrill Is Gone (with Tracy Chapman)","B.B. King","rnb,duet,duet"],["The Thunder Rolls","Garth Brooks","country"],["The Tide Is High (Get The Feeling)","The Lizzie McGuire Movie","pop,rnb,musical"],["The Trouble With Love Is","Kelly Clarkson","rnb"],["The Twelfth of Never","Elvis Presley",""],["The Twelfth of Never","Johnny Mathis","pop"],["The Very Thought of You","Nancy Wilson","jazz"],["The Wanderer","Dion DiMucci","pop,rock"],["The Warrior","Scandal","pop,rock"],["The Way","Clay Aiken","pop"],["The Whiskey Ain't Workin'","Travis Tritt","country,duet,duet"],["The Winner Takes It All","ABBA","pop"],["The Woman Before Me","Trisha Yearwood","country"],["The Wrong Girl","Lee Ann Womack","country"],["The Zephyr Song","Red Hot Chili Peppers","rock"],["Then Came the Morning","The Bill Gaither Trio","rock,gospel"],["Then He Kissed Me","The Crystals","pop,rock"],["Then They Do","Trace Adkins","country"],["Then You Can Tell Me Goodbye","The Casinos","rnb,gospel"],["There Ain't Nothin' Wrong with the Radio","Aaron Tippin","country"],["There Is No Arizona","Jamie O'Neal","country"],["There Will Come A Day","Faith Hill","country,gospel"],["There You Are","Martina McBride","country"],["There You Go","Pink","rnb"],["There'll Be Sad Songs (To Make You Cry)","Billy Ocean","rock"],["There's a Honky Tonk Angel (Who'll Take Me Back in)","Elvis Presley","country"],["There's a Moon Out Tonight","The Capris","pop,rnb"],["There's No Business Like Show Business","Annie Get Your Gun (film)","musical,duet,duet"],["These Boots Are Made for Walkin'","Jessica Simpson","pop,country,musical"],["These Days","Rascal Flatts","country"],["These Words","Natasha Bedingfield","pop,rnb"],["They Say It's Wonderful","Annie Get Your Gun (musical)","musical,duet,duet"],["They Say It's Wonderful","Engelbert Humperdinck","jazz"],["Thicker Than Blood","Garth Brooks","country"],["Things Change","Tim McGraw","country"],["Things I'll Never Say","Avril Lavigne","pop,rock"],["Think","Aretha Franklin","rnb"],["Think of Me","The Phantom of the Opera (2004 film)","musical,duet,duet"],["Thinkin' About You","Trisha Yearwood","country"],["This Could Be Heaven","Seal","pop,rnb,musical"],["This Everyday Love","Rascal Flatts","country"],["This I Promise You","NSYNC","pop,rnb"],["This I Swear","Nick Lachey","pop"],["This Is God","Phil Vassar","country"],["This Is It","Kenny Loggins","rock"],["This Is My Song","Petula Clark","pop,musical"],["This Is The Night","Clay Aiken","pop"],["This Love","Maroon 5","pop,rock"],["This Moment in Time","Engelbert Humperdinck","jazz"],["This Old Heart of Mine (Is Weak for You) (in duet with Ronald Isley)","Rod Stewart","pop,rock,duet,duet"],["This One's for the Girls","Martina McBride","country"],["This Time Around","Hanson","pop,rock"],["This Used to Be My Playground","Madonna","pop,rock"],["Those Oldies but Goodies (Remind Me of You)","Little Caesar & the Romans","rock,rnb"],["Those Sweet Words","Norah Jones","rock"],["Three Wooden Crosses","Randy Travis","country,gospel"],["Three's Company","Joe Raposo","musical"],["Through the Rain","Mariah Carey","pop,rnb"],["Thunder In My Heart Again","Meck","pop"],["Times Like These (acoustic)","Foo Fighters","rock"],["Tiny Bubbles","Don Ho","rock"],["To Be With You","Mr. Big","pop"],["To Where You Are","Josh Groban","pop"],["Today, Tomorrow and Forever","Elvis Presley","musical"],["Tomorrow","Avril Lavigne","pop,rock"],["Tomorrow","Lillix","pop,rock"],["Tomorrow Never Comes","Elvis Presley","rock,country"],["Too Late to Say Goodbye","Richard Marx","rock"],["Too Little Too Late","Barenaked Ladies","rock"],["Too Lost In You","Sugababes","pop,rock"],["Too Much","Elvis Presley","rock"],["Too Much Monkey Business","Elvis Presley","rock"],["Tossin' and Turnin'","Bobby Lewis","rock"],["Total Eclipse of the Heart","Bonnie Tyler","pop,rock"],["Tough Little Boys","Gary Allan","country"],["Tougher Than Nails","Joe Diffie","country,gospel"],["Toxic","Britney Spears","pop"],["Trashy Women","Confederate Railroad","rock,country"],["Treat Me Nice","Elvis Presley","rock"],["Tripping","Robbie Williams","pop"],["Trouble","Elvis Presley","rock"],["Trouble","Pink","pop,rock"],["Trouble / Guitar Man (Comeback Special '68)","Elvis Presley","rock"],["True Love Travels on a Gravel Road","Elvis Presley","pop,country,rnb"],["Truly","Lionel Richie","rock,rnb"],["Try It On My Own","Whitney Houston","pop,rnb"],["Trying to Get to You","Elvis Presley","rock,rnb"],["Turn It On, Turn It Up, Turn Me Loose","Dwight Yoakam","country"],["Turn the Lights Out When You Leave","Elton John","pop,rock,country"],["Twenty Days and Twenty Nights","Elvis Presley",""],["Twenty-Five Miles","Edwin Starr","rnb"],["Twinkle Twinkle Little Star","Nursery Rhyme","classic"],["Two of a Kind, Workin' on a Full House","Garth Brooks","country"],["Two Princes","Spin Doctors","rock"],["Two Sparrows in a Hurricane","Tanya Tucker","country"],["Two Steps Behind","Def Leppard","rock,musical"],["Ugly","Sugababes","pop"],["Unanswered Prayers","Garth Brooks","country"],["Unbroken","Tim McGraw","country"],["Under the Bridge","Red Hot Chili Peppers","rock"],["Under the Weather","KT Tunstall","rock"],["Underneath It All","No Doubt","rock"],["Unforgettable","Nat King Cole","jazz"],["Unforgettable (duet)","Natalie Cole","jazz,duet,duet"],["Untitled","Simple Plan","rock"],["Unwell","Matchbox Twenty","pop,rock,country"],["Unwritten","Natasha Bedingfield","pop,rock"],["Up","Shania Twain","country"],["Up Where We Belong","Joe Cocker","rock,musical,duet,duet"],["Upside Down","Diana Ross","pop"],["Upside Down","Jack Johnson","pop,rock,musical"],["USA Today","Alan Jackson","country"],["Venus","Bananarama","pop"],["Vino, Dinero Y Amor","Elvis Presley","latin,musical"],["Vision of Love","Mariah Carey","rnb"],["Viva Las Vegas","Elvis Presley","rock,latin,musical"],["Vogue","Madonna","pop"],["Waitin' On A Sunny Day","Bruce Springsteen","pop,rock"],["Wake Me Up When September Ends","Green Day","rock"],["Wake Up","Hilary Duff","pop"],["Walk Away","Franz Ferdinand","rock"],["Walk Me Home","Mandy Moore","pop"],["Walk on the Wild Side","Lou Reed","rock,classic"],["Walkaway Joe","Trisha Yearwood","country"],["Walkin' after Midnight (1961)","Patsy Cline","country"],["Walkin' Away","Clint Black","country"],["Walkin' to New Orleans","Fats Domino","rnb"],["Walking Along","The Solitaires","pop"],["Walking in Memphis","Lonestar","pop,country"],["Walking on Broken Glass","Annie Lennox","pop"],["Walking on Sunshine","Katrina and the Waves","pop,rock"],["Walking Shoes","Tanya Tucker","country"],["Watch Me","Lorrie Morgan","country"],["Watch The Wind Blow By","Tim McGraw","country"],["Waterloo","ABBA","pop,rock"],["Wave On Wave","Pat Green","country"],["We All Fall Down","Diamond Rio","country"],["We Are","Ana Johnsson","pop,rock,musical"],["We Are the World","USA For Africa","pop"],["We Belong Together","Mariah Carey","rnb"],["We Built This City","Starship","pop,rock,duet,duet"],["We Bury the Hatchet","Garth Brooks","country"],["We Call On Him","Elvis Presley","gospel"],["We Can","LeAnn Rimes","pop,rock,country"],["We Danced","Brad Paisley","country"],["We Got a Love Thang","CeCe Peniston","pop"],["We Just Disagree","Billy Dean","country"],["We Shall Be Free","Garth Brooks","country,rnb"],["We Three Kings","Anne Murray","holiday"],["We Wish You a Merry Christmas","Christmas Carol","classic,holiday"],["We Wish You a Merry Christmas","Pat Boone","pop,holiday"],["We'll Burn That Bridge","Brooks & Dunn","rock,country"],["We're So Good Together","Reba McEntire","pop,country"],["We've Got Tonight","Ronan Keating","rock,duet,duet"],["Weak","SWV","pop,rnb"],["Wear My Ring Around Your Neck","Elvis Presley","rock"],["Wedding Song","Tracy Chapman","rock,classic"],["Welcome To My Truth","Anastacia","pop,rock"],["Welcome to My World","Elvis Presley","country"],["Welcome To My World","Jim Reeves","country"],["Welcome to Wherever You Are","Bon Jovi","pop,rock"],["What A Beautiful Day","Chris Cagle","country"],["What a Diff'rence a Day Makes!","Dinah Washington","pop"],["What a Wonderful Life","Elvis Presley","rock,musical"],["What a Wonderful World","Louis Armstrong","pop,jazz"],["What About Now","Lonestar","country"],["What Am I to You","Norah Jones","pop,rock"],["What Are You Doing New Year's Eve","Nancy Wilson","rnb,jazz"],["What Becomes of the Broken Hearted","Paul Young","rnb"],["What Do You Know About Love?","Dwight Yoakam","country"],["What Now My Love","Elvis Presley","rock"],["What Part Of No","Lorrie Morgan","country"],["What She's Doing Now","Garth Brooks","rock,country"],["What the World Needs","Wynonna Judd","country"],["What Was I Thinkin'","Dierks Bentley","country"],["What You Won't Do For Love","Bobby Caldwell","rnb"],["What You're Made Of (Même si)","Lucie Silvas","pop,duet,duet"],["What's New Pussycat?","Tom Jones","pop,musical"],["What's Up?","4 Non Blondes","pop,rock"],["Whatcha Gonna Do?","Pablo Cruise","pop,rock,rnb"],["Whatcha See Is Whatcha Get","The Dramatics","pop,rnb"],["When a Man Loves a Woman","Michael Bolton","pop,rnb"],["When I Fall in Love","Céline Dion","rock,duet,duet"],["When I Look to the Sky","Train","pop,rock"],["When I'm Back on My Feet Again","Michael Bolton","rock"],["When I'm Gone","3 Doors Down","rock"],["When She Cries","Restless Heart","rock"],["When Somebody Knows You That Well","Blake Shelton","country"],["When Something Is Wrong with My Baby","Linda Ronstadt","pop,duet,duet"],["When The Lights Go Down","Faith Hill","rock"],["When The Night Comes","Joe Cocker","rock"],["When the Saints Go Marching in","Traditional","rnb,jazz,classic,gospel"],["When the Stars Go Blue","The Corrs","pop,duet,duet"],["When the Sun Goes Down","Kenny Chesney","country"],["When You Come Back to Me Again","Garth Brooks","country"],["When You Need My Love","Darryl Worley","country"],["When You Tell Me That You Love Me","Diana Ross","rnb"],["When You Tell Me That You Love Me","Westlife","duet,duet"],["Where Are You Now","Trisha Yearwood","country"],["Where Do You Come From","Elvis Presley","pop,musical"],["Where Does My Heart Beat Now","Céline Dion","pop,rock"],["Where Everybody Knows Your Name","Gary Portnoy","musical"],["Where Is The Love","Black Eyed Peas","rnb,hiphop"],["Where Would You Be","Martina McBride","country"],["Where You Are","Jessica Simpson","pop,duet,duet"],["Whiskey Girl","Toby Keith","country"],["Whiskey Lullaby","Brad Paisley","country,duet,duet"],["White Flag","Dido","pop"],["Who Am I","Will Young","pop,rock"],["Who I Am","Jessica Andrews","country"],["Who Knew","Pink","pop,rock"],["Who Let the Dogs Out?","Baha Men","pop,musical"],["Who Wouldn't Wanna Be Me","Keith Urban","country"],["Who You'd Be Today","Kenny Chesney","country"],["Who's Your Daddy","Toby Keith","country"],["Whoever's in New England","Reba McEntire","country"],["Whole Again","Atomic Kitten","pop"],["Whole Lotta Shakin' Goin' On","Jerry Lee Lewis","rock"],["Whole Lotta Shakin' Going On","Elvis Presley","rock"],["Whose Bed Have Your Boots Been Under?","Shania Twain","pop,country"],["Why","Annie Lennox","rnb"],["Why Can't He Be You","Patsy Cline","country"],["Why Can't I?","Liz Phair","pop,rock"],["Why Don't You & I","Santana","pop,rock,latin"],["Why Georgia","John Mayer","pop,rock"],["Why Not Me","The Judds","country"],["Wicked Game","Chris Isaak","pop,rock"],["Wide River","Steve Miller Band","rock"],["Wild Horses","Garth Brooks","country"],["Wild One","Faith Hill","country"],["Wild Thing","The Troggs","rock"],["Wild West Show","Big & Rich","country"],["Will You Be There","Michael Jackson","pop,rnb"],["Wind Beneath My Wings","Bette Midler","pop,musical"],["Winning","Santana","pop,rock"],["Winter Wonderland","Amy Grant","jazz,holiday"],["Wisemen","James Blunt","pop,rock"],["Wishing It Was","Santana","rock,latin"],["With a Little Help from My Friends","Sam & Mark","pop,rock"],["With Arms Wide Open (acoustic version)","Creed","rock"],["With One Look","Barbra Streisand","musical"],["With You","Jessica Simpson","pop"],["Without Love (There Is Nothing)","Tom Jones","rock,rnb"],["Without You","Harry Nilsson","rock"],["Won't You Be My Neighbor?","Mister Rogers' Neighborhood","musical"],["Wonderful","Everclear","pop,rock"],["Wonderful World","Sam Cooke","pop,rnb"],["Wooly Bully","Sam The Sham & The Pharaohs","rock"],["Words of Love","Mama Cass Elliot","pop"],["Work in Progress","Alan Jackson","country"],["Working Man Blues","Merle Haggard","country,rnb"],["Working on the Building","Elvis Presley","pop,gospel"],["World of Our Own","Westlife","pop"],["World, Hold On (Children of the Sky)","Bob Sinclar","pop"],["Wouldn't Change a Thing","Kylie Minogue","pop"],["Wouldn't It Be Loverly","My Fair Lady (musical)","musical"],["www.memory","Alan Jackson","country"],["Y.M.C.A.","Village People","pop"],["Yellow","Coldplay","rock"],["Yes!","Chad Brock","country"],["Yoda","Weird Al Yankovic","rock"],["You Ain't Much Fun","Toby Keith","country"],["You And I","Eddie Rabbitt","duet,duet"],["You and Me Song","The Wannadies","pop,rock,musical"],["You Are","Jimmy Wayne","country"],["You Are the Sunshine of My Life","Tom Jones","pop"],["You Can Depend on Me","Brenda Lee","pop"],["You Can't Hide Beautiful","Aaron Lines","country"],["You Can't Hurry Love","The Supremes","rnb"],["You Can't Say No in Acapulco","Elvis Presley","pop,musical"],["You Can't Take the Honky Tonk Out of the Girl","Brooks & Dunn","country"],["You Don't Have to Say You Love Me","Elvis Presley","pop"],["You Gave Me a Mountain","Elvis Presley","rock"],["You Had Me","Joss Stone","pop,rnb"],["You Know You're Right","Nirvana","rock"],["You Lie","Reba McEntire","country"],["You Look So Good In Love","George Strait","country"],["You Made Me That Way","Andy Griggs","country"],["You Make Me Feel Brand New","Simply Red","pop,rock"],["You Make Me Sick","Pink","rnb"],["You Ought to Be with Me","Al Green","rnb"],["You Raise Me Up","Josh Groban","pop,gospel"],["You Raise Me Up","Westlife","pop"],["You Remind Me","Mary J. Blige","rnb"],["You Send Me","Sam Cooke","rnb"],["You Shouldn't Kiss Me Like This","Toby Keith","country"],["You Won't Be Lonely Now","Billy Ray Cyrus","country"],["You Wouldn't Believe","311","rock"],["You'll Always Be Loved By Me","Brooks & Dunn","country"],["You'll Be There","George Strait","country"],["You'll Think Of Me","Keith Urban","country"],["You're a God","Vertical Horizon","pop,rock"],["You're Beautiful","James Blunt","rock"],["You're Gonna Make Me Lonesome When You Go","Madeleine Peyroux","jazz"],["You're in Love","Wilson Phillips","pop"],["You're in my Head","Brian McComas","country"],["You're In My Heart","Rod Stewart","pop"],["You're Like Comin' Home","Lonestar","country"],["You're My Best Friend","Queen","rock"],["You're My World","Tom Jones","pop"],["You're the Boss","Elvis Presley","rock,duet,duet"],["You've Lost That Lovin' Feelin'","Tom Jones","rock"],["Young Girl","Gary Puckett & The Union Gap","pop"],["Young Man's Town","Vince Gill","country"],["Your Body Is a Wonderland","John Mayer","pop,rock"],["Your Cheatin' Heart","Hank Williams, Sr.","country"],["Your Everything","Keith Urban","country"],["Your Game","Will Young","pop,rnb"],["Your Mama Don't Dance","Loggins and Messina","rock"],["Your Song","Elton John","pop"]];</script>
+
   <script>
   (function(){
-    var yr=document.getElementById('year'); if(yr) yr.textContent=new Date().getFullYear();
-    var nav=document.getElementById('nav');
-    window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>30);},{passive:true});
-    var t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
-    if(t&&l){t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');document.body.classList.toggle('menu-open',o);});}
-
-    // Song library (curated top picks per genre — "any song" message for the rest)
-    var songs = [
-      // Pop
-      {t:'Shake It Off',a:'Taylor Swift',g:'pop'},{t:'Love Story',a:'Taylor Swift',g:'pop'},
-      {t:'As It Was',a:'Harry Styles',g:'pop'},{t:'Levitating',a:'Dua Lipa',g:'pop'},
-      {t:'Blinding Lights',a:'The Weeknd',g:'pop'},{t:'Watermelon Sugar',a:'Harry Styles',g:'pop'},
-      {t:'Party in the USA',a:'Miley Cyrus',g:'pop'},{t:'Toxic',a:'Britney Spears',g:'pop'},
-      {t:'Since U Been Gone',a:'Kelly Clarkson',g:'pop'},{t:'Roar',a:'Katy Perry',g:'pop'},
-      {t:'Firework',a:'Katy Perry',g:'pop'},{t:'Halo',a:'Beyoncé',g:'pop'},
-      // Rock
-      {t:'Don\'t Stop Believin\'',a:'Journey',g:'rock crowd'},{t:'Bohemian Rhapsody',a:'Queen',g:'rock crowd'},
-      {t:'Living on a Prayer',a:'Bon Jovi',g:'rock crowd'},{t:'Eye of the Tiger',a:'Survivor',g:'rock'},
-      {t:'Total Eclipse of the Heart',a:'Bonnie Tyler',g:'rock crowd'},{t:'Pour Some Sugar on Me',a:'Def Leppard',g:'rock'},
-      {t:'Don\'t Stop Me Now',a:'Queen',g:'rock crowd'},{t:'Sweet Child O\' Mine',a:'Guns N\' Roses',g:'rock'},
-      {t:'Africa',a:'Toto',g:'rock crowd'},{t:'Mr. Brightside',a:'The Killers',g:'rock crowd'},
-      // Country
-      {t:'Tennessee Whiskey',a:'Chris Stapleton',g:'country'},{t:'Bless the Broken Road',a:'Rascal Flatts',g:'country wedding'},
-      {t:'Die a Happy Man',a:'Thomas Rhett',g:'country wedding'},{t:'Friends in Low Places',a:'Garth Brooks',g:'country crowd'},
-      {t:'Before He Cheats',a:'Carrie Underwood',g:'country'},{t:'I Will Always Love You',a:'Dolly Parton',g:'country wedding'},
-      {t:'Jolene',a:'Dolly Parton',g:'country'},{t:'Take Me Home Country Roads',a:'John Denver',g:'country crowd'},
-      {t:'Wagon Wheel',a:'Old Crow Medicine Show',g:'country crowd'},{t:'Stuck Like Glue',a:'Sugarland',g:'country'},
-      // R&B / Soul
-      {t:'At Last',a:'Etta James',g:'rnb wedding classic'},{t:'Respect',a:'Aretha Franklin',g:'rnb classic crowd'},
-      {t:'I Will Always Love You',a:'Whitney Houston',g:'rnb wedding'},{t:'I Will Survive',a:'Gloria Gaynor',g:'rnb classic crowd'},
-      {t:'Halo',a:'Beyoncé',g:'rnb pop'},{t:'Love On Top',a:'Beyoncé',g:'rnb wedding'},
-      {t:'All of Me',a:'John Legend',g:'rnb wedding'},{t:'A Thousand Years',a:'Christina Perri',g:'rnb wedding pop'},
-      {t:'Say My Name',a:'Destiny\'s Child',g:'rnb crowd'},{t:'No Scrubs',a:'TLC',g:'rnb crowd'},
-      // Hip-Hop
-      {t:'Lose Yourself',a:'Eminem',g:'hiphop'},{t:'Gold Digger',a:'Kanye West',g:'hiphop'},
-      {t:'Empire State of Mind',a:'Jay-Z ft. Alicia Keys',g:'hiphop crowd'},{t:'Thrift Shop',a:'Macklemore',g:'hiphop'},
-      {t:'Uptown Funk',a:'Bruno Mars',g:'hiphop pop crowd'},{t:'Counting Stars',a:'OneRepublic',g:'hiphop pop'},
-      // Classics
-      {t:'My Way',a:'Frank Sinatra',g:'classic'},{t:'New York New York',a:'Frank Sinatra',g:'classic crowd'},
-      {t:'Piano Man',a:'Billy Joel',g:'classic crowd'},{t:'Livin\' on a Prayer',a:'Bon Jovi',g:'classic rock crowd'},
-      {t:'Sweet Caroline',a:'Neil Diamond',g:'classic crowd'},{t:'Take Me Home, Country Roads',a:'John Denver',g:'classic crowd country'},
-      {t:'Unchained Melody',a:'The Righteous Brothers',g:'classic wedding'},{t:'My Girl',a:'The Temptations',g:'classic'},
-      {t:'Can\'t Help Falling in Love',a:'Elvis Presley',g:'classic wedding'},{t:'Stand by Me',a:'Ben E. King',g:'classic'},
-      // Wedding
-      {t:'Perfect',a:'Ed Sheeran',g:'wedding'},{t:'Thinking Out Loud',a:'Ed Sheeran',g:'wedding'},
-      {t:'Speechless',a:'Dan + Shay',g:'wedding country'},{t:'Shallow',a:'Lady Gaga & Bradley Cooper',g:'wedding pop'},
-      {t:'Endless Love',a:'Diana Ross & Lionel Richie',g:'wedding classic'},{t:'Make You Feel My Love',a:'Adele',g:'wedding'},
-      {t:'Marry You',a:'Bruno Mars',g:'wedding'},{t:'Single Ladies',a:'Beyoncé',g:'wedding rnb crowd'},
-      // Holiday
-      {t:'All I Want for Christmas Is You',a:'Mariah Carey',g:'holiday'},{t:'Jingle Bell Rock',a:'Bobby Helms',g:'holiday'},
-      {t:'Rockin\' Around the Christmas Tree',a:'Brenda Lee',g:'holiday'},{t:'Last Christmas',a:'Wham!',g:'holiday'},
-      {t:'Feliz Navidad',a:'José Feliciano',g:'holiday'},{t:'White Christmas',a:'Bing Crosby',g:'holiday classic'},
-      {t:'Underneath the Tree',a:'Kelly Clarkson',g:'holiday'},{t:'Santa Tell Me',a:'Ariana Grande',g:'holiday pop'},
-      // Crowd Singalongs
-      {t:'Don\'t Stop Believin\'',a:'Journey',g:'crowd rock'},{t:'Sweet Caroline',a:'Neil Diamond',g:'crowd classic'},
-      {t:'Bohemian Rhapsody',a:'Queen',g:'crowd rock'},{t:'Living on a Prayer',a:'Bon Jovi',g:'crowd rock'},
-      {t:'Mr. Brightside',a:'The Killers',g:'crowd rock'},{t:'Africa',a:'Toto',g:'crowd rock'},
-      {t:'Don\'t Stop Me Now',a:'Queen',g:'crowd rock'},{t:'I Love Rock \'n\' Roll',a:'Joan Jett',g:'crowd rock'},
-      {t:'Livin\' La Vida Loca',a:'Ricky Martin',g:'crowd latin'},{t:'Dancing Queen',a:'ABBA',g:'crowd classic pop'},
-      // Latin
-      {t:'Despacito',a:'Luis Fonsi ft. Daddy Yankee',g:'latin'},{t:'Bailando',a:'Enrique Iglesias',g:'latin'},
-      {t:'La Bamba',a:'Ritchie Valens',g:'latin classic'},{t:'Livin\' La Vida Loca',a:'Ricky Martin',g:'latin crowd'},
-      {t:'Suavemente',a:'Elvis Crespo',g:'latin'},{t:'Mi Gente',a:'J Balvin',g:'latin hiphop'},
-      {t:'Gasolina',a:'Daddy Yankee',g:'latin'},{t:'Feliz Navidad',a:'José Feliciano',g:'latin holiday'},
-    ];
-
-    var selected = [];
+    // ── State ──
+    var POPULAR = window.POPULAR_SONGS || [];
+    var ALL_SONGS = null;        // full 51k library (loaded async)
+    var selected = {};           // {key: [title, artist]}
     var currentGenre = 'all';
-    var grid = document.getElementById('songGrid');
-    var bar = document.getElementById('requestBar');
-    var countEl = document.getElementById('selectedCount');
-    var listDisplay = document.getElementById('selectedListDisplay');
+    var currentQuery = '';
+    var page = 0;
+    var PAGE_SIZE = 48;
+    var filteredCache = [];
+    var loadingFull = false;
+    var fullLoaded = false;
+
+    // ── Elements ──
+    var searchInput = document.getElementById('searchInput');
+    var searchClear = document.getElementById('searchClear');
+    var searchCount = document.getElementById('searchCount');
+    var songGrid = document.getElementById('songGrid');
+    var reqBar = document.getElementById('reqBar');
+    var selCount = document.getElementById('selCount');
+    var selPlural = document.getElementById('selPlural');
+    var selCountForm = document.getElementById('selCountForm');
+    var selDisplay = document.getElementById('selDisplay');
     var hiddenInput = document.getElementById('selectedSongsInput');
+    var loadMoreWrap = document.getElementById('loadMoreWrap');
+    var loadMoreBtn = document.getElementById('loadMoreBtn');
+    var emptyState = document.getElementById('emptyState');
+    var libBanner = document.getElementById('libBanner');
+    var libProgress = document.getElementById('libProgressFill');
+    var libLoaded = document.getElementById('libLoadedCount');
+    var genreStrip = document.getElementById('genreStrip');
+    var footYear = document.getElementById('footYear');
 
-    function renderSongs() {
-      var filtered = currentGenre === 'all' ? songs : songs.filter(function(s){ return s.g.indexOf(currentGenre) !== -1; });
-      // Deduplicate by title+artist
-      var seen = {};
-      filtered = filtered.filter(function(s){
-        var key = s.t + '|' + s.a;
-        if(seen[key]) return false;
-        seen[key] = true;
-        return true;
+    // ── Init ──
+    if(footYear) footYear.textContent = new Date().getFullYear();
+
+    // Nav scroll + toggle
+    var navEl = document.getElementById('nav');
+    window.addEventListener('scroll', function(){ navEl.classList.toggle('scrolled', window.scrollY > 30); }, {passive:true});
+    var navToggle = document.getElementById('navToggle');
+    var navLinks = document.getElementById('navLinks');
+    if(navToggle && navLinks){
+      navToggle.addEventListener('click', function(){
+        var o = navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', o ? 'true' : 'false');
+        document.body.classList.toggle('menu-open', o);
       });
-      grid.innerHTML = filtered.map(function(s, i){
-        var key = s.t + '|' + s.a;
-        var isSel = selected.indexOf(key) !== -1;
-        return '<button class="song-card'+(isSel?' selected':'')+'" type="button" data-key="'+key+'" data-title="'+s.t+'" data-artist="'+s.a+'">'
-          + '<span class="song-num">'+(isSel?'✓':(i+1))+'</span>'
-          + '<div class="song-info"><div class="song-title">'+s.t+'</div><div class="song-artist">'+s.a+'</div></div>'
-          + '</button>';
-      }).join('');
     }
 
-    function updateBar() {
-      countEl.textContent = selected.length;
-      bar.style.display = selected.length > 0 ? 'flex' : 'none';
-      if(selected.length > 0){
-        listDisplay.textContent = selected.map(function(k){ return k.replace('|',' — '); }).join('\n');
-      } else {
-        listDisplay.textContent = 'No songs selected yet — pick some above, or add manually below.';
+    // ── Song source ──
+    function getLibrary(){ return ALL_SONGS || POPULAR; }
+    function getLibrarySize(){ return fullLoaded ? 51878 : POPULAR.length; }
+
+    // ── Filtering ──
+    function buildFilter(){
+      var q = currentQuery.toLowerCase().trim();
+      var g = currentGenre;
+      var lib = getLibrary();
+      var out = [];
+      for(var i = 0; i < lib.length; i++){
+        var s = lib[i]; // [title, artist, genres]
+        if(g !== 'all' && s[2].indexOf(g) === -1) continue;
+        if(q){
+          var hay = (s[0] + ' ' + s[1]).toLowerCase();
+          // multi-word search: all words must appear
+          var words = q.split(/\s+/);
+          var match = true;
+          for(var w = 0; w < words.length; w++){
+            if(hay.indexOf(words[w]) === -1){ match = false; break; }
+          }
+          if(!match) continue;
+        }
+        out.push(i);
       }
-      hiddenInput.value = selected.join('\n');
+      return out;
     }
 
-    grid.addEventListener('click', function(e){
-      var card = e.target.closest('.song-card');
+    function getKey(s){ return s[0] + '|' + s[1]; }
+
+    // ── Render ──
+    function renderPage(reset){
+      if(reset){ page = 0; songGrid.innerHTML = ''; }
+      var lib = getLibrary();
+      var start = page * PAGE_SIZE;
+      var end = Math.min(start + PAGE_SIZE, filteredCache.length);
+      var frag = document.createDocumentFragment();
+      for(var i = start; i < end; i++){
+        var idx = filteredCache[i];
+        var s = lib[idx];
+        var key = getKey(s);
+        var isSel = !!selected[key];
+        var isDuet = s[2].indexOf('duet') !== -1;
+        var btn = document.createElement('button');
+        btn.className = 'sc' + (isSel ? ' sel' : '');
+        btn.type = 'button';
+        btn.dataset.key = key;
+        btn.dataset.title = s[0];
+        btn.dataset.artist = s[1];
+        btn.innerHTML = '<span class="sc-num">' + (isSel ? '✓' : (i+1)) + '</span>'
+          + '<div class="sc-info"><div class="sc-title">' + escHtml(s[0]) + '</div>'
+          + '<div class="sc-artist">' + escHtml(s[1]) + '</div></div>'
+          + (isDuet ? '<span class="duo-badge">DUET</span>' : '');
+        frag.appendChild(btn);
+      }
+      songGrid.appendChild(frag);
+      page++;
+
+      var hasMore = end < filteredCache.length;
+      loadMoreWrap.style.display = hasMore ? 'block' : 'none';
+      if(hasMore) loadMoreBtn.textContent = 'Load more (' + (filteredCache.length - end).toLocaleString() + ' remaining)';
+      emptyState.style.display = (filteredCache.length === 0) ? 'block' : 'none';
+
+      // Update count label
+      if(currentQuery || currentGenre !== 'all'){
+        searchCount.textContent = filteredCache.length.toLocaleString() + ' song' + (filteredCache.length !== 1 ? 's' : '') + ' found';
+      } else {
+        searchCount.textContent = 'Showing ' + Math.min(end, filteredCache.length).toLocaleString() + ' of ' + getLibrarySize().toLocaleString() + ' songs';
+      }
+    }
+
+    function refresh(reset){
+      filteredCache = buildFilter();
+      renderPage(reset !== false);
+    }
+
+    function escHtml(s){
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // ── Selection ──
+    function updateSelection(){
+      var keys = Object.keys(selected);
+      var n = keys.length;
+      selCount.textContent = n;
+      selCountForm.textContent = n;
+      selPlural.textContent = n === 1 ? '' : 's';
+      reqBar.classList.toggle('show', n > 0);
+      if(n > 0){
+        selDisplay.textContent = keys.map(function(k){ return selected[k][0] + ' — ' + selected[k][1]; }).join('\n');
+        hiddenInput.value = keys.map(function(k){ return selected[k][0] + ' — ' + selected[k][1]; }).join('\n');
+      } else {
+        selDisplay.textContent = 'No songs selected yet — search above, or add manually below.';
+        hiddenInput.value = '';
+      }
+    }
+
+    songGrid.addEventListener('click', function(e){
+      var card = e.target.closest('.sc');
       if(!card) return;
       var key = card.dataset.key;
-      var idx = selected.indexOf(key);
-      if(idx === -1){ selected.push(key); } else { selected.splice(idx, 1); }
-      card.classList.toggle('selected', selected.indexOf(key) !== -1);
-      var numEl = card.querySelector('.song-num');
-      if(numEl) numEl.textContent = selected.indexOf(key) !== -1 ? '✓' : '';
-      updateBar();
+      if(selected[key]){
+        delete selected[key];
+        card.classList.remove('sel');
+        card.querySelector('.sc-num').textContent = '';
+      } else {
+        selected[key] = [card.dataset.title, card.dataset.artist];
+        card.classList.add('sel');
+        card.querySelector('.sc-num').textContent = '✓';
+      }
+      updateSelection();
     });
 
-    document.getElementById('genreNav').addEventListener('click', function(e){
-      var pill = e.target.closest('.genre-pill');
+    // ── Search ──
+    var searchTimer;
+    searchInput.addEventListener('input', function(){
+      var val = this.value;
+      searchClear.classList.toggle('visible', val.length > 0);
+      clearTimeout(searchTimer);
+
+      // If searching and full library not loaded, load it
+      if(val.length >= 2 && !fullLoaded && !loadingFull){
+        loadFullLibrary();
+      }
+
+      searchTimer = setTimeout(function(){
+        currentQuery = val;
+        refresh(true);
+      }, val.length > 2 ? 200 : 100);
+    });
+
+    searchClear.addEventListener('click', function(){
+      searchInput.value = '';
+      currentQuery = '';
+      searchClear.classList.remove('visible');
+      refresh(true);
+      searchInput.focus();
+    });
+
+    // ── Genre pills ──
+    genreStrip.addEventListener('click', function(e){
+      var pill = e.target.closest('.gpill');
       if(!pill) return;
-      document.querySelectorAll('.genre-pill').forEach(function(p){ p.classList.remove('active'); });
+      document.querySelectorAll('.gpill').forEach(function(p){ p.classList.remove('active'); });
       pill.classList.add('active');
       currentGenre = pill.dataset.genre;
-      renderSongs();
+      refresh(true);
     });
 
-    // Add custom song row
-    var customArea = document.getElementById('customSongsArea');
-    var addBtn = document.getElementById('addSongBtn');
-    var customCount = 1;
-    if(addBtn && customArea){
-      addBtn.addEventListener('click', function(){
-        customCount++;
-        var row = document.createElement('div');
-        row.className = 'custom-song-row';
-        row.innerHTML = '<input type="text" name="custom_song_'+customCount+'" placeholder="Song title — Artist" class="custom-song-input">';
-        customArea.appendChild(row);
-      });
+    // ── Load more ──
+    loadMoreBtn.addEventListener('click', function(){
+      renderPage(false);
+    });
+
+    // ── Load full library async ──
+    function loadFullLibrary(){
+      if(loadingFull || fullLoaded) return;
+      loadingFull = true;
+      libBanner.classList.add('show');
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/karaoke_songs.js');
+      xhr.onprogress = function(e){
+        if(e.lengthComputable){
+          var pct = Math.round(e.loaded / e.total * 100);
+          libProgress.style.width = pct + '%';
+          // Estimate songs loaded
+          var est = Math.round(pct / 100 * 51878);
+          libLoaded.textContent = est.toLocaleString();
+        }
+      };
+      xhr.onload = function(){
+        try {
+          // Execute the script (it sets window.SONGS)
+          var script = document.createElement('script');
+          script.textContent = xhr.responseText;
+          document.head.appendChild(script);
+          if(window.SONGS && window.SONGS.length > 0){
+            ALL_SONGS = window.SONGS;
+            fullLoaded = true;
+            libLoaded.textContent = ALL_SONGS.length.toLocaleString();
+            libProgress.style.width = '100%';
+            setTimeout(function(){ libBanner.classList.remove('show'); }, 800);
+            // Re-run current filter with full library
+            refresh(true);
+          }
+        } catch(err){
+          console.warn('Could not load full library:', err);
+        }
+        loadingFull = false;
+      };
+      xhr.onerror = function(){
+        loadingFull = false;
+        libBanner.classList.remove('show');
+      };
+      xhr.send();
     }
 
-    renderSongs();
-    updateBar();
+    // ── Custom songs ──
+    var customArea = document.getElementById('customArea');
+    var customCount = 1;
+    document.getElementById('addCustomBtn').addEventListener('click', function(){
+      customCount++;
+      var row = document.createElement('div');
+      row.className = 'custom-row';
+      row.innerHTML = '<input type="text" name="custom_song_' + customCount + '" placeholder="Song title — Artist name" class="custom-input">';
+      customArea.appendChild(row);
+      row.querySelector('input').focus();
+    });
+
+    // ── Initial render ──
+    refresh(true);
+
+    // Load full library after 3 seconds (background)
+    setTimeout(loadFullLibrary, 3000);
+
   })();
   </script>
+
 </body>
 </html>
