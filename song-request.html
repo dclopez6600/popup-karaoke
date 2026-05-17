@@ -218,10 +218,9 @@
       <div class="sr-form">
         <h2>🎤 Submit Your Song Request List</h2>
         <p style="color:var(--text-mute);font-size:.85rem;margin-bottom:1.25rem">Share this page with your guests so everyone can pick their songs. Your DJ will have everything ready when you arrive.</p>
-        <form action="https://formsubmit.co/booking@popupkaraoke.net" method="POST">
-          <input type="hidden" name="_subject" value="🎵 Song Request List — PopUp Karaoke">
-          <input type="hidden" name="_next" value="https://popupkaraoke.net/thank-you.html">
-          <input type="hidden" name="_captcha" value="false">
+        <form name="song-request-list" method="POST" action="/thank-you.html" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="song-request-list">
+          <input type="hidden" name="bot-field" style="display:none" tabindex="-1" autocomplete="off">
           <input type="hidden" name="selected_songs" id="selInput" value="">
 
           <div class="two-col">

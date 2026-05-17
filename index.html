@@ -56,7 +56,6 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="manifest.json">
   <link rel="dns-prefetch" href="https://square.link">
-  <link rel="dns-prefetch" href="https://formsubmit.co">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="dns-prefetch" href="https://connect.facebook.net">
@@ -668,6 +667,7 @@
             <li><a href="birthday-karaoke.html">🎂 Birthdays</a></li>
           </ul>
         </li>
+        <li><a href="service-areas.html">Areas</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="blog/index.html">Blog</a></li>
         <li><a href="catalog.html">Catalog</a></li>
@@ -1634,6 +1634,26 @@
             <button class="faq-q" aria-expanded="false">How does payment work?<span class="faq-icon">+</span></button>
             <div class="faq-a"><p>We accept payment via Square (credit/debit card) or other arrangements. A deposit is typically required to secure your date, with the balance due on the day of the event. We'll walk you through everything when we confirm your booking.</p></div>
           </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Do you play background music between singers?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Yes — between singers we keep the energy going with curated background music that matches the vibe of your event. No awkward silences. If you have a playlist preference (upbeat pop, classic hits, themed music), just let us know and we'll tailor it.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What if my venue doesn't have a screen or TV?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>No problem. We bring our own large lyrics display — it's part of the standard setup. Your venue doesn't need to provide any AV equipment. We're fully self-contained from sound to screen to lights.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is karaoke appropriate for mixed ages — kids and adults together?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Absolutely. We host everything from kids' birthday parties to adult corporate events. Our host adjusts the energy and song selection to fit the crowd. For family events, we keep things clean and age-appropriate — just let us know the guest mix when you book.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can you do a hybrid karaoke + DJ set?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Yes — we can split the night between DJ sets and karaoke blocks, which works great for weddings or longer events. A common format is DJ for dinner and dancing, then karaoke later in the evening when guests are warmed up and ready to sing.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How long do bookings typically last?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Most private events run 2–4 hours. Bar residencies are typically 3–4 hours. We can accommodate shorter or longer bookings depending on your event — just let us know your timeline and we'll make it work. Setup and teardown are not counted against your booked time.</p></div>
+          </div>
         </div>
       </div>
     </section>
@@ -1647,51 +1667,9 @@
             <h2 class="email-capture-headline">Get the <span class="grad">Karaoke Party Checklist</span></h2>
             <p class="email-capture-sub">Everything you need to plan the perfect karaoke night — song list starter pack, timeline, setup tips, and questions to ask any KJ before you book. Free, straight to your inbox.</p>
           </div>
-          <form class="email-capture-form" action="https://formsubmit.co/booking@popupkaraoke.net" method="POST" id="emailCaptureForm">
-            <input type="hidden" name="_subject" value="New Checklist Subscriber — PopUp Karaoke">
-            <input type="hidden" name="_next" value="https://popupkaraoke.net/?subscribed=1">
-            <input type="hidden" name="_autoresponse" value="Hey! Here's your free Karaoke Party Checklist from PopUp Karaoke 🎤
-
-KARAOKE PARTY CHECKLIST
-━━━━━━━━━━━━━━━━━━━━━━
-
-BEFORE THE EVENT
-□ Confirm guest count and venue size
-□ Share the event date & time with your KJ (that's us — 219.758.1313)
-□ Send 5–10 song requests ahead of time so no one freezes at the mic
-□ Ask about wireless mics for duets
-□ Confirm setup/teardown time is included
-
-DAY OF
-□ Clear a performance area — even 6x6 ft works
-□ Have a short list of 'starter songs' ready (crowd-pleasers get people up fast)
-□ Designate someone to go first — it breaks the ice for everyone else
-□ Don't forget: the more you cheer, the braver singers get!
-
-SONG STARTER PACK (crowd-pleasers that always work)
-🎵 Don't Stop Believin' — Journey
-🎵 Sweet Caroline — Neil Diamond
-🎵 Bohemian Rhapsody — Queen
-🎵 Livin' on a Prayer — Bon Jovi
-🎵 I Will Survive — Gloria Gaynor
-🎵 Mr. Brightside — The Killers
-🎵 Wagon Wheel — Darius Rucker
-🎵 All of Me — John Legend (slower crowd)
-🎵 Since U Been Gone — Kelly Clarkson
-🎵 Africa — Toto
-
-QUESTIONS TO ASK ANY KJ BEFORE YOU BOOK
-□ How many songs do you carry? (We have 75,000+)
-□ Do you provide wireless mics? (We bring two)
-□ Is setup/teardown included? (Yes, always)
-□ Are you a professional host or just a playlist? (We do both — hosted show)
-□ What happens if equipment fails? (We carry backups)
-
-Ready to book? Reply to this email or call/text 219.758.1313.
-
-🇺🇸 PopUp Karaoke — Veteran-Owned &amp; Operated
-booking@popupkaraoke.net | popupkaraoke.net">
-            <input type="hidden" name="_captcha" value="false">
+          <form class="email-capture-form" name="checklist" method="POST" action="/thank-you.html" data-netlify="true" data-netlify-honeypot="bot-field" id="emailCaptureForm">
+            <input type="hidden" name="form-name" value="checklist">
+            <input type="hidden" name="bot-field" style="display:none" tabindex="-1" autocomplete="off">
             <div class="email-capture-fields">
               <input type="text" name="name" placeholder="First name" autocomplete="given-name" required class="email-input" aria-label="First name">
               <input type="email" name="email" placeholder="Email address" autocomplete="email" required class="email-input" aria-label="Email address">
@@ -1781,13 +1759,9 @@ booking@popupkaraoke.net | popupkaraoke.net">
             </div>
           </div>
 
-          <form id="bookingForm" action="https://formsubmit.co/booking@popupkaraoke.net" method="POST" novalidate>
-            <input type="hidden" name="_subject" value="New Booking Request from popupkaraoke.net">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="true">
-            <input type="hidden" name="_next" value="https://popupkaraoke.net/thank-you.html">
-            <input type="hidden" name="_autoresponse" value="Hi! Thanks for reaching out to PopUp Karaoke — we got your booking request and will respond within 24 hours (usually much sooner). In the meantime, save our number 219.758.1313 in case you have any questions, and feel free to follow us on Facebook (PopUpKaraoke219), Instagram (@popupkaraoke219), or TikTok (@popupkaraoke219) for clips from past events. Talk soon! — Daniel, PopUp Karaoke (Veteran-Owned & Operated)">
-            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <form id="bookingForm" name="booking" method="POST" action="/thank-you.html" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
+            <input type="hidden" name="form-name" value="booking">
+            <input type="hidden" name="bot-field" style="display:none" tabindex="-1" autocomplete="off">
 
             <!-- STEP 1: Name, Email, Event Type -->
             <div class="form-step" id="formStep1">
@@ -1918,6 +1892,8 @@ booking@popupkaraoke.net | popupkaraoke.net">
         <h4>Quick Links</h4>
         <ul>
           <li><a href="about.html">About Us</a></li>
+          <li><a href="service-areas.html">Service Areas</a></li>
+          <li><a href="catalog.html">Song Catalog</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="what-to-expect.html">What to Expect</a></li>
           <li><a href="wedding-karaoke.html">Wedding Karaoke</a></li>
@@ -1974,12 +1950,9 @@ booking@popupkaraoke.net | popupkaraoke.net">
       <span class="section-label">On Stage</span>
       <h3 id="srTitle">🎵 Request a Song</h3>
       <p class="lead">Send us your song request and we'll get you on the mic next.</p>
-      <form id="songForm" action="https://formsubmit.co/booking@popupkaraoke.net" method="POST" novalidate>
-        <input type="hidden" name="_subject" value="New Song Request from popupkaraoke.net">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_autoresponse" value="Thanks for the song request! 🎵 If we don't already have it, we'll do our best to add it before your next event. Catch us live: Wednesdays at 18th Street Brewery (Gary), 1st & 3rd Tuesdays at Flights Taproom (Hammond), and 2nd & 4th Fridays at El Capitan (Hobart). — PopUp Karaoke">
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <form id="songForm" name="song-request" method="POST" action="/thank-you.html" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="song-request">
+        <input type="hidden" name="bot-field" style="display:none" tabindex="-1" autocomplete="off">
 
         <div class="form-group">
           <label for="s-name">Your Name</label>
@@ -2067,6 +2040,7 @@ booking@popupkaraoke.net | popupkaraoke.net">
   <div class="mobile-cta" aria-label="Quick actions">
     <div class="mobile-cta-inner">
       <a class="mobile-cta-call" href="tel:+12197581313" aria-label="Call PopUp Karaoke">📞 Call</a>
+      <a class="mobile-cta-text" href="sms:+12197581313" aria-label="Text PopUp Karaoke">💬 Text</a>
       <a class="mobile-cta-book" href="#contact" aria-label="Book your event">🎤 Book Now</a>
     </div>
   </div>
@@ -2559,6 +2533,57 @@ setupForm(document.getElementById('bookingForm'));setupForm(document.getElementB
       navigator.serviceWorker.register('/sw.js').catch(function(){});
     });
   }
+</script>
+
+<!-- Song request modal — AJAX submit so the page doesn't redirect -->
+<script>
+(function(){
+  'use strict';
+  var sf = document.getElementById('songForm');
+  if(!sf) return;
+
+  sf.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    // Let the setupForm validation run first by reading its results
+    var invalids = sf.querySelectorAll('.invalid');
+    if(invalids.length){ invalids[0].focus(); return; }
+
+    // Re-run validation manually on required fields
+    var ok = true;
+    sf.querySelectorAll('input[required], textarea[required]').forEach(function(f){
+      if(!(f.value||'').trim()){
+        f.classList.add('invalid');
+        var err = f.parentElement.querySelector('.form-error');
+        if(err){ err.textContent='This field is required.'; err.classList.add('show'); }
+        if(ok){ f.focus(); ok=false; }
+      }
+    });
+    if(!ok) return;
+
+    var btn = sf.querySelector('button[type="submit"]');
+    if(btn){ btn.disabled=true; btn.textContent='Sending…'; }
+
+    var data = new URLSearchParams(new FormData(sf));
+    fetch('/', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: data.toString()
+    })
+    .then(function(){
+      sf.innerHTML = '<div style="text-align:center;padding:2rem 0 1rem">'
+        + '<div style="font-size:3rem;margin-bottom:0.75rem">🎤</div>'
+        + '<h3 style="margin-bottom:0.5rem">Request Sent!</h3>'
+        + '<p style="color:var(--text-dim)">We\'ve got your song and will have it ready for you. See you on stage!</p>'
+        + '</div>';
+    })
+    .catch(function(){
+      // Netlify fetch failed — fall back to normal POST redirect
+      if(btn){ btn.disabled=false; btn.textContent='🎤 Send Song Request'; }
+      sf.submit();
+    });
+  });
+})();
 </script>
 
 </body>

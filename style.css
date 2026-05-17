@@ -103,3 +103,7 @@ a,button,input,select,textarea,[role="button"],[tabindex]{cursor:url('mic-cursor
 .nav-links{gap:0.1rem}
 .nav-links>li>a,.nav-links>li>button.nav-dd-toggle{font-size:0.88rem;white-space:nowrap;padding:0.3rem 0.45rem}
 .nav-phone{font-size:0.82rem !important}
+
+/* ── Text CTA button in mobile sticky bar ──────────────────────── */
+.mobile-cta-text{background:rgba(168,85,247,0.12);border:1.5px solid var(--neon-purple,#a855f7);color:var(--neon-purple,#a855f7)}
+.mobile-cta-text:active{background:rgba(168,85,247,0.25)}
