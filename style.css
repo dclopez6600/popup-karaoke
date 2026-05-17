@@ -69,3 +69,15 @@
 /* ── CUSTOM MICROPHONE CURSOR ─────────────────────────────────────── */
 html,body{cursor:url('mic-cursor.svg') 16 2,auto}
 a,button,input,select,textarea,[role="button"],[tabindex]{cursor:url('mic-cursor.svg') 16 2,pointer}
+
+/* ── NAV SOCIAL ICONS ─────────────────────────────────────────────── */
+.nav-socials-item{display:flex;align-items:center}
+.nav-socials{display:flex;align-items:center;gap:0.35rem}
+.nav-social-link{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;color:var(--text-dim);transition:color 0.2s,background 0.2s;text-decoration:none}
+.nav-social-link:hover{color:#fff;background:rgba(168,85,247,0.25)}
+@media(max-width:900px){.nav-socials-item{display:none}}
+
+/* ── SONG CATALOG BROWSE LINK ─────────────────────────────────────── */
+.song-search-browse{margin-top:0.75rem;font-size:0.85rem;color:var(--text-dim);text-align:center}
+.song-search-browse-link{color:var(--neon-pink);font-weight:600;text-decoration:none;transition:opacity 0.2s}
+.song-search-browse-link:hover{opacity:0.8;text-decoration:underline}

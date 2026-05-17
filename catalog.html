@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Full Song Catalog — 75,000+ Karaoke Songs | PopUp Karaoke</title>
+  <meta name="description" content="Browse our full karaoke library of 75,000+ songs. Filter by genre, language, or search by title and artist. PopUp Karaoke serves NW Indiana and Chicagoland.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.popupkaraoke.net/catalog.html">
+  <link rel="icon" href="icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="75,000+ Song Catalog | PopUp Karaoke">
+  <meta property="og:description" content="Browse our complete karaoke library. Filter by genre, language, duets, and more.">
+  <meta property="og:url" content="https://www.popupkaraoke.net/catalog.html">
+  <meta property="og:image" content="https://www.popupkaraoke.net/og-image.webp">
+
+  <style>
+    :root{
+      --bg:#060010;--bg2:#0d0020;--card:rgba(255,255,255,0.04);
+      --border:rgba(255,255,255,0.08);--text:#f0eaff;--text-dim:#a09ab8;
+      --neon-pink:#ff2d92;--neon-purple:#a855f7;--neon-cyan:#22d3ee;
+      --container:min(1200px,calc(100vw - 2rem));
+      --radius:0.75rem;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;min-height:100vh}
+
+    /* ── NAV ── */
+    .nav{position:sticky;top:0;z-index:100;background:rgba(6,0,16,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0.75rem 0}
+    .nav-row{width:var(--container);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .nav-logo{display:flex;align-items:center;gap:0.5rem;font-weight:800;font-size:1rem;color:var(--text);text-decoration:none}
+    .nav-logo img{width:34px;height:34px}
+    .nav-back{color:var(--neon-pink);font-weight:600;font-size:0.9rem;text-decoration:none;display:flex;align-items:center;gap:0.4rem}
+    .nav-back:hover{text-decoration:underline}
+
+    /* ── HERO ── */
+    .hero{padding:3rem 0 2rem;text-align:center;background:linear-gradient(180deg,rgba(168,85,247,0.08) 0%,transparent 100%)}
+    .hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;line-height:1.15}
+    .hero h1 span{background:linear-gradient(135deg,var(--neon-pink),var(--neon-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero p{color:var(--text-dim);font-size:1rem;margin-top:0.5rem}
+
+    /* ── FILTER BAR ── */
+    .filter-bar{position:sticky;top:57px;z-index:90;background:rgba(6,0,16,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0.75rem 0}
+    .filter-inner{width:var(--container);margin:0 auto;display:flex;flex-direction:column;gap:0.6rem}
+    .search-row{display:flex;gap:0.5rem}
+    .catalog-search{flex:1;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:0.5rem;padding:0.6rem 1rem;color:var(--text);font-size:0.95rem;outline:none;transition:border-color 0.2s}
+    .catalog-search:focus{border-color:var(--neon-purple)}
+    .catalog-search::placeholder{color:var(--text-dim)}
+    .clear-search{background:transparent;border:1px solid var(--border);border-radius:0.5rem;color:var(--text-dim);padding:0.6rem 0.9rem;cursor:pointer;font-size:0.85rem;transition:all 0.2s}
+    .clear-search:hover{border-color:var(--neon-pink);color:var(--neon-pink)}
+
+    .chips-row{display:flex;flex-wrap:wrap;gap:0.4rem;align-items:center}
+    .chips-label{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-dim);margin-right:0.25rem;white-space:nowrap}
+    .chip{background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:999px;padding:0.3rem 0.85rem;font-size:0.8rem;cursor:pointer;color:var(--text-dim);transition:all 0.18s;white-space:nowrap;font-family:inherit}
+    .chip:hover{border-color:var(--neon-purple);color:var(--text)}
+    .chip.active{background:var(--neon-purple);border-color:var(--neon-purple);color:#fff;font-weight:600}
+    .chip-duet{accent-color:var(--neon-pink)}
+    .duet-label{font-size:0.8rem;color:var(--text-dim);cursor:pointer;display:flex;align-items:center;gap:0.35rem;user-select:none}
+    .duet-label input{accent-color:var(--neon-pink);width:15px;height:15px}
+
+    /* ── RESULTS BAR ── */
+    .results-bar{width:var(--container);margin:0.75rem auto 0.5rem;display:flex;align-items:center;justify-content:space-between;font-size:0.85rem;color:var(--text-dim)}
+    .results-count strong{color:var(--text)}
+
+    /* ── TABLE ── */
+    .table-wrap{width:var(--container);margin:0 auto;overflow-x:auto;padding-bottom:2rem}
+    .song-table{width:100%;border-collapse:collapse;font-size:0.88rem}
+    .song-table th{padding:0.6rem 0.75rem;text-align:left;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-dim);border-bottom:1px solid var(--border);white-space:nowrap}
+    .song-table td{padding:0.55rem 0.75rem;border-bottom:1px solid rgba(255,255,255,0.04);vertical-align:middle}
+    .song-table tr:hover td{background:rgba(255,255,255,0.03)}
+    .song-title{font-weight:600;color:var(--text)}
+    .song-artist{color:var(--text-dim);font-size:0.83rem;margin-top:0.1rem}
+    .genre-badge{display:inline-block;padding:0.2rem 0.55rem;border-radius:999px;font-size:0.72rem;font-weight:700;white-space:nowrap}
+    .lang-badge{display:inline-block;padding:0.15rem 0.45rem;border-radius:0.25rem;font-size:0.7rem;font-weight:600;background:rgba(255,255,255,0.07);color:var(--text-dim)}
+    .duet-icon{font-size:1rem;opacity:0.8}
+    td.col-tags{white-space:nowrap}
+
+    /* Genre badge colors */
+    .g-Pop{background:rgba(236,72,153,0.2);color:#f9a8d4}
+    .g-Rock{background:rgba(239,68,68,0.2);color:#fca5a5}
+    .g-Country{background:rgba(234,179,8,0.2);color:#fde047}
+    .g-Hip-Hop{background:rgba(168,85,247,0.2);color:#d8b4fe}
+    .g-R-B{background:rgba(249,115,22,0.2);color:#fdba74}
+    .g-Latin{background:rgba(20,184,166,0.2);color:#5eead4}
+    .g-Electronic{background:rgba(34,211,238,0.2);color:#67e8f9}
+    .g-Jazz-Blues{background:rgba(59,130,246,0.2);color:#93c5fd}
+    .g-Soundtrack{background:rgba(16,185,129,0.2);color:#6ee7b7}
+    .g-French{background:rgba(99,102,241,0.2);color:#c7d2fe}
+    .g-Classical{background:rgba(245,158,11,0.2);color:#fcd34d}
+    .g-Other{background:rgba(107,114,128,0.2);color:#d1d5db}
+
+    /* ── LOAD MORE ── */
+    .load-more-wrap{text-align:center;padding:1.5rem 0 3rem}
+    .btn-load-more{background:transparent;border:1px solid var(--neon-purple);color:var(--neon-purple);border-radius:0.5rem;padding:0.7rem 2rem;font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:inherit}
+    .btn-load-more:hover{background:var(--neon-purple);color:#fff}
+    .btn-load-more:disabled{opacity:0.4;cursor:not-allowed}
+
+    /* ── EMPTY / LOADING ── */
+    .empty-state{text-align:center;padding:4rem 1rem;color:var(--text-dim)}
+    .empty-state h3{color:var(--text);margin-bottom:0.5rem}
+    .loading-state{text-align:center;padding:3rem 1rem;color:var(--text-dim);font-size:0.95rem}
+
+    /* ── FOOTER CTA ── */
+    .catalog-footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 0;text-align:center}
+    .catalog-footer h2{font-size:1.5rem;font-weight:800;margin-bottom:0.5rem}
+    .catalog-footer p{color:var(--text-dim);margin-bottom:1.5rem}
+    .btn-book{display:inline-block;background:linear-gradient(135deg,var(--neon-pink),var(--neon-purple));color:#fff;font-weight:700;font-size:0.95rem;padding:0.85rem 2rem;border-radius:999px;text-decoration:none;transition:opacity 0.2s}
+    .btn-book:hover{opacity:0.9}
+
+    @media(max-width:640px){
+      .song-table th.col-lang,.song-table td.col-lang,
+      .song-table th.col-duet,.song-table td.col-duet{display:none}
+      .hero{padding:2rem 0 1.25rem}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Site navigation">
+    <div class="nav-row">
+      <a class="nav-logo" href="index.html" aria-label="PopUp Karaoke home">
+        <picture>
+          <source srcset="puklogo.webp" type="image/webp">
+          <img src="puklogo.png" alt="PopUp Karaoke" width="34" height="34" loading="eager">
+        </picture>
+        <span>PopUp Karaoke</span>
+      </a>
+      <a class="nav-back" href="index.html">← Back to site</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div style="width:var(--container);margin:0 auto;padding:0 1rem">
+      <h1>🎵 Our <span>Song Library</span></h1>
+      <p>75,000+ karaoke tracks — search by title, artist, genre, or language.</p>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar" id="filterBar">
+    <div class="filter-inner">
+      <div class="search-row">
+        <input type="text" class="catalog-search" id="catalogSearch" placeholder="Search title or artist…" autocomplete="off" aria-label="Search songs">
+        <button class="clear-search" id="clearSearch" aria-label="Clear search">Clear</button>
+      </div>
+      <div class="chips-row">
+        <span class="chips-label">Genre</span>
+        <button class="chip active" data-genre="">All</button>
+        <button class="chip" data-genre="Pop">Pop</button>
+        <button class="chip" data-genre="Rock">Rock</button>
+        <button class="chip" data-genre="Country">Country</button>
+        <button class="chip" data-genre="Hip-Hop">Hip-Hop</button>
+        <button class="chip" data-genre="R&B">R&amp;B</button>
+        <button class="chip" data-genre="Latin">Latin</button>
+        <button class="chip" data-genre="Electronic">Electronic</button>
+        <button class="chip" data-genre="Jazz/Blues">Jazz/Blues</button>
+        <button class="chip" data-genre="Soundtrack">Soundtrack</button>
+        <button class="chip" data-genre="French">French</button>
+        <button class="chip" data-genre="Classical">Classical</button>
+      </div>
+      <div class="chips-row">
+        <span class="chips-label">Language</span>
+        <button class="chip active" data-lang="">All</button>
+        <button class="chip" data-lang="en">English</button>
+        <button class="chip" data-lang="es">Spanish</button>
+        <button class="chip" data-lang="fr">French</button>
+        <button class="chip" data-lang="de">German</button>
+        <label class="duet-label" style="margin-left:auto">
+          <input type="checkbox" id="duetOnly"> Duets only 🎤🎤
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS COUNT -->
+  <div class="results-bar" id="resultsBar">
+    <span class="results-count" id="resultsCount"><strong>Loading…</strong></span>
+    <span id="filterSummary" style="font-style:italic"></span>
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-wrap">
+    <div id="loadingState" class="loading-state">Loading 75,000+ songs…</div>
+    <table class="song-table" id="songTable" style="display:none" aria-label="Song catalog">
+      <thead>
+        <tr>
+          <th>Title / Artist</th>
+          <th>Genre</th>
+          <th class="col-lang">Lang</th>
+          <th class="col-duet">Duet</th>
+        </tr>
+      </thead>
+      <tbody id="songTableBody"></tbody>
+    </table>
+    <div id="emptyState" class="empty-state" style="display:none">
+      <h3>No songs found</h3>
+      <p>Try a different search term or clear your filters.</p>
+    </div>
+  </div>
+
+  <!-- LOAD MORE -->
+  <div class="load-more-wrap" id="loadMoreWrap" style="display:none">
+    <button class="btn-load-more" id="loadMoreBtn">Load More Songs</button>
+    <p style="margin-top:0.75rem;font-size:0.8rem;color:var(--text-dim)" id="loadMoreStatus"></p>
+  </div>
+
+  <!-- FOOTER CTA -->
+  <div class="catalog-footer">
+    <div style="width:var(--container);margin:0 auto;padding:0 1rem">
+      <h2>Ready to book?</h2>
+      <p>Don't see your song? We can often add it before your event — just ask.</p>
+      <a class="btn-book" href="index.html#contact">🎤 Book PopUp Karaoke →</a>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    'use strict';
+
+    var PAGE_SIZE = 50;
+    var data = [];
+    var filtered = [];
+    var shown = 0;
+
+    var searchEl = document.getElementById('catalogSearch');
+    var clearBtn = document.getElementById('clearSearch');
+    var tbody = document.getElementById('songTableBody');
+    var table = document.getElementById('songTable');
+    var emptyEl = document.getElementById('emptyState');
+    var loadingEl = document.getElementById('loadingState');
+    var loadMoreWrap = document.getElementById('loadMoreWrap');
+    var loadMoreBtn = document.getElementById('loadMoreBtn');
+    var loadMoreStatus = document.getElementById('loadMoreStatus');
+    var resultsCount = document.getElementById('resultsCount');
+    var filterSummary = document.getElementById('filterSummary');
+
+    var activeGenre = '';
+    var activeLang = '';
+    var duetOnly = false;
+    var searchQ = '';
+
+    // ── URL params (deep-link support) ──
+    var params = new URLSearchParams(window.location.search);
+    if(params.get('genre')) activeGenre = params.get('genre');
+    if(params.get('lang')) activeLang = params.get('lang');
+    if(params.get('q')) searchQ = params.get('q');
+
+    function genreClass(g){
+      return 'g-' + g.replace(/[^a-zA-Z]/g,'-').replace(/-+/g,'-');
+    }
+
+    function renderRow(song){
+      var gc = genreClass(song.g);
+      return '<tr>'
+        + '<td><div class="song-title">'+escHtml(song.t)+'</div><div class="song-artist">'+escHtml(song.a)+'</div></td>'
+        + '<td><span class="genre-badge '+gc+'">'+escHtml(song.g)+'</span></td>'
+        + '<td class="col-lang"><span class="lang-badge">'+escHtml(song.l)+'</span></td>'
+        + '<td class="col-duet">'+(song.d?'<span class="duet-icon">🎤🎤</span>':'')+'</td>'
+        + '</tr>';
+    }
+
+    function escHtml(s){
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    function applyFilters(){
+      var q = searchQ.toLowerCase();
+      filtered = data.filter(function(s){
+        if(activeGenre && s.g !== activeGenre) return false;
+        if(activeLang && s.l !== activeLang) return false;
+        if(duetOnly && !s.d) return false;
+        if(q && s.t.toLowerCase().indexOf(q)===-1 && s.a.toLowerCase().indexOf(q)===-1) return false;
+        return true;
+      });
+      shown = 0;
+      renderPage();
+      updateResults();
+    }
+
+    function renderPage(){
+      var chunk = filtered.slice(shown, shown + PAGE_SIZE);
+      if(shown === 0) tbody.innerHTML = '';
+      tbody.insertAdjacentHTML('beforeend', chunk.map(renderRow).join(''));
+      shown += chunk.length;
+
+      if(filtered.length === 0){
+        table.style.display = 'none';
+        emptyEl.style.display = 'block';
+        loadMoreWrap.style.display = 'none';
+      } else {
+        table.style.display = 'table';
+        emptyEl.style.display = 'none';
+        if(shown < filtered.length){
+          loadMoreWrap.style.display = 'block';
+          loadMoreStatus.textContent = 'Showing '+shown+' of '+filtered.length.toLocaleString()+' songs';
+        } else {
+          loadMoreWrap.style.display = 'none';
+        }
+      }
+    }
+
+    function updateResults(){
+      var parts = [];
+      if(activeGenre) parts.push(activeGenre);
+      if(activeLang){
+        var lm={'en':'English','es':'Spanish','fr':'French','de':'German'};
+        parts.push(lm[activeLang]||activeLang);
+      }
+      if(duetOnly) parts.push('Duets');
+      if(searchQ) parts.push('"'+searchQ+'"');
+
+      resultsCount.innerHTML = '<strong>'+filtered.length.toLocaleString()+'</strong> songs';
+      filterSummary.textContent = parts.length ? 'filtered by ' + parts.join(' · ') : '';
+    }
+
+    // ── Chip click handlers ──
+    document.querySelectorAll('.chip[data-genre]').forEach(function(chip){
+      if(chip.dataset.genre === activeGenre) chip.classList.add('active');
+      else if(activeGenre && chip.dataset.genre !== activeGenre) chip.classList.remove('active');
+      chip.addEventListener('click', function(){
+        document.querySelectorAll('.chip[data-genre]').forEach(function(c){c.classList.remove('active');});
+        chip.classList.add('active');
+        activeGenre = chip.dataset.genre;
+        applyFilters();
+      });
+    });
+
+    document.querySelectorAll('.chip[data-lang]').forEach(function(chip){
+      if(chip.dataset.lang === activeLang) chip.classList.add('active');
+      else if(activeLang && chip.dataset.lang !== activeLang) chip.classList.remove('active');
+      chip.addEventListener('click', function(){
+        document.querySelectorAll('.chip[data-lang]').forEach(function(c){c.classList.remove('active');});
+        chip.classList.add('active');
+        activeLang = chip.dataset.lang;
+        applyFilters();
+      });
+    });
+
+    document.getElementById('duetOnly').addEventListener('change', function(){
+      duetOnly = this.checked;
+      applyFilters();
+    });
+
+    // ── Search ──
+    var debounceTimer;
+    searchEl.addEventListener('input', function(){
+      clearTimeout(debounceTimer);
+      searchQ = this.value;
+      debounceTimer = setTimeout(applyFilters, 250);
+    });
+    if(searchQ){ searchEl.value = searchQ; }
+
+    clearBtn.addEventListener('click', function(){
+      searchEl.value = '';
+      searchQ = '';
+      applyFilters();
+    });
+
+    // ── Load more ──
+    loadMoreBtn.addEventListener('click', function(){
+      renderPage();
+    });
+
+    // ── Load catalog data ──
+    var script = document.createElement('script');
+    script.src = 'catalog-data.js';
+    script.onload = function(){
+      data = window.CATALOG_DATA || [];
+      loadingEl.style.display = 'none';
+      applyFilters();
+    };
+    script.onerror = function(){
+      loadingEl.textContent = 'Could not load catalog. Please refresh the page.';
+    };
+    document.head.appendChild(script);
+
+  })();
+  </script>
+</body>
+</html>

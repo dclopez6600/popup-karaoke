@@ -670,8 +670,22 @@
         </li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="catalog.html">🎵 Catalog</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li class="nav-socials-item">
+          <div class="nav-socials">
+            <a class="nav-social-link" href="https://www.instagram.com/popupkaraoke219" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a class="nav-social-link" href="https://www.tiktok.com/@popupkaraoke219" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.72a8.15 8.15 0 0 0 4.77 1.52V6.79a4.84 4.84 0 0 1-1-.1z"/></svg>
+            </a>
+            <a class="nav-social-link" href="https://www.facebook.com/PopUpKaraoke219" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </li>
         <li><a class="nav-phone" href="tel:+12197581313" aria-label="Call PopUp Karaoke">📞 219.758.1313</a></li>
         <li><a class="nav-cta" href="https://square.link/u/CmsBTgrE?src=web" target="_blank" rel="noopener">💳 Pay</a></li>
       </ul>
@@ -1248,31 +1262,6 @@
     </section>
 
     <!-- JOIN KARAOKE -->
-    <section class="join-karaoke-section" id="join">
-      <div class="container">
-        <div class="join-karaoke-inner reveal">
-          <div class="join-karaoke-text">
-            <span class="section-label">At the Event?</span>
-            <h2 class="section-title">Join the <span class="grad">Karaoke Queue</span></h2>
-            <p>Scan the QR code or tap the button below to add yourself to the queue and request a song — right from your phone.</p>
-            <ul class="join-steps">
-              <li><span class="join-step-num">1</span><span>Scan the QR code or tap "Join Now"</span></li>
-              <li><span class="join-step-num">2</span><span>Enter your name and pick your song</span></li>
-              <li><span class="join-step-num">3</span><span>Watch for your name on the screen — you're up!</span></li>
-            </ul>
-            <a class="btn btn-primary join-btn" href="https://www.karafun.com/062552/" target="_blank" rel="noopener">🎤 Join the Queue Now</a>
-            <p class="join-sub">No app download needed. Works on any phone.</p>
-          </div>
-          <div class="join-karaoke-qr">
-            <div class="qr-card">
-              <img decoding="async" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=ffffff&bgcolor=6d28d9&data=https://www.karafun.com/062552/" alt="Scan to join PopUp Karaoke queue" width="200" height="200" loading="lazy">
-              <p class="qr-label">Scan to join the queue</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- SONGS -->
     <section class="songs" id="songs">
       <div class="container">
@@ -1322,6 +1311,7 @@
               <button type="button" class="song-search-clear" id="songSearchClear" aria-label="Clear search">✕</button>
             </div>
             <div class="song-search-results" id="songSearchResults" aria-live="polite"></div>
+            <p class="song-search-browse">Want to explore the full library? <a href="catalog.html" class="song-search-browse-link">Browse all 75,000+ songs →</a></p>
           </div>
         </div>
 
@@ -1696,14 +1686,14 @@ booking@popupkaraoke.net | popupkaraoke.net">
             <div class="avail-header">
               <span class="avail-icon">📅</span>
               <div>
-                <p class="avail-label">Check Your Date</p>
+                <p class="avail-label">📅 Pick your event date</p>
                 <p class="avail-hint">See if we're available before filling out the form</p>
                 <p class="avail-urgency" id="availUrgency" style="display:none;font-size:0.78rem;font-weight:600;color:#fb923c;margin-top:0.25rem;"></p>
               </div>
             </div>
             <div class="avail-row">
               <input type="date" id="availDate" class="avail-input" aria-label="Select your event date">
-              <button type="button" class="btn btn-primary avail-btn" id="availBtn">Check →</button>
+              <button type="button" class="btn btn-primary avail-btn" id="availBtn">Start My Booking →</button>
             </div>
             <div class="avail-feedback-wrap" id="availFeedbackWrap" style="display:none;">
               <p class="avail-feedback" id="availFeedback"></p>
@@ -2088,118 +2078,48 @@ booking@popupkaraoke.net | popupkaraoke.net">
     dd.querySelectorAll('.nav-dd-menu a').forEach(function(a){a.addEventListener('click',close);});
   })();</script>
 
-  <!-- SONG SEARCH -->
+  <!-- SONG SEARCH — lazy-loads full 75,705-song catalog on first focus -->
   <script>(function(){
     'use strict';
-    var SONGS=[
-      {a:'Mariah Carey',t:'#Beautiful'},{a:'Kenny Rogers',t:'\'Til I Can Make It on My Own'},{a:'Eminem',t:'\'Till I Collapse'},{a:'Louis Armstrong',t:'\'Zat You, Santa Claus?'},{a:'Elvis Presley',t:'(Anyone) Could Fall in Love with You'},{a:'Johnny Cash',t:'(Ghost) Riders in the Sky'},
-      {a:'The Rolling Stones',t:'(I Can\'t Get No) Satisfaction'},{a:'Dean Martin',t:'(I Love You) For Sentimental Reasons'},{a:'Nat King Cole',t:'(I Love You) For Sentimental Reasons'},{a:'Shakira',t:'(If You\'re Not In It For Love) I\'m Outta Here!'},{a:'Shakira',t:'(If You\'re Not in It for Love) I\'m Outta Here! (Mutt'},{a:'Elvis Presley',t:'(Let Me Be Your) Teddy Bear'},
-      {a:'Elvis Presley',t:'(Let Me Be Your) Teddy Bear / Don\'t Be Cruel'},{a:'Elvis Presley',t:'(Let Me Be Your) Teddy Bear / Don\'t Be Cruel (live'},{a:'Shakira',t:'(live in Miami)'},{a:'Justin Bieber',t:'(Oh No) What You Got'},{a:'Aretha Franklin',t:'(Sweet Sweet Baby) Since You\'ve Been Gone'},{a:'Elvis Presley',t:'(That\'s What You Get) For Lovin\' Me'},
-      {a:'Elvis Presley',t:'(There\'ll Be) Peace in the Valley (For Me) (With the'},{a:'Shakira',t:'(Wanna Get to Know You) That Good'},{a:'Aretha Franklin',t:'(You Make Me Feel Like) A Natural Woman'},{a:'Elvis Presley',t:'(You\'re the) Devil in Disguise'},{a:'Beyoncé',t:'***Flawless'},{a:'Beyoncé',t:'1+1'},
-      {a:'Luke Combs',t:'1, 2 Many'},{a:'Lady Gaga',t:'1000 Doves'},{a:'Guns N\' Roses',t:'14 Years'},{a:'Sabrina Carpenter',t:'15 Minutes'},{a:'Elvis Presley',t:'1974 Memphis)'},{a:'Lizzo',t:'2 Be Loved (Am I Ready)'},
-      {a:'Morgan Wallen',t:'20 Cigarettes'},{a:'Green Day',t:'21 Guns'},{a:'Bruno Mars',t:'24K Magic'},{a:'Ed Sheeran',t:'2step (feat. Lil Baby)'},{a:'SZA',t:'30 for 30'},{a:'Ariana Grande',t:'34+35'},
-      {a:'Ariana Grande',t:'34+35 (remix)'},{a:'Journey',t:'4 Kampé'},{a:'Lady Gaga',t:'52nd Annual Grammy Awards)'},{a:'The Weeknd',t:'5:15'},{a:'Ariana Grande',t:'7 Rings'},{a:'Morgan Wallen',t:'7 Summers'},
-      {a:'Tim McGraw',t:'7500 OBO'},{a:'Dolly Parton',t:'9 to 5'},{a:'Dolly Parton',t:'9 to 5 (with Kelly Clarkson)'},{a:'Jay-Z',t:'99 Problems'},{a:'Post Malone',t:'A Bar Song (Tipsy)'},{a:'Alicia Keys',t:'A Beautiful Noise'},
-      {a:'Elvis Presley',t:'A Big Hunk o\' Love'},{a:'Nat King Cole',t:'A Blossom Fell'},{a:'Elvis Presley',t:'A Boy Like Me, a Girl Like You'},{a:'ABBA',t:'A Change Is Gonna Come'},{a:'Aretha Franklin',t:'A Change Is Gonna Come'},{a:'Aretha Franklin',t:'A Deeper Love'},
-      {a:'Frank Sinatra',t:'A Foggy Day'},{a:'John Legend',t:'A Good Night'},{a:'Alan Jackson',t:'A Holly Jolly Christmas'},{a:'Queen',t:'A Kind of Magic'},{a:'Louis Armstrong',t:'A Kiss to Build a Dream On'},{a:'Shakira',t:'A Little Too Much'},
-      {a:'ABBA',t:'A Loaded Smile'},{a:'Luke Bryan',t:'A Long Way'},{a:'Alan Jackson',t:'A Man Who Never Cries'},{a:'Aretha Franklin',t:'A Rose Is Still a Rose'},{a:'Coldplay',t:'A Sky Full of Stars'},{a:'Whitney Houston',t:'A Song for You'},
-      {a:'Chris Stapleton',t:'A Song to Sing'},{a:'The Beatles',t:'A Taste of Honey'},{a:'Stevie Wonder',t:'A Thousand Years'},{a:'Alicia Keys',t:'A Woman\'s Worth'},{a:'Elvis Presley',t:'A World of Our Own'},{a:'Ella Fitzgerald',t:'A-Tisket, A-Tasket'},
-      {a:'Doja Cat',t:'AAAHH MEN!'},{a:'Lizzo',t:'About Damn Time'},{a:'Lizzo',t:'About Damn Time (clean version)'},{a:'Shakira',t:'Act Like You Love Me'},{a:'Harry Styles',t:'Addict'},{a:'Harry Styles',t:'Addict (rock cover)'},
-      {a:'Eminem',t:'Adulte et sexy'},{a:'Coldplay',t:'Adventure of a Lifetime'},{a:'Red Hot Chili Peppers',t:'Aeroplane'},{a:'Ed Sheeran',t:'Afire Love'},{a:'Post Malone',t:'Africa'},{a:'Elvis Presley',t:'After Loving You'},
-      {a:'Eric Clapton',t:'After Midnight'},{a:'Stevie Wonder',t:'After the Rain Has Fallen'},{a:'ABBA',t:'Aftermath'},{a:'Lady Gaga',t:'Again Again'},{a:'Mariah Carey',t:'Against All Odds (Take a Look at Me Now)'},{a:'Doja Cat',t:'Agora Hills'},
-      {a:'Luke Bryan',t:'Ain\'t Far from It'},{a:'Garth Brooks',t:'Ain\'t Going Down (\'Til the Sun Comes Up)'},{a:'Guns N\' Roses',t:'Ain\'t It Fun'},{a:'Paramore',t:'Ain\'t It Fun'},{a:'Alan Jackson',t:'Ain\'t Just a Southern Thing'},{a:'ABBA',t:'Ain\'t No Fun (Waiting Round to Be a Millionaire)'},
-      {a:'Marvin Gaye',t:'Ain\'t No Mountain High Enough'},{a:'Stevie Wonder',t:'Ain\'t No Sunshine'},{a:'John Legend',t:'Ain\'t No Sunshine (live At The Crossroads Festival'},{a:'Aretha Franklin',t:'Ain\'t No Way'},{a:'The Beatles',t:'Ain\'t She Sweet'},{a:'Doja Cat',t:'Ain\'t Shit'},
-      {a:'Dean Martin',t:'Ain\'t That a Kick in the Head'},{a:'Harry Styles',t:'Alastor\'s Reprise'},{a:'Eric Clapton',t:'Alberta'},{a:'Lady Gaga',t:'Alejandro (Demo Version)'},{a:'Lady Gaga',t:'Alice'},{a:'Nirvana',t:'All Apologies'},
-      {a:'Whitney Houston',t:'All at Once'},{a:'Kanye West',t:'All Falls Down'},{a:'Adele',t:'All I Ask'},{a:'Bruno Mars',t:'All I Ask (live)'},{a:'Dean Martin',t:'All I Do Is Dream of You'},{a:'Mariah Carey',t:'All I Want for Christmas Is You'},
-      {a:'Tim McGraw',t:'All I Want Is a Life'},{a:'U2',t:'All I Want Is You'},{a:'Paramore',t:'All I Wanted'},{a:'Drake',t:'All Me'},{a:'George Strait',t:'All My Ex\'s Live in Texas'},{a:'Luke Bryan',t:'All My Friends Say'},
-      {a:'Foo Fighters',t:'All My Life'},{a:'Coldplay',t:'All My Love'},{a:'The Beatles',t:'All My Loving'},{a:'Ella Fitzgerald',t:'All of Me'},{a:'Frank Sinatra',t:'All of Me'},{a:'John Legend',t:'All of Me'},
-      {a:'Louis Armstrong',t:'All of Me'},{a:'John Legend',t:'All of Me (feat. Jennifer Nettles & Hunter Hayes)'},{a:'Louis Armstrong',t:'All of Me (live)'},{a:'John Legend',t:'All of Me (Tiësto Remix)'},{a:'John Legend',t:'All of Me (with Lindsey Stirling)'},{a:'Kanye West',t:'All of the Lights'},
-      {a:'Frank Sinatra',t:'All or Nothing at All'},{a:'John Legend',t:'All She Wanna Do'},{a:'Elvis Presley',t:'All Shook Up'},{a:'Justin Bieber',t:'All That Matters'},{a:'Billie Eilish',t:'All the Good Girls Go to Hell'},{a:'Whitney Houston',t:'All The Man That I Need'},
-      {a:'Kendrick Lamar',t:'All the Stars'},{a:'Ella Fitzgerald',t:'All The Things You Are'},{a:'Frank Sinatra',t:'All the Way'},{a:'Tim McGraw',t:'All We Ever Find'},{a:'Carrie Underwood',t:'All-American Girl'},{a:'Elvis Presley',t:'Almost in Love'},
-      {a:'Ariana Grande',t:'Almost Is Never Enough'},{a:'Nat King Cole',t:'Almost Like Being in Love'},{a:'Doja Cat',t:'Alone'},{a:'Kendrick Lamar',t:'Alright'},{a:'Garth Brooks',t:'Alright Guy'},{a:'Bon Jovi',t:'Always'},
-      {a:'Mariah Carey',t:'Always Be My Baby'},{a:'Elvis Presley',t:'Always on My Mind'},{a:'Elvis Presley',t:'Always on My Mind (With the Royal Philharmonic'},{a:'George Strait',t:'Amarillo by Morning'},{a:'Ed Sheeran',t:'Amazing'},{a:'Kanye West',t:'Amazing'},
-      {a:'Alan Jackson',t:'Amazing Grace'},{a:'Aretha Franklin',t:'Amazing Grace'},{a:'Carrie Underwood',t:'Amazing Grace'},{a:'Whitney Houston',t:'Amazing Grace (1994 live Concert for South Africa)'},{a:'Beyoncé',t:'America Has a Problem (feat. Kendrick Lamar)'},{a:'Whitney Houston',t:'America The Beautiful'},
-      {a:'Green Day',t:'American Idiot'},{a:'Kenny Chesney',t:'American Kids'},{a:'Dolly Parton',t:'American Pie (45 version)'},{a:'Ed Sheeran',t:'American Town'},{a:'Beyoncé',t:'Amor Gitano'},{a:'Frank Sinatra',t:'An Old-Fashioned Christmas'},
-      {a:'The Beatles',t:'And I Love Her'},{a:'Dolly Parton',t:'And I Love You So'},{a:'Elvis Presley',t:'And the Grass Won\'t Pay No Mind'},{a:'ABBA',t:'Andante, Andante'},{a:'Aretha Franklin',t:'Angel'},{a:'Post Malone',t:'Angel'},
-      {a:'ABBA',t:'Angeleyes'},{a:'Tim McGraw',t:'Angry All the Time'},{a:'Kenny Rogers',t:'Animal'},{a:'The Beatles',t:'Another Girl'},{a:'ABBA',t:'Another Lonely Night'},{a:'Queen',t:'Another One Bites the Dust'},
-      {a:'Queen',t:'Another Rainy Night'},{a:'Nat King Cole',t:'Answer Me, My Love'},{a:'Shakira',t:'Antología'},{a:'Megan Thee Stallion',t:'Anxiety'},{a:'Elvis Presley',t:'Any Day Now'},{a:'Luke Bryan',t:'Any Given Friday Night'},
-      {a:'Shania Twain',t:'Any Man of Mine'},{a:'The Beatles',t:'Any Time at All'},{a:'Journey',t:'Any Way You Want It'},{a:'Queen',t:'Anybody Listening?'},{a:'Dua Lipa',t:'Anything for Love'},{a:'Guns N\' Roses',t:'Anything Goes'},
-      {a:'Elvis Presley',t:'Anything That\'s Part of You'},{a:'Elvis Presley',t:'Anything That\'s Part of You (with the Royal'},{a:'Mariah Carey',t:'Anytime You Need a Friend'},{a:'Dolly Parton',t:'Applejack'},{a:'Elvis Presley',t:'Are You Lonesome Tonight'},{a:'Norah Jones',t:'Are You Lonesome Tonight'},
-      {a:'Elvis Presley',t:'Are You Lonesome Tonight? (live)'},{a:'ABBA',t:'Are You Ready'},{a:'Chris Stapleton',t:'Arkansas'},{a:'Foo Fighters',t:'Arlandria'},{a:'Nat King Cole',t:'Around the World'},{a:'Red Hot Chili Peppers',t:'Around the World'},
-      {a:'Dean Martin',t:'Arrivederci Roma'},{a:'Green Day',t:'As Far As You Know'},{a:'Harry Styles',t:'As It Was'},{a:'Fleetwood Mac',t:'As Long as You Follow'},{a:'Justin Bieber',t:'As Long As You Love Me'},{a:'Tony Bennett',t:'As Time Goes By'},
-      {a:'Eminem',t:'Ass Like That'},{a:'Nat King Cole',t:'At Last'},{a:'Doja Cat',t:'Attention'},{a:'Kendrick Lamar',t:'Auntie Diaries'},{a:'Eric Clapton',t:'Autumn Leaves'},{a:'Nat King Cole',t:'Autumn Leaves'},
-      {a:'The Weeknd',t:'Baba O\'Riley (45 edit)'},{a:'Justin Bieber',t:'Baby'},{a:'Dean Martin',t:'Baby Face'},{a:'Aretha Franklin',t:'Baby I Love You'},{a:'Dolly Parton',t:'Baby I\'m Burning'},{a:'ABBA',t:'Baby Please Don\'t Go'},
-      {a:'Dean Martin',t:'Baby, It\'s Cold Outside'},{a:'Elvis Presley',t:'Baby, What You Want Me To Do (\'68 Comeback'},{a:'Dean Martin',t:'Baby, Won\'t You Please Come Home'},{a:'Beyoncé',t:'Back to Black'},{a:'Tim McGraw',t:'Back When'},{a:'Ricky Martin',t:'Backroads'},
-      {a:'Kendrick Lamar',t:'Backseat Freestyle'},{a:'Kenny Rogers',t:'Backstabber'},{a:'Billie Eilish',t:'Bad'},{a:'Michael Jackson',t:'Bad'},{a:'The Beatles',t:'Bad Boy'},{a:'ABBA',t:'Bad Boy Boogie'},
-      {a:'Usher',t:'Bad Girl'},{a:'Billie Eilish',t:'Bad Guy'},{a:'Usher',t:'Bad Habits'},{a:'Ed Sheeran',t:'Bad Habits (live)'},{a:'Lady Gaga',t:'Bad Kids'},{a:'Bon Jovi',t:'Bad Medicine'},
-      {a:'Guns N\' Roses',t:'Bad Obsession'},{a:'Sabrina Carpenter',t:'Bad Reviews'},{a:'Lady Gaga',t:'Bad Romance'},{a:'Harry Styles',t:'Bad With Us'},{a:'Bad Bunny',t:'BAILE INoLVIDABLE'},{a:'Foo Fighters',t:'Baker Street'},
-      {a:'Ariana Grande',t:'Bang Bang'},{a:'Dua Lipa',t:'Bang Bang'},{a:'Post Malone',t:'Barbie Girl'},{a:'Rihanna',t:'Bartender In Destin (acoustic)'},{a:'Green Day',t:'Basket Case'},{a:'Kenny Rogers',t:'Bastards'},
-      {a:'Beyoncé',t:'Be Alive (live 94th Academy Awards)'},{a:'Luke Combs',t:'Be by You'},{a:'Ed Sheeran',t:'Be Right Now'},{a:'Dua Lipa',t:'Be The One'},{a:'Dua Lipa',t:'Be the One (live from the Royal Albert Hall)'},{a:'Michael Jackson',t:'Beat It'},
-      {a:'ABBA',t:'Beating Around the Bush'},{a:'Eminem',t:'Beau malheur (live Session OFF TV)'},{a:'Eminem',t:'Beautiful'},{a:'Post Malone',t:'Beautiful'},{a:'Luke Combs',t:'Beautiful Crazy'},{a:'U2',t:'Beautiful Day'},
-      {a:'Justin Bieber',t:'Beauty and a Beat'},{a:'Post Malone',t:'Beauty And A Beat'},{a:'Post Malone',t:'Beauty and The Beast'},{a:'Sabrina Carpenter',t:'Because I Liked a Boy'},{a:'Tony Bennett',t:'Because of You'},{a:'Sabrina Carpenter',t:'Bed Chem'},
-      {a:'Bon Jovi',t:'Bed of Roses'},{a:'Bon Jovi',t:'Bed of Roses (acoustic)'},{a:'Usher',t:'Bedtime'},{a:'Doja Cat',t:'Been Like This'},{a:'Luke Combs',t:'Beer Never Broke My Heart'},{a:'Beyoncé',t:'Before I Let Go'},
-      {a:'Dolly Parton',t:'Before the Next Teardrop Falls'},{a:'Eric Clapton',t:'Before You Accuse Me'},{a:'Eric Clapton',t:'Bell Bottom Blues'},{a:'Dean Martin',t:'Bella Bella Bambina'},{a:'Beyoncé',t:'Bello embustero (Beautiful Liar)'},{a:'Billie Eilish',t:'Bellyache'},
-      {a:'Michael Jackson',t:'Ben'},{a:'Elton John',t:'Bennie and the Jets'},{a:'Adele',t:'Best for Last'},{a:'Queen',t:'Best I Can'},{a:'Drake',t:'Best I Ever Had'},{a:'Alicia Keys',t:'Best of Me'},
-      {a:'Foo Fighters',t:'Best of You'},{a:'Taylor Swift',t:'Bette Davis Eyes (live)'},{a:'Guns N\' Roses',t:'Better'},{a:'Lizzo',t:'Better in Color'},{a:'Post Malone',t:'Better Now'},{a:'ABBA',t:'Better Than I Know Myself'},
-      {a:'Tim McGraw',t:'Better Than I Used To Be'},{a:'Luke Combs',t:'Better Together'},{a:'Eminem',t:'Bienvenue'},{a:'Michael Bublé',t:'Big Blue Tree'},{a:'Elvis Presley',t:'Big Boss Man'},{a:'SZA',t:'Big Boy (live Saturday Night Live)'},
-      {a:'ABBA',t:'Big Gun'},{a:'Fleetwood Mac',t:'Big Love'},{a:'Elvis Presley',t:'Big Love, Big Heartache'},{a:'Foo Fighters',t:'Big Me'},{a:'Megan Thee Stallion',t:'Big Ole Freak'},{a:'Jay-Z',t:'Big Pimpin\''},
-      {a:'Megan Thee Stallion',t:'Bigger in Texas'},{a:'Michael Bublé',t:'Bill Bailey'},{a:'Billie Eilish',t:'Billie Bossa Nova'},{a:'Michael Jackson',t:'Billie Jean'},{a:'Billie Eilish',t:'BIRDS OF A FEATHER'},{a:'The Beatles',t:'Birthday'},
-      {a:'Lizzo',t:'Birthday Girl'},{a:'Kendrick Lamar',t:'Bitch Don\'t Kill My Vibe'},{a:'Fleetwood Mac',t:'Black Friday Rule'},{a:'Lady Gaga',t:'Black Jesus † Amen Fashion'},{a:'Fleetwood Mac',t:'Black Magic Woman'},{a:'Kanye West',t:'Black Skinhead'},
-      {a:'The Beatles',t:'Blackbird'},{a:'Kenny Rogers',t:'Blah Blah Blah'},{a:'Aretha Franklin',t:'Blazed'},{a:'Kenny Rogers',t:'Blind'},{a:'SZA',t:'Blind'},{a:'Sabrina Carpenter',t:'Blinding Lights'},
-      {a:'The Weeknd',t:'Blinding Lights'},{a:'Lady Gaga',t:'Bloody Mary (The Horror remix)'},{a:'Kenny Rogers',t:'Blow'},{a:'Dua Lipa',t:'Blow Your Mind (Mwah)'},{a:'Elvis Presley',t:'Blowin\' in the Wind'},{a:'Carrie Underwood',t:'Blown Away'},
-      {a:'Dean Martin',t:'Blue Christmas'},{a:'Elvis Presley',t:'Blue Christmas (\'68 Comeback Special)'},{a:'Elvis Presley',t:'Blue Christmas (With the Royal Philharmonic'},{a:'Elvis Presley',t:'Blue Eyes Crying in the Rain'},{a:'Shakira',t:'Blue Eyes Crying in the Rain (live)'},{a:'Dean Martin',t:'Blue Moon'},
-      {a:'Ella Fitzgerald',t:'Blue Moon'},{a:'Frank Sinatra',t:'Blue Moon'},{a:'Alan Jackson',t:'Blue Moon of Kentucky'},{a:'Elvis Presley',t:'Blue Moon of Kentucky'},{a:'Elvis Presley',t:'Blue Suede Shoes'},{a:'Elvis Presley',t:'Blue Suede Shoes (live Aloha from Hawaii via'},
-      {a:'Elvis Presley',t:'Blue Suede Shoes (live)'},{a:'Tony Bennett',t:'Blue Velvet'},{a:'George Strait',t:'Blue Water'},{a:'Elvis Presley',t:'Blueberry Hill'},{a:'SZA',t:'BMF'},{a:'Megan Thee Stallion',t:'Boa'},
-      {a:'Megan Thee Stallion',t:'Body'},{a:'Queen',t:'Bohemian Rhapsody'},{a:'Queen',t:'Bohemian Rhapsody (45 edit)'},{a:'John Legend',t:'Bold as Love'},{a:'Ed Sheeran',t:'Borderline'},{a:'John Legend',t:'Born and Raised'},
-      {a:'Elvis Presley',t:'Bosom of Abraham'},{a:'Doja Cat',t:'Boss B*tch'},{a:'Elvis Presley',t:'Bossa Nova Baby'},{a:'Elvis Presley',t:'Bossa Nova Baby (Viva Elvis)'},{a:'Green Day',t:'Boulevard of Broken Dreams'},{a:'Post Malone',t:'Boulevard of Broken Dreams'},
-      {a:'Kanye West',t:'Bound 2'},{a:'Kenny Rogers',t:'BOY CRAZY.'},{a:'Justin Bieber',t:'Boyfriend'},{a:'Lizzo',t:'Boys'},{a:'The Beatles',t:'Boys'},{a:'Green Day',t:'Brain Stew'},
-      {a:'Alicia Keys',t:'Brand New Me'},{a:'Ariana Grande',t:'Break Free'},{a:'Dua Lipa',t:'Break My Heart'},{a:'Ariana Grande',t:'Break Up with Your Girlfriend, I\'m Bored'},{a:'Mariah Carey',t:'Breakdown'},{a:'Red Hot Chili Peppers',t:'Breaking the Girl'},
-      {a:'Queen',t:'Breaking the Silence'},{a:'Foo Fighters',t:'Breakout'},{a:'Ariana Grande',t:'Breathin'},{a:'Justin Bieber',t:'Breeze Off the Pond'},{a:'Led Zeppelin',t:'Bring It on Home'},{a:'SZA',t:'Broken Clocks'},
-      {a:'Chris Stapleton',t:'Broken Halos'},{a:'ABBA',t:'Broken Open'},{a:'George Strait',t:'Brothers Of The Highway'},{a:'Billy Joel',t:'Brown Eyed Girl'},{a:'Michael Bublé',t:'Buena sera'},{a:'Dean Martin',t:'Bumming Around'},
-      {a:'Usher',t:'Burn'},{a:'Elvis Presley',t:'Burning Love'},{a:'Elvis Presley',t:'Burning Love (live \'73)'},{a:'Elvis Presley',t:'Burning Love (live Aloha From Hawaii)'},{a:'Green Day',t:'Burnout'},{a:'Billie Eilish',t:'Bury a Friend'},
-      {a:'Rihanna',t:'Bury Me in Dixie'},{a:'Billy Joel',t:'Busy Man'},{a:'Sabrina Carpenter',t:'Busy Woman'},{a:'Luke Bryan',t:'But I Got a Beer in My Hand'},{a:'Mariah Carey',t:'Butterfly'},{a:'Alicia Keys',t:'Butterflyz'},
-      {a:'Kenny Rogers',t:'Buy Me a Rose'},{a:'Elvis Presley',t:'By and By'},{a:'Red Hot Chili Peppers',t:'By the Way'},{a:'Dean Martin',t:'Bye Bye Blackbird'},{a:'Dean Martin',t:'Bésame Mucho'},{a:'The Beatles',t:'Bésame mucho'},
-      {a:'Shakira',t:'C\'est La Vie'},{a:'Coldplay',t:'C\'est samba'},{a:'Dean Martin',t:'C\'est si bon'},{a:'Louis Armstrong',t:'C\'est si bon'},{a:'Kenny Rogers',t:'C\'Mon'},{a:'ABBA',t:'C.O.D.'},
-      {a:'Bad Bunny',t:'CAFé CON RON'},{a:'Coldplay',t:'Caliente Kuduro'},{a:'Green Day',t:'California Girls'},{a:'Katy Perry',t:'California Gurls'},{a:'Post Malone',t:'California Sober'},{a:'Red Hot Chili Peppers',t:'Californication'},
-      {a:'Aretha Franklin',t:'Call Me'},{a:'Frank Sinatra',t:'Call Me Irresponsible'},{a:'The Weeknd',t:'Call Out My Name'},{a:'Bad Bunny',t:'Callaita'},{a:'Garth Brooks',t:'Callin\' Baton Rouge'},{a:'Bruno Mars',t:'Calling All My Lovelies'},
-      {a:'Nat King Cole',t:'Calling You'},{a:'Jay-Z',t:'Can I Get a...'},{a:'ABBA',t:'Can I Sit Next to You Girl'},{a:'Sabrina Carpenter',t:'Can\'t Blame A Girl For Trying'},{a:'Michael Bublé',t:'Can\'t Buy Me Love'},{a:'The Beatles',t:'Can\'t Buy Me Love'},
-      {a:'The Weeknd',t:'Can\'t Feel My Face'},{a:'Marvin Gaye',t:'Can\'t Give Up Now'},{a:'Elvis Presley',t:'Can\'t Help Falling in Love'},{a:'Elvis Presley',t:'Can\'t Help Falling in Love (live in Vegas)'},{a:'Elvis Presley',t:'Can\'t Help Falling in Love (Viva Elvis)'},{a:'Elvis Presley',t:'Can\'t Help Falling in Love (with the Royal'},
-      {a:'Mariah Carey',t:'Can\'t Let Go'},{a:'Shakira',t:'Can\'t Remember to Forget You'},{a:'Red Hot Chili Peppers',t:'Can\'t Stop'},{a:'ABBA',t:'Can\'t Stop Rock\'n Roll'},{a:'Mariah Carey',t:'Can\'t Take That Away (Mariah\'s Theme)'},{a:'Kanye West',t:'Can\'t Tell Me Nothing'},
-      {a:'Elton John',t:'Candle in the Wind'},{a:'Doja Cat',t:'Candy'},{a:'Post Malone',t:'Candy Paint'},{a:'Kenny Rogers',t:'Cannibal'},{a:'Megan Thee Stallion',t:'Captain Hook'},{a:'Kanye West',t:'Carnival'},
-      {a:'The Beatles',t:'Carry That Weight'},{a:'George Strait',t:'Carrying Your Love With Me'},{a:'Megan Thee Stallion',t:'Cash Shit'},{a:'Dolly Parton',t:'Castles in the Air'},{a:'Chappell Roan',t:'Casual'},{a:'Usher',t:'Caught Up'},
-      {a:'Kenny Chesney',t:'Celebrate Me Home'},{a:'Doja Cat',t:'Celebrity Skin'},{a:'Eminem',t:'Celui que j\'étais'},{a:'Coldplay',t:'Ces soirées-là'},{a:'Bruno Mars',t:'Cha Cha Cha'},{a:'Alan Jackson',t:'Chain'},
-      {a:'Aretha Franklin',t:'Chain of Fools'},{a:'Jay-Z',t:'Change Clothes'},{a:'Rihanna',t:'Change My Mind'},{a:'Elvis Presley',t:'Change of Habit'},{a:'Frank Sinatra',t:'Change Partners'},{a:'Eric Clapton',t:'Change the World'},
-      {a:'Green Day',t:'Chariot'},{a:'Carrie Underwood',t:'Chaser'},{a:'Alan Jackson',t:'Chasin\' That Neon Rainbow'},{a:'Morgan Wallen',t:'Chasin\' You'},{a:'Adele',t:'Chasing Pavements'},{a:'Post Malone',t:'Chasing Pavements'},
-      {a:'Norah Jones',t:'Chasing Pirates'},{a:'Alan Jackson',t:'Chattahoochee'},{a:'Alan Jackson',t:'Chattahoochee (extended mix)'},{a:'George Strait',t:'Check Yes Or No'},{a:'Ella Fitzgerald',t:'Cheek to Cheek'},{a:'Frank Sinatra',t:'Cheek to Cheek'},
-      {a:'Post Malone',t:'Chemical'},{a:'Billie Eilish',t:'Chihiro'},{a:'Drake',t:'Child\'s Play'},{a:'ABBA',t:'Chiquitita'},{a:'ABBA',t:'Chiquitita (Spanish version)'},{a:'Michael Bublé',t:'Christmas (Baby Please Come Home)'},
-      {a:'U2',t:'Christmas (Baby, Please Come Home)'},{a:'Dean Martin',t:'Christmas Blues'},{a:'Norah Jones',t:'Christmas Calling (Jolly Jones)'},{a:'Frank Sinatra',t:'Christmas Carol Medley'},{a:'George Strait',t:'Christmas Cookies'},{a:'Norah Jones',t:'Christmas Don\'t Be Late'},
-      {a:'Frank Sinatra',t:'Christmas Dreaming (A Little Early This Year)'},{a:'Frank Sinatra',t:'Christmas Memories'},{a:'Lady Gaga',t:'Christmas Tree'},{a:'Bruno Mars',t:'Chunky'},{a:'Carrie Underwood',t:'Church Bells'},{a:'Shakira',t:'Ciega, sordomuda'},
-      {a:'Elvis Presley',t:'Cindy, Cindy'},{a:'Mariah Carey',t:'Circles'},{a:'Post Malone',t:'Circles'},{a:'Guns N\' Roses',t:'Civil War'},{a:'John Legend',t:'Clarity'},{a:'Harry Styles',t:'Clean It Up!'},
-      {a:'Elvis Presley',t:'Clean Up Your Own Back Yard'},{a:'Eminem',t:'Cleanin\' Out My Closet'}
-    ];
+    var SONGS=null,loading=false,pendingQuery=null;
     var input=document.getElementById('songSearchInput');
     var results=document.getElementById('songSearchResults');
     var clearBtn=document.getElementById('songSearchClear');
     if(!input)return;
-    function search(q){
+
+    function loadCatalog(){
+      if(loading)return;
+      loading=true;
+      var s=document.createElement('script');
+      s.src='songs.js';
+      s.onload=function(){
+        loading=false;
+        if(pendingQuery){var q=pendingQuery;pendingQuery=null;runSearch(q);}
+      };
+      document.head.appendChild(s);
+    }
+
+    function runSearch(q){
       q=q.trim().toLowerCase();
       if(!q){results.innerHTML='';clearBtn.classList.remove('visible');return;}
       clearBtn.classList.add('visible');
-      var matches=SONGS.filter(function(s){
-        return s.t.toLowerCase().indexOf(q)!==-1||s.a.toLowerCase().indexOf(q)!==-1;
-      }).slice(0,8);
+      if(!SONGS){pendingQuery=q;if(!loading)loadCatalog();results.innerHTML='<p style="color:var(--text-dim);font-size:0.9rem;padding:0.5rem 0;">Loading catalog…</p>';return;}
+      var all=SONGS.filter(function(s){return s.t.toLowerCase().indexOf(q)!==-1||s.a.toLowerCase().indexOf(q)!==-1;});
+      var matches=all.slice(0,8);
       if(matches.length){
         results.innerHTML=matches.map(function(s){
           return '<div class="song-result-item">'
             +'<div><div class="song-result-title">'+s.t+'</div><div class="song-result-artist">'+s.a+'</div></div>'
             +'<span class="song-result-check">✓ In Library</span>'
             +'</div>';
-        }).join('')+'<p class="song-search-count">Showing '+matches.length+' of '+SONGS.filter(function(s){return s.t.toLowerCase().indexOf(q)!==-1||s.a.toLowerCase().indexOf(q)!==-1;}).length+' matches — 75,000+ total songs available</p>';
+        }).join('')+'<p class="song-search-count">Showing '+matches.length+' of '+all.length+' matches — 75,000+ total songs available</p>';
       } else {
-        results.innerHTML='<div class="song-search-not-found"><p>Not in our preview list — but with 75,000+ songs we very likely have it!</p><a href="#contact" class="btn btn-primary" style="font-size:0.85rem;padding:0.5rem 1rem;">Request This Song</a></div>';
+        results.innerHTML='<div class="song-search-not-found"><p>Not found in our preview — but with 75,000+ songs we very likely have it!</p><a href="#contact" class="btn btn-primary" style="font-size:0.85rem;padding:0.5rem 1rem;">Request This Song</a></div>';
       }
     }
-    input.addEventListener('input',function(){search(this.value);});
+
+    input.addEventListener('input',function(){runSearch(this.value);});
+    input.addEventListener('focus',function(){if(!SONGS&&!loading)loadCatalog();},{once:true});
     clearBtn.addEventListener('click',function(){input.value='';results.innerHTML='';clearBtn.classList.remove('visible');input.focus();});
   })();</script>
 
