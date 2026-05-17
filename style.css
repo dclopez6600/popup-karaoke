@@ -98,3 +98,8 @@ a,button,input,select,textarea,[role="button"],[tabindex]{cursor:url('mic-cursor
 .pt-quote span{color:var(--text-dim)}
 @media(max-width:768px){.photo-testimonials{grid-template-columns:1fr}}
 @media(max-width:1024px) and (min-width:769px){.photo-testimonials{grid-template-columns:1fr 1fr}}
+
+/* ── NAV DENSITY FIX (prevents crowding after adding Catalog + social icons) ── */
+.nav-links{gap:0.1rem}
+.nav-links>li>a,.nav-links>li>button.nav-dd-toggle{font-size:0.88rem;white-space:nowrap;padding:0.3rem 0.45rem}
+.nav-phone{font-size:0.82rem !important}
