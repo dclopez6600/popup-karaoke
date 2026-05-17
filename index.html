@@ -711,6 +711,7 @@
       <li><a href="northwest-indiana-karaoke.html">📍 NW Indiana</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="catalog.html">🎵 Song Catalog</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -951,6 +952,9 @@
             <h3 class="cta-headline">Ready to get started?</h3>
             <p class="cta-sub">Weekends book fast — especially in summer. Fill out the form below and we'll get back to you quickly.</p>
             <a href="#contact" class="btn btn-primary btn-xl">🎤 Request a Quote</a>
+            <p style="margin-top:1rem;font-size:0.88rem;color:var(--text-dim);">
+              Not sure what to expect on the day? <a href="what-to-expect.html" style="color:var(--neon-pink);font-weight:600;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Read our full what-to-expect guide →</a>
+            </p>
           </div>
         </div>
       </div>
@@ -1003,21 +1007,55 @@
 
         </div>
 
-        <!-- FEATURED QUOTES — load instantly while Elfsight initializes -->
-        <div class="container" style="max-width:1000px;margin:4rem auto 2.5rem;">
-          <div class="featured-quotes reveal">
-            <blockquote class="featured-quote">
-              <p>"Danny is absolutely phenomenal — the best karaoke DJ in the Chicagoland area. Nobody has ever balanced their sound equipment as well as Danny does."</p>
-              <div class="fq-footer"><cite>Jesse G.</cite> <span>· Karaoke at El Capitan</span></div>
-            </blockquote>
-            <blockquote class="featured-quote">
-              <p>"Daniel is amazing at what he does — DJ turntables, top-notch karaoke screen, lights, and 75,000 songs. He turns any venue into a party."</p>
-              <div class="fq-footer"><cite>Sonal P.</cite> <span>· Corporate Party</span></div>
-            </blockquote>
-            <blockquote class="featured-quote">
-              <p>"Easy to use, attentive leading up to the event, and provided everything you could need. I'm already thinking of other parties I can throw just to use them!"</p>
-              <div class="fq-footer"><cite>Gigi M.</cite> <span>· Private Birthday Party</span></div>
-            </blockquote>
+        <!-- FEATURED QUOTES with event photos -->
+        <div class="container" style="max-width:1060px;margin:3.5rem auto 2.5rem;">
+          <div class="photo-testimonials reveal">
+
+            <figure class="photo-testimonial">
+              <div class="pt-photo-wrap">
+                <picture>
+                  <source srcset="photos/18thstbrewery-1.webp" type="image/webp">
+                  <img src="photos/18thstbrewery-1.JPG" alt="PopUp Karaoke crowd at a live venue event" loading="lazy" width="400" height="280">
+                </picture>
+                <span class="pt-event-label">Bar &amp; Venue Night</span>
+              </div>
+              <blockquote class="pt-quote">
+                <div class="pt-stars" aria-label="5 stars">★★★★★</div>
+                <p>"Danny is absolutely phenomenal — the best karaoke DJ in the Chicagoland area. Nobody has ever balanced their sound equipment as well as Danny does."</p>
+                <footer><cite>Jesse G.</cite> <span>· Karaoke at El Capitan</span></footer>
+              </blockquote>
+            </figure>
+
+            <figure class="photo-testimonial">
+              <div class="pt-photo-wrap">
+                <picture>
+                  <source srcset="photos/corporate-event-1.webp" type="image/webp">
+                  <img src="photos/corporate-event-1.jpg" alt="PopUp Karaoke at a corporate event" loading="lazy" width="400" height="280">
+                </picture>
+                <span class="pt-event-label">Corporate Event</span>
+              </div>
+              <blockquote class="pt-quote">
+                <div class="pt-stars" aria-label="5 stars">★★★★★</div>
+                <p>"Daniel is amazing at what he does — DJ turntables, top-notch karaoke screen, lights, and 75,000 songs. He turns any venue into a party."</p>
+                <footer><cite>Sonal P.</cite> <span>· Corporate Party</span></footer>
+              </blockquote>
+            </figure>
+
+            <figure class="photo-testimonial">
+              <div class="pt-photo-wrap">
+                <picture>
+                  <source srcset="photos/moods-1.webp" type="image/webp">
+                  <img src="photos/moods-1.jpg" alt="PopUp Karaoke party event" loading="lazy" width="400" height="280">
+                </picture>
+                <span class="pt-event-label">Private Party</span>
+              </div>
+              <blockquote class="pt-quote">
+                <div class="pt-stars" aria-label="5 stars">★★★★★</div>
+                <p>"Easy to use, attentive leading up to the event, and provided everything you could need. I'm already thinking of other parties I can throw just to use them!"</p>
+                <footer><cite>Gigi M.</cite> <span>· Private Birthday Party</span></footer>
+              </blockquote>
+            </figure>
+
           </div>
         </div>
 
@@ -2079,9 +2117,12 @@ booking@popupkaraoke.net | popupkaraoke.net">
   })();</script>
 
   <!-- SONG SEARCH — lazy-loads full 75,705-song catalog on first focus -->
-  <script>(function(){
+  <script>
+  (function(){
     'use strict';
-    var SONGS=null,loading=false,pendingQuery=null;
+    // NOTE: window.SONGS is set by songs.js at global scope.
+    // Do NOT declare a local var SONGS here — that would shadow the global.
+    var loading=false,pendingQuery=null;
     var input=document.getElementById('songSearchInput');
     var results=document.getElementById('songSearchResults');
     var clearBtn=document.getElementById('songSearchClear');
@@ -2096,6 +2137,10 @@ booking@popupkaraoke.net | popupkaraoke.net">
         loading=false;
         if(pendingQuery){var q=pendingQuery;pendingQuery=null;runSearch(q);}
       };
+      s.onerror=function(){
+        loading=false;
+        results.innerHTML='<p style="color:#f87171;font-size:0.9rem;padding:0.5rem 0;">Could not load catalog. Please refresh and try again.</p>';
+      };
       document.head.appendChild(s);
     }
 
@@ -2103,8 +2148,15 @@ booking@popupkaraoke.net | popupkaraoke.net">
       q=q.trim().toLowerCase();
       if(!q){results.innerHTML='';clearBtn.classList.remove('visible');return;}
       clearBtn.classList.add('visible');
-      if(!SONGS){pendingQuery=q;if(!loading)loadCatalog();results.innerHTML='<p style="color:var(--text-dim);font-size:0.9rem;padding:0.5rem 0;">Loading catalog…</p>';return;}
-      var all=SONGS.filter(function(s){return s.t.toLowerCase().indexOf(q)!==-1||s.a.toLowerCase().indexOf(q)!==-1;});
+      if(!window.SONGS){
+        pendingQuery=q;
+        if(!loading)loadCatalog();
+        results.innerHTML='<p style="color:var(--text-dim);font-size:0.9rem;padding:0.5rem 0;">Loading catalog…</p>';
+        return;
+      }
+      var all=window.SONGS.filter(function(s){
+        return s.t.toLowerCase().indexOf(q)!==-1||s.a.toLowerCase().indexOf(q)!==-1;
+      });
       var matches=all.slice(0,8);
       if(matches.length){
         results.innerHTML=matches.map(function(s){
@@ -2114,14 +2166,15 @@ booking@popupkaraoke.net | popupkaraoke.net">
             +'</div>';
         }).join('')+'<p class="song-search-count">Showing '+matches.length+' of '+all.length+' matches — 75,000+ total songs available</p>';
       } else {
-        results.innerHTML='<div class="song-search-not-found"><p>Not found in our preview — but with 75,000+ songs we very likely have it!</p><a href="#contact" class="btn btn-primary" style="font-size:0.85rem;padding:0.5rem 1rem;">Request This Song</a></div>';
+        results.innerHTML='<div class="song-search-not-found"><p>Not in our library preview — but with 75,000+ songs we very likely have it!</p><a href="#contact" class="btn btn-primary" style="font-size:0.85rem;padding:0.5rem 1rem;">Request This Song</a></div>';
       }
     }
 
     input.addEventListener('input',function(){runSearch(this.value);});
-    input.addEventListener('focus',function(){if(!SONGS&&!loading)loadCatalog();},{once:true});
+    input.addEventListener('focus',function(){if(!window.SONGS&&!loading)loadCatalog();},{once:true});
     clearBtn.addEventListener('click',function(){input.value='';results.innerHTML='';clearBtn.classList.remove('visible');input.focus();});
-  })();</script>
+  })();
+  </script>
 
   <!-- QUIZ -->
   <script>(function(){

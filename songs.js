@@ -1,4 +1,4 @@
-var SONGS=[
+window.SONGS=[
 {"t":"Tennessee Whiskey","a":"Chris Stapleton"},
 {"t":"Creep","a":"Radiohead"},
 {"t":"Sweet Caroline","a":"Neil Diamond"},
