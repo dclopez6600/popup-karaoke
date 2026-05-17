@@ -404,7 +404,7 @@
       if(loading[letter]) return;
       loading[letter]=true;
       var s=document.createElement('script');
-      s.src=CHUNK+encodeURIComponent(letter)+'.js?v=2';
+      s.src=CHUNK+(letter==='#'?'NUM':encodeURIComponent(letter))+'.js?v=2';
       s.onload=function(){
         if(window._SC&&window._SC[letter]) chunks[letter]=window._SC[letter];
         loading[letter]=false;
