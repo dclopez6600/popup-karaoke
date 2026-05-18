@@ -2341,6 +2341,10 @@
     var dd=String(today.getDate()).padStart(2,'0');
     var todayStr=today.getFullYear()+'-'+mm+'-'+dd;
     dateInput.min=todayStr;
+    dateInput.value=todayStr; // pre-fill with today so users just change if needed
+    // Also pre-fill the quick-check strip date input
+    var qcDate=document.getElementById('qc-date');
+    if(qcDate){qcDate.min=todayStr;qcDate.value=todayStr;}
     // Booked-out dates (update these as needed — format: YYYY-MM-DD)
     var bookedDates=[];
     // Auto-expire past booked dates so they don't block the calendar

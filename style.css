@@ -246,6 +246,11 @@ a,button,input,select,textarea,[role="button"],[tabindex]{cursor:url('mic-cursor
   transition:border-color .2s,box-shadow .2s;
   color-scheme:dark;
   min-width:0;
+  /* iOS Safari fix — forces dark background instead of system-white */
+  -webkit-appearance:none;
+  appearance:none;
+  background-color:rgba(20,12,44,0.92);
+  -webkit-text-fill-color:var(--text);
 }
 .qc-btn{padding:0.65rem 1.4rem;font-size:0.9rem;white-space:nowrap;border-radius:3rem;}
 .qc-input:focus{
