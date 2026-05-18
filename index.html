@@ -779,7 +779,10 @@
           <form class="quick-check-form" name="quick-check" method="POST" action="/thank-you.html" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
             <input type="hidden" name="form-name" value="quick-check">
             <input type="hidden" name="bot-field" style="display:none" tabindex="-1" autocomplete="off">
-            <input class="qc-input" type="text" name="name" placeholder="Your name" autocomplete="given-name" required aria-label="Your name">
+            <div class="qc-date-wrap">
+              <label for="qc-name" class="qc-date-label">Your name</label>
+              <input class="qc-input" id="qc-name" type="text" name="name" placeholder="Your name" autocomplete="given-name" required aria-label="Your name">
+            </div>
             <div class="qc-date-wrap">
               <label for="qc-date" class="qc-date-label">Event date</label>
               <input class="qc-input" id="qc-date" type="date" name="event_date" required aria-label="Event date">
