@@ -712,7 +712,6 @@
           <source srcset="puklogo.webp" type="image/webp">
           <img loading="eager" class="hero-mic" src="puklogo.png" alt="PopUp Karaoke" width="220" height="220" decoding="async" fetchpriority="high">
         </picture>
-        <span class="hero-brand">PopUp Karaoke</span>
 
         <div class="hero-badges">
           <span class="hero-badge">★★★★★ NW Indiana &amp; Chicagoland's Premier Mobile Karaoke</span>
@@ -759,7 +758,13 @@
             <span class="proof-num">Since 2020</span>
             <span class="proof-label">NW IN &amp; Chicago</span>
           </div>
-        </div>
+
+        <!-- Social proof micro-quote — one line, immediately after stats -->
+        <p class="hero-micro-quote" aria-label="Featured customer review">
+          <span class="hero-micro-stars" aria-hidden="true">★★★★★</span>
+          <span>"Nobody has ever balanced their sound equipment as well as Danny does — the best karaoke DJ in the Chicagoland area."</span>
+          <cite>— Jesse G., Google Review</cite>
+        </p>
       </div>
     </section>
 
@@ -775,7 +780,10 @@
             <input type="hidden" name="form-name" value="quick-check">
             <input type="hidden" name="bot-field" style="display:none" tabindex="-1" autocomplete="off">
             <input class="qc-input" type="text" name="name" placeholder="Your name" autocomplete="given-name" required aria-label="Your name">
-            <input class="qc-input" type="date" name="event_date" required aria-label="Event date">
+            <div class="qc-date-wrap">
+              <label for="qc-date" class="qc-date-label">Event date</label>
+              <input class="qc-input" id="qc-date" type="date" name="event_date" required aria-label="Event date">
+            </div>
             <button type="submit" class="btn btn-primary qc-btn">Check My Date →</button>
           </form>
         </div>
@@ -958,15 +966,31 @@
           </div>
           <div class="video-reel-player">
             <div class="video-phone-frame">
+              <div class="video-facade" id="highlightFacade" role="button" tabindex="0" aria-label="Play PopUp Karaoke highlight reel">
+                <img
+                  src="highlight-poster.webp"
+                  alt="PopUp Karaoke live event — crowd singing karaoke"
+                  width="390" height="694"
+                  loading="lazy"
+                  decoding="async"
+                  class="video-facade-poster"
+                >
+                <div class="video-play-btn" aria-hidden="true">
+                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.55)"/>
+                    <polygon points="22,16 44,28 22,40" fill="#fff"/>
+                  </svg>
+                </div>
+              </div>
               <video
-                src="highlight.mp4"
+                id="highlightVideo"
                 playsinline
-                autoplay
                 muted
                 loop
-                preload="metadata"
+                preload="none"
                 aria-label="PopUp Karaoke highlight reel — crowd singing at a live karaoke event"
                 poster="highlight-poster.webp"
+                style="display:none"
               ></video>
               <div class="video-phone-notch" aria-hidden="true"></div>
             </div>
@@ -1830,7 +1854,13 @@
 
   <div class="sticky-bar" id="stickyBar" aria-label="Quick booking bar" aria-hidden="true">
     <div class="sticky-bar-inner">
-      <span class="sticky-bar-brand">⚡ PopUp Karaoke</span>
+      <a class="sticky-bar-brand" href="#home" aria-label="PopUp Karaoke home">
+        <picture>
+          <source srcset="puklogo.webp" type="image/webp">
+          <img src="puklogo.png" alt="PopUp Karaoke" width="28" height="28" loading="eager" decoding="async">
+        </picture>
+        <span>PopUp Karaoke</span>
+      </a>
       <span class="sticky-bar-msg">Summer 2026 booking fast</span>
       <div class="sticky-bar-actions">
         <a href="tel:+12197581313" class="sticky-bar-phone">📞 219.758.1313</a>
@@ -1874,6 +1904,8 @@
         <h4>Quick Links</h4>
         <ul>
           <li><a href="about.html">About Us</a></li>
+          <li><a href="#events">Events Calendar</a></li>
+          <li><a href="#songs">Song Search</a></li>
           <li><a href="service-areas.html">Service Areas</a></li>
           <li><a href="catalog.html">Song Catalog</a></li>
           <li><a href="faq.html">FAQ</a></li>
@@ -2267,6 +2299,8 @@
     dateInput.min=todayStr;
     // Booked-out dates (update these as needed — format: YYYY-MM-DD)
     var bookedDates=[];
+    // Auto-expire past booked dates so they don't block the calendar
+    bookedDates=bookedDates.filter(function(d){return d>=todayStr;});
     function isBooked(dateStr){return bookedDates.indexOf(dateStr)!==-1;}
     function checkDate(){
       var val=dateInput.value;
@@ -2333,12 +2367,44 @@
     }
     el.textContent=msg;
     el.style.display='block';
+    // Also update sticky bar message with same dynamic text
+    var stickyMsg=document.querySelector('.sticky-bar-msg');
+    if(stickyMsg)stickyMsg.textContent=msg.replace(/^[⚡📅]\s*/,'');
   })();</script>
   <!-- TICKER DUPLICATION (infinite loop) -->
   <script>(function(){
     var inner=document.getElementById('tickerInner');
     if(!inner)return;
     inner.innerHTML+=inner.innerHTML;
+  })();</script>
+
+  <!-- Highlight reel: click-to-play facade -->
+  <script>(function(){
+    var facade=document.getElementById('highlightFacade');
+    var video=document.getElementById('highlightVideo');
+    if(!facade||!video)return;
+    function playVideo(){
+      facade.style.display='none';
+      video.src='highlight.mp4';
+      video.style.display='block';
+      video.play().catch(function(){});
+    }
+    facade.addEventListener('click',playVideo);
+    facade.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();playVideo();}});
+    // Autoplay on idle (IntersectionObserver + 3s delay) for desktop
+    if('IntersectionObserver' in window&&window.matchMedia('(hover:hover)').matches){
+      var timer;
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            timer=setTimeout(playVideo,3000);
+          } else {
+            clearTimeout(timer);
+          }
+        });
+      },{threshold:0.5});
+      io.observe(facade);
+    }
   })();</script>
 
   <!-- SCRIPTS -->
