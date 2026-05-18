@@ -107,3 +107,59 @@ a,button,input,select,textarea,[role="button"],[tabindex]{cursor:url('mic-cursor
 /* ── Text CTA button in mobile sticky bar ──────────────────────── */
 .mobile-cta-text{background:rgba(168,85,247,0.12);border:1.5px solid var(--neon-purple,#a855f7);color:var(--neon-purple,#a855f7)}
 .mobile-cta-text:active{background:rgba(168,85,247,0.25)}
+
+/* ── Slim nav: Book Now pill button ────────────────────────────── */
+.nav-book-btn{
+  background:linear-gradient(135deg,var(--neon-pink),var(--purple-600));
+  color:#fff!important;
+  padding:0.45rem 1.1rem!important;
+  border-radius:999px;
+  font-weight:700;
+  font-size:0.88rem!important;
+  white-space:nowrap;
+  transition:opacity .18s,transform .18s;
+}
+.nav-book-btn:hover{opacity:.88;transform:scale(1.03)}
+/* Remove old nav-cta styles that conflict */
+.nav-links .nav-cta.nav-book-btn{background:linear-gradient(135deg,var(--neon-pink),var(--purple-600));border:none}
+
+/* ── Small outline button (quiz, secondary actions) ───────────── */
+.btn-outline-sm{
+  display:inline-flex;align-items:center;gap:0.45rem;
+  padding:0.6rem 1.4rem;border-radius:999px;
+  border:1.5px solid rgba(255,255,255,0.25);
+  background:transparent;color:var(--text-dim);
+  font-weight:600;font-size:0.92rem;
+  transition:border-color .18s,color .18s,background .18s;
+  cursor:pointer;
+}
+.btn-outline-sm:hover{border-color:var(--neon-pink);color:var(--text);background:rgba(255,45,146,0.06)}
+
+/* ── Quick availability check strip (below hero) ──────────────── */
+.quick-check-strip{
+  background:linear-gradient(135deg,rgba(168,85,247,0.08),rgba(255,45,146,0.06));
+  border-top:1px solid rgba(168,85,247,0.18);
+  border-bottom:1px solid rgba(168,85,247,0.18);
+  padding:1.5rem 0;
+}
+.quick-check-inner{
+  display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;justify-content:center;
+}
+.quick-check-label{
+  font-size:0.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--neon-pink);font-weight:700;display:block;margin-bottom:0.2rem;
+}
+.quick-check-text p{color:var(--text-dim);font-size:0.9rem;margin:0;}
+.quick-check-form{display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center;}
+.qc-input{
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);
+  border-radius:8px;padding:0.6rem 0.85rem;color:var(--text);font-size:0.9rem;
+  font-family:inherit;outline:none;transition:border-color .18s;
+  color-scheme:dark;
+}
+.qc-input:focus{border-color:var(--neon-pink);}
+.qc-btn{padding:0.6rem 1.25rem;font-size:0.9rem;}
+@media(max-width:640px){
+  .quick-check-inner{flex-direction:column;text-align:center;}
+  .quick-check-form{flex-direction:column;width:100%;}
+  .qc-input,.qc-btn{width:100%;}
+}
