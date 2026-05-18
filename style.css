@@ -289,8 +289,10 @@ a,button,input,select,textarea,[role="button"],[tabindex]{cursor:url('mic-cursor
 .qc-date-label{font-size:0.72rem;font-weight:600;color:var(--text-mute);text-transform:uppercase;letter-spacing:.06em;}
 @media(max-width:640px){.qc-date-wrap{width:100%;}}
 
-/* Align inputs + button bottoms in the quick-check form */
+/* Align inputs + button to same baseline */
 .quick-check-form{align-items:flex-end;}
+.qc-btn-wrap{display:flex;flex-direction:column;gap:0.2rem;}
+.qc-btn-wrap .qc-date-label{visibility:hidden;}
 
 /* ── Proof bar: center all 4 stats evenly ──────────────────────── */
 .proof{
