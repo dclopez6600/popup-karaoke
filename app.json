@@ -1,0 +1,60 @@
+{
+  "expo": {
+    "name": "PopUp Karaoke",
+    "slug": "popup-karaoke",
+    "version": "2.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0D0D14"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "app.replit.popupkaraoke",
+      "buildNumber": "4",
+      "privacyManifests": {
+        "NSPrivacyCollectedDataTypes": []
+      },
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "PopUp Karaoke uses the microphone for live karaoke sessions.",
+        "NSCameraUsageDescription": "PopUp Karaoke uses the camera to scan QR codes at venues.",
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0D0D14"
+      },
+      "package": "app.replit.popupkaraoke",
+      "versionCode": 2,
+      "permissions": [
+        "RECORD_AUDIO",
+        "CAMERA"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#7B2FFF",
+          "sounds": []
+        }
+      ]
+    ],
+    "extra": {
+      "apiBaseUrl": "https://karaoke-connect-dclopez6600.replit.app",
+      "wsUrl": "wss://karaoke-connect-dclopez6600.replit.app/ws",
+      "eas": {
+        "projectId": "7549201d-9b45-4118-82cd-ffe044bac480"
+      }
+    }
+  }
+}
