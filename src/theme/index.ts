@@ -11,9 +11,9 @@ export const Colors = {
   bgInput: '#1E1E2E',     // input fields
 
   // Brand
-  primary: '#7B2FFF',     // vivid purple
-  primaryLight: '#9B5FFF',
-  primaryDark: '#5B0FDF',
+  primary: '#7c3aed',     // violet-600 — matches popupkaraoke.net
+  primaryLight: '#8b5cf6', // violet-500
+  primaryDark: '#6d28d9',  // violet-700
   accent: '#FF2D8B',      // hot pink
   accentLight: '#FF5DA8',
   cyan: '#00E5FF',        // electric cyan
@@ -39,10 +39,10 @@ export const Colors = {
   overlayLight: 'rgba(13,13,20,0.5)',
 
   // Gradients (arrays for LinearGradient)
-  gradientPrimary: ['#7B2FFF', '#FF2D8B'] as const,
+  gradientPrimary: ['#7c3aed', '#FF2D8B'] as const,
   gradientDark: ['#0D0D14', '#1C1C2E'] as const,
   gradientCard: ['#1C1C2E', '#14141F'] as const,
-  gradientNow: ['#7B2FFF', '#00E5FF'] as const,
+  gradientNow: ['#7c3aed', '#00E5FF'] as const,
 } as const;
 
 export const Spacing = {
@@ -85,14 +85,14 @@ export const FontWeight = {
 
 export const Shadow = {
   card: {
-    shadowColor: '#7B2FFF',
+    shadowColor: '#7c3aed',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.15,
     shadowRadius: 12,
     elevation: 8,
   },
   glow: {
-    shadowColor: '#7B2FFF',
+    shadowColor: '#7c3aed',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.4,
     shadowRadius: 20,

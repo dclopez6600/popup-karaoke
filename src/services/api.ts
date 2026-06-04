@@ -234,7 +234,7 @@ const BASE_URL = 'https://karaoke-connect-dclopez6600.replit.app';
 
 class KaraokeAPI {
   private client: AxiosInstance;
-  private useMock: boolean = true; // ← set false when real backend is live
+  private useMock: boolean = true; // song catalog is now live via catalogService; this flag covers other endpoints
 
   constructor() {
     this.client = axios.create({

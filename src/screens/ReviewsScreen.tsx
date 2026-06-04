@@ -1,299 +1,229 @@
 // ─────────────────────────────────────────────
-//  Reviews Screen — Event & venue reviews
+//  ReviewsScreen — Live from home-data.json
+//  Reviews update when website is updated.
 // ─────────────────────────────────────────────
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
-  View, Text, ScrollView, TouchableOpacity,
-  StyleSheet, StatusBar, Modal, TextInput,
+  ScrollView,
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Linking,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
-import { useLiveData } from '../hooks/useLiveData';
-import { Review } from '../services/api';
 import { Colors, Spacing, Radius, FontSize, FontWeight } from '../theme';
-import { formatDistanceToNow } from 'date-fns';
+import { getHomeData, DEFAULT_HOME_DATA } from '../services/homeContentService';
+import type { HomeReview } from '../services/homeContentService';
 
-function StarRow({ rating, size = 16 }: { rating: number; size?: number }) {
-  return (
-    <View style={{ flexDirection: 'row', gap: 2 }}>
-      {[1, 2, 3, 4, 5].map(i => (
-        <Ionicons
-          key={i}
-          name={i <= rating ? 'star' : i - 0.5 <= rating ? 'star-half' : 'star-outline'}
-          size={size}
-          color={Colors.gold}
-        />
-      ))}
-    </View>
-  );
+const GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/k6X7ETF24b8YAou7A';
+
+// ── Derive initials and color from review data ─
+const COLORS = [Colors.primary, Colors.accent, Colors.cyan, '#FF6B6B', '#FFB347', '#A78BFA', '#F59E0B'];
+
+function getInitials(name: string): string {
+  return name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+}
+function getColor(name: string): string {
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  return COLORS[Math.abs(hash) % COLORS.length];
 }
 
-function ReviewCard({ review }: { review: Review }) {
-  const [liked, setLiked] = useState(review.isLiked ?? false);
-  const [likeCount, setLikeCount] = useState(review.likes);
+// ── Sub-Components ────────────────────────────
 
-  const toggleLike = () => {
-    setLiked(!liked);
-    setLikeCount(prev => liked ? prev - 1 : prev + 1);
-  };
-
+function ReviewCard({ review }: { review: HomeReview }) {
+  const initials = getInitials(review.name);
+  const color    = getColor(review.name);
   return (
     <View style={styles.reviewCard}>
-      {/* Author */}
-      <View style={styles.reviewHeader}>
-        <View style={styles.avatar}>
-          <Text style={styles.avatarText}>{review.authorName[0]}</Text>
+      <View style={styles.reviewTop}>
+        <View style={[styles.avatar, { backgroundColor: `${color}22`, borderColor: color }]}>
+          <Text style={[styles.avatarText, { color }]}>{initials}</Text>
         </View>
         <View style={styles.reviewMeta}>
-          <Text style={styles.authorName}>{review.authorName}</Text>
-          <Text style={styles.reviewDate}>
-            {formatDistanceToNow(new Date(review.date), { addSuffix: true })}
-          </Text>
+          <Text style={styles.reviewName}>{review.name}</Text>
+          <Text style={styles.reviewType}>{review.type}</Text>
         </View>
-        <StarRow rating={review.rating} size={14} />
+        <View style={styles.reviewRating}>
+          <Text style={styles.reviewStars}>★★★★★</Text>
+          <Text style={styles.reviewRatingNum}>5.0</Text>
+        </View>
       </View>
-
-      {/* Event */}
-      <TouchableOpacity style={styles.eventPill}>
-        <Ionicons name="mic-outline" size={12} color={Colors.primary} />
-        <Text style={styles.eventPillText}>{review.eventTitle}</Text>
-        <Text style={styles.venuePillText}>· {review.venueName}</Text>
-      </TouchableOpacity>
-
-      {/* Body */}
-      <Text style={styles.reviewBody}>{review.body}</Text>
-
-      {/* Tags */}
-      <View style={styles.tags}>
-        {review.tags.map((tag, i) => (
-          <View key={i} style={styles.tag}>
-            <Text style={styles.tagText}>✓ {tag}</Text>
-          </View>
-        ))}
-      </View>
-
-      {/* Actions */}
-      <View style={styles.reviewActions}>
-        <TouchableOpacity style={styles.actionBtn} onPress={toggleLike}>
-          <Ionicons
-            name={liked ? 'heart' : 'heart-outline'}
-            size={16}
-            color={liked ? Colors.accent : Colors.textMuted}
-          />
-          <Text style={[styles.actionText, liked && { color: Colors.accent }]}>
-            {likeCount} helpful
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.actionBtn}>
-          <Ionicons name="share-outline" size={16} color={Colors.textMuted} />
-          <Text style={styles.actionText}>Share</Text>
-        </TouchableOpacity>
-      </View>
+      <Text style={styles.reviewText}>"{review.text}"</Text>
     </View>
   );
 }
 
-function WriteReviewModal({ visible, onClose }: { visible: boolean; onClose: () => void }) {
-  const [rating, setRating] = useState(0);
-  const [body, setBody] = useState('');
-
-  return (
-    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet">
-      <View style={modalStyles.container}>
-        <View style={modalStyles.header}>
-          <TouchableOpacity onPress={onClose}>
-            <Ionicons name="close" size={24} color={Colors.textPrimary} />
-          </TouchableOpacity>
-          <Text style={modalStyles.title}>Write a Review</Text>
-          <TouchableOpacity
-            style={[modalStyles.submitBtn, body.length > 0 && rating > 0 && modalStyles.submitBtnActive]}
-            disabled={body.length === 0 || rating === 0}
-            onPress={onClose}
-          >
-            <Text style={modalStyles.submitText}>Post</Text>
-          </TouchableOpacity>
-        </View>
-
-        <ScrollView style={{ flex: 1 }} contentContainerStyle={modalStyles.content}>
-          <Text style={modalStyles.label}>Your Rating</Text>
-          <View style={{ flexDirection: 'row', gap: Spacing.sm, marginBottom: Spacing.lg }}>
-            {[1, 2, 3, 4, 5].map(i => (
-              <TouchableOpacity key={i} onPress={() => setRating(i)}>
-                <Ionicons
-                  name={i <= rating ? 'star' : 'star-outline'}
-                  size={36}
-                  color={Colors.gold}
-                />
-              </TouchableOpacity>
-            ))}
-          </View>
-
-          <Text style={modalStyles.label}>Your Review</Text>
-          <TextInput
-            style={modalStyles.textArea}
-            placeholder="Share your experience — the vibe, the host, the crowd..."
-            placeholderTextColor={Colors.textMuted}
-            multiline
-            numberOfLines={6}
-            value={body}
-            onChangeText={setBody}
-            textAlignVertical="top"
-          />
-
-          <Text style={modalStyles.charCount}>{body.length} / 500</Text>
-        </ScrollView>
-      </View>
-    </Modal>
-  );
-}
-
-const SORT_OPTIONS = ['Recent', 'Top Rated', 'Most Helpful'];
+// ── Main Screen ───────────────────────────────
 
 export default function ReviewsScreen() {
-  const { reviews } = useLiveData();
-  const [sort, setSort] = useState('Recent');
-  const [showWriteModal, setShowWriteModal] = useState(false);
+  const [reviews, setReviews] = useState<HomeReview[]>(DEFAULT_HOME_DATA.reviews);
+  const [stats, setStats]     = useState(DEFAULT_HOME_DATA.stats);
+  const [social, setSocial]   = useState(DEFAULT_HOME_DATA.social);
 
-  const sortedReviews = [...reviews].sort((a, b) => {
-    if (sort === 'Top Rated') return b.rating - a.rating;
-    if (sort === 'Most Helpful') return b.likes - a.likes;
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
-  });
-
-  const avgRating = reviews.length
-    ? reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length
-    : 0;
+  useEffect(() => {
+    getHomeData(live => {
+      if (live.reviews?.length) setReviews(live.reviews);
+      if (live.stats) setStats(live.stats);
+      if (live.social) setSocial(live.social);
+    });
+  }, []);
 
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle="light-content" />
-
-      {/* Header */}
-      <LinearGradient colors={['#1A1000', Colors.bg]} style={styles.header}>
-        <Text style={styles.headerTitle}>Reviews</Text>
-
-        {/* Rating summary */}
-        <View style={styles.ratingSummary}>
-          <View style={styles.bigRating}>
-            <Text style={styles.bigRatingNum}>{avgRating.toFixed(1)}</Text>
-            <StarRow rating={Math.round(avgRating)} size={20} />
-            <Text style={styles.bigRatingCount}>{reviews.length} reviews</Text>
-          </View>
-
-          {/* Distribution bars */}
-          <View style={styles.distribution}>
-            {[5, 4, 3, 2, 1].map(star => {
-              const count = reviews.filter(r => Math.round(r.rating) === star).length;
-              const pct = reviews.length ? count / reviews.length : 0;
-              return (
-                <View key={star} style={styles.distRow}>
-                  <Text style={styles.distStar}>{star}</Text>
-                  <Ionicons name="star" size={10} color={Colors.gold} />
-                  <View style={styles.distBar}>
-                    <View style={[styles.distFill, { width: `${pct * 100}%` }]} />
-                  </View>
-                  <Text style={styles.distCount}>{count}</Text>
-                </View>
-              );
-            })}
-          </View>
-        </View>
-      </LinearGradient>
-
-      {/* Sort & Write */}
-      <View style={styles.toolbar}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flex: 1 }}>
-          <View style={{ flexDirection: 'row', gap: Spacing.sm }}>
-            {SORT_OPTIONS.map(opt => (
-              <TouchableOpacity
-                key={opt}
-                style={[styles.sortPill, sort === opt && styles.sortPillActive]}
-                onPress={() => setSort(opt)}
-              >
-                <Text style={[styles.sortPillText, sort === opt && styles.sortPillTextActive]}>
-                  {opt}
-                </Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-        </ScrollView>
-        <TouchableOpacity style={styles.writeBtn} onPress={() => setShowWriteModal(true)}>
-          <Ionicons name="create-outline" size={16} color="#fff" />
-          <Text style={styles.writeBtnText}>Write</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Reviews list */}
+    <SafeAreaView style={styles.container} edges={['top']}>
       <ScrollView
         style={styles.scroll}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {sortedReviews.map(review => (
-          <ReviewCard key={review.id} review={review} />
-        ))}
-        <View style={{ height: 100 }} />
-      </ScrollView>
+        {/* ─── Rating Hero ─── */}
+        <LinearGradient colors={['#1A0533', '#0D0D14']} style={styles.hero}>
+          <View style={styles.heroRating}>
+            <Text style={styles.heroScore}>{stats.googleRating.replace(' ★', '')}</Text>
+            <View style={styles.heroRight}>
+              <Text style={styles.heroStars}>★★★★★</Text>
+              <Text style={styles.heroCount}>{stats.reviewCount} Reviews on Google</Text>
+              <View style={styles.heroBadge}>
+                <Ionicons name="shield-checkmark" size={13} color={Colors.success} />
+                <Text style={styles.heroBadgeText}>Verified Google Reviews</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.badges}>
+            {['🇺🇸 Veteran-Owned', '🎤 Pro Host', '🔊 75K+ Songs'].map(b => (
+              <View key={b} style={styles.badge}>
+                <Text style={styles.badgeText}>{b}</Text>
+              </View>
+            ))}
+          </View>
+          <View style={styles.heroBtns}>
+            <TouchableOpacity style={styles.readBtn} onPress={() => Linking.openURL(GOOGLE_MAPS_URL)} activeOpacity={0.8}>
+              <Ionicons name="star" size={16} color="#000" />
+              <Text style={styles.readBtnText}>Read All Reviews</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.writeBtn} onPress={() => Linking.openURL(GOOGLE_MAPS_URL)} activeOpacity={0.8}>
+              <Ionicons name="create-outline" size={16} color={Colors.primary} />
+              <Text style={styles.writeBtnText}>Leave a Review</Text>
+            </TouchableOpacity>
+          </View>
+        </LinearGradient>
 
-      <WriteReviewModal visible={showWriteModal} onClose={() => setShowWriteModal(false)} />
-    </View>
+        {/* ─── Stats strip ─── */}
+        <View style={styles.statsStrip}>
+          {[
+            { emoji: '⭐', label: stats.googleRating, sub: 'Average rating' },
+            { emoji: '📝', label: stats.reviewCount, sub: 'Google reviews' },
+            { emoji: '🎤', label: stats.events, sub: 'Events hosted' },
+            { emoji: '📅', label: stats.established, sub: 'In business' },
+          ].map((s, i) => (
+            <React.Fragment key={s.label + i}>
+              <View style={styles.statItem}>
+                <Text style={styles.statEmoji}>{s.emoji}</Text>
+                <Text style={styles.statLabel}>{s.label}</Text>
+                <Text style={styles.statSub}>{s.sub}</Text>
+              </View>
+              {i < 3 && <View style={styles.statDivider} />}
+            </React.Fragment>
+          ))}
+        </View>
+
+        {/* ─── Reviews List ─── */}
+        <View style={styles.reviewsSection}>
+          <Text style={styles.sectionTitle}>What People Are Saying</Text>
+          {reviews.map((r, i) => <ReviewCard key={`${r.name}-${i}`} review={r} />)}
+        </View>
+
+        {/* ─── CTA ─── */}
+        <View style={styles.ctaSection}>
+          <TouchableOpacity style={styles.readBtn} onPress={() => Linking.openURL(GOOGLE_MAPS_URL)} activeOpacity={0.8}>
+            <Ionicons name="open-outline" size={16} color="#000" />
+            <Text style={styles.readBtnText}>Read All {stats.reviewCount} Reviews on Google →</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.writeBtn} onPress={() => Linking.openURL(GOOGLE_MAPS_URL)} activeOpacity={0.8}>
+            <Ionicons name="star-outline" size={16} color={Colors.primary} />
+            <Text style={styles.writeBtnText}>Had a great experience? Leave a Review</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* ─── Social Links ─── */}
+        <View style={styles.socialSection}>
+          <Text style={styles.socialTitle}>Follow Along</Text>
+          <Text style={styles.socialSub}>Live clips, crowd moments & song request videos</Text>
+          <View style={styles.socialBtns}>
+            <TouchableOpacity style={[styles.socialBtn, { borderColor: '#1877F2' }]} onPress={() => Linking.openURL(social.facebook)} activeOpacity={0.8}>
+              <Ionicons name="logo-facebook" size={20} color="#1877F2" />
+              <Text style={[styles.socialBtnText, { color: '#1877F2' }]}>Facebook</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.socialBtn, { borderColor: '#E1306C' }]} onPress={() => Linking.openURL(social.instagram)} activeOpacity={0.8}>
+              <Ionicons name="logo-instagram" size={20} color="#E1306C" />
+              <Text style={[styles.socialBtnText, { color: '#E1306C' }]}>Instagram</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.socialBtn, { borderColor: '#69C9D0' }]} onPress={() => Linking.openURL(social.tiktok)} activeOpacity={0.8}>
+              <Ionicons name="logo-tiktok" size={20} color="#69C9D0" />
+              <Text style={[styles.socialBtnText, { color: '#69C9D0' }]}>TikTok</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
+// ── Styles ────────────────────────────────────
+
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.bg },
-  header: { paddingTop: 56, paddingHorizontal: Spacing.lg, paddingBottom: Spacing.lg, gap: Spacing.md },
-  headerTitle: { fontSize: FontSize.xxl, color: Colors.textPrimary, fontWeight: FontWeight.black },
-  ratingSummary: { flexDirection: 'row', gap: Spacing.xl, alignItems: 'center' },
-  bigRating: { alignItems: 'center', gap: 4 },
-  bigRatingNum: { fontSize: FontSize.display, color: Colors.textPrimary, fontWeight: FontWeight.black, lineHeight: 52 },
-  bigRatingCount: { fontSize: FontSize.xs, color: Colors.textMuted, marginTop: 2 },
-  distribution: { flex: 1, gap: 4 },
-  distRow: { flexDirection: 'row', alignItems: 'center', gap: 4 },
-  distStar: { fontSize: FontSize.xs, color: Colors.textMuted, width: 10 },
-  distBar: { flex: 1, height: 5, backgroundColor: Colors.border, borderRadius: 2, overflow: 'hidden' },
-  distFill: { height: 5, backgroundColor: Colors.gold, borderRadius: 2 },
-  distCount: { fontSize: FontSize.xs, color: Colors.textMuted, width: 16, textAlign: 'right' },
-
-  toolbar: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: Spacing.lg, paddingVertical: Spacing.sm, gap: Spacing.sm, borderBottomWidth: 1, borderBottomColor: Colors.border },
-  sortPill: { paddingHorizontal: 14, paddingVertical: 6, borderRadius: Radius.pill, backgroundColor: Colors.bgCard, borderWidth: 1, borderColor: Colors.border },
-  sortPillActive: { backgroundColor: Colors.bgElevated, borderColor: Colors.borderLight },
-  sortPillText: { fontSize: FontSize.sm, color: Colors.textMuted },
-  sortPillTextActive: { color: Colors.textPrimary, fontWeight: FontWeight.semibold },
-  writeBtn: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: Colors.primary, borderRadius: Radius.md, paddingHorizontal: 14, paddingVertical: 8 },
-  writeBtnText: { fontSize: FontSize.sm, color: '#fff', fontWeight: FontWeight.semibold },
-
   scroll: { flex: 1 },
-  scrollContent: { padding: Spacing.lg },
-  reviewCard: { backgroundColor: Colors.bgCard, borderRadius: Radius.lg, padding: Spacing.md, marginBottom: Spacing.md, borderWidth: 1, borderColor: Colors.border, gap: Spacing.sm },
-  reviewHeader: { flexDirection: 'row', alignItems: 'center', gap: Spacing.sm },
-  avatar: { width: 36, height: 36, borderRadius: 18, backgroundColor: Colors.primary + '33', alignItems: 'center', justifyContent: 'center' },
-  avatarText: { fontSize: FontSize.md, color: Colors.primary, fontWeight: FontWeight.bold },
-  reviewMeta: { flex: 1 },
-  authorName: { fontSize: FontSize.md, color: Colors.textPrimary, fontWeight: FontWeight.semibold },
-  reviewDate: { fontSize: FontSize.xs, color: Colors.textMuted },
-  eventPill: { flexDirection: 'row', alignItems: 'center', gap: 4, backgroundColor: Colors.bgElevated, borderRadius: Radius.pill, paddingHorizontal: 10, paddingVertical: 4, alignSelf: 'flex-start' },
-  eventPillText: { fontSize: FontSize.xs, color: Colors.primary, fontWeight: FontWeight.medium },
-  venuePillText: { fontSize: FontSize.xs, color: Colors.textMuted },
-  reviewBody: { fontSize: FontSize.md, color: Colors.textSecondary, lineHeight: 22 },
-  tags: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
-  tag: { backgroundColor: Colors.success + '22', borderRadius: Radius.pill, paddingHorizontal: 8, paddingVertical: 3 },
-  tagText: { fontSize: 11, color: Colors.success, fontWeight: FontWeight.medium },
-  reviewActions: { flexDirection: 'row', gap: Spacing.md, paddingTop: Spacing.xs, borderTopWidth: 1, borderTopColor: Colors.border },
-  actionBtn: { flexDirection: 'row', alignItems: 'center', gap: 5 },
-  actionText: { fontSize: FontSize.sm, color: Colors.textMuted },
-});
+  scrollContent: { paddingBottom: 100 },
 
-const modalStyles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: Colors.bg },
-  header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: Spacing.lg, paddingTop: 56, borderBottomWidth: 1, borderBottomColor: Colors.border },
-  title: { fontSize: FontSize.lg, color: Colors.textPrimary, fontWeight: FontWeight.bold },
-  submitBtn: { backgroundColor: Colors.bgElevated, borderRadius: Radius.md, paddingHorizontal: Spacing.md, paddingVertical: 8 },
-  submitBtnActive: { backgroundColor: Colors.primary },
-  submitText: { fontSize: FontSize.md, color: Colors.textPrimary, fontWeight: FontWeight.semibold },
-  content: { padding: Spacing.lg, gap: Spacing.md },
-  label: { fontSize: FontSize.md, color: Colors.textPrimary, fontWeight: FontWeight.semibold },
-  textArea: { backgroundColor: Colors.bgInput, borderRadius: Radius.md, padding: Spacing.md, fontSize: FontSize.md, color: Colors.textPrimary, minHeight: 150, borderWidth: 1, borderColor: Colors.border },
-  charCount: { fontSize: FontSize.xs, color: Colors.textMuted, textAlign: 'right' },
+  hero: { padding: Spacing.lg, paddingTop: Spacing.xl, paddingBottom: Spacing.xxl },
+  heroRating: { flexDirection: 'row', alignItems: 'center', gap: Spacing.lg, marginBottom: Spacing.lg },
+  heroScore: { fontSize: 72, fontWeight: FontWeight.black, color: Colors.gold, lineHeight: 80 },
+  heroRight: { flex: 1 },
+  heroStars: { color: Colors.gold, fontSize: 28, letterSpacing: 2 },
+  heroCount: { color: Colors.textSecondary, fontSize: FontSize.md, marginTop: 4 },
+  heroBadge: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 6 },
+  heroBadgeText: { color: Colors.success, fontSize: FontSize.xs, fontWeight: FontWeight.medium },
+  badges: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: Spacing.lg },
+  badge: { backgroundColor: 'rgba(123,47,255,0.15)', borderWidth: 1, borderColor: Colors.primary, borderRadius: Radius.pill, paddingHorizontal: 12, paddingVertical: 5 },
+  badgeText: { color: Colors.primary, fontSize: FontSize.xs, fontWeight: FontWeight.semibold },
+  heroBtns: { flexDirection: 'row', gap: 10 },
+  readBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, backgroundColor: Colors.gold, borderRadius: Radius.lg, paddingVertical: 13 },
+  readBtnText: { color: '#000', fontSize: FontSize.sm, fontWeight: FontWeight.bold },
+  writeBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, borderWidth: 1.5, borderColor: Colors.primary, borderRadius: Radius.lg, paddingVertical: 13, backgroundColor: 'rgba(123,47,255,0.08)' },
+  writeBtnText: { color: Colors.primary, fontSize: FontSize.sm, fontWeight: FontWeight.bold },
+
+  statsStrip: { flexDirection: 'row', backgroundColor: Colors.bgCard, borderBottomWidth: 1, borderBottomColor: Colors.border, paddingVertical: 14, paddingHorizontal: Spacing.md, alignItems: 'center' },
+  statItem: { flex: 1, alignItems: 'center' },
+  statEmoji: { fontSize: 18, marginBottom: 2 },
+  statLabel: { color: Colors.textPrimary, fontSize: FontSize.sm, fontWeight: FontWeight.bold },
+  statSub: { color: Colors.textMuted, fontSize: 10, marginTop: 1, textAlign: 'center' },
+  statDivider: { width: 1, height: 32, backgroundColor: Colors.border },
+
+  reviewsSection: { paddingHorizontal: Spacing.md, paddingTop: Spacing.xl },
+  sectionTitle: { color: Colors.textPrimary, fontSize: FontSize.xxl, fontWeight: FontWeight.bold, marginBottom: Spacing.lg },
+  reviewCard: { backgroundColor: Colors.bgCard, borderWidth: 1, borderColor: Colors.border, borderRadius: Radius.lg, padding: Spacing.md, marginBottom: Spacing.md },
+  reviewTop: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginBottom: 10 },
+  avatar: { width: 42, height: 42, borderRadius: 21, borderWidth: 1.5, alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
+  avatarText: { fontSize: FontSize.sm, fontWeight: FontWeight.bold },
+  reviewMeta: { flex: 1 },
+  reviewName: { color: Colors.textPrimary, fontSize: FontSize.md, fontWeight: FontWeight.bold },
+  reviewType: { color: Colors.textMuted, fontSize: FontSize.xs, marginTop: 2 },
+  reviewRating: { alignItems: 'flex-end' },
+  reviewStars: { color: Colors.gold, fontSize: FontSize.sm },
+  reviewRatingNum: { color: Colors.gold, fontSize: FontSize.xs, fontWeight: FontWeight.bold },
+  reviewText: { color: Colors.textSecondary, fontSize: FontSize.sm, lineHeight: 20, fontStyle: 'italic' },
+
+  ctaSection: { padding: Spacing.md, paddingTop: 4, gap: 10 },
+
+  socialSection: { padding: Spacing.lg, paddingTop: Spacing.xl, paddingBottom: Spacing.xl },
+  socialTitle: { color: Colors.textPrimary, fontSize: FontSize.xl, fontWeight: FontWeight.bold, marginBottom: 4 },
+  socialSub: { color: Colors.textSecondary, fontSize: FontSize.sm, marginBottom: Spacing.lg },
+  socialBtns: { gap: 10 },
+  socialBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, borderWidth: 1.5, borderRadius: Radius.lg, paddingVertical: 13, backgroundColor: Colors.bgCard },
+  socialBtnText: { fontSize: FontSize.md, fontWeight: FontWeight.semibold },
 });

@@ -1,341 +1,767 @@
 // ─────────────────────────────────────────────
-//  Home Screen — Live dashboard overview
+//  HomeScreen — fully live from popupkaraoke.net
+//  Content fetched from /home-data.json on launch.
+//  Song count + Top 10 from /catalog-data.js.
+//  All sections fall back to defaults if offline.
 // ─────────────────────────────────────────────
 
-import React, { useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
-  View, Text, ScrollView, TouchableOpacity,
-  StyleSheet, Animated, StatusBar, Image,
+  ScrollView,
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Linking,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
-import { useLiveData, useNowPlaying } from '../hooks/useLiveData';
-import { Colors, Spacing, Radius, FontSize, FontWeight, Shadow } from '../theme';
-import { formatDistanceToNow } from 'date-fns';
+import { Colors, Spacing, Radius, FontSize, FontWeight } from '../theme';
+import { getHomeData, refreshHomeData, DEFAULT_HOME_DATA, isOffline } from '../services/homeContentService';
+import type { HomeData, HomeVenue, HomeService, HomeReview, HomeSong, HomeFaq } from '../services/homeContentService';
+import SongRequestModal from '../components/SongRequestModal';
+import BookingModal from '../components/BookingModal';
+import { Share } from 'react-native';
+import { getCatalog, onCatalogReady } from '../services/catalogService';
+import type { SongRow } from '../services/catalogService';
 
-function LiveBadge() {
-  const pulse = useRef(new Animated.Value(1)).current;
+// ── Emoji map for service cards (stored as strings in JSON) ─
+const EMOJI_MAP: Record<string, string> = {
+  birthday: '🎂', wedding: '💒', corporate: '🏢', bar: '🍺',
+};
+function resolveEmoji(raw: string) {
+  return raw.length <= 2 ? raw : EMOJI_MAP[raw] ?? '🎤';
+}
 
-  React.useEffect(() => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(pulse, { toValue: 1.3, duration: 800, useNativeDriver: true }),
-        Animated.timing(pulse, { toValue: 1, duration: 800, useNativeDriver: true }),
-      ])
-    ).start();
+// ── Color map for venue accent bars ─────────
+const COLOR_MAP: Record<string, string> = {
+  primary: Colors.primary,
+  accent: Colors.accent,
+  cyan: Colors.cyan,
+};
+
+// ── Sub-Components ────────────────────────────────────
+
+function SectionLabel({ over, title }: { over: string; title: string }) {
+  return (
+    <View style={styles.sectionHeader}>
+      <Text style={styles.sectionOver}>{over}</Text>
+      <Text style={styles.sectionTitle}>{title}</Text>
+    </View>
+  );
+}
+
+function ServiceCard({ emoji, title, desc, bullets }: HomeService) {
+  return (
+    <View style={styles.serviceCard}>
+      <Text style={styles.serviceEmoji}>{resolveEmoji(emoji)}</Text>
+      <Text style={styles.serviceTitle}>{title}</Text>
+      <Text style={styles.serviceDesc}>{desc}</Text>
+      {bullets.map(b => (
+        <View key={b} style={styles.bulletRow}>
+          <Ionicons name="checkmark-circle" size={14} color={Colors.primary} style={{ marginTop: 1 }} />
+          <Text style={styles.bulletText}>{b}</Text>
+        </View>
+      ))}
+    </View>
+  );
+}
+
+function VenueCard({ venue, onMap }: { venue: HomeVenue; onMap: () => void }) {
+  const color = COLOR_MAP[venue.color] ?? Colors.primary;
+  return (
+    <View style={styles.venueCard}>
+      <View style={[styles.venueAccent, { backgroundColor: color }]} />
+      <View style={styles.venueBody}>
+        <Text style={styles.venueName}>{venue.name}</Text>
+        <View style={styles.venueRow}>
+          <Ionicons name="calendar-outline" size={13} color={color} />
+          <Text style={[styles.venueDay, { color }]}>{venue.schedule}</Text>
+        </View>
+        <View style={styles.venueRow}>
+          <Ionicons name="time-outline" size={13} color={Colors.textSecondary} />
+          <Text style={styles.venueTime}>{venue.time}</Text>
+        </View>
+        <View style={styles.venueRow}>
+          <Ionicons name="location-outline" size={13} color={Colors.textMuted} />
+          <Text style={styles.venueAddress}>{venue.address}</Text>
+        </View>
+      </View>
+      <TouchableOpacity style={styles.mapBtn} onPress={onMap} activeOpacity={0.7}>
+        <Ionicons name="navigate-outline" size={16} color="#fff" />
+        <Text style={styles.mapBtnText}>Map</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+
+function FaqItem({ item }: { item: HomeFaq }) {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <TouchableOpacity
+      style={styles.faqItem}
+      onPress={() => setOpen(o => !o)}
+      activeOpacity={0.8}
+    >
+      <View style={styles.faqRow}>
+        <Text style={styles.faqQ}>{item.q}</Text>
+        <Ionicons
+          name={open ? 'chevron-up' : 'chevron-down'}
+          size={16}
+          color={Colors.textMuted}
+        />
+      </View>
+      {open && <Text style={styles.faqA}>{item.a}</Text>}
+    </TouchableOpacity>
+  );
+}
+
+function ReviewCard({ review }: { review: HomeReview }) {
+  return (
+    <View style={styles.reviewCard}>
+      <View style={styles.reviewTop}>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.reviewName}>{review.name}</Text>
+          <Text style={styles.reviewType}>{review.type}</Text>
+        </View>
+        <Text style={styles.reviewStars}>★★★★★</Text>
+      </View>
+      <Text style={styles.reviewText} numberOfLines={4}>"{review.text}"</Text>
+    </View>
+  );
+}
+
+// ── Main Screen ───────────────────────────────────────
+
+export default function HomeScreen() {
+  const [data, setData] = useState<HomeData>(DEFAULT_HOME_DATA);
+  const [songCountLabel, setSongCountLabel] = useState('75K+');
+  const [topSongs, setTopSongs] = useState<{ title: string; artist: string }[]>([]);
+  const [showRequestModal, setShowRequestModal] = useState(false);
+  const [showBookingModal, setShowBookingModal] = useState(false);
+  const [offline, setOffline] = useState(isOffline);
+
+  const shareApp = async () => {
+    try {
+      await Share.share({
+        message: '🎤 Check out PopUp Karaoke — NW Indiana & Chicagoland\'s premier mobile karaoke service!\n\niOS: https://apps.apple.com/app/id6745000492\nAndroid: https://play.google.com/store/apps/details?id=app.replit.popupkaraoke',
+        url: 'https://apps.apple.com/app/id6745000492',
+      });
+    } catch { /* ignore */ }
+  };
+
+  // Load home content and catalog in parallel on mount
+  useEffect(() => {
+    // Home content — defaults shown immediately, live data updates state
+    const initial = getHomeData(live => setData(live));
+    setData(initial);
+
+    // Song catalog — top 10 + live count
+    getCatalog().then(songs => {
+      if (songs.length > 0) {
+        setSongCountLabel(
+          songs.length >= 1000
+            ? `${songs.length.toLocaleString()}`
+            : String(songs.length)
+        );
+        setTopSongs(songs.slice(0, 10).map(([title, artist]: SongRow) => ({ title, artist })));
+      }
+    });
+
+    const unsub = onCatalogReady(live => {
+      setSongCountLabel(live.length.toLocaleString());
+      setTopSongs(live.slice(0, 10).map(([title, artist]: SongRow) => ({ title, artist })));
+    });
+
+    return unsub;
   }, []);
 
-  return (
-    <View style={styles.liveBadge}>
-      <Animated.View style={[styles.liveDot, { transform: [{ scale: pulse }] }]} />
-      <Text style={styles.liveBadgeText}>LIVE</Text>
-    </View>
-  );
-}
-
-function StatCard({ icon, label, value, color }: {
-  icon: keyof typeof Ionicons.glyphMap;
-  label: string;
-  value: string;
-  color: string;
-}) {
-  return (
-    <View style={styles.statCard}>
-      <View style={[styles.statIcon, { backgroundColor: color + '22' }]}>
-        <Ionicons name={icon} size={20} color={color} />
-      </View>
-      <Text style={styles.statValue}>{value}</Text>
-      <Text style={styles.statLabel}>{label}</Text>
-    </View>
-  );
-}
-
-export default function HomeScreen({ navigation }: any) {
-  const { liveStatus, events, isConnected, lastUpdated } = useLiveData();
-  const { nowPlaying, progress } = useNowPlaying();
-
-  const upcomingEvents = events.filter(e => !e.isLive).slice(0, 2);
-  const liveEvent = events.find(e => e.isLive);
+  // Convenience link handlers derived from live contact data
+  const callUs    = useCallback(() => Linking.openURL(data.contact.phoneUrl), [data]);
+  const textUs    = useCallback(() => Linking.openURL(data.contact.textUrl), [data]);
+  const bookNow   = useCallback(() => Linking.openURL(data.contact.bookUrl), [data]);
+  const readReviews = useCallback(() => Linking.openURL(data.contact.googleReviewsUrl), [data]);
+  const leaveReview = useCallback(() => Linking.openURL(data.contact.googleReviewsUrl), [data]);
 
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle="light-content" />
-
-      {/* ── Header ── */}
-      <LinearGradient
-        colors={['#1C1230', Colors.bg]}
-        style={styles.header}
-      >
-        <View style={styles.headerTop}>
-          <View>
-            <Text style={styles.greeting}>Good evening 👋</Text>
-            <Text style={styles.headerTitle}>PopUp Karaoke</Text>
-          </View>
-          <View style={styles.headerRight}>
-            <View style={[styles.connectionDot,
-              { backgroundColor: isConnected ? Colors.success : Colors.error }
-            ]} />
-            <TouchableOpacity style={styles.notifBtn}>
-              <Ionicons name="notifications-outline" size={24} color={Colors.textPrimary} />
-            </TouchableOpacity>
-          </View>
+    <SafeAreaView style={styles.container} edges={['top']}>
+      {/* Offline banner */}
+      {offline && (
+        <View style={styles.offlineBanner}>
+          <Ionicons name="cloud-offline-outline" size={14} color="#92400e" />
+          <Text style={styles.offlineBannerText}>Showing cached content — connect to refresh</Text>
         </View>
-        {lastUpdated && (
-          <Text style={styles.lastUpdated}>
-            Updated {formatDistanceToNow(lastUpdated, { addSuffix: true })}
-          </Text>
-        )}
-      </LinearGradient>
+      )}
 
       <ScrollView
         style={styles.scroll}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* ── LIVE EVENT BANNER ── */}
-        {liveEvent && (
-          <TouchableOpacity
-            style={styles.liveBanner}
-            onPress={() => navigation.navigate('NowPlaying')}
-            activeOpacity={0.85}
-          >
-            <LinearGradient
-              colors={['#7B2FFF', '#FF2D8B']}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-              style={styles.liveBannerGradient}
-            >
-              <LiveBadge />
-              <View style={styles.liveBannerContent}>
-                <Text style={styles.liveBannerTitle}>{liveEvent.title}</Text>
-                <Text style={styles.liveBannerVenue}>
-                  📍 {liveEvent.venue}
-                </Text>
-                {nowPlaying && (
-                  <Text style={styles.liveBannerSong} numberOfLines={1}>
-                    🎤 {nowPlaying.singerName} · {nowPlaying.songTitle}
-                  </Text>
-                )}
-              </View>
-              <View style={styles.liveBannerAction}>
-                <Ionicons name="chevron-forward" size={22} color="#fff" />
-              </View>
-            </LinearGradient>
-
-            {/* Progress bar */}
-            {nowPlaying && (
-              <View style={styles.progressBar}>
-                <View style={[styles.progressFill, { width: `${progress * 100}%` }]} />
-              </View>
-            )}
-          </TouchableOpacity>
-        )}
-
-        {/* ── STATS ── */}
-        <Text style={styles.sectionTitle}>Tonight at a Glance</Text>
-        <View style={styles.statsRow}>
-          <StatCard
-            icon="people"
-            label="Attending"
-            value={liveEvent ? String(liveEvent.attendeeCount) : '—'}
-            color={Colors.primary}
-          />
-          <StatCard
-            icon="musical-notes"
-            label="In Rotation"
-            value={nowPlaying ? String(nowPlaying.nextUp.length + 1) : '—'}
-            color={Colors.accent}
-          />
-          <StatCard
-            icon="star"
-            label="Avg Rating"
-            value={liveEvent ? liveEvent.rating.toFixed(1) : '—'}
-            color={Colors.gold}
-          />
-        </View>
-
-        {/* ── SINGER ROTATION ── */}
-        {nowPlaying && nowPlaying.nextUp.length > 0 && (
-          <>
-            <Text style={styles.sectionTitle}>Singer Rotation</Text>
-            <View style={styles.rotationCard}>
-              {/* Now up */}
-              <View style={styles.rotationNow}>
-                <View style={styles.rotationBadge}>
-                  <Text style={styles.rotationBadgeText}>NOW</Text>
-                </View>
-                <View style={styles.rotationInfo}>
-                  <Text style={styles.rotationName}>{nowPlaying.singerName}</Text>
-                  <Text style={styles.rotationSong}>{nowPlaying.songTitle} · {nowPlaying.artist}</Text>
-                </View>
-                <View style={[styles.rotationIcon, { backgroundColor: Colors.primary + '33' }]}>
-                  <Ionicons name="mic" size={18} color={Colors.primary} />
-                </View>
-              </View>
-
-              {/* Next up */}
-              {nowPlaying.nextUp.map((slot, i) => (
-                <View key={i} style={styles.rotationNext}>
-                  <View style={[styles.rotationBadge, styles.rotationBadgeNext]}>
-                    <Text style={styles.rotationBadgeNextText}>{i + 1}</Text>
-                  </View>
-                  <View style={styles.rotationInfo}>
-                    <Text style={[styles.rotationName, { color: Colors.textSecondary, fontSize: FontSize.md }]}>
-                      {slot.singerName}
-                    </Text>
-                    <Text style={styles.rotationSong}>{slot.songTitle} · {slot.artist}</Text>
-                  </View>
-                </View>
-              ))}
-            </View>
-          </>
-        )}
-
-        {/* ── UPCOMING EVENTS ── */}
-        <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>Upcoming Events</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Events')}>
-            <Text style={styles.seeAll}>See all</Text>
-          </TouchableOpacity>
-        </View>
-
-        {upcomingEvents.map(event => (
-          <TouchableOpacity
-            key={event.id}
-            style={styles.eventCard}
-            onPress={() => navigation.navigate('Events', { eventId: event.id })}
-            activeOpacity={0.8}
-          >
-            <View style={styles.eventCardLeft}>
-              <View style={styles.eventDateBox}>
-                <Text style={styles.eventMonth}>
-                  {new Date(event.date).toLocaleString('en', { month: 'short' }).toUpperCase()}
-                </Text>
-                <Text style={styles.eventDay}>
-                  {new Date(event.date).getDate()}
-                </Text>
-              </View>
-            </View>
-            <View style={styles.eventCardMid}>
-              <Text style={styles.eventTitle} numberOfLines={1}>{event.title}</Text>
-              <Text style={styles.eventVenue} numberOfLines={1}>📍 {event.venue}</Text>
-              <View style={styles.eventTags}>
-                {event.genre.slice(0, 2).map((g, i) => (
-                  <View key={i} style={styles.tag}>
-                    <Text style={styles.tagText}>{g}</Text>
-                  </View>
-                ))}
-              </View>
-            </View>
-            <View style={styles.eventCardRight}>
-              <View style={styles.attendeeCount}>
-                <Ionicons name="people-outline" size={14} color={Colors.textMuted} />
-                <Text style={styles.attendeeText}>{event.attendeeCount}</Text>
-              </View>
-              <Ionicons name="chevron-forward" size={18} color={Colors.textMuted} />
-            </View>
-          </TouchableOpacity>
-        ))}
-
-        {/* ── QUICK ACTIONS ── */}
-        <Text style={styles.sectionTitle}>Explore</Text>
-        <View style={styles.quickActions}>
-          {[
-            { icon: 'musical-notes-outline' as const, label: 'Song Catalog', screen: 'Songs', color: Colors.primary },
-            { icon: 'star-outline' as const, label: 'Reviews', screen: 'Reviews', color: Colors.gold },
-            { icon: 'people-outline' as const, label: 'Social Feed', screen: 'Social', color: Colors.accent },
-            { icon: 'calendar-outline' as const, label: 'All Events', screen: 'Events', color: Colors.cyan },
-          ].map(action => (
-            <TouchableOpacity
-              key={action.label}
-              style={styles.quickAction}
-              onPress={() => navigation.navigate(action.screen)}
-              activeOpacity={0.8}
-            >
-              <View style={[styles.quickActionIcon, { backgroundColor: action.color + '22' }]}>
-                <Ionicons name={action.icon} size={26} color={action.color} />
-              </View>
-              <Text style={styles.quickActionLabel}>{action.label}</Text>
+        {/* ─── Hero ─── */}
+        <LinearGradient colors={['#1A0533', '#0D0D14']} style={styles.hero}>
+          <View style={styles.heroTag}>
+            <Text style={styles.heroTagText}>🇺🇸 {data.hero.tag}</Text>
+          </View>
+          <Text style={styles.heroStars}>★★★★★ {data.hero.stars}</Text>
+          <Text style={styles.heroTitle}>{data.hero.title.replace('\\n', '\n')}</Text>
+          <Text style={styles.heroSubtitle}>{data.hero.subtitle}</Text>
+          <View style={styles.heroBtns}>
+            <TouchableOpacity style={styles.primaryBtn} onPress={bookNow} activeOpacity={0.8}>
+              <Text style={styles.primaryBtnText}>🎤 Book Your Event</Text>
             </TouchableOpacity>
+            <View style={styles.heroSecondaryRow}>
+              <TouchableOpacity style={styles.secondaryBtn} onPress={callUs} activeOpacity={0.8}>
+                <Ionicons name="call-outline" size={16} color={Colors.primary} />
+                <Text style={styles.secondaryBtnText}>Call</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.secondaryBtn} onPress={textUs} activeOpacity={0.8}>
+                <Ionicons name="chatbubble-outline" size={16} color={Colors.primary} />
+                <Text style={styles.secondaryBtnText}>Text Us</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+          <TouchableOpacity onPress={readReviews} activeOpacity={0.7}>
+            <Text style={styles.heroReviewLink}>
+              ★★★★★ {data.stats.googleRating} Google · {data.stats.reviewCount} Reviews ↗
+            </Text>
+          </TouchableOpacity>
+        </LinearGradient>
+
+        {/* ─── Stats Bar ─── */}
+        <View style={styles.statsBar}>
+          {[
+            { value: songCountLabel, label: 'Songs' },
+            { value: data.stats.events, label: 'Events' },
+            { value: data.stats.established, label: 'Est.' },
+            { value: data.stats.googleRating, label: 'Google' },
+          ].map((s, i) => (
+            <React.Fragment key={s.label}>
+              <View style={styles.statItem}>
+                <Text style={styles.statValue}>{s.value}</Text>
+                <Text style={styles.statLabel}>{s.label}</Text>
+              </View>
+              {i < 3 && <View style={styles.statDivider} />}
+            </React.Fragment>
           ))}
         </View>
 
-        <View style={{ height: 100 }} />
+        {/* ─── Services ─── */}
+        <View style={styles.section}>
+          <SectionLabel over="What We Do" title="Events We Rock" />
+          {data.services.map(s => <ServiceCard key={s.title} {...s} />)}
+        </View>
+
+        {/* ─── Everything Included ─── */}
+        <LinearGradient colors={['#13001F', '#0D0D14']} style={styles.includedSection}>
+          <SectionLabel over="Every Booking" title="Everything Included" />
+          <Text style={styles.includedNote}>One flat package. No à-la-carte add-ons. No surprise charges.</Text>
+          <View style={styles.includedGrid}>
+            {data.included.map(item => (
+              <View key={item.label} style={styles.includedItem}>
+                <View style={styles.includedIconWrap}>
+                  <Ionicons name={item.icon as any} size={22} color={Colors.primary} />
+                </View>
+                <Text style={styles.includedLabel}>{item.label}</Text>
+              </View>
+            ))}
+          </View>
+          <View style={styles.checkRow}>
+            {['Full setup & teardown', 'Social media content', 'Zero hidden fees'].map(t => (
+              <View key={t} style={styles.checkItem}>
+                <Ionicons name="checkmark-circle" size={14} color={Colors.success} />
+                <Text style={styles.checkText}>{t}</Text>
+              </View>
+            ))}
+          </View>
+        </LinearGradient>
+
+        {/* ─── Weekly Venues ─── */}
+        <View style={styles.section}>
+          <SectionLabel over="Where To Find Us" title="Catch Us Live Every Week" />
+          <Text style={styles.venueNote}>Free to attend — all are welcome.</Text>
+          {data.venues.map(v => (
+            <VenueCard
+              key={v.name}
+              venue={v}
+              onMap={() => Linking.openURL(`https://www.google.com/maps/search/?api=1&query=${v.mapsQuery}`)}
+            />
+          ))}
+          <TouchableOpacity style={styles.outlineBtn} onPress={bookNow} activeOpacity={0.8}>
+            <Text style={styles.outlineBtnText}>🎉 Book PopUp Karaoke For Your Event</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* ─── Reviews ─── */}
+        <View style={styles.section}>
+          <SectionLabel over="What Our Customers Say" title={`★★★★★ ${data.stats.googleRating} on Google`} />
+          {data.reviews.map(r => <ReviewCard key={r.name} review={r} />)}
+          <View style={styles.reviewBtns}>
+            <TouchableOpacity style={styles.reviewBtn} onPress={readReviews} activeOpacity={0.8}>
+              <Ionicons name="star" size={15} color="#000" />
+              <Text style={styles.reviewBtnText}>Read All Reviews</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.reviewBtn, styles.reviewBtnOutline]} onPress={leaveReview} activeOpacity={0.8}>
+              <Ionicons name="create-outline" size={15} color={Colors.primary} />
+              <Text style={[styles.reviewBtnText, { color: Colors.primary }]}>Leave a Review</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        {/* ─── Blog / Tips ─── */}
+        {data.blog?.length > 0 && (
+          <View style={styles.section}>
+            <SectionLabel over="Tips & Ideas" title="📖 From the Blog" />
+            {data.blog.map((post, i) => (
+              <TouchableOpacity
+                key={i}
+                style={styles.blogCard}
+                onPress={() => Linking.openURL(post.url)}
+                activeOpacity={0.8}
+              >
+                <View style={styles.blogCategoryBadge}>
+                  <Text style={styles.blogCategoryText}>{post.category}</Text>
+                </View>
+                <Text style={styles.blogTitle}>{post.title}</Text>
+                <Text style={styles.blogExcerpt}>{post.excerpt}</Text>
+                <View style={styles.blogReadMore}>
+                  <Text style={styles.blogReadMoreText}>Read article</Text>
+                  <Ionicons name="arrow-forward" size={13} color={Colors.primary} />
+                </View>
+              </TouchableOpacity>
+            ))}
+          </View>
+        )}
+
+        {/* ─── FAQ ─── */}
+        {data.faq?.length > 0 && (
+          <View style={styles.section}>
+            <SectionLabel over="Got Questions?" title="Frequently Asked" />
+            {data.faq.map((item, i) => (
+              <FaqItem key={i} item={item} />
+            ))}
+            <TouchableOpacity
+              style={styles.outlineBtn}
+              onPress={bookNow}
+              activeOpacity={0.8}
+            >
+              <Text style={styles.outlineBtnText}>🎤 Still have questions? Get a free quote →</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+
+        {/* ─── Service Areas ─── */}
+        {data.serviceAreas?.length > 0 && (
+          <View style={styles.section}>
+            <SectionLabel over="Coverage Area" title="📍 Where We Show Up" />
+            <View style={styles.areasWrap}>
+              {data.serviceAreas.map((area, i) => (
+                <View key={i} style={styles.areaChip}>
+                  <Text style={styles.areaChipText}>{area}</Text>
+                </View>
+              ))}
+            </View>
+          </View>
+        )}
+
+        {/* ─── Social Links ─── */}
+        {data.social && (
+          <View style={styles.section}>
+            <SectionLabel over="Follow Along" title="Find Us on Social" />
+            <View style={styles.socialRow}>
+              {[
+                { label: '👍 Facebook', url: data.social.facebook, color: '#1877F2' },
+                { label: '📸 Instagram', url: data.social.instagram, color: '#E1306C' },
+                { label: '🎵 TikTok', url: data.social.tiktok, color: '#00F2EA' },
+              ].map(s => (
+                <TouchableOpacity
+                  key={s.label}
+                  style={[styles.socialBtn, { borderColor: s.color }]}
+                  onPress={() => Linking.openURL(s.url)}
+                  activeOpacity={0.8}
+                >
+                  <Text style={[styles.socialBtnText, { color: s.color }]}>{s.label}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          </View>
+        )}
+
+        {/* ─── CTA ─── */}
+        <LinearGradient colors={['#1A0533', '#0D0D14']} style={styles.ctaSection}>
+          <Text style={styles.ctaTitle}>Ready to Book?</Text>
+          <Text style={styles.ctaSubtitle}>{data.hero.ctaSubtitle}</Text>
+          <TouchableOpacity style={[styles.primaryBtn, { width: '100%' }]} onPress={() => setShowBookingModal(true)} activeOpacity={0.8}>
+            <Text style={styles.primaryBtnText}>🎉 Book Your Event</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.primaryBtn, { width: '100%', backgroundColor: '#28a745' }]}
+            onPress={() => Linking.openURL('https://square.link/u/CmsBTgrE')}
+            activeOpacity={0.8}
+          >
+            <Text style={styles.primaryBtnText}>💳 Pay Invoice</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.outlineBtn, { width: '100%' }]}
+            onPress={() => setShowRequestModal(true)}
+            activeOpacity={0.8}
+          >
+            <Text style={styles.outlineBtnText}>🎤 Request a Song</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.outlineBtn, { width: '100%' }]}
+            onPress={shareApp}
+            activeOpacity={0.8}
+          >
+            <Text style={styles.outlineBtnText}>📲 Share the App</Text>
+          </TouchableOpacity>
+          <View style={styles.ctaLinks}>
+            <TouchableOpacity style={styles.ctaLink} onPress={callUs}>
+              <Ionicons name="call" size={16} color={Colors.primary} />
+              <Text style={styles.ctaLinkText}>{data.contact.phone}</Text>
+            </TouchableOpacity>
+            <Text style={styles.ctaDot}>·</Text>
+            <TouchableOpacity style={styles.ctaLink} onPress={textUs}>
+              <Ionicons name="chatbubble" size={16} color={Colors.primary} />
+              <Text style={styles.ctaLinkText}>Text Us</Text>
+            </TouchableOpacity>
+          </View>
+          <Text style={styles.ctaFooter}>
+            🇺🇸 Veteran-Owned & Operated · NW Indiana & Chicagoland · Since {data.stats.established}
+          </Text>
+        </LinearGradient>
       </ScrollView>
-    </View>
+
+      <SongRequestModal visible={showRequestModal} onClose={() => setShowRequestModal(false)} />
+      <BookingModal visible={showBookingModal} onClose={() => setShowBookingModal(false)} />
+    </SafeAreaView>
   );
 }
 
+// ── Styles ────────────────────────────────────────────
+
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.bg },
-  header: { paddingTop: 56, paddingHorizontal: Spacing.lg, paddingBottom: Spacing.lg },
-  headerTop: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' },
-  headerRight: { flexDirection: 'row', alignItems: 'center', gap: 10 },
-  greeting: { fontSize: FontSize.sm, color: Colors.textSecondary, fontWeight: FontWeight.medium },
-  headerTitle: { fontSize: FontSize.xxl, color: Colors.textPrimary, fontWeight: FontWeight.black, marginTop: 2 },
-  connectionDot: { width: 8, height: 8, borderRadius: 4 },
-  notifBtn: { padding: 4 },
-  lastUpdated: { fontSize: FontSize.xs, color: Colors.textMuted, marginTop: Spacing.xs },
-
+  offlineBanner: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: '#FEF3C7', paddingHorizontal: 14, paddingVertical: 8, justifyContent: 'center' },
+  offlineBannerText: { color: '#92400e', fontSize: FontSize.xs, fontWeight: FontWeight.semibold },
   scroll: { flex: 1 },
-  scrollContent: { paddingHorizontal: Spacing.lg, paddingTop: Spacing.md },
+  scrollContent: { paddingBottom: 100 },
 
-  // Live banner
-  liveBanner: { borderRadius: Radius.lg, overflow: 'hidden', marginBottom: Spacing.lg, ...Shadow.glow },
-  liveBannerGradient: { flexDirection: 'row', alignItems: 'center', padding: Spacing.md, gap: Spacing.md },
-  liveBannerContent: { flex: 1 },
-  liveBannerTitle: { fontSize: FontSize.md, color: '#fff', fontWeight: FontWeight.bold },
-  liveBannerVenue: { fontSize: FontSize.sm, color: 'rgba(255,255,255,0.8)', marginTop: 2 },
-  liveBannerSong: { fontSize: FontSize.sm, color: 'rgba(255,255,255,0.7)', marginTop: 4 },
-  liveBannerAction: { padding: 4 },
-  liveBadge: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: Radius.pill, paddingHorizontal: 8, paddingVertical: 4 },
-  liveDot: { width: 7, height: 7, borderRadius: 4, backgroundColor: '#fff' },
-  liveBadgeText: { fontSize: 10, color: '#fff', fontWeight: FontWeight.black, letterSpacing: 1 },
-  progressBar: { height: 3, backgroundColor: 'rgba(255,255,255,0.2)' },
-  progressFill: { height: 3, backgroundColor: '#fff', maxWidth: '100%' },
+  hero: { padding: Spacing.lg, paddingTop: Spacing.xl, paddingBottom: Spacing.xxl },
+  heroTag: {
+    alignSelf: 'flex-start',
+    backgroundColor: 'rgba(123,47,255,0.2)',
+    borderWidth: 1,
+    borderColor: Colors.primary,
+    borderRadius: Radius.pill,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    marginBottom: 10,
+  },
+  heroTagText: { color: Colors.primary, fontSize: FontSize.xs, fontWeight: FontWeight.semibold },
+  heroStars: { color: Colors.textSecondary, fontSize: FontSize.sm, marginBottom: 8 },
+  heroTitle: {
+    color: Colors.textPrimary,
+    fontSize: 44,
+    fontWeight: FontWeight.black,
+    lineHeight: 50,
+    marginBottom: 12,
+  },
+  heroSubtitle: { color: Colors.textSecondary, fontSize: FontSize.md, lineHeight: 22, marginBottom: Spacing.lg },
+  heroBtns: { marginBottom: 16 },
+  heroSecondaryRow: { flexDirection: 'row', gap: 10, marginTop: 10 },
+  heroReviewLink: {
+    color: Colors.gold,
+    fontSize: FontSize.sm,
+    fontWeight: FontWeight.medium,
+    textDecorationLine: 'underline',
+  },
 
-  // Stats
-  sectionTitle: { fontSize: FontSize.lg, color: Colors.textPrimary, fontWeight: FontWeight.bold, marginBottom: Spacing.md, marginTop: Spacing.sm },
-  statsRow: { flexDirection: 'row', gap: Spacing.sm, marginBottom: Spacing.lg },
-  statCard: { flex: 1, backgroundColor: Colors.bgCard, borderRadius: Radius.md, padding: Spacing.md, alignItems: 'center', borderWidth: 1, borderColor: Colors.border },
-  statIcon: { width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center', marginBottom: Spacing.xs },
-  statValue: { fontSize: FontSize.xl, color: Colors.textPrimary, fontWeight: FontWeight.black },
-  statLabel: { fontSize: FontSize.xs, color: Colors.textMuted, marginTop: 2, textAlign: 'center' },
+  primaryBtn: {
+    backgroundColor: Colors.primary,
+    borderRadius: Radius.lg,
+    paddingVertical: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  primaryBtnText: { color: '#fff', fontSize: FontSize.lg, fontWeight: FontWeight.bold },
+  secondaryBtn: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    borderWidth: 1.5,
+    borderColor: Colors.primary,
+    borderRadius: Radius.lg,
+    paddingVertical: 11,
+    backgroundColor: 'rgba(123,47,255,0.08)',
+  },
+  secondaryBtnText: { color: Colors.primary, fontSize: FontSize.md, fontWeight: FontWeight.semibold },
+  outlineBtn: {
+    borderWidth: 1.5,
+    borderColor: Colors.primary,
+    borderRadius: Radius.lg,
+    paddingVertical: 14,
+    alignItems: 'center',
+    marginTop: 12,
+    backgroundColor: 'rgba(123,47,255,0.08)',
+  },
+  outlineBtnText: { color: Colors.primary, fontSize: FontSize.md, fontWeight: FontWeight.semibold },
 
-  // Rotation
-  rotationCard: { backgroundColor: Colors.bgCard, borderRadius: Radius.lg, borderWidth: 1, borderColor: Colors.border, overflow: 'hidden', marginBottom: Spacing.lg },
-  rotationNow: { flexDirection: 'row', alignItems: 'center', padding: Spacing.md, backgroundColor: Colors.primary + '11', borderBottomWidth: 1, borderBottomColor: Colors.border, gap: Spacing.sm },
-  rotationNext: { flexDirection: 'row', alignItems: 'center', padding: Spacing.md, borderBottomWidth: 1, borderBottomColor: Colors.border, gap: Spacing.sm },
-  rotationBadge: { width: 36, height: 36, borderRadius: 18, backgroundColor: Colors.primary, alignItems: 'center', justifyContent: 'center' },
-  rotationBadgeText: { fontSize: 10, color: '#fff', fontWeight: FontWeight.black, letterSpacing: 0.5 },
-  rotationBadgeNext: { backgroundColor: Colors.bgElevated },
-  rotationBadgeNextText: { fontSize: FontSize.sm, color: Colors.textSecondary, fontWeight: FontWeight.bold },
-  rotationInfo: { flex: 1 },
-  rotationName: { fontSize: FontSize.md, color: Colors.textPrimary, fontWeight: FontWeight.semibold },
-  rotationSong: { fontSize: FontSize.sm, color: Colors.textMuted, marginTop: 1 },
-  rotationIcon: { width: 36, height: 36, borderRadius: 18, alignItems: 'center', justifyContent: 'center' },
+  statsBar: {
+    flexDirection: 'row',
+    backgroundColor: Colors.bgCard,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.border,
+    paddingVertical: 14,
+    paddingHorizontal: Spacing.md,
+    alignItems: 'center',
+  },
+  statItem: { flex: 1, alignItems: 'center' },
+  statValue: { color: Colors.textPrimary, fontSize: FontSize.lg, fontWeight: FontWeight.bold },
+  statLabel: { color: Colors.textMuted, fontSize: FontSize.xs, marginTop: 1 },
+  statDivider: { width: 1, height: 28, backgroundColor: Colors.border },
 
-  // Events
-  sectionHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: Spacing.md, marginTop: Spacing.sm },
-  seeAll: { fontSize: FontSize.sm, color: Colors.primary, fontWeight: FontWeight.semibold },
-  eventCard: { flexDirection: 'row', backgroundColor: Colors.bgCard, borderRadius: Radius.md, marginBottom: Spacing.sm, padding: Spacing.md, borderWidth: 1, borderColor: Colors.border, gap: Spacing.md, alignItems: 'center' },
-  eventCardLeft: {},
-  eventDateBox: { width: 44, alignItems: 'center', backgroundColor: Colors.bgElevated, borderRadius: Radius.sm, padding: Spacing.xs },
-  eventMonth: { fontSize: 10, color: Colors.accent, fontWeight: FontWeight.bold, letterSpacing: 0.5 },
-  eventDay: { fontSize: FontSize.xl, color: Colors.textPrimary, fontWeight: FontWeight.black, lineHeight: 28 },
-  eventCardMid: { flex: 1 },
-  eventTitle: { fontSize: FontSize.md, color: Colors.textPrimary, fontWeight: FontWeight.semibold },
-  eventVenue: { fontSize: FontSize.sm, color: Colors.textSecondary, marginTop: 2 },
-  eventTags: { flexDirection: 'row', gap: 6, marginTop: 6 },
-  tag: { backgroundColor: Colors.primary + '22', borderRadius: Radius.pill, paddingHorizontal: 8, paddingVertical: 2 },
-  tagText: { fontSize: 11, color: Colors.primaryLight, fontWeight: FontWeight.medium },
-  eventCardRight: { alignItems: 'center', gap: 4 },
-  attendeeCount: { flexDirection: 'row', alignItems: 'center', gap: 3 },
-  attendeeText: { fontSize: FontSize.xs, color: Colors.textMuted },
+  section: { paddingHorizontal: Spacing.md, paddingTop: Spacing.xl, paddingBottom: Spacing.md },
+  sectionHeader: { marginBottom: Spacing.lg },
+  sectionOver: {
+    color: Colors.primary,
+    fontSize: FontSize.xs,
+    fontWeight: FontWeight.semibold,
+    textTransform: 'uppercase',
+    letterSpacing: 1,
+    marginBottom: 4,
+  },
+  sectionTitle: { color: Colors.textPrimary, fontSize: FontSize.xxl, fontWeight: FontWeight.bold },
 
-  // Quick actions
-  quickActions: { flexDirection: 'row', flexWrap: 'wrap', gap: Spacing.sm },
-  quickAction: { width: '47%', backgroundColor: Colors.bgCard, borderRadius: Radius.md, padding: Spacing.md, alignItems: 'center', borderWidth: 1, borderColor: Colors.border, gap: Spacing.sm },
-  quickActionIcon: { width: 52, height: 52, borderRadius: 26, alignItems: 'center', justifyContent: 'center' },
-  quickActionLabel: { fontSize: FontSize.sm, color: Colors.textSecondary, fontWeight: FontWeight.medium, textAlign: 'center' },
+  serviceCard: {
+    backgroundColor: Colors.bgCard,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    borderRadius: Radius.lg,
+    padding: Spacing.md,
+    marginBottom: Spacing.md,
+  },
+  serviceEmoji: { fontSize: 32, marginBottom: 8 },
+  serviceTitle: { color: Colors.textPrimary, fontSize: FontSize.lg, fontWeight: FontWeight.bold, marginBottom: 4 },
+  serviceDesc: { color: Colors.textSecondary, fontSize: FontSize.sm, lineHeight: 18, marginBottom: 10 },
+  bulletRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 6, marginBottom: 4 },
+  bulletText: { color: Colors.textSecondary, fontSize: FontSize.sm, flex: 1, lineHeight: 18 },
+
+  includedSection: { paddingHorizontal: Spacing.md, paddingTop: Spacing.xl, paddingBottom: Spacing.xl },
+  includedNote: { color: Colors.textSecondary, fontSize: FontSize.sm, marginBottom: Spacing.lg, marginTop: -Spacing.md },
+  includedGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, marginBottom: Spacing.lg },
+  includedItem: {
+    width: '30%',
+    flexGrow: 1,
+    alignItems: 'center',
+    backgroundColor: Colors.bgCard,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    borderRadius: Radius.md,
+    padding: 12,
+  },
+  includedIconWrap: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: 'rgba(123,47,255,0.15)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 6,
+  },
+  includedLabel: { color: Colors.textSecondary, fontSize: 11, textAlign: 'center', lineHeight: 14 },
+  checkRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
+  checkItem: { flexDirection: 'row', alignItems: 'center', gap: 4 },
+  checkText: { color: Colors.textSecondary, fontSize: FontSize.xs },
+
+  venueNote: { color: Colors.textSecondary, fontSize: FontSize.sm, marginBottom: Spacing.md, marginTop: -Spacing.md },
+  venueCard: {
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    backgroundColor: Colors.bgCard,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    borderRadius: Radius.lg,
+    marginBottom: Spacing.md,
+    overflow: 'hidden',
+  },
+  venueAccent: { width: 4 },
+  venueBody: { flex: 1, padding: Spacing.md },
+  venueName: { color: Colors.textPrimary, fontSize: FontSize.md, fontWeight: FontWeight.bold, marginBottom: 6 },
+  venueRow: { flexDirection: 'row', alignItems: 'center', gap: 5, marginBottom: 3 },
+  venueDay: { fontSize: FontSize.sm, fontWeight: FontWeight.semibold },
+  venueTime: { color: Colors.textSecondary, fontSize: FontSize.sm },
+  venueAddress: { color: Colors.textMuted, fontSize: FontSize.xs, flex: 1 },
+  mapBtn: {
+    backgroundColor: Colors.primary,
+    paddingHorizontal: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 4,
+    minWidth: 58,
+  },
+  mapBtnText: { color: '#fff', fontSize: 11, fontWeight: FontWeight.semibold },
+
+  songColumn: {
+    flex: 1,
+    backgroundColor: Colors.bgCard,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    borderRadius: Radius.lg,
+    overflow: 'hidden',
+  },
+  columnTitle: {
+    color: Colors.textPrimary,
+    fontSize: FontSize.sm,
+    fontWeight: FontWeight.bold,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.border,
+  },
+  songRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+  },
+  songRowBorder: { borderTopWidth: 1, borderTopColor: Colors.border },
+  songNumCircle: {
+    width: 26,
+    height: 26,
+    borderRadius: 13,
+    backgroundColor: Colors.primary,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexShrink: 0,
+  },
+  songNumText: { color: '#fff', fontSize: 11, fontWeight: FontWeight.bold },
+  songInfo: { flex: 1 },
+  songTitle: { color: Colors.textPrimary, fontSize: FontSize.xs, fontWeight: FontWeight.semibold },
+  songArtist: { color: Colors.textMuted, fontSize: 10, marginTop: 1 },
+  newBadge: {
+    backgroundColor: Colors.cyan,
+    borderRadius: Radius.pill,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    flexShrink: 0,
+  },
+  newBadgeText: { color: '#000', fontSize: 9, fontWeight: FontWeight.bold, letterSpacing: 0.5 },
+
+  reviewCard: {
+    backgroundColor: Colors.bgCard,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    borderRadius: Radius.lg,
+    padding: Spacing.md,
+    marginBottom: Spacing.md,
+  },
+  reviewTop: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 },
+  reviewName: { color: Colors.textPrimary, fontSize: FontSize.md, fontWeight: FontWeight.bold },
+  reviewType: { color: Colors.textMuted, fontSize: FontSize.xs, marginTop: 2 },
+  reviewStars: { color: Colors.gold, fontSize: FontSize.md },
+  reviewText: { color: Colors.textSecondary, fontSize: FontSize.sm, lineHeight: 20, fontStyle: 'italic' },
+  reviewBtns: { flexDirection: 'row', gap: 10, marginTop: 4 },
+  reviewBtn: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    backgroundColor: Colors.gold,
+    borderRadius: Radius.lg,
+    paddingVertical: 12,
+  },
+  reviewBtnOutline: { backgroundColor: 'transparent', borderWidth: 1.5, borderColor: Colors.primary },
+  reviewBtnText: { color: '#000', fontSize: FontSize.sm, fontWeight: FontWeight.bold },
+
+  // ── Crowd Favorites ───────────────────────────
+  crowdCard: {
+    backgroundColor: Colors.bgCard,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    borderRadius: Radius.lg,
+    padding: Spacing.md,
+    marginBottom: Spacing.md,
+  },
+  crowdCategory: { color: Colors.textPrimary, fontSize: FontSize.md, fontWeight: FontWeight.bold, marginBottom: 2 },
+  crowdDesc: { color: Colors.textMuted, fontSize: FontSize.xs, marginBottom: 10 },
+  crowdSongRow: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 7 },
+  crowdSongBorder: { borderTopWidth: 1, borderTopColor: Colors.border },
+  crowdSongInfo: { flex: 1 },
+  crowdSongTitle: { color: Colors.textPrimary, fontSize: FontSize.sm, fontWeight: FontWeight.semibold },
+  crowdSongArtist: { color: Colors.textMuted, fontSize: FontSize.xs },
+
+  // ── Blog ──────────────────────────────────────
+  blogCard: {
+    backgroundColor: Colors.bgCard,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    borderRadius: Radius.lg,
+    padding: Spacing.md,
+    marginBottom: Spacing.md,
+  },
+  blogCategoryBadge: {
+    alignSelf: 'flex-start',
+    backgroundColor: 'rgba(123,47,255,0.15)',
+    borderRadius: Radius.pill,
+    paddingHorizontal: 10,
+    paddingVertical: 3,
+    marginBottom: 8,
+  },
+  blogCategoryText: { color: Colors.primary, fontSize: FontSize.xs, fontWeight: FontWeight.semibold },
+  blogTitle: { color: Colors.textPrimary, fontSize: FontSize.md, fontWeight: FontWeight.bold, marginBottom: 4, lineHeight: 22 },
+  blogExcerpt: { color: Colors.textSecondary, fontSize: FontSize.sm, lineHeight: 18, marginBottom: 10 },
+  blogReadMore: { flexDirection: 'row', alignItems: 'center', gap: 4 },
+  blogReadMoreText: { color: Colors.primary, fontSize: FontSize.sm, fontWeight: FontWeight.semibold },
+
+  // ── FAQ ───────────────────────────────────────
+  faqItem: {
+    backgroundColor: Colors.bgCard,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    borderRadius: Radius.lg,
+    padding: Spacing.md,
+    marginBottom: 8,
+  },
+  faqRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10 },
+  faqQ: { color: Colors.textPrimary, fontSize: FontSize.sm, fontWeight: FontWeight.semibold, flex: 1, lineHeight: 20 },
+  faqA: { color: Colors.textSecondary, fontSize: FontSize.sm, lineHeight: 20, marginTop: 10 },
+
+  // ── Service Areas ─────────────────────────────
+  areasWrap: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  areaChip: {
+    backgroundColor: Colors.bgCard,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    borderRadius: Radius.pill,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+  },
+  areaChipText: { color: Colors.textSecondary, fontSize: FontSize.xs },
+
+  // ── Social ────────────────────────────────────
+  socialRow: { flexDirection: 'row', gap: 10 },
+  socialBtn: {
+    flex: 1,
+    borderWidth: 1.5,
+    borderRadius: Radius.lg,
+    paddingVertical: 12,
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.04)',
+  },
+  socialBtnText: { fontSize: FontSize.sm, fontWeight: FontWeight.semibold },
+
+  ctaSection: { padding: Spacing.lg, paddingTop: Spacing.xxl, paddingBottom: Spacing.xxl, gap: 10 },
+  ctaTitle: { color: Colors.textPrimary, fontSize: FontSize.xxl, fontWeight: FontWeight.black, textAlign: 'center', marginBottom: 8 },
+  ctaSubtitle: { color: Colors.textSecondary, fontSize: FontSize.md, textAlign: 'center', marginBottom: Spacing.lg, lineHeight: 22 },
+  ctaLinks: { flexDirection: 'row', alignItems: 'center', gap: 12, marginTop: Spacing.md },
+  ctaLink: { flexDirection: 'row', alignItems: 'center', gap: 5 },
+  ctaLinkText: { color: Colors.primary, fontSize: FontSize.md, fontWeight: FontWeight.semibold },
+  ctaDot: { color: Colors.textMuted, fontSize: FontSize.lg },
+  ctaFooter: { color: Colors.textMuted, fontSize: FontSize.xs, textAlign: 'center', marginTop: Spacing.lg, lineHeight: 18 },
 });

@@ -1,0 +1,837 @@
+{
+  "_comment": "This file is served at https://popupkaraoke.net/home-data.json and drives the PopUp Karaoke mobile app home screen. Edit any section here and the app will reflect it on next launch.",
+  "_version": 1,
+  "hero": {
+    "tag": "🇺🇸 Veteran-Owned & Operated",
+    "stars": "★★★★★ NW Indiana & Chicagoland's Premier Mobile Karaoke",
+    "title": "Get Ready\nTo Sing! 🎤",
+    "subtitle": "Mobile karaoke DJ for weddings, bars, birthdays & corporate events across NW Indiana & Chicagoland — fully equipped and ready to make your event unforgettable.",
+    "reviewLink": "★★★★★ 5.0 Google · 50+ Reviews ↗",
+    "ctaSubtitle": "Summer weekends are filling fast — lock in your date before it's taken."
+  },
+  "stats": {
+    "events": "200+",
+    "established": "2020",
+    "googleRating": "5.0 ★",
+    "reviewCount": "50+"
+  },
+  "services": [
+    {
+      "emoji": "🎂",
+      "title": "Birthday Parties",
+      "desc": "Make any age unforgettable with a live karaoke celebration — from sweet sixteens to milestone birthdays.",
+      "bullets": [
+        "Pro host keeps the energy high all night",
+        "Personalized song dedications welcome",
+        "Fits any home, backyard, or rented venue",
+        "75,000+ songs across every genre"
+      ]
+    },
+    {
+      "emoji": "💒",
+      "title": "Weddings",
+      "desc": "A crowd-pleasing moment that gets every generation on their feet.",
+      "bullets": [
+        "Receptions, after-parties & rehearsal dinners",
+        "Full sound system & stage lighting",
+        "Complements your DJ or band",
+        "Guests can request songs in advance"
+      ]
+    },
+    {
+      "emoji": "🏢",
+      "title": "Corporate Events",
+      "desc": "Break the ice and build real team bonds — karaoke everyone actually enjoys.",
+      "bullets": [
+        "Ideal for holiday parties & milestones",
+        "Certificate of insurance available",
+        "Social media content included",
+        "Groups from 10 to 200+ guests"
+      ]
+    },
+    {
+      "emoji": "🍺",
+      "title": "Bars & Breweries",
+      "desc": "Turn a slow night into a packed house with a karaoke residency.",
+      "bullets": [
+        "Weekly or bi-weekly residency packages",
+        "Free social media promo posts",
+        "Full setup & teardown — you just pour drinks",
+        "Live at 18th St, Flights & El Capitán"
+      ]
+    }
+  ],
+  "included": [
+    {
+      "icon": "volume-high-outline",
+      "label": "Concert-Quality Sound"
+    },
+    {
+      "icon": "mic-outline",
+      "label": "Wireless Microphones"
+    },
+    {
+      "icon": "bulb-outline",
+      "label": "Stage Lighting"
+    },
+    {
+      "icon": "person-circle-outline",
+      "label": "Pro Host & MC"
+    },
+    {
+      "icon": "tv-outline",
+      "label": "Lyrics Screen"
+    },
+    {
+      "icon": "musical-notes-outline",
+      "label": "75,000+ Songs"
+    }
+  ],
+  "venues": [
+    {
+      "name": "18th Street Brewery",
+      "shortName": "18th St Brewery",
+      "address": "5725 Miller Ave, Gary, IN",
+      "schedule": "Every Wednesday",
+      "time": "7:00 PM – 10:00 PM",
+      "mapsQuery": "18th+Street+Brewery+5725+Miller+Ave+Gary+IN",
+      "color": "primary",
+      "emoji": "🍺",
+      "rule": {
+        "type": "weekly",
+        "dayOfWeek": 3
+      }
+    },
+    {
+      "name": "Flights Taproom & Whiskey Lounge",
+      "shortName": "Flights Taproom",
+      "address": "839 169th St, Hammond, IN",
+      "schedule": "1st & 3rd Tuesdays",
+      "time": "8:00 PM – 11:00 PM",
+      "mapsQuery": "Flights+Taproom+839+169th+St+Hammond+IN",
+      "color": "accent",
+      "emoji": "🥃",
+      "rule": {
+        "type": "nthWeekday",
+        "dayOfWeek": 2,
+        "weeks": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "name": "El Capitan",
+      "shortName": "El Capitan",
+      "address": "327 Main St, Hobart, IN",
+      "schedule": "2nd & 4th Fridays",
+      "time": "8:00 PM – 12:00 AM",
+      "mapsQuery": "El+Capitan+327+Main+St+Hobart+IN",
+      "color": "cyan",
+      "emoji": "🎸",
+      "rule": {
+        "type": "nthWeekday",
+        "dayOfWeek": 5,
+        "weeks": [
+          2,
+          4
+        ]
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "name": "Jesse G.",
+      "type": "Karaoke at El Capitan",
+      "text": "Danny is absolutely phenomenal — the best karaoke DJ in the Chicagoland area. Nobody has ever balanced their sound equipment as well as Danny does."
+    },
+    {
+      "name": "Sonal P.",
+      "type": "Corporate Party",
+      "text": "Daniel is amazing at what he does — DJ turntables, top-notch karaoke screen, lights, and 75,000 songs. He turns any venue into a party."
+    },
+    {
+      "name": "Gigi M.",
+      "type": "Private Birthday Party",
+      "text": "Easy to use, attentive leading up to the event, and provided everything you could need. I'm already thinking of other parties I can throw just to use them!"
+    },
+    {
+      "name": "Sarah & Mike D.",
+      "type": "Wedding Reception",
+      "text": "Best money we spent on our wedding — every single guest got on the mic. Worth every penny."
+    },
+    {
+      "name": "Jessica R.",
+      "type": "Private Event",
+      "text": "Daniel is amazing — he turned our party into an event everyone still talks about!"
+    },
+    {
+      "name": "Mark T.",
+      "type": "Corporate Team Event",
+      "text": "Best karaoke host we've ever had. Our corporate team bonding was a huge hit!"
+    },
+    {
+      "name": "Carlos M.",
+      "type": "Birthday Bash",
+      "text": "He showed up on time, set up fast, and absolutely rocked our birthday bash."
+    },
+    {
+      "name": "Tina W.",
+      "type": "Private Party",
+      "text": "The lights, the sound, the host — everything was top-notch. Highly recommend!"
+    },
+    {
+      "name": "18th Street Brewery",
+      "type": "Weekly Residency · Gary, IN",
+      "text": "We do karaoke night every month now because of PopUp Karaoke. The crowd loves it!"
+    },
+    {
+      "name": "Kevin S.",
+      "type": "Private Event",
+      "text": "Veteran-owned and it shows — professional, reliable, and so much fun."
+    },
+    {
+      "name": "Danielle F.",
+      "type": "Private Event",
+      "text": "Honestly worth every penny — the equipment alone would have cost more to rent separately."
+    },
+    {
+      "name": "Maria T.",
+      "type": "Private Event",
+      "text": "I was blown away by how much was included. Lights, sound, host, screen — everything. Zero stress."
+    },
+    {
+      "name": "Amanda L.",
+      "type": "Private Event",
+      "text": "Book with PopUp Karaoke — 75,000 songs, pro setup, and a host who keeps the energy high all night."
+    }
+  ],
+  "top100": [
+    {
+      "title": "Tennessee Whiskey",
+      "artist": "Chris Stapleton"
+    },
+    {
+      "title": "Sweet Caroline",
+      "artist": "Neil Diamond"
+    },
+    {
+      "title": "Creep",
+      "artist": "Radiohead"
+    },
+    {
+      "title": "Before He Cheats",
+      "artist": "Carrie Underwood"
+    },
+    {
+      "title": "Pink Pony Club",
+      "artist": "Chappell Roan"
+    },
+    {
+      "title": "Don't Stop Believin' (Small Town Girl)",
+      "artist": "Journey"
+    },
+    {
+      "title": "Picture",
+      "artist": "Kid Rock & Sheryl Crow"
+    },
+    {
+      "title": "Shallow",
+      "artist": "Lady Gaga & Bradley Cooper"
+    },
+    {
+      "title": "Mr. Brightside",
+      "artist": "The Killers"
+    },
+    {
+      "title": "Bohemian Rhapsody",
+      "artist": "Queen"
+    },
+    {
+      "title": "Take Me Home, Country Roads",
+      "artist": "John Denver"
+    },
+    {
+      "title": "Neon Moon",
+      "artist": "Brooks & Dunn"
+    },
+    {
+      "title": "What's Up?",
+      "artist": "4 Non Blondes"
+    },
+    {
+      "title": "My Way",
+      "artist": "Frank Sinatra"
+    },
+    {
+      "title": "Valerie",
+      "artist": "Amy Winehouse & Mark Ronson"
+    },
+    {
+      "title": "I Want It That Way",
+      "artist": "Backstreet Boys"
+    },
+    {
+      "title": "Dreams",
+      "artist": "Fleetwood Mac"
+    },
+    {
+      "title": "Friends in Low Places",
+      "artist": "Garth Brooks"
+    },
+    {
+      "title": "Lose Control",
+      "artist": "Teddy Swims"
+    },
+    {
+      "title": "Zombie",
+      "artist": "The Cranberries"
+    },
+    {
+      "title": "Can't Help Falling in Love",
+      "artist": "Elvis Presley"
+    },
+    {
+      "title": "Dancing Queen",
+      "artist": "ABBA"
+    },
+    {
+      "title": "Piano Man",
+      "artist": "Billy Joel"
+    },
+    {
+      "title": "Folsom Prison Blues",
+      "artist": "Johnny Cash"
+    },
+    {
+      "title": "I Wanna Dance with Somebody",
+      "artist": "Whitney Houston"
+    },
+    {
+      "title": "Your Man",
+      "artist": "Josh Turner"
+    },
+    {
+      "title": "Kryptonite",
+      "artist": "3 Doors Down"
+    },
+    {
+      "title": "You Look Like You Love Me",
+      "artist": "Ella Langley & Riley Green"
+    },
+    {
+      "title": "Killing Me Softly",
+      "artist": "The Fugees & Lauryn Hill"
+    },
+    {
+      "title": "Black Velvet",
+      "artist": "Alannah Myles"
+    },
+    {
+      "title": "Santeria",
+      "artist": "Sublime"
+    },
+    {
+      "title": "Teenage Dirtbag",
+      "artist": "Wheatus"
+    },
+    {
+      "title": "Flowers",
+      "artist": "Miley Cyrus"
+    },
+    {
+      "title": "Man! I Feel Like a Woman!",
+      "artist": "Shania Twain"
+    },
+    {
+      "title": "Unwritten",
+      "artist": "Natasha Bedingfield"
+    },
+    {
+      "title": "Crazy",
+      "artist": "Patsy Cline"
+    },
+    {
+      "title": "Jolene",
+      "artist": "Dolly Parton"
+    },
+    {
+      "title": "Ring of Fire",
+      "artist": "Johnny Cash"
+    },
+    {
+      "title": "Golden",
+      "artist": "KPop Demon Hunters"
+    },
+    {
+      "title": "Wonderwall",
+      "artist": "Oasis"
+    },
+    {
+      "title": "Give Me One Reason",
+      "artist": "Tracy Chapman"
+    },
+    {
+      "title": "Wagon Wheel",
+      "artist": "Darius Rucker"
+    },
+    {
+      "title": "Save Me",
+      "artist": "Jelly Roll"
+    },
+    {
+      "title": "Stay",
+      "artist": "Rihanna & Mikky Ekko"
+    },
+    {
+      "title": "Strawberry Wine",
+      "artist": "Deana Carter"
+    },
+    {
+      "title": "Party in the U.S.A.",
+      "artist": "Miley Cyrus"
+    },
+    {
+      "title": "Something in the Orange",
+      "artist": "Zach Bryan"
+    },
+    {
+      "title": "Amarillo by Morning",
+      "artist": "George Strait"
+    },
+    {
+      "title": "Girl Crush",
+      "artist": "Little Big Town"
+    },
+    {
+      "title": "Fly Me to the Moon",
+      "artist": "Frank Sinatra"
+    },
+    {
+      "title": "I Will Survive",
+      "artist": "Gloria Gaynor"
+    },
+    {
+      "title": "Someone Like You",
+      "artist": "Adele"
+    },
+    {
+      "title": "My Girl",
+      "artist": "The Temptations"
+    },
+    {
+      "title": "Have You Ever Seen the Rain",
+      "artist": "Creedence Clearwater Revival"
+    },
+    {
+      "title": "Turn the Page",
+      "artist": "Bob Seger"
+    },
+    {
+      "title": "Die with a Smile",
+      "artist": "Lady Gaga & Bruno Mars"
+    },
+    {
+      "title": "Let It Go",
+      "artist": "Idina Menzel"
+    },
+    {
+      "title": "These Boots Are Made for Walkin'",
+      "artist": "Nancy Sinatra"
+    },
+    {
+      "title": "Bring Me to Life",
+      "artist": "Evanescence"
+    },
+    {
+      "title": "Iris",
+      "artist": "Goo Goo Dolls"
+    },
+    {
+      "title": "All of Me",
+      "artist": "John Legend"
+    },
+    {
+      "title": "A Bar Song (Tipsy)",
+      "artist": "Shaboozey"
+    },
+    {
+      "title": "Mama's Broken Heart",
+      "artist": "Miranda Lambert"
+    },
+    {
+      "title": "Rolling in the Deep",
+      "artist": "Adele"
+    },
+    {
+      "title": "Choosin' Texas",
+      "artist": "Ella Langley"
+    },
+    {
+      "title": "Goodbye Earl",
+      "artist": "The Chicks"
+    },
+    {
+      "title": "Tequila",
+      "artist": "The Champs"
+    },
+    {
+      "title": "You Oughta Know",
+      "artist": "Alanis Morissette"
+    },
+    {
+      "title": "Under the Bridge",
+      "artist": "Red Hot Chili Peppers"
+    },
+    {
+      "title": "Crazy Rap (Colt 45)",
+      "artist": "Afroman"
+    },
+    {
+      "title": "Back to Black",
+      "artist": "Amy Winehouse"
+    },
+    {
+      "title": "Don't Close Your Eyes",
+      "artist": "Keith Whitley"
+    },
+    {
+      "title": "Livin' on a Prayer",
+      "artist": "Bon Jovi"
+    },
+    {
+      "title": "Margaritaville",
+      "artist": "Jimmy Buffett"
+    },
+    {
+      "title": "Feeling Good",
+      "artist": "Michael Bublé"
+    },
+    {
+      "title": "I Love This Bar",
+      "artist": "Toby Keith"
+    },
+    {
+      "title": "You Never Even Called Me by My Name",
+      "artist": "David Allan Coe"
+    },
+    {
+      "title": "Jackson",
+      "artist": "Johnny Cash & June Carter Cash"
+    },
+    {
+      "title": "In Color",
+      "artist": "Jamey Johnson"
+    },
+    {
+      "title": "The House of the Rising Sun",
+      "artist": "The Animals"
+    },
+    {
+      "title": "Careless Whisper",
+      "artist": "George Michael"
+    },
+    {
+      "title": "Sweet Child O' Mine",
+      "artist": "Guns N' Roses"
+    },
+    {
+      "title": "At Last",
+      "artist": "Etta James"
+    },
+    {
+      "title": "New York, New York",
+      "artist": "Frank Sinatra"
+    },
+    {
+      "title": "If I Ain't Got You",
+      "artist": "Alicia Keys"
+    },
+    {
+      "title": "Always on My Mind",
+      "artist": "Willie Nelson"
+    },
+    {
+      "title": "Mamma Mia",
+      "artist": "ABBA"
+    },
+    {
+      "title": "Baby",
+      "artist": "Justin Bieber & Ludacris"
+    },
+    {
+      "title": "Wicked Game",
+      "artist": "Chris Isaak"
+    },
+    {
+      "title": "APT.",
+      "artist": "Rosé & Bruno Mars"
+    },
+    {
+      "title": "Redneck Woman",
+      "artist": "Gretchen Wilson"
+    },
+    {
+      "title": "Family Tradition",
+      "artist": "Hank Williams Jr."
+    },
+    {
+      "title": "Ice Ice Baby",
+      "artist": "Vanilla Ice"
+    },
+    {
+      "title": "Always Remember Us This Way",
+      "artist": "Lady Gaga"
+    },
+    {
+      "title": "Need You Now",
+      "artist": "Lady A"
+    },
+    {
+      "title": "Stand by Me",
+      "artist": "Ben E. King"
+    },
+    {
+      "title": "In the End",
+      "artist": "Linkin Park"
+    },
+    {
+      "title": "Hit Me With Your Best Shot",
+      "artist": "Pat Benatar"
+    },
+    {
+      "title": "Losing My Religion",
+      "artist": "R.E.M."
+    },
+    {
+      "title": "Uptown Funk",
+      "artist": "Bruno Mars & Mark Ronson"
+    }
+  ],
+  "newAdditions": [
+    {
+      "title": "Mean to Me",
+      "artist": "Dean Martin"
+    },
+    {
+      "title": "Going Shopping",
+      "artist": "The Strokes"
+    },
+    {
+      "title": "Catch Catch (캐치캐치)",
+      "artist": "YENA (최예나)"
+    },
+    {
+      "title": "Let It Be",
+      "artist": "JP Cooper"
+    },
+    {
+      "title": "Spirit in the Dark",
+      "artist": "Aretha Franklin"
+    },
+    {
+      "title": "Bite Me",
+      "artist": "Enhypen (엔하이픈)"
+    },
+    {
+      "title": "Hold on Tight",
+      "artist": "aespa 에스파"
+    },
+    {
+      "title": "SHE DID IT AGAIN",
+      "artist": "Tyla & Zara Larsson"
+    },
+    {
+      "title": "Waiting on the Rain",
+      "artist": "Megan Moroney"
+    },
+    {
+      "title": "Born to Die",
+      "artist": "Shaboozey"
+    },
+    {
+      "title": "Bring Your Love",
+      "artist": "Madonna & Sabrina Carpenter"
+    },
+    {
+      "title": "Summer Breeze",
+      "artist": "Keith Urban"
+    }
+  ],
+  "contact": {
+    "phone": "219.758.1313",
+    "phoneUrl": "tel:+12197581313",
+    "textUrl": "sms:+12197581313",
+    "bookUrl": "https://popupkaraoke.net/#contact",
+    "googleReviewsUrl": "https://maps.app.goo.gl/k6X7ETF24b8YAou7A"
+  },
+  "faq": [
+    {
+      "q": "What's the investment for karaoke at my event?",
+      "a": "Every package is built around your event — the duration, your guest count, and the venue. Most private events come in well within the range you'd expect for a full-service professional entertainer with concert-quality sound, lighting, and hosting. Fill out our quick quote form and we'll send you a custom number within a few hours. No obligation, no sales pressure."
+    },
+    {
+      "q": "Do you travel to Chicago and the surrounding suburbs?",
+      "a": "Yes! We regularly serve the entire Chicagoland area in addition to Northwest Indiana. That includes the South Side, as well as suburbs like Orland Park, Tinley Park, Oak Lawn, and more. Travel fees may apply depending on distance."
+    },
+    {
+      "q": "What's included with every booking?",
+      "a": "Everything. Concert-quality speakers, wireless microphones, a large lyrics screen, dynamic LED stage lighting, a professional host/MC, 75,000+ songs, full setup and teardown, and social media content creation at no extra charge. You don't need to rent or bring a single thing."
+    },
+    {
+      "q": "Can guests request songs in advance?",
+      "a": "Absolutely. You and your guests can submit song requests ahead of the event and we'll make sure they're ready to go. Just let us know when you book and we'll set up a request link."
+    },
+    {
+      "q": "How far in advance should I book?",
+      "a": "Summer and holiday weekends fill up fast — sometimes 4–6 weeks out. For the best availability, we recommend booking at least 2–3 weeks in advance. That said, if you have a last-minute event, reach out anyway — we'll do our best to make it work."
+    },
+    {
+      "q": "Do you need a stage or special power setup?",
+      "a": "No stage needed. We work in backyards, living rooms, banquet halls, bars, breweries — anywhere there's enough space for guests to stand and sing. We just need access to standard electrical outlets."
+    },
+    {
+      "q": "Can you handle large events with 100+ guests?",
+      "a": "Yes — we've hosted events with 200+ guests. Our sound system is scaled to fill large spaces, and our host is experienced at managing big crowds and long song queues."
+    },
+    {
+      "q": "Do you provide a certificate of insurance?",
+      "a": "Yes. If your venue requires a COI, we can provide one. Just let us know the venue's requirements when you book and we'll handle it before the event."
+    },
+    {
+      "q": "How does payment work?",
+      "a": "We accept payment via Square (credit/debit card). A deposit is typically required to secure your date, with the balance due on the day of the event."
+    },
+    {
+      "q": "Do you play background music between singers?",
+      "a": "Yes — between singers we keep the energy going with curated background music that matches the vibe of your event. If you have a playlist preference, just let us know."
+    },
+    {
+      "q": "What if my venue doesn't have a screen or TV?",
+      "a": "No problem. We bring our own large lyrics display — it's part of the standard setup. Your venue doesn't need to provide any AV equipment. We're fully self-contained."
+    },
+    {
+      "q": "Is karaoke appropriate for mixed ages — kids and adults together?",
+      "a": "Absolutely. We host everything from kids' birthday parties to adult corporate events. Our host adjusts the energy and song selection to fit the crowd. For family events, we keep things clean and age-appropriate."
+    },
+    {
+      "q": "Can you do a hybrid karaoke + DJ set?",
+      "a": "Yes — we can split the night between DJ sets and karaoke blocks, which works great for weddings or longer events. A common format is DJ for dinner and dancing, then karaoke later in the evening."
+    },
+    {
+      "q": "How long do bookings typically last?",
+      "a": "Most private events run 2–4 hours. Bar residencies are typically 3–4 hours. Setup and teardown are not counted against your booked time."
+    }
+  ],
+  "blog": [
+    {
+      "category": "Birthday Parties",
+      "title": "10 Karaoke Party Ideas for Birthdays That'll Make It Unforgettable",
+      "excerpt": "Themes, spotlight moments, team battles, and the one upgrade that makes all the difference.",
+      "url": "https://popupkaraoke.net/blog/karaoke-party-ideas-for-birthdays"
+    },
+    {
+      "category": "Wedding Entertainment",
+      "title": "Best Karaoke Songs for Weddings in 2026 — Crowd Starters to Closers",
+      "excerpt": "Crowd singalongs, couple duets, songs that work for every generation, and what to avoid.",
+      "url": "https://popupkaraoke.net/blog/best-karaoke-songs-for-weddings"
+    },
+    {
+      "category": "Planning",
+      "title": "How Much Does a Karaoke DJ Cost? What to Expect Before You Book",
+      "excerpt": "The 6 factors that drive karaoke DJ pricing — and what separates a fair quote from a bait-and-switch.",
+      "url": "https://popupkaraoke.net/blog/how-much-does-a-karaoke-dj-cost"
+    }
+  ],
+  "crowdFavorites": [
+    {
+      "category": "🎤 Group Sing-Alongs",
+      "desc": "Turn the entire room into a massive chorus.",
+      "songs": [
+        {
+          "title": "Sweet Caroline",
+          "artist": "Neil Diamond"
+        },
+        {
+          "title": "Don't Stop Believin'",
+          "artist": "Journey"
+        },
+        {
+          "title": "Livin' on a Prayer",
+          "artist": "Bon Jovi"
+        },
+        {
+          "title": "Bohemian Rhapsody",
+          "artist": "Queen"
+        }
+      ]
+    },
+    {
+      "category": "💃 Dance Anthems",
+      "desc": "Get people out of their seats and onto the floor.",
+      "songs": [
+        {
+          "title": "I Wanna Dance with Somebody",
+          "artist": "Whitney Houston"
+        },
+        {
+          "title": "Dancing Queen",
+          "artist": "ABBA"
+        },
+        {
+          "title": "Uptown Funk",
+          "artist": "Bruno Mars & Mark Ronson"
+        },
+        {
+          "title": "Mr. Brightside",
+          "artist": "The Killers"
+        }
+      ]
+    },
+    {
+      "category": "🕺 90s & 2000s Throwbacks",
+      "desc": "Nostalgic, upbeat, and impossible to mess up.",
+      "songs": [
+        {
+          "title": "I Want It That Way",
+          "artist": "Backstreet Boys"
+        },
+        {
+          "title": "Party in the U.S.A.",
+          "artist": "Miley Cyrus"
+        },
+        {
+          "title": "Since U Been Gone",
+          "artist": "Kelly Clarkson"
+        },
+        {
+          "title": "Hey Ya!",
+          "artist": "Outkast"
+        }
+      ]
+    }
+  ],
+  "social": {
+    "facebook": "https://www.facebook.com/PopUpKaraoke219",
+    "instagram": "https://www.instagram.com/popupkaraoke219/",
+    "tiktok": "https://www.tiktok.com/@popupkaraoke219"
+  },
+  "serviceAreas": [
+    "Chicago",
+    "NW Indiana",
+    "Hammond",
+    "Gary",
+    "Merrillville",
+    "Valparaiso",
+    "Crown Point",
+    "Munster",
+    "Schererville",
+    "Griffith",
+    "Highland",
+    "Portage",
+    "Michigan City",
+    "Lansing, IL",
+    "Calumet City, IL"
+  ],
+  "announcements": []
+}
