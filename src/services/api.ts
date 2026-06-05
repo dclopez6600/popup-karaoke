@@ -257,9 +257,13 @@ class KaraokeAPI {
   }
 
   async getLiveStatus(): Promise<LiveStatus> {
-    if (this.useMock) return MOCK_LIVE_STATUS;
-    const res = await this.client.get('/api/live');
-    return res.data;
+    // Always try real backend first; fall back to "not live" rather than fake data
+    try {
+      const res = await this.client.get('/api/live');
+      return res.data;
+    } catch {
+      return { activeEventId: null, activeEventTitle: null, venueName: null, nowPlaying: null, isLive: false, viewerCount: 0 };
+    }
   }
 
   async getEvents(): Promise<Event[]> {
@@ -269,10 +273,14 @@ class KaraokeAPI {
   }
 
   async getNowPlaying(eventId?: string): Promise<NowPlaying | null> {
-    if (this.useMock) return MOCK_NOW_PLAYING;
-    const url = eventId ? `/api/events/${eventId}/now-playing` : '/api/now-playing';
-    const res = await this.client.get(url);
-    return res.data;
+    // Always try real backend; return null (empty state) if unavailable
+    try {
+      const url = eventId ? `/api/events/${eventId}/now-playing` : '/api/now-playing';
+      const res = await this.client.get(url);
+      return res.data;
+    } catch {
+      return null;
+    }
   }
 
   async getSongs(query?: string, genre?: string): Promise<Song[]> {
@@ -299,9 +307,13 @@ class KaraokeAPI {
   }
 
   async getSocialFeed(): Promise<SocialPost[]> {
-    if (this.useMock) return MOCK_SOCIAL;
-    const res = await this.client.get('/api/social/feed');
-    return res.data;
+    // Always try real backend; return empty feed rather than fake posts
+    try {
+      const res = await this.client.get('/api/social/feed');
+      return res.data;
+    } catch {
+      return [];
+    }
   }
 
   async likeReview(reviewId: string): Promise<void> {

@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────
-//  Navigation — 5-tab bottom navigator
-//  Tabs: Home · Now Playing · Events · Songs · Social
+//  Navigation — 4-tab bottom navigator
+//  Tabs: Home · Events · Songs · Community
 // ─────────────────────────────────────────────
 
 import React from 'react';
@@ -12,11 +12,10 @@ import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 import { Colors, FontSize, FontWeight } from '../theme';
 
-import HomeScreen       from '../screens/HomeScreen';
-import NowPlayingScreen from '../screens/NowPlayingScreen';
-import EventsScreen     from '../screens/EventsScreen';
-import SongsScreen      from '../screens/SongCatalogScreen';
-import SocialScreen     from '../screens/SocialScreen';
+import HomeScreen    from '../screens/HomeScreen';
+import EventsScreen  from '../screens/EventsScreen';
+import SongsScreen   from '../screens/SongCatalogScreen';
+import SocialScreen  from '../screens/SocialScreen';
 
 const Tab   = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -28,11 +27,10 @@ type TabConfig = {
 };
 
 const TABS: Record<string, TabConfig> = {
-  Home:       { label: 'Home',       icon: 'home-outline',          iconFocused: 'home'          },
-  NowPlaying: { label: 'Live',       icon: 'radio-outline',         iconFocused: 'radio'         },
-  Events:     { label: 'Events',     icon: 'calendar-outline',      iconFocused: 'calendar'      },
-  Songs:      { label: 'Songs',      icon: 'musical-notes-outline', iconFocused: 'musical-notes' },
-  Social:     { label: 'Community',  icon: 'people-outline',        iconFocused: 'people'        },
+  Home:    { label: 'Home',      icon: 'home-outline',          iconFocused: 'home'          },
+  Events:  { label: 'Events',    icon: 'calendar-outline',      iconFocused: 'calendar'      },
+  Songs:   { label: 'Songs',     icon: 'musical-notes-outline', iconFocused: 'musical-notes' },
+  Social:  { label: 'Community', icon: 'people-outline',        iconFocused: 'people'        },
 };
 
 function TabBarBackground() {
@@ -89,11 +87,10 @@ function TabNavigator() {
         };
       }}
     >
-      <Tab.Screen name="Home"       component={HomeScreen}       />
-      <Tab.Screen name="NowPlaying" component={NowPlayingScreen} />
-      <Tab.Screen name="Events"     component={EventsScreen}     />
-      <Tab.Screen name="Songs"      component={SongsScreen}      />
-      <Tab.Screen name="Social"     component={SocialScreen}     />
+      <Tab.Screen name="Home"   component={HomeScreen}   />
+      <Tab.Screen name="Events" component={EventsScreen} />
+      <Tab.Screen name="Songs"  component={SongsScreen}  />
+      <Tab.Screen name="Social" component={SocialScreen} />
     </Tab.Navigator>
   );
 }
