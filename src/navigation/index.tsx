@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────
 //  Navigation — 4-tab bottom navigator
-//  Tabs: Home · Events · Songs · Community
+//  Tabs: Home · Events · Songs · Reviews
 // ─────────────────────────────────────────────
 
 import React from 'react';
@@ -15,7 +15,7 @@ import { Colors, FontSize, FontWeight } from '../theme';
 import HomeScreen    from '../screens/HomeScreen';
 import EventsScreen  from '../screens/EventsScreen';
 import SongsScreen   from '../screens/SongCatalogScreen';
-import SocialScreen  from '../screens/SocialScreen';
+import ReviewsScreen from '../screens/ReviewsScreen';
 
 const Tab   = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -30,7 +30,7 @@ const TABS: Record<string, TabConfig> = {
   Home:    { label: 'Home',      icon: 'home-outline',          iconFocused: 'home'          },
   Events:  { label: 'Events',    icon: 'calendar-outline',      iconFocused: 'calendar'      },
   Songs:   { label: 'Songs',     icon: 'musical-notes-outline', iconFocused: 'musical-notes' },
-  Social:  { label: 'Community', icon: 'people-outline',        iconFocused: 'people'        },
+  Reviews: { label: 'Reviews',   icon: 'star-outline',          iconFocused: 'star'          },
 };
 
 function TabBarBackground() {
@@ -90,7 +90,7 @@ function TabNavigator() {
       <Tab.Screen name="Home"   component={HomeScreen}   />
       <Tab.Screen name="Events" component={EventsScreen} />
       <Tab.Screen name="Songs"  component={SongsScreen}  />
-      <Tab.Screen name="Social" component={SocialScreen} />
+      <Tab.Screen name="Reviews" component={ReviewsScreen} />
     </Tab.Navigator>
   );
 }

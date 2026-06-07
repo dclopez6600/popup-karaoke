@@ -180,7 +180,6 @@ export default function HomeScreen() {
   // Convenience link handlers derived from live contact data
   const callUs    = useCallback(() => Linking.openURL(data.contact.phoneUrl), [data]);
   const textUs    = useCallback(() => Linking.openURL(data.contact.textUrl), [data]);
-  const bookNow   = useCallback(() => Linking.openURL(data.contact.bookUrl), [data]);
   const readReviews = useCallback(() => Linking.openURL(data.contact.googleReviewsUrl), [data]);
   const leaveReview = useCallback(() => Linking.openURL(data.contact.googleReviewsUrl), [data]);
 
@@ -208,7 +207,7 @@ export default function HomeScreen() {
           <Text style={styles.heroTitle}>{data.hero.title.replace('\\n', '\n')}</Text>
           <Text style={styles.heroSubtitle}>{data.hero.subtitle}</Text>
           <View style={styles.heroBtns}>
-            <TouchableOpacity style={styles.primaryBtn} onPress={bookNow} activeOpacity={0.8}>
+            <TouchableOpacity style={styles.primaryBtn} onPress={() => setShowBookingModal(true)} activeOpacity={0.8}>
               <Text style={styles.primaryBtnText}>🎤 Book Your Event</Text>
             </TouchableOpacity>
             <View style={styles.heroSecondaryRow}>
@@ -288,7 +287,7 @@ export default function HomeScreen() {
               onMap={() => Linking.openURL(`https://www.google.com/maps/search/?api=1&query=${v.mapsQuery}`)}
             />
           ))}
-          <TouchableOpacity style={styles.outlineBtn} onPress={bookNow} activeOpacity={0.8}>
+          <TouchableOpacity style={styles.outlineBtn} onPress={() => setShowBookingModal(true)} activeOpacity={0.8}>
             <Text style={styles.outlineBtnText}>🎉 Book PopUp Karaoke For Your Event</Text>
           </TouchableOpacity>
         </View>
@@ -343,7 +342,7 @@ export default function HomeScreen() {
             ))}
             <TouchableOpacity
               style={styles.outlineBtn}
-              onPress={bookNow}
+              onPress={() => setShowBookingModal(true)}
               activeOpacity={0.8}
             >
               <Text style={styles.outlineBtnText}>🎤 Still have questions? Get a free quote →</Text>

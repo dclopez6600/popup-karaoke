@@ -14,13 +14,12 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "app.replit.popupkaraoke",
-      "buildNumber": "22",
+      "buildNumber": "24",
       "privacyManifests": {
         "NSPrivacyCollectedDataTypes": []
       },
       "infoPlist": {
         "NSMicrophoneUsageDescription": "PopUp Karaoke uses the microphone for live karaoke sessions.",
-        "NSCameraUsageDescription": "PopUp Karaoke uses the camera to scan QR codes at venues.",
         "ITSAppUsesNonExemptEncryption": false
       }
     },
@@ -30,7 +29,7 @@
         "backgroundColor": "#0D0D14"
       },
       "package": "app.replit.popupkaraoke",
-      "versionCode": 13,
+      "versionCode": 15,
       "permissions": [
         "RECORD_AUDIO",
         "CAMERA"

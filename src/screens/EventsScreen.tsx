@@ -2,7 +2,7 @@
 //  EventsScreen — Calendar + Queue + Venues
 // ─────────────────────────────────────────────
 
-import React, { useMemo, useState, useEffect, useCallback } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import {
   ScrollView,
   View,
@@ -22,7 +22,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Colors, Spacing, Radius, FontSize, FontWeight } from '../theme';
 import { getHomeData, DEFAULT_HOME_DATA } from '../services/homeContentService';
 import type { HomeVenue } from '../services/homeContentService';
-import QRScannerModal from '../components/QRScannerModal';
+import BookingModal from '../components/BookingModal';
 
 const haptic = () => {
   if (Platform.OS !== 'web') {
@@ -220,7 +220,7 @@ export default function EventsScreen() {
   const [viewMonth, setViewMonth] = useState(today.getMonth());
   const [selectedDay, setSelectedDay] = useState<number | null>(today.getDate());
   const [venues, setVenues] = useState<Venue[]>(DEFAULT_HOME_DATA.venues);
-  const [showQR, setShowQR] = useState(false);
+  const [showBookingModal, setShowBookingModal] = useState(false);
 
   // Determine if there's a show tonight
   const tonightShow = useMemo(() => {
@@ -286,11 +286,11 @@ export default function EventsScreen() {
           )}
           <TouchableOpacity
             style={styles.qrBtn}
-            onPress={() => { haptic(); setShowQR(true); }}
+            onPress={() => { haptic(); Linking.openURL(KARAFUN_URL); }}
             activeOpacity={0.8}
           >
-            <Ionicons name="qr-code-outline" size={18} color={Colors.primary} />
-            <Text style={styles.qrBtnText}>Scan Venue QR Code</Text>
+            <Ionicons name="musical-notes-outline" size={18} color={Colors.primary} />
+            <Text style={styles.qrBtnText}>Open Live Queue →</Text>
           </TouchableOpacity>
         </View>
 
@@ -502,7 +502,7 @@ export default function EventsScreen() {
           <View style={styles.bookBtns}>
             <TouchableOpacity
               style={styles.bookPrimary}
-              onPress={() => Linking.openURL('https://popupkaraoke.net/#contact')}
+              onPress={() => setShowBookingModal(true)}
               activeOpacity={0.8}
             >
               <LinearGradient
@@ -531,7 +531,7 @@ export default function EventsScreen() {
         </LinearGradient>
 
       </ScrollView>
-      <QRScannerModal visible={showQR} onClose={() => setShowQR(false)} />
+      <BookingModal visible={showBookingModal} onClose={() => setShowBookingModal(false)} />
     </SafeAreaView>
   );
 }
