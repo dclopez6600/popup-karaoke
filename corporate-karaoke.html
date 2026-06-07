@@ -400,6 +400,31 @@
 
         <div class="cta-wrap" style="margin-top: clamp(2.5rem, 5vw, 4rem);">
           <div class="cta-block">
+            <div id="urgency-bar" style="background:linear-gradient(135deg,var(--neon-pink),var(--neon-gold));border-radius:10px;padding:0.85rem 1.5rem;text-align:center;margin-bottom:1.5rem;font-weight:600;color:#000;font-size:1rem;display:none;">
+              <span id="urgency-text"></span>
+            </div>
+            <script>
+            (function(){
+              var now=new Date();
+              var yr=now.getFullYear();
+              var mo=now.getMonth();
+              var lastDay=new Date(yr,mo+1,0).getDate();
+              var weekends=0;
+              for(var d=now.getDate();d<=lastDay;d++){
+                var day=new Date(yr,mo,d).getDay();
+                if(day===6||day===0) weekends++;
+              }
+              if(weekends<=6){
+                var el=document.getElementById('urgency-bar');
+                var txt=document.getElementById('urgency-text');
+                if(el&&txt){
+                  var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+                  txt.textContent='⚡ Only '+weekends+' weekend day'+(weekends===1?'':'s')+' left in '+months[mo]+' — dates fill fast!';
+                  el.style.display='block';
+                }
+              }
+            })();
+            </script>
             <h3 class="cta-headline">Ready to book karaoke for your <span class="grad">corporate event?</span></h3>
             <p class="cta-sub">Tell us your event type, date, and headcount — we'll confirm availability and answer any questions within a few hours.</p>
             <a href="/#contact" class="btn btn-primary btn-xl">🎉 Get Your Free Quote</a>

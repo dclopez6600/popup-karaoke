@@ -39,6 +39,19 @@
 
   <link rel="stylesheet" href="style.css">
 
+  <style>
+    .venue-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+    .venue-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; }
+    .genre-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.5rem 0; }
+    .genre-tag { background: var(--card); border: 1px solid var(--neon-cyan); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.9rem; color: var(--neon-cyan); }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+    .step-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+    .step-number { font-size: 2rem; color: var(--neon-gold); font-weight: 700; }
+    .testimonial-card { background: var(--card); border-left: 4px solid var(--neon-pink); border-radius: 0 12px 12px 0; padding: 1.5rem 2rem; margin: 1.5rem 0; }
+    .neighborhood-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .neighborhood-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+  </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -88,18 +101,31 @@
       "@type": "Question",
       "name": "Do you travel to Chicago for karaoke events?",
       "acceptedAnswer": {"@type": "Answer", "text": "Yes — we regularly serve Chicago and Chicagoland, especially the South Side, Hyde Park, Bridgeport, and southwest suburbs like Orland Park, Tinley Park, and Oak Lawn. Travel fees may apply depending on distance."}
-    },    {
+    },
+    {
       "@type": "Question",
       "name": "What parts of Chicago do you cover?",
-      "acceptedAnswer": {"@type": "Answer", "text": "We focus on the South Side and southwest suburbs, but we'll travel anywhere in Chicagoland for the right event. Contact us with your location and we'll confirm availability."}
-    },    {
+      "acceptedAnswer": {"@type": "Answer", "text": "We focus on the South Side and southwest suburbs, but we will travel anywhere in Chicagoland for the right event. Contact us with your location and we will confirm availability."}
+    },
+    {
       "@type": "Question",
       "name": "How much extra does it cost to book karaoke in Chicago?",
       "acceptedAnswer": {"@type": "Answer", "text": "Travel fees vary by location. South Side and near suburbs are typically minimal. Contact us for a precise quote with your event address included."}
-    },    {
+    },
+    {
       "@type": "Question",
       "name": "Can you do a wedding karaoke set in Chicago?",
       "acceptedAnswer": {"@type": "Answer", "text": "Absolutely — weddings are one of our specialties. We provide professional karaoke entertainment for receptions, after-parties, and rehearsal dinners throughout Chicagoland."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you serve Chicago's North Shore suburbs?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes — we serve Evanston, Wilmette, Skokie, and surrounding North Shore communities. Contact us with your event details and we will confirm availability and any travel fees."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can you set up at Chicago rooftop venues?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes — we can set up at Chicago rooftop venues provided there is a covered or sheltered area for the equipment and reliable power access. Reach out and we will assess your specific rooftop space."}
     }
     ]
   }
@@ -134,43 +160,45 @@
         <li><a href="/#services">Services</a></li>
         <li><a href="/faq.html">FAQ</a></li>
         <li><a href="/#contact">Contact</a></li>
-        <li><a href="https://www.karafun.com/062552/" target="_blank" rel="noopener" style="color:var(--neon-cyan);font-weight:600">🎵 Queue</a></li>
-
-        <li><a class="nav-cta" href="https://square.link/u/CmsBTgrE?src=chicago" target="_blank" rel="noopener">💳 Pay</a></li>
+        <li><a href="https://www.karafun.com/062552/" target="_blank" rel="noopener" style="color:var(--neon-cyan);font-weight:600">&#127925; Queue</a></li>
+        <li><a class="nav-cta" href="https://square.link/u/CmsBTgrE?src=chicago" target="_blank" rel="noopener">&#128179; Pay</a></li>
       </ul>
     </div>
   </header>
 
   <!-- Mobile overlay nav -->
   <div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
-    <button class="mobile-overlay-close" id="mobileOverlayClose" aria-label="Close menu">✕</button>
+    <button class="mobile-overlay-close" id="mobileOverlayClose" aria-label="Close menu">&#10005;</button>
     <ul class="mobile-overlay-links">
-      <li><a href="/" class="mob-cta">🎤 Book Now</a></li>
-      <li><a href="tel:+12197581313" class="mob-phone">📞 219.758.1313</a></li>
+      <li><a href="/" class="mob-cta">&#127908; Book Now</a></li>
+      <li><a href="tel:+12197581313" class="mob-phone">&#128222; 219.758.1313</a></li>
       <li class="mob-divider mob-section-label"><span>Pages</span></li>
       <li><a href="/#events">Events</a></li>
       <li><a href="/faq.html">FAQ</a></li>
       <li><a href="/about.html">About</a></li>
-      <li><a href="/song-request.html">🎵 Song Request</a></li>
-      <li><a href="https://www.karafun.com/062552/" target="_blank" rel="noopener">🎵 Join the Queue</a></li>
-      <li><a href="/catalog.html">🎵 Song Catalog</a></li>
+      <li><a href="/song-request.html">&#127925; Song Request</a></li>
+      <li><a href="https://www.karafun.com/062552/" target="_blank" rel="noopener">&#127925; Join the Queue</a></li>
+      <li><a href="/catalog.html">&#127925; Song Catalog</a></li>
       <li><a href="/#contact">Contact</a></li>
     </ul>
   </div>
 
   <main id="main">
+
+    <!-- HERO -->
     <section class="geo-hero">
       <div class="container">
         <span class="section-label">Chicago, IL</span>
         <h1>Chicago <span class="grad">Mobile Karaoke</span></h1>
         <p class="lead">Bringing the karaoke party to Chicago — weddings, corporate events, birthdays, brewery nights, and everything in between. Pro host, 75,000+ songs, concert-quality sound. Veteran-owned and ready to rock your event.</p>
         <div class="hero-ctas" role="group" style="justify-content:center; margin-bottom: 1.5rem;">
-          <a class="btn btn-primary btn-xl" href="/#contact">🎤 Book a Chicago Event</a>
-          <a class="btn btn-secondary" href="tel:+12197581313">📞 219.758.1313</a>
+          <a class="btn btn-primary btn-xl" href="/#contact">&#127908; Book a Chicago Event</a>
+          <a class="btn btn-secondary" href="tel:+12197581313">&#128222; 219.758.1313</a>
         </div>
       </div>
     </section>
 
+    <!-- MAIN CONTENT -->
     <section style="padding-top: 0;">
       <div class="container geo-content">
         <h2>Karaoke for Chicago Events — <span class="grad">Done Right</span></h2>
@@ -198,88 +226,299 @@
           <li><strong>Private parties</strong> — backyard, rooftop, condo lounge, anywhere with power</li>
         </ul>
 
-        <h3>Chicago Neighborhoods &amp; Areas We Serve</h3>
-        <p>We travel throughout Chicago and the surrounding metro area, including (but not limited to):</p>
-        <ul>
-          <li>Downtown / The Loop</li>
-          <li>Lincoln Park, Lakeview, Wrigleyville</li>
-          <li>Wicker Park, Bucktown, Logan Square</li>
-          <li>West Loop, River North, Streeterville</li>
-          <li>South Loop, Chinatown, Pilsen</li>
-          <li>Hyde Park, Bronzeville, South Shore</li>
-          <li>Andersonville, Uptown, Edgewater</li>
-          <li>South Side, Southwest Side, North Side</li>
-          <li>Suburbs: Oak Park, Evanston, Skokie, Cicero, Berwyn, Tinley Park, Orland Park, and more</li>
-        </ul>
-
         <h3>Why Chicago Picks PopUp Karaoke</h3>
         <p><strong>Veteran-owned and reliable.</strong> We show up on time, set up fast, and deliver every time — no exceptions. Discipline matters when your event is on the line.</p>
         <p><strong>Bigger song library.</strong> 75,000+ tracks vs. the typical 30,000–50,000. If your guests can think of a song, chances are we have it. If not, we'll add it before the event.</p>
         <p><strong>Local expertise.</strong> We know Chicago venues, Chicago crowds, and Chicago logistics — power, parking, freight elevators, the works.</p>
-        <p><strong>5★ rated on Google.</strong> Don't take our word for it — <a href="https://www.google.com/maps/place/PopUp+Karaoke/" target="_blank" rel="noopener">read our reviews</a>.</p>
+        <p><strong>Transparent communication.</strong> You'll always know what to expect — no hidden fees, no surprises on the day. We respond to every inquiry within 24 hours and stay in touch leading up to your event.</p>
+        <p><strong>5&#9733; rated on Google.</strong> Don't take our word for it — <a href="https://www.google.com/maps/place/PopUp+Karaoke/" target="_blank" rel="noopener">read our reviews</a>.</p>
+      </div>
+    </section>
 
-        
-        <!-- Other areas we serve — internal cross-linking -->
+    <!-- WHAT TO EXPECT -->
+    <section class="geo-content" style="padding: 3rem 0; background: rgba(0,0,0,0.12);">
+      <div class="container">
+        <h2>What to Expect at a <span class="grad">Chicago PopUp Karaoke Event</span></h2>
+        <p style="line-height:1.8;color:var(--text-dim);margin-bottom:1.25rem;">Chicago crowds are unlike any other. This is a city that birthed the blues, elevated house music into a global movement, and produced some of the most dedicated music fans on the planet. When you bring PopUp Karaoke into a Chicago event, you're tapping into that energy — the room goes from polite to electric faster than you'd believe.</p>
+        <p style="line-height:1.8;color:var(--text-dim);margin-bottom:1.25rem;">Picture this: it's a Saturday night in Wicker Park, your crew of 25 has just arrived at the venue, and the setup is already done. Lights are up, sound is dialed in, and Daniel is at the helm — not hiding behind a table, but actively working the room. He'll pull in the shy ones, hype up the confident ones, and make sure even the person who "never does karaoke" ends up on the mic by the end of the night.</p>
+        <p style="line-height:1.8;color:var(--text-dim);margin-bottom:1.25rem;">Chicago audiences are bold and enthusiastic — they'll request deep cuts from artists you forgot existed, go three rounds on Whitney Houston anthems, and somehow know every word to every song. They mix deep house sensibilities with classic rock devotion, R&amp;B soul with 2000s pop nostalgia. Our 75,000-song library means we can honor every request.</p>
+        <p style="line-height:1.8;color:var(--text-dim);margin-bottom:1.25rem;">Whether your event is in a Lincoln Park event space, a Pilsen art venue, an Andersonville bar, or a South Loop hotel ballroom, Daniel brings the same professional production and personal energy. He's performed for birthday parties of 8 and corporate blowouts of 200. He adapts to the room — never forcing the vibe, always elevating it.</p>
+        <p style="line-height:1.8;color:var(--text-dim);">By the end of the night, your guests won't just be talking about how fun it was. They'll be asking you who did the karaoke, because they want to book him for their next event. That's the Chicago PopUp Karaoke experience.</p>
+      </div>
+    </section>
 
-        <blockquote style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--neon-pink);border-radius:0.875rem;padding:1.5rem 1.75rem;margin:2rem 0;">
+    <!-- HOW IT WORKS -->
+    <section style="padding: 3rem 0;">
+      <div class="container">
+        <h2 style="text-align:center;">How It Works in <span class="grad">Chicago</span></h2>
+        <p style="text-align:center;color:var(--text-mute);margin-bottom:0.5rem;">Four simple steps from inquiry to unforgettable night</p>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h3 style="color:var(--text);margin:0.5rem 0;">Book</h3>
+            <p style="color:var(--text-dim);font-size:0.92rem;line-height:1.65;">Fill out the contact form or call 219.758.1313. Tell us your date, venue, and event type. We'll confirm availability and send a custom quote within 24 hours.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h3 style="color:var(--text);margin:0.5rem 0;">We Plan Together</h3>
+            <p style="color:var(--text-dim);font-size:0.92rem;line-height:1.65;">We'll go over your Chicago venue's layout, power situation, and any song requests you have in mind. We scout logistics in advance so setup day is seamless — freight elevators, parking, load-in windows.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h3 style="color:var(--text);margin:0.5rem 0;">Setup Day-Of</h3>
+            <p style="color:var(--text-dim);font-size:0.92rem;line-height:1.65;">Daniel arrives early, handles load-in, and has everything ready before your first guest arrives. No stress, no surprises. Just a fully operational karaoke show waiting for singers.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">04</div>
+            <h3 style="color:var(--text);margin:0.5rem 0;">The Party Starts</h3>
+            <p style="color:var(--text-dim);font-size:0.92rem;line-height:1.65;">Lights up, mics hot, song queue open. Daniel works the crowd, calls singers, keeps the energy high, and makes sure every single guest has a moment to shine. Chicago crowds deliver — we just build the stage.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VENUE TYPES -->
+    <section style="padding: 3rem 0; background: rgba(0,0,0,0.12);">
+      <div class="container">
+        <h2>Chicago Venues We <span class="grad">Love Working</span></h2>
+        <p style="color:var(--text-mute);margin-bottom:0.5rem;">From intimate neighborhood bars to sprawling hotel ballrooms — we've set up in them all.</p>
+        <div class="venue-cards">
+          <div class="venue-card">
+            <div style="font-size:2.5rem;margin-bottom:0.75rem;">&#127867;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">Rooftop Bars</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.6;">Chicago's skyline as your backdrop. We handle rooftop setups where covered area and power access are available, bringing that concert atmosphere to the city's best views.</p>
+          </div>
+          <div class="venue-card">
+            <div style="font-size:2.5rem;margin-bottom:0.75rem;">&#127968;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">Lincoln Park Event Spaces</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.6;">Private event rooms, gallery spaces, and social clubs throughout Lincoln Park and the North Side — perfect for refined gatherings that still want serious fun.</p>
+          </div>
+          <div class="venue-card">
+            <div style="font-size:2.5rem;margin-bottom:0.75rem;">&#127978;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">Wicker Park Private Venues</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.6;">Intimate private rentals and bar takeovers in Wicker Park, Bucktown, and Logan Square — ideal for birthday parties and bachelorette events with a creative crowd.</p>
+          </div>
+          <div class="venue-card">
+            <div style="font-size:2.5rem;margin-bottom:0.75rem;">&#127970;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">South Loop Hotel Ballrooms</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.6;">Corporate holiday parties, wedding receptions, and large-scale events in South Loop and the Loop hotel district. We scale the production to fill any ballroom.</p>
+          </div>
+          <div class="venue-card">
+            <div style="font-size:2.5rem;margin-bottom:0.75rem;">&#127981;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">Old Town &amp; River North Bars</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.6;">Bar takeovers and recurring karaoke nights at River North venues, Old Town bars, and Lakeview taverns — we know how to fill a bar on a weeknight.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SONG GENRES -->
+    <section style="padding: 3rem 0;">
+      <div class="container">
+        <h2>What Chicago Crowds <span class="grad">Love to Sing</span></h2>
+        <p style="color:var(--text-mute);margin-bottom:0.5rem;">With 75,000+ tracks, we cover every genre Chicago loves — and then some.</p>
+        <div class="genre-grid">
+          <span class="genre-tag">&#127926; Pop Hits</span>
+          <span class="genre-tag">&#127928; Classic Rock</span>
+          <span class="genre-tag">&#127932; R&amp;B &amp; Soul</span>
+          <span class="genre-tag">&#127920; Country</span>
+          <span class="genre-tag">&#127925; Hip-Hop</span>
+          <span class="genre-tag">&#128251; 80s &amp; 90s</span>
+        </div>
+        <p style="color:var(--text-dim);font-size:0.95rem;line-height:1.7;margin-top:0;">Don't see your genre? We add songs on request before every event — just send us a list and we'll make sure your crowd's favorites are in the queue.</p>
+        <p style="color:var(--text-dim);font-size:0.95rem;line-height:1.7;margin-top:1rem;">Chicago crowds run hot on Whitney, Journey, Lizzo, and Beyonce — but we've seen entire rooms go wild for obscure 90s R&amp;B and deep classic rock cuts. Our library is deep enough to honor every request, from the obvious crowd-pleasers to the deep cuts that make the room scream when they hear the intro.</p>
+        <p style="color:var(--text-dim);font-size:0.95rem;line-height:1.7;margin-top:0.75rem;">For Chicago's multicultural crowds we also carry an extensive Latin catalog — reggaeton, cumbia, banda, mariachi classics, and Spanish-language pop — plus a strong K-pop section for the right crowd.</p>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section style="padding: 3rem 0; background: rgba(0,0,0,0.12);">
+      <div class="container">
+        <h2>What Chicago Says About <span class="grad">PopUp Karaoke</span></h2>
+
+        <div class="testimonial-card">
           <p style="color:var(--text);font-style:italic;line-height:1.7;margin:0 0 0.75rem;">"Hired PopUp Karaoke for a private birthday on Chicago's South Side. Danny drove out, set up perfectly in our space, and delivered a show that had everyone on their feet. Worth every penny."</p>
           <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
             <span style="color:var(--neon-pink);font-weight:700;font-size:0.9rem;">Priya D.</span>
-            <span style="color:var(--text-mute);font-size:0.82rem;">· Birthday Party · Chicago South Side</span>
-            <span style="color:var(--neon-gold);font-size:0.82rem;margin-left:auto;">★★★★★</span>
+            <span style="color:var(--text-mute);font-size:0.82rem;">&#183; Birthday Party &#183; Chicago South Side</span>
+            <span style="color:var(--neon-gold);font-size:0.82rem;margin-left:auto;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
           </div>
-        </blockquote>
+        </div>
 
-        <p><strong>Neighborhoods we cover:</strong> South Side, Hyde Park, Bridgeport, Roseland, Hegewisch, and Chicagoland suburbs including Orland Park, Tinley Park, and Oak Lawn.</p>
+        <div class="testimonial-card">
+          <p style="color:var(--text);font-style:italic;line-height:1.7;margin:0 0 0.75rem;">"Booked Daniel for my birthday in Logan Square — started with about 15 of us and by midnight the whole bar had joined in. Strangers were buying rounds for people they'd just met over shared song choices. That's the Daniel effect."</p>
+          <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
+            <span style="color:var(--neon-pink);font-weight:700;font-size:0.9rem;">Marcus T.</span>
+            <span style="color:var(--text-mute);font-size:0.82rem;">&#183; Birthday Party &#183; Logan Square, Chicago</span>
+            <span style="color:var(--neon-gold);font-size:0.82rem;margin-left:auto;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+        </div>
 
-        <p>We regularly cross the state line to serve Chicago and the south suburbs. Whether it's a South Side bar night, a Hyde Park corporate event, or a wedding in the southwest suburbs, we bring the same professional setup that makes us NW Indiana's top-rated karaoke service.</p>
-        <h3 style="margin-top:2rem;">Frequently Asked Questions — Chicago Karaoke</h3>
+        <div class="testimonial-card">
+          <p style="color:var(--text);font-style:italic;line-height:1.7;margin:0 0 0.75rem;">"DJ Daniel turned our bachelorette group of 10 into a 60-person dance party in River North. He reads the crowd perfectly — knew exactly when to switch things up and kept the energy absolutely electric all night. Every single one of my girls is still talking about it."</p>
+          <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
+            <span style="color:var(--neon-pink);font-weight:700;font-size:0.9rem;">Sofia R.</span>
+            <span style="color:var(--text-mute);font-size:0.82rem;">&#183; Bachelorette Party &#183; River North, Chicago</span>
+            <span style="color:var(--neon-gold);font-size:0.82rem;margin-left:auto;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEIGHBORHOODS -->
+    <section style="padding: 3rem 0;">
+      <div class="container">
+        <h2>Chicago Neighborhoods &amp; Areas <span class="grad">We Cover</span></h2>
+        <p style="color:var(--text-mute);margin-bottom:1rem;">We travel throughout Chicago and the surrounding metro — here's where we regularly show up:</p>
+        <div class="neighborhood-grid">
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">Logan Square</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">Arts venues, dive bars, and a crowd that knows their music inside and out. Great for bar nights and birthday parties.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">Wicker Park</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">Trendy private venues and bar rentals — perfect for birthday parties and bachelorette events with a creative, energetic crowd.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">Lincoln Park</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">Event spaces, social clubs, and restaurant buyouts — ideal for corporate and wedding receptions that want live entertainment.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">River North</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">Upscale bar scene and premium event venues — the city's prime spot for bachelorette parties, corporate nights, and milestone celebrations.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">South Loop</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">Hotel ballrooms and private event centers close to the lakefront — great for large corporate gatherings and wedding receptions.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">Pilsen</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">A culturally rich neighborhood with art galleries and community event spaces — ideal for bilingual and multicultural celebrations.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">Hyde Park</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">University-area events, corporate gatherings, and private parties on Chicago's South Side — a thoughtful crowd that still loves to sing.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">Andersonville</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">A welcoming, eclectic North Side neighborhood with a vibrant bar and restaurant scene that knows how to have a good time.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">Lakeview</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">Wrigleyville energy meets neighborhood bar culture — a classic Chicago party neighborhood that never runs out of enthusiasm.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">Bucktown</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">Adjacent to Wicker Park, Bucktown offers unique private venues and a creative crowd that loves live, energetic entertainment.</p>
+          </div>
+        </div>
+        <p style="color:var(--text-dim);margin-top:1rem;font-size:0.93rem;">Also serving: Downtown / The Loop, West Loop, Streeterville, Bronzeville, South Shore, Uptown, Edgewater, and all suburbs including Oak Park, Evanston, Wilmette, Skokie, Cicero, Berwyn, Tinley Park, and Orland Park.</p>
+      </div>
+    </section>
+
+
+    <!-- WHY CHOOSE US - DIFFERENTIATORS -->
+    <section style="padding: 3rem 0;">
+      <div class="container">
+        <h2>The PopUp Karaoke <span class="grad">Difference</span></h2>
+        <p style="color:var(--text-mute);margin-bottom:1.5rem;">Chicago has options. Here's why event planners, bar owners, and private clients keep coming back to PopUp Karaoke.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin:1.5rem 0;">
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;">
+            <div style="font-size:1.75rem;margin-bottom:0.5rem;">&#127881;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">We're Entertainers, Not Just Operators</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Daniel doesn't sit in the corner and press play. He's a host — working the room, encouraging singers, keeping energy up between songs, and making every person feel like a star.</p>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;">
+            <div style="font-size:1.75rem;margin-bottom:0.5rem;">&#127925;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">75,000+ Songs — The Deepest Library Around</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Most services carry 30,000–50,000 tracks. We carry 75,000+, and if someone requests something we don't have, we'll add it before the event. No more "we don't have that one."</p>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;">
+            <div style="font-size:1.75rem;margin-bottom:0.5rem;">&#9989;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">Military Reliability — Every Single Time</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Founded by a U.S. Army veteran, PopUp Karaoke operates on a simple principle: show up on time, prepared, and professional. We don't cancel, we don't cut corners, and we don't leave early.</p>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;">
+            <div style="font-size:1.75rem;margin-bottom:0.5rem;">&#127897;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">Concert-Quality Sound</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">We don't bring a Bluetooth speaker and a laptop. Our sound system is professional grade — loud enough to fill a ballroom, tuned enough to make even nervous singers sound great.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="padding: 2rem 0 3rem; background: rgba(0,0,0,0.12);">
+      <div class="container geo-content">
+        <h3 style="margin-top:0;">Frequently Asked Questions — Chicago Karaoke</h3>
         <div style="margin-top:1rem;">
-        <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
-          <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">Do you travel to Chicago for karaoke events?</h4>
-          <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Yes — we regularly serve Chicago and Chicagoland, especially the South Side, Hyde Park, Bridgeport, and southwest suburbs like Orland Park, Tinley Park, and Oak Lawn. Travel fees may apply depending on distance.</p>
-        </div>
-        <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
-          <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">What parts of Chicago do you cover?</h4>
-          <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">We focus on the South Side and southwest suburbs, but we'll travel anywhere in Chicagoland for the right event. Contact us with your location and we'll confirm availability.</p>
-        </div>
-        <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
-          <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">How much extra does it cost to book karaoke in Chicago?</h4>
-          <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Travel fees vary by location. South Side and near suburbs are typically minimal. Contact us for a precise quote with your event address included.</p>
-        </div>
-        <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
-          <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">Can you do a wedding karaoke set in Chicago?</h4>
-          <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Absolutely — weddings are one of our specialties. We provide professional karaoke entertainment for receptions, after-parties, and rehearsal dinners throughout Chicagoland.</p>
-        </div>
+          <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
+            <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">Do you travel to Chicago for karaoke events?</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Yes — we regularly serve Chicago and Chicagoland, especially the South Side, Hyde Park, Bridgeport, and southwest suburbs like Orland Park, Tinley Park, and Oak Lawn. Travel fees may apply depending on distance.</p>
+          </div>
+          <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
+            <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">What parts of Chicago do you cover?</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">We focus on the South Side and southwest suburbs, but we'll travel anywhere in Chicagoland for the right event. Contact us with your location and we'll confirm availability.</p>
+          </div>
+          <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
+            <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">How much extra does it cost to book karaoke in Chicago?</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Travel fees vary by location. South Side and near suburbs are typically minimal. Contact us for a precise quote with your event address included.</p>
+          </div>
+          <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
+            <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">Can you do a wedding karaoke set in Chicago?</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Absolutely — weddings are one of our specialties. We provide professional karaoke entertainment for receptions, after-parties, and rehearsal dinners throughout Chicagoland.</p>
+          </div>
+          <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
+            <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">Do you serve Chicago's North Shore suburbs?</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Yes — we serve Evanston, Wilmette, Skokie, and surrounding North Shore communities. Contact us with your event details and we'll confirm availability and any travel fees that apply.</p>
+          </div>
+          <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
+            <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">Can you set up at Chicago rooftop venues?</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Yes — we can set up at Chicago rooftop venues provided there is a covered or sheltered area for the equipment and reliable power access. Reach out and we'll assess your specific rooftop space ahead of the event.</p>
+          </div>
         </div>
 
         <div class="other-areas" style="margin-top: clamp(2rem, 4vw, 3rem); padding-top: 2rem; border-top: 1px solid var(--border);">
           <h3 style="text-align: center; font-size: 1.3rem; margin-bottom: 1rem;">Other Areas We Serve</h3>
           <p style="text-align: center; color: var(--text-mute); margin-bottom: 1.25rem;">Booking elsewhere? Check out our pages for these cities:</p>
           <div class="area-tags" style="justify-content: center;">
-              <a class="area-tag" href="/northwest-indiana-karaoke.html">🎯 NW Indiana</a>
-              <a class="area-tag" href="/valparaiso-karaoke.html">📍 Valparaiso</a>
-              <a class="area-tag" href="/crown-point-karaoke.html">📍 Crown Point</a>
-              <a class="area-tag" href="/gary-karaoke.html">📍 Gary</a>
-              <a class="area-tag" href="/hammond-karaoke.html">📍 Hammond</a>
-              <a class="area-tag" href="/merrillville-karaoke.html">📍 Merrillville</a>
+              <a class="area-tag" href="/northwest-indiana-karaoke.html">&#127919; NW Indiana</a>
+              <a class="area-tag" href="/valparaiso-karaoke.html">&#128205; Valparaiso</a>
+              <a class="area-tag" href="/crown-point-karaoke.html">&#128205; Crown Point</a>
+              <a class="area-tag" href="/gary-karaoke.html">&#128205; Gary</a>
+              <a class="area-tag" href="/hammond-karaoke.html">&#128205; Hammond</a>
+              <a class="area-tag" href="/merrillville-karaoke.html">&#128205; Merrillville</a>
           </div>
         </div>
+
         <div class="cta-wrap" style="margin-top: clamp(2.5rem, 5vw, 4rem);">
           <div class="cta-block">
             <h3 class="cta-headline">Ready to book karaoke for your <span class="grad">Chicago event?</span></h3>
             <p class="cta-sub">Tell us about your event and we'll send a custom quote — usually within 24 hours.</p>
-            <a href="/#contact" class="btn btn-primary btn-xl">🎉 Get Your Free Quote</a>
+            <a href="/#contact" class="btn btn-primary btn-xl">&#127881; Get Your Free Quote</a>
             <div class="cta-trust">
-              <span><span class="dot">✓</span> Free quotes</span>
-              <span><span class="dot">✓</span> Veteran-owned</span>
-              <span><span class="dot">✓</span> 60K+ songs</span>
-              <span><span class="dot">✓</span> 5★ on Google</span>
+              <span><span class="dot">&#10003;</span> Free quotes</span>
+              <span><span class="dot">&#10003;</span> Veteran-owned</span>
+              <span><span class="dot">&#10003;</span> 75K+ songs</span>
+              <span><span class="dot">&#10003;</span> 5&#9733; on Google</span>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+
+    <!-- BOOKING URGENCY SECTION -->
+    <section style="padding: 2rem 0;">
+      <div class="container">
+        <div style="background:var(--card);border:1px solid var(--neon-gold);border-radius:14px;padding:2rem;text-align:center;">
+          <h3 style="color:var(--neon-gold);margin:0 0 0.75rem;">Chicago Weekends Book Fast</h3>
+          <p style="color:var(--text-dim);line-height:1.7;max-width:600px;margin:0 auto 1.25rem;">Summer and holiday weekends in Chicago fill up weeks in advance. If you have a date in mind, reach out now — we'll check availability and lock in your spot before someone else does.</p>
+          <a href="/#contact" class="btn btn-primary">&#128197; Check My Date</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
@@ -310,6 +549,8 @@
         <ul>
           <li><a href="/chicago-karaoke.html" aria-current="page">Chicago Karaoke</a></li>
           <li><a href="/northwest-indiana-karaoke.html">NW Indiana Karaoke</a></li>
+          <li><a href="/hammond-karaoke.html">Hammond</a></li>
+          <li><a href="/gary-karaoke.html">Gary</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -317,12 +558,12 @@
         <ul>
           <li><a href="tel:+12197581313">219.758.1313</a></li>
           <li><a href="mailto:booking@popupkaraoke.net">booking@popupkaraoke.net</a></li>
-          <li><a href="https://square.link/u/CmsBTgrE?src=chicago-footer" target="_blank" rel="noopener">💳 Make a Payment</a></li>
+          <li><a href="https://square.link/u/CmsBTgrE?src=chicago-footer" target="_blank" rel="noopener">&#128179; Make a Payment</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <p>© <span id="year">2026</span> PopUp Karaoke, LLC. Veteran-owned. All rights reserved.</p>
+      <p>&#169; <span id="year">2026</span> PopUp Karaoke, LLC. Veteran-owned. All rights reserved.</p>
       <div class="foot-links">
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
@@ -346,11 +587,12 @@
     document.addEventListener('keydown',function(e){if(e.key==='Escape')closeNav();});
     })();
   </script>
+
   <!-- Sticky mobile CTA bar -->
   <div class="mobile-cta" aria-label="Quick actions">
     <div class="mobile-cta-inner">
-      <a class="mobile-cta-call" href="tel:+12197581313" aria-label="Call PopUp Karaoke">📞 Call</a>
-      <a class="mobile-cta-book" href="/#contact" aria-label="Book your event">🎤 Book Now</a>
+      <a class="mobile-cta-call" href="tel:+12197581313" aria-label="Call PopUp Karaoke">&#128222; Call</a>
+      <a class="mobile-cta-book" href="/#contact" aria-label="Book your event">&#127908; Book Now</a>
     </div>
   </div>
 

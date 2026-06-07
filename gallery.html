@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#7c3aed">
+
+  <title>Event Gallery | PopUp Karaoke Photos &amp; Videos</title>
+  <meta name="description" content="See PopUp Karaoke in action! Browse photos and highlights from birthday parties, weddings, corporate events, and bar residencies across NW Indiana and Chicagoland.">
+  <meta name="keywords" content="karaoke event photos, karaoke DJ gallery, event entertainment photos, karaoke party pictures, PopUp Karaoke gallery NW Indiana">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://popupkaraoke.net/gallery.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Event Gallery | PopUp Karaoke Photos &amp; Videos">
+  <meta property="og:description" content="Real events, real smiles, real memories. Browse photos from karaoke parties, weddings, corporate events, and bar residencies across NW Indiana and Chicagoland.">
+  <meta property="og:url" content="https://popupkaraoke.net/gallery.html">
+  <meta property="og:image" content="https://popupkaraoke.net/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Event Gallery | PopUp Karaoke">
+  <meta name="twitter:image" content="https://popupkaraoke.net/og-image.png">
+
+  <link rel="icon" type="image/svg+xml" href="puklogo.svg">
+  <link rel="icon" type="image/png" sizes="512x512" href="puklogo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .gallery-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(255,45,146,0.2);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-caption {
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      color: var(--text-dim);
+    }
+    .gallery-caption strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.88rem;
+      margin-bottom: 0.15rem;
+    }
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .social-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, background 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .social-card:hover {
+      border-color: var(--neon-pink);
+      background: rgba(255,45,146,0.06);
+    }
+    .social-card .social-icon {
+      font-size: 2rem;
+    }
+    .social-card .social-name {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .social-card .social-handle {
+      color: var(--neon-cyan);
+      font-size: 0.85rem;
+    }
+    .social-card .social-desc {
+      color: var(--text-mute);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+  </style>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://popupkaraoke.net/"},
+      {"@type": "ListItem", "position": 2, "name": "Event Gallery", "item": "https://popupkaraoke.net/gallery.html"}
+    ]
+  }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WNX6WZJZ');</script>
+  <!-- End Google Tag Manager -->
+</head>
+<body class="has-mobile-cta">
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNX6WZJZ"
+  height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+
+  <div class="bg-fx" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav-row">
+      <a class="nav-logo" href="/" aria-label="PopUp Karaoke home">
+        <picture>
+          <source srcset="puklogo.webp" type="image/webp">
+          <img src="puklogo.png" alt="PopUp Karaoke" width="38" height="38" loading="eager" decoding="async">
+        </picture>
+        <span>PopUp Karaoke</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/service-areas.html">Areas</a></li>
+        <li><a href="/catalog.html">Catalog</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/#contact">Contact</a></li>
+        <li><a class="nav-cta nav-book-btn" href="/#contact">🎤 Book Now</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="mobile-overlay-close" id="mobileOverlayClose" aria-label="Close menu">
+      <span aria-hidden="true">✕</span>
+    </button>
+    <ul class="mobile-overlay-links">
+      <li><a class="mob-cta" href="/#contact">🎤 Book Your Event</a></li>
+      <li class="mob-divider"><a class="mob-phone" href="tel:+12197581313">📞 219.758.1313</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/service-areas.html">Areas We Serve</a></li>
+      <li><a href="/catalog.html">🎵 Song Catalog</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="geo-hero">
+      <div class="container">
+        <span class="section-label">Our Events</span>
+        <h1>See the Party <span class="grad">in Action</span></h1>
+        <p class="lead">Real events. Real smiles. Real memories. Browse photos from birthday parties, weddings, corporate events, bar residencies, and community nights across NW Indiana and Chicagoland.</p>
+        <div class="hero-ctas" role="group" style="justify-content:center; margin-bottom:1.5rem;">
+          <a class="btn btn-primary btn-xl" href="/#contact">🎤 Book Your Event</a>
+          <a class="btn btn-secondary" href="/reviews.html">★ See Reviews</a>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:0;">
+      <div class="container geo-content">
+
+        <!-- Photo Gallery -->
+        <h2>Event <span class="grad">Photos</span></h2>
+        <p style="color:var(--text-dim); margin-bottom:0.5rem;">A snapshot of the parties, performances, and memories we've helped create. Every photo is a real event — real people having the time of their lives.</p>
+
+        <div class="gallery-grid" role="list">
+
+          <figure class="gallery-item" role="listitem">
+            <img src="photos/18thstbrewery-1.webp" alt="Karaoke night at 18th Street Brewery in Gary Indiana — PopUp Karaoke bar residency" width="600" height="400" loading="lazy" decoding="async">
+            <figcaption class="gallery-caption">
+              <strong>Bar Residency — 18th Street Brewery, Gary, IN</strong>
+              Wednesday karaoke night — packed house, incredible energy.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" role="listitem">
+            <img src="photos/18thstbrewery-2.webp" alt="Performers on stage at 18th Street Brewery karaoke night in Gary Indiana" width="600" height="400" loading="lazy" decoding="async">
+            <figcaption class="gallery-caption">
+              <strong>Bar Residency — 18th Street Brewery, Gary, IN</strong>
+              Guests owning the stage every single week.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" role="listitem">
+            <img src="photos/18thstbrewery-4.webp" alt="Karaoke setup with lighting and sound system at 18th Street Brewery Gary Indiana" width="600" height="400" loading="lazy" decoding="async">
+            <figcaption class="gallery-caption">
+              <strong>Bar Residency — 18th Street Brewery, Gary, IN</strong>
+              Full professional rig — concert sound, stage lighting, wireless mics.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" role="listitem">
+            <img src="photos/18thstbrewery-6.webp" alt="Crowd enjoying karaoke night at 18th Street Brewery with PopUp Karaoke" width="600" height="400" loading="lazy" decoding="async">
+            <figcaption class="gallery-caption">
+              <strong>Community Night — 18th Street Brewery, Gary, IN</strong>
+              The crowd that shows up every Wednesday says it all.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" role="listitem">
+            <img src="photos/corporate-event-1.webp" alt="Corporate team building karaoke event in NW Indiana with PopUp Karaoke" width="600" height="400" loading="lazy" decoding="async">
+            <figcaption class="gallery-caption">
+              <strong>Corporate Event — NW Indiana</strong>
+              Team building done right — karaoke breaks the ice better than any icebreaker.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" role="listitem">
+            <img src="photos/corporate-event-2.webp" alt="Employees singing at corporate holiday karaoke party NW Indiana" width="600" height="400" loading="lazy" decoding="async">
+            <figcaption class="gallery-caption">
+              <strong>Corporate Holiday Party — NW Indiana</strong>
+              The people who swore they wouldn't sing always go first.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" role="listitem">
+            <img src="photos/moods-1.webp" alt="PopUp Karaoke setup at Moods bar event with full sound and lighting" width="600" height="400" loading="lazy" decoding="async">
+            <figcaption class="gallery-caption">
+              <strong>Bar Event — NW Indiana</strong>
+              Full stage setup transforms any venue into a karaoke stage.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" role="listitem">
+            <img src="photos/moods-2.webp" alt="Guests singing and celebrating at karaoke night in NW Indiana" width="600" height="400" loading="lazy" decoding="async">
+            <figcaption class="gallery-caption">
+              <strong>Karaoke Night — NW Indiana</strong>
+              Every night like this one starts the same: "I'll just watch." It never ends that way.
+            </figcaption>
+          </figure>
+
+        </div>
+
+        <!-- Video / Social Section -->
+        <h2 style="font-size:clamp(1.6rem,3vw,2.1rem); text-align:center; margin:3.5rem 0 0.5rem;">Catch Us Live on <span class="grad">Social Media</span></h2>
+        <p style="text-align:center; color:var(--text-dim); max-width:560px; margin:0 auto 2rem;">We post clips, highlights, and crowd moments regularly. Follow us to see what's happening before you book.</p>
+
+        <div class="social-grid">
+          <a class="social-card" href="https://www.facebook.com/PopUpKaraoke219" target="_blank" rel="noopener" aria-label="PopUp Karaoke on Facebook">
+            <span class="social-icon" aria-hidden="true">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#1877F2"/><path d="M16 8h-2a1 1 0 0 0-1 1v2h3l-.5 3H13v7h-3v-7H8v-3h2V9a4 4 0 0 1 4-4h2v3z" fill="#fff"/></svg>
+            </span>
+            <span class="social-name">Facebook</span>
+            <span class="social-handle">@PopUpKaraoke219</span>
+            <span class="social-desc">Event videos, photos, upcoming residency dates, and community highlights.</span>
+          </a>
+          <a class="social-card" href="https://www.instagram.com/popupkaraoke219/" target="_blank" rel="noopener" aria-label="PopUp Karaoke on Instagram">
+            <span class="social-icon" aria-hidden="true">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="6" fill="url(#ig-grad)"/><rect x="6" y="6" width="12" height="12" rx="4" stroke="#fff" stroke-width="1.6" fill="none"/><circle cx="12" cy="12" r="3.5" stroke="#fff" stroke-width="1.6" fill="none"/><circle cx="16.5" cy="7.5" r="1" fill="#fff"/><defs><linearGradient id="ig-grad" x1="0" y1="24" x2="24" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#F58529"/><stop offset=".5" stop-color="#DD2A7B"/><stop offset="1" stop-color="#8134AF"/></linearGradient></defs></svg>
+            </span>
+            <span class="social-name">Instagram</span>
+            <span class="social-handle">@popupkaraoke219</span>
+            <span class="social-desc">Behind-the-scenes setups, crowd moments, and the best singer-of-the-night clips.</span>
+          </a>
+          <a class="social-card" href="https://www.tiktok.com/@popupkaraoke219" target="_blank" rel="noopener" aria-label="PopUp Karaoke on TikTok">
+            <span class="social-icon" aria-hidden="true">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#010101"/><path d="M17 8.5a4 4 0 0 1-4-4h-2v10.5a2 2 0 1 1-2.5-1.94V11a5 5 0 1 0 4.5 4.97V12.5a7 7 0 0 0 4 1.25V11.5A4 4 0 0 1 17 8.5z" fill="#fff"/><path d="M17 8.5a4 4 0 0 0 2.5.87V7.6A4 4 0 0 1 17 6v2.5z" fill="#fe2c55"/><path d="M13 14.5A2 2 0 1 1 8.5 12.6V11a5 5 0 1 0 4.5 4.97V8.5h-2v6a2 2 0 0 1-2 2z" fill="#69c9d0"/></svg>
+            </span>
+            <span class="social-name">TikTok</span>
+            <span class="social-handle">@popupkaraoke219</span>
+            <span class="social-desc">Short viral clips of the best moments — the crowd reactions say everything.</span>
+          </a>
+        </div>
+
+        <!-- Elfsight Social Embed Placeholder -->
+        <!-- TO ENABLE: Get your Elfsight TikTok/Instagram Feed app ID and replace below -->
+        <!--
+        <script src="https://static.elfsight.com/platform/platform.js" defer></script>
+        <div class="elfsight-app-YOUR_APP_ID" data-elfsight-app-lazy></div>
+        Instructions:
+        1. Sign up at elfsight.com
+        2. Create a TikTok Feed or Instagram Feed widget
+        3. Connect @popupkaraoke219
+        4. Replace YOUR_APP_ID above with your widget's app ID
+        5. Uncomment the script and div lines above
+        -->
+
+        <!-- More Events -->
+        <h2 style="font-size:clamp(1.6rem,3vw,2.1rem); text-align:center; margin:3.5rem 0 1rem;">Every Event Is <span class="grad">Different</span></h2>
+        <p style="color:var(--text-dim); text-align:center; max-width:600px; margin:0 auto 2.5rem;">From intimate birthday parties to packed bar nights to corporate holiday galas — we bring the same professional setup and energy to every event. Here are some of the events we love most.</p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin-bottom:3.5rem;">
+          <div style="background:rgba(255,45,146,0.07); border:1px solid rgba(255,45,146,0.2); border-radius:0.75rem; padding:1.25rem; text-align:center;">
+            <div style="font-size:1.5rem; margin-bottom:0.4rem;">🎂</div>
+            <h3 style="font-size:0.95rem; margin-bottom:0.3rem;">Birthday Parties</h3>
+            <p style="color:var(--text-dim); font-size:0.82rem; line-height:1.5;">Sweet 16s, milestone birthdays, surprise parties — karaoke makes every age unforgettable.</p>
+          </div>
+          <div style="background:rgba(0,245,255,0.05); border:1px solid rgba(0,245,255,0.2); border-radius:0.75rem; padding:1.25rem; text-align:center;">
+            <div style="font-size:1.5rem; margin-bottom:0.4rem;">💒</div>
+            <h3 style="font-size:0.95rem; margin-bottom:0.3rem;">Weddings</h3>
+            <p style="color:var(--text-dim); font-size:0.82rem; line-height:1.5;">Receptions, after-parties, rehearsal dinners — karaoke gets every generation on their feet.</p>
+          </div>
+          <div style="background:rgba(255,45,146,0.07); border:1px solid rgba(255,45,146,0.2); border-radius:0.75rem; padding:1.25rem; text-align:center;">
+            <div style="font-size:1.5rem; margin-bottom:0.4rem;">🏢</div>
+            <h3 style="font-size:0.95rem; margin-bottom:0.3rem;">Corporate Events</h3>
+            <p style="color:var(--text-dim); font-size:0.82rem; line-height:1.5;">Holiday parties, team building, company milestones — the team activity everyone actually enjoys.</p>
+          </div>
+          <div style="background:rgba(0,245,255,0.05); border:1px solid rgba(0,245,255,0.2); border-radius:0.75rem; padding:1.25rem; text-align:center;">
+            <div style="font-size:1.5rem; margin-bottom:0.4rem;">🍺</div>
+            <h3 style="font-size:0.95rem; margin-bottom:0.3rem;">Bars &amp; Breweries</h3>
+            <p style="color:var(--text-dim); font-size:0.82rem; line-height:1.5;">Weekly residencies at 18th Street Brewery and Flights Taproom — turning slow nights into packed ones.</p>
+          </div>
+          <div style="background:rgba(255,45,146,0.07); border:1px solid rgba(255,45,146,0.2); border-radius:0.75rem; padding:1.25rem; text-align:center;">
+            <div style="font-size:1.5rem; margin-bottom:0.4rem;">🎊</div>
+            <h3 style="font-size:0.95rem; margin-bottom:0.3rem;">Bachelorette Parties</h3>
+            <p style="color:var(--text-dim); font-size:0.82rem; line-height:1.5;">Last night out deserves a spotlight — private setups that make the whole crew feel like stars.</p>
+          </div>
+          <div style="background:rgba(0,245,255,0.05); border:1px solid rgba(0,245,255,0.2); border-radius:0.75rem; padding:1.25rem; text-align:center;">
+            <div style="font-size:1.5rem; margin-bottom:0.4rem;">🤝</div>
+            <h3 style="font-size:0.95rem; margin-bottom:0.3rem;">Community Events</h3>
+            <p style="color:var(--text-dim); font-size:0.82rem; line-height:1.5;">School carnivals, nonprofit fundraisers, church events — family-friendly and fully insured.</p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-wrap" style="margin-top:clamp(2.5rem,5vw,4rem);">
+          <div class="cta-block">
+            <h3 class="cta-headline">Want Your Event in <span class="grad">Our Gallery?</span></h3>
+            <p class="cta-sub">Book PopUp Karaoke for your next event and we'll capture the moments — including content you can share on your own social media. Every booking includes social media content creation at no extra charge.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; margin-top:1.5rem;">
+              <a href="/#contact" class="btn btn-primary btn-xl">🎤 Book Your Event</a>
+              <a href="/reviews.html" class="btn btn-secondary">★ Read Reviews</a>
+            </div>
+            <div class="cta-trust" style="margin-top:1.25rem;">
+              <span><span class="dot">✓</span> Free quotes</span>
+              <span><span class="dot">✓</span> Veteran-owned</span>
+              <span><span class="dot">✓</span> 75K+ songs</span>
+              <span><span class="dot">✓</span> 5★ on Google</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-brand-row">
+          <img src="puklogo.png" alt="PopUp Karaoke" width="44" height="44" loading="lazy" decoding="async">
+          <span class="foot-brand-name">PopUp Karaoke</span>
+        </div>
+        <p>Veteran-owned mobile karaoke serving NW Indiana and Chicagoland. Parties, weddings, corporate events, bars — since 2020.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/reviews.html">Reviews</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/birthday-karaoke.html">Birthdays</a></li>
+          <li><a href="/corporate-karaoke.html">Corporate</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Areas</h4>
+        <ul>
+          <li><a href="/chicago-karaoke.html">Chicago</a></li>
+          <li><a href="/northwest-indiana-karaoke.html">NW Indiana</a></li>
+          <li><a href="/hammond-karaoke.html">Hammond</a></li>
+          <li><a href="/merrillville-karaoke.html">Merrillville</a></li>
+          <li><a href="/crown-point-karaoke.html">Crown Point</a></li>
+          <li><a href="/valparaiso-karaoke.html">Valparaiso</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="tel:+12197581313">219.758.1313</a></li>
+          <li><a href="mailto:booking@popupkaraoke.net">booking@popupkaraoke.net</a></li>
+          <li><a href="https://www.facebook.com/PopUpKaraoke219" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.instagram.com/popupkaraoke219/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@popupkaraoke219" target="_blank" rel="noopener">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© <span id="year">2026</span> PopUp Karaoke, LLC. Veteran-owned. All rights reserved.</p>
+      <div class="foot-links"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+    </div>
+  </footer>
+
+  <div class="mobile-cta" aria-label="Quick actions">
+    <div class="mobile-cta-inner">
+      <a class="mobile-cta-call" href="tel:+12197581313" aria-label="Call PopUp Karaoke">📞 Call</a>
+      <a class="mobile-cta-book" href="/#contact" aria-label="Book your event">🎤 Book Now</a>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      var yr=document.getElementById('year'); if(yr) yr.textContent=new Date().getFullYear();
+      var nav=document.getElementById('nav');
+      window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>30);},{passive:true});
+      var tog=document.getElementById('navToggle');
+      var ov=document.getElementById('mobileOverlay');
+      var cls=document.getElementById('mobileOverlayClose');
+      function openMenu(){ov.removeAttribute('aria-hidden');ov.setAttribute('aria-modal','true');document.body.style.overflow='hidden';if(tog)tog.setAttribute('aria-expanded','true');}
+      function closeMenu(){ov.setAttribute('aria-hidden','true');document.body.style.overflow='';if(tog)tog.setAttribute('aria-expanded','false');}
+      if(tog) tog.addEventListener('click',openMenu);
+      if(cls) cls.addEventListener('click',closeMenu);
+      if(ov) ov.addEventListener('click',function(e){if(e.target===ov) closeMenu();});
+    })();
+  </script>
+</body>
+</html>

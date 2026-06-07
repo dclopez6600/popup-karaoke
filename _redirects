@@ -54,5 +54,20 @@
 /blog/karaoke-dj-cost      /blog/how-much-does-a-karaoke-dj-cost.html 301
 /blog/cost                 /blog/how-much-does-a-karaoke-dj-cost.html 301
 
+# ── New pages (June 2026) ───────────────────────────────
+/school-karaoke/          /school-karaoke.html      301
+/school-karaoke           /school-karaoke.html      301
+/veteran-karaoke/         /veteran-karaoke.html     301
+/veteran-karaoke          /veteran-karaoke.html     301
+/gallery/                 /gallery.html             301
+/gallery                  /gallery.html             301
+/reviews/                 /reviews.html             301
+/reviews                  /reviews.html             301
+/blog/karaoke-ideas-sweet-16/         /blog/karaoke-ideas-sweet-16.html         301
+/blog/karaoke-fundraiser-guide/       /blog/karaoke-fundraiser-guide.html       301
+/blog/bar-mitzvah-karaoke-planning/   /blog/bar-mitzvah-karaoke-planning.html   301
+/blog/best-karaoke-songs-company-party/ /blog/best-karaoke-songs-company-party.html 301
+/blog/karaoke-chicago-suburbs/        /blog/karaoke-chicago-suburbs.html        301
+
 # ── Catch-all 404 → custom 404 page ─────────────────────
 /*                        /404.html                 404

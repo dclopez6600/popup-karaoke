@@ -39,6 +39,19 @@
 
   <link rel="stylesheet" href="style.css">
 
+  <style>
+    .venue-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+    .venue-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; }
+    .genre-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.5rem 0; }
+    .genre-tag { background: var(--card); border: 1px solid var(--neon-cyan); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.9rem; color: var(--neon-cyan); }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+    .step-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+    .step-number { font-size: 2rem; color: var(--neon-gold); font-weight: 700; }
+    .testimonial-card { background: var(--card); border-left: 4px solid var(--neon-pink); border-radius: 0 12px 12px 0; padding: 1.5rem 2rem; margin: 1.5rem 0; }
+    .neighborhood-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .neighborhood-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+  </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -79,6 +92,7 @@
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-WNX6WZJZ');</script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -88,18 +102,31 @@
       "@type": "Question",
       "name": "Do you provide mobile karaoke in Gary, Indiana?",
       "acceptedAnswer": {"@type": "Answer", "text": "Yes — we serve all of Gary including Miller Beach, Glen Park, Black Oak, and Downtown Gary for private events, bar nights, birthdays, and corporate gatherings."}
-    },    {
+    },
+    {
       "@type": "Question",
       "name": "What types of events do you do in Gary, IN?",
       "acceptedAnswer": {"@type": "Answer", "text": "We handle bar karaoke nights, birthday parties, wedding receptions, community fundraisers, church events, and corporate team-building events throughout Gary."}
-    },    {
+    },
+    {
       "@type": "Question",
       "name": "Is PopUp Karaoke veteran-owned?",
       "acceptedAnswer": {"@type": "Answer", "text": "Yes — PopUp Karaoke is veteran-owned and operated, based right in NW Indiana. We bring military-grade reliability to every event."}
-    },    {
+    },
+    {
       "@type": "Question",
       "name": "How do I book karaoke for a Gary, IN event?",
       "acceptedAnswer": {"@type": "Answer", "text": "Use the booking form at popupkaraoke.net or call 219.758.1313. We typically respond within 24 hours with a custom quote."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you do Wednesday karaoke nights in Gary?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes — we host a weekly karaoke residency every Wednesday at 18th Street Brewery in Miller Beach (5725 Miller Ave, Gary). It's open to walk-ins and free to attend. Come check us out before booking your private event."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you have gospel and R&B songs in your catalog?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Absolutely — we carry an extensive catalog including gospel, classic soul, Motown, and R&B spanning from the 1960s through today. We also have a large Jackson 5 and Michael Jackson catalog, which Gary crowds always love."}
     }
     ]
   }
@@ -134,47 +161,49 @@
         <li><a href="/#services">Services</a></li>
         <li><a href="/faq.html">FAQ</a></li>
         <li><a href="/#contact">Contact</a></li>
-        <li><a href="https://www.karafun.com/062552/" target="_blank" rel="noopener" style="color:var(--neon-cyan);font-weight:600">🎵 Queue</a></li>
-
-        <li><a class="nav-cta" href="https://square.link/u/CmsBTgrE?src=gary-karaoke" target="_blank" rel="noopener">💳 Pay</a></li>
+        <li><a href="https://www.karafun.com/062552/" target="_blank" rel="noopener" style="color:var(--neon-cyan);font-weight:600">&#127925; Queue</a></li>
+        <li><a class="nav-cta" href="https://square.link/u/CmsBTgrE?src=gary-karaoke" target="_blank" rel="noopener">&#128179; Pay</a></li>
       </ul>
     </div>
   </header>
 
   <!-- Mobile overlay nav -->
   <div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
-    <button class="mobile-overlay-close" id="mobileOverlayClose" aria-label="Close menu">✕</button>
+    <button class="mobile-overlay-close" id="mobileOverlayClose" aria-label="Close menu">&#10005;</button>
     <ul class="mobile-overlay-links">
-      <li><a href="/" class="mob-cta">🎤 Book Now</a></li>
-      <li><a href="tel:+12197581313" class="mob-phone">📞 219.758.1313</a></li>
+      <li><a href="/" class="mob-cta">&#127908; Book Now</a></li>
+      <li><a href="tel:+12197581313" class="mob-phone">&#128222; 219.758.1313</a></li>
       <li class="mob-divider mob-section-label"><span>Pages</span></li>
       <li><a href="/#events">Events</a></li>
       <li><a href="/faq.html">FAQ</a></li>
       <li><a href="/about.html">About</a></li>
-      <li><a href="/song-request.html">🎵 Song Request</a></li>
-      <li><a href="https://www.karafun.com/062552/" target="_blank" rel="noopener">🎵 Join the Queue</a></li>
-      <li><a href="/catalog.html">🎵 Song Catalog</a></li>
+      <li><a href="/song-request.html">&#127925; Song Request</a></li>
+      <li><a href="https://www.karafun.com/062552/" target="_blank" rel="noopener">&#127925; Join the Queue</a></li>
+      <li><a href="/catalog.html">&#127925; Song Catalog</a></li>
       <li><a href="/#contact">Contact</a></li>
     </ul>
   </div>
 
   <main id="main">
+
+    <!-- HERO -->
     <section class="geo-hero">
       <div class="container">
         <span class="section-label">Gary, Indiana</span>
         <h1>Gary <span class="grad">Mobile Karaoke</span></h1>
-        <p class="lead">Veteran-owned mobile karaoke serving Gary and the surrounding area. Pro host, 75,000+ songs, concert-quality sound. Built for the way Gary parties.</p>
+        <p class="lead">Veteran-owned mobile karaoke serving Gary — birthplace of the Jackson 5 and home to some of the most soulful crowds in NW Indiana. Resident every Wednesday at 18th Street Brewery. Pro host, 75,000+ songs, concert-quality sound.</p>
         <div class="hero-ctas" role="group" style="justify-content:center; margin-bottom: 1.5rem;">
-          <a class="btn btn-primary btn-xl" href="/#contact">🎤 Book Your Event</a>
-          <a class="btn btn-secondary" href="tel:+12197581313">📞 219.758.1313</a>
+          <a class="btn btn-primary btn-xl" href="/#contact">&#127908; Book Your Event</a>
+          <a class="btn btn-secondary" href="tel:+12197581313">&#128222; 219.758.1313</a>
         </div>
       </div>
     </section>
 
+    <!-- MAIN CONTENT -->
     <section style="padding-top: 0;">
       <div class="container geo-content">
         <h2>Mobile Karaoke for <span class="grad">Gary</span></h2>
-        <p>We host karaoke every Wednesday night at 18th Street Brewery in Miller Beach. Beyond the residency, we handle private events all over Gary — birthdays, corporate parties, weddings, and community events.</p>
+        <p>We host karaoke every Wednesday night at 18th Street Brewery in Miller Beach. Beyond the residency, we handle private events all over Gary — birthdays, corporate parties, weddings, church anniversaries, and community events.</p>
         <p><strong>Want to see us before you book? Catch our weekly Wednesday show at 18th Street Brewery, 5725 Miller Ave, Gary. Free to attend, all skill levels welcome.</strong></p>
 
         <h3>What We Bring to Every Gary Booking</h3>
@@ -183,99 +212,316 @@
           <li><strong>Concert-quality sound system</strong> — clean, loud, and tuned for the room</li>
           <li><strong>Stage lighting</strong> for that real-show feel</li>
           <li><strong>Two wireless microphones</strong> for duets, group numbers, crowd interaction</li>
-          <li><strong>75,000+ song library</strong> — country, pop, rock, R&amp;B, hip-hop, Latin, classics</li>
+          <li><strong>75,000+ song library</strong> — gospel, soul, Motown, R&amp;B, hip-hop, classic pop, country, and more</li>
           <li><strong>Setup and teardown included</strong> — you just supply the singers</li>
         </ul>
 
         <h3>Gary Events We Host</h3>
         <ul>
-          <li>Recurring brewery night at 18th Street Brewery (Wednesdays 7–10 PM)</li>
-          <li>Private wedding receptions</li>
+          <li>Recurring brewery night at 18th Street Brewery (Wednesdays)</li>
+          <li>Private wedding receptions and rehearsal dinners</li>
           <li>Birthday parties — kids, adults, milestones</li>
           <li>Corporate parties and team-building</li>
           <li>Community fundraisers and school events</li>
+          <li>Church anniversary celebrations and fellowship events</li>
           <li>Lakeside summer parties along Miller Beach</li>
-        </ul>
-
-        <h3>Gary Areas We Serve</h3>
-        <ul>
-          <li>Miller Beach</li>
-          <li>Glen Park</li>
-          <li>Downtown / Midtown Gary</li>
-          <li>Brunswick, Aetna, Tolleston</li>
-          <li>Lake Michigan shoreline</li>
+          <li>Holiday parties and seasonal celebrations</li>
+          <li>Surprise parties, anniversary dinners, and retirement send-offs</li>
+          <li>Arts district events and Miller Beach summer festivals</li>
+          <li>VFW post events honoring Gary's veteran community</li>
         </ul>
 
         <h3>Why Gary Picks PopUp Karaoke</h3>
-        <p><strong>Local crew, local rates.</strong> We're based right in NW Indiana — no inflated travel fees, faster setup, and a host who knows the venues.</p>
+        <p><strong>Local crew, local rates.</strong> We're based right in NW Indiana — no inflated travel fees, faster setup, and a host who knows Gary's venues and crowd.</p>
         <p><strong>Veteran-owned.</strong> Show up on time, set up clean, deliver the show. Every event, no exceptions.</p>
-        <p><strong>Bigger song library.</strong> 75,000+ tracks vs. the typical 30,000–50,000. If your guests can think of a song, chances are we have it. If not, we'll add it before the event.</p>
-        <p><strong>5★ rated on Google.</strong> <a href="https://www.google.com/maps/place/PopUp+Karaoke/" target="_blank" rel="noopener">See what your neighbors are saying</a>.</p>
+        <p><strong>Deep soul, gospel, and R&amp;B catalog.</strong> Gary crowds know music. Our 75,000+ track library includes extensive gospel, soul, Motown, and R&amp;B coverage — from Aretha and Marvin to the Jackson 5 and beyond.</p>
+        <p><strong>Proven at 18th Street Brewery.</strong> Our Wednesday residency at 18th Street Brewery draws a loyal weekly crowd. Come see us before you book.</p>
+        <p><strong>5&#9733; rated on Google.</strong> <a href="https://www.google.com/maps/place/PopUp+Karaoke/" target="_blank" rel="noopener">See what your neighbors are saying</a>.</p>
+        <p><strong>Transparent and responsive.</strong> Every inquiry gets a response within 24 hours. We stay in communication all the way to event day so there are zero surprises — just a flawless show.</p>
+        <p><strong>Adaptable for any audience.</strong> Church anniversary with all ages? Adult birthday party? Community fundraiser? We calibrate the energy and content to match your crowd perfectly every time.</p>
+      </div>
+    </section>
 
-        
-        <!-- Other areas we serve — internal cross-linking -->
+    <!-- WHAT TO EXPECT -->
+    <section class="geo-content" style="padding: 3rem 0; background: rgba(0,0,0,0.12);">
+      <div class="container">
+        <h2>What to Expect at a <span class="grad">Gary PopUp Karaoke Event</span></h2>
+        <p style="line-height:1.8;color:var(--text-dim);margin-bottom:1.25rem;">Gary is a city of music royalty. This is the birthplace of the Jackson 5 — one of the most iconic groups in American pop history — and that musical heritage runs deep in the people who call Gary home. When you hold a karaoke event in Gary, you're not just booking entertainment. You're honoring a tradition.</p>
+        <p style="line-height:1.8;color:var(--text-dim);margin-bottom:1.25rem;">Gary crowds sing with conviction. They know the words. They know the history behind the songs. Whether it's a Marvin Gaye classic, a gospel standard that brings the whole room to their feet, or a Jackson 5 hit that gets three generations moving together — Gary events have soul in a way you don't find everywhere.</p>
+        <p style="line-height:1.8;color:var(--text-dim);margin-bottom:1.25rem;">The 18th Street Brewery Wednesday residency has been proof of this. The Miller Beach crowd — creative, open-minded, lakefront-arts-community energy — has made it one of PopUp Karaoke's most beloved weekly events. Regulars come back every week, bring their friends, and treat the brewery stage like it's theirs. Because for one night, it is.</p>
+        <p style="line-height:1.8;color:var(--text-dim);margin-bottom:1.25rem;">For private events — church anniversaries, community fundraisers, birthday parties, corporate gatherings — Daniel adapts the show completely. He can run a family-friendly, multi-generational event where grandparents and kids share the mic, or he can run a high-energy adult party with all the hits. He reads the room and responds to it.</p>
+        <p style="line-height:1.8;color:var(--text-dim);">Daniel honors Gary's musical heritage by bringing out the best in every singer who steps up to the mic. No judgment, no barriers — just a stage, a mic, and 75,000 songs to choose from. The rest is up to you and your crowd.</p>
+      </div>
+    </section>
 
-        
-        <p>Gary has a proud musical heritage — this is the city that produced the Jackson 5, one of the most iconic groups in American pop history. Karaoke in Gary carries that legacy: the crowds take the mic seriously, they sing with conviction, and they request songs that matter to them. Our residency every Wednesday at 18th Street Brewery in Miller Beach has given us a deep feel for Gary crowds — we know when to push energy and when to let a moment breathe. The Miller Beach neighborhood is itself a gem: a lakefront arts community with a creative, open-minded audience. Beyond the brewery, private events in Gary span a wide range — church anniversaries, family reunions, corporate team events for the healthcare and education sectors. We know how to adapt the show for each.</p>
-        <blockquote style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--neon-pink);border-radius:0.875rem;padding:1.5rem 1.75rem;margin:2rem 0;">
+    <!-- HOW IT WORKS -->
+    <section style="padding: 3rem 0;">
+      <div class="container">
+        <h2 style="text-align:center;">How It Works in <span class="grad">Gary</span></h2>
+        <p style="text-align:center;color:var(--text-mute);margin-bottom:0.5rem;">Four simple steps to the best night Gary has seen in a while</p>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h3 style="color:var(--text);margin:0.5rem 0;">Book</h3>
+            <p style="color:var(--text-dim);font-size:0.92rem;line-height:1.65;">Fill out the contact form or call 219.758.1313. Tell us your date, venue, and event type. We respond with a custom quote within 24 hours. Want to preview us first? Come to 18th Street Brewery on a Wednesday.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h3 style="color:var(--text);margin:0.5rem 0;">We Plan Together</h3>
+            <p style="color:var(--text-dim);font-size:0.92rem;line-height:1.65;">We'll discuss your Gary venue's layout, power access, and your song wishlist — gospel, soul, Motown, Jackson 5, or anything else your crowd loves. We plan every detail so the day of is seamless.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h3 style="color:var(--text);margin:0.5rem 0;">Setup Day-Of</h3>
+            <p style="color:var(--text-dim);font-size:0.92rem;line-height:1.65;">Daniel arrives early, handles all load-in, and has the full production ready before guests arrive. No delays, no stress — just a professional karaoke show waiting for its audience.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">04</div>
+            <h3 style="color:var(--text);margin:0.5rem 0;">The Party Starts</h3>
+            <p style="color:var(--text-dim);font-size:0.92rem;line-height:1.65;">Lights up, mics on, queue open. Daniel works the crowd, honors the city's musical legacy, and makes sure every person in the room — from the confident belter to the first-timer — gets their moment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VENUE TYPES -->
+    <section style="padding: 3rem 0; background: rgba(0,0,0,0.12);">
+      <div class="container">
+        <h2>Gary Venues We <span class="grad">Work With</span></h2>
+        <p style="color:var(--text-mute);margin-bottom:0.5rem;">From the brewery on Miller Beach to church fellowship halls across the city — Gary has the venues and we know how to bring them to life.</p>
+        <div class="venue-cards">
+          <div class="venue-card">
+            <div style="font-size:2.5rem;margin-bottom:0.75rem;">&#127866;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">Breweries &amp; Taprooms</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.6;">18th Street Brewery is home base, but we bring karaoke to any Gary-area bar or taproom looking to add a weekly event night that actually fills the room.</p>
+          </div>
+          <div class="venue-card">
+            <div style="font-size:2.5rem;margin-bottom:0.75rem;">&#9965;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">Church Fellowship Halls</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.6;">Family-friendly church celebrations, anniversary events, and choir fundraisers — we keep content appropriate and energy high. Gospel and inspirational tracks in the library.</p>
+          </div>
+          <div class="venue-card">
+            <div style="font-size:2.5rem;margin-bottom:0.75rem;">&#127968;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">Community Centers</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.6;">Community fundraisers, neighborhood events, school celebrations, and civic gatherings — PopUp Karaoke brings the entertainment that brings the community together.</p>
+          </div>
+          <div class="venue-card">
+            <div style="font-size:2.5rem;margin-bottom:0.75rem;">&#127958;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">Miller Beach Events</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.6;">Lakefront summer parties, arts district events, and outdoor gatherings in Gary's beloved Miller Beach neighborhood — the creative heart of the city.</p>
+          </div>
+          <div class="venue-card">
+            <div style="font-size:2.5rem;margin-bottom:0.75rem;">&#127981;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">School Fundraisers</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.6;">PTA nights, school fundraising events, and end-of-year celebrations — engaging, age-appropriate karaoke that the whole school community can enjoy together.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SONG GENRES -->
+    <section style="padding: 3rem 0;">
+      <div class="container">
+        <h2>What Gary Crowds <span class="grad">Love to Sing</span></h2>
+        <p style="color:var(--text-mute);margin-bottom:0.25rem;">Gary is a music city. Our 75,000+ track library runs deep on the genres this city lives and breathes.</p>
+        <p style="color:var(--text-dim);font-size:0.93rem;margin-bottom:0.25rem;">Need a specific song added before your event? Just let us know — song additions are always free.</p>
+        <div class="genre-grid">
+          <span class="genre-tag">&#127932; R&amp;B &amp; Soul</span>
+          <span class="genre-tag">&#9654; Gospel</span>
+          <span class="genre-tag">&#127926; Motown Classics</span>
+          <span class="genre-tag">&#127925; Hip-Hop</span>
+          <span class="genre-tag">&#127928; Classic Rock</span>
+          <span class="genre-tag">&#128251; 80s &amp; 90s Pop</span>
+          <span class="genre-tag">&#127926; Pop Hits</span>
+          <span class="genre-tag">&#9733; Jackson 5 &amp; MJ</span>
+        </div>
+        <p style="color:var(--text-dim);font-size:0.95rem;line-height:1.7;margin-top:0.75rem;">Gary crowds know their R&amp;B. They'll request Aretha, Stevie Wonder, Al Green, and Luther Vandross — and they'll sing every word with everything they've got. The Jackson 5 catalog hits different in Gary. When someone pulls up "I Want You Back" or "ABC," the entire room transforms. That's not something you can manufacture. It's something Gary carries in its DNA.</p>
+        <p style="color:var(--text-dim);font-size:0.95rem;line-height:1.7;margin-top:0.75rem;">Gospel and inspirational tracks are also a staple at Gary events — especially church-affiliated celebrations. We carry an extensive inspirational catalog and know how to run an event that honors the spiritual dimension of the community.</p>
+      </div>
+    </section>
+
+    <!-- LIVE RESIDENCY CALLOUT -->
+    <section style="padding: 3rem 0; background: rgba(0,0,0,0.12);">
+      <div class="container">
+        <div style="background:var(--card);border:2px solid var(--neon-cyan);border-radius:14px;padding:2rem;text-align:center;max-width:700px;margin:0 auto;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;">&#127866;</div>
+          <h3 style="color:var(--neon-cyan);margin:0 0 0.75rem;">Catch Us Live Every Wednesday</h3>
+          <p style="color:var(--text-dim);line-height:1.7;margin:0 0 0.5rem;"><strong style="color:var(--text);">18th Street Brewery — Miller Beach</strong><br>5725 Miller Ave, Gary, IN</p>
+          <p style="color:var(--text-dim);line-height:1.7;margin:0 0 1.25rem;">Every <strong style="color:var(--neon-gold);">Wednesday</strong> &#183; Walk-ins welcome &#183; Free to attend</p>
+          <p style="color:var(--text-dim);font-size:0.93rem;line-height:1.65;margin:0 0 1.25rem;">Want to experience PopUp Karaoke before booking your private event? Come out to 18th Street Brewery on any Wednesday. Grab a craft beer, get on the mic, and see why Gary keeps coming back week after week.</p>
+          <a href="/#contact" class="btn btn-primary">&#127908; Book Your Private Event</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section style="padding: 3rem 0;">
+      <div class="container">
+        <h2>What Gary Says About <span class="grad">PopUp Karaoke</span></h2>
+        <p style="color:var(--text-mute);margin-bottom:0.5rem;">Don't take our word for it — here's what Gary community members, event hosts, and brewery regulars have said about their PopUp Karaoke experience.</p>
+
+        <div class="testimonial-card">
           <p style="color:var(--text);font-style:italic;line-height:1.7;margin:0 0 0.75rem;">"We hired PopUp Karaoke for our community fundraiser in Gary and it was a massive hit. Daniel kept the crowd engaged all night and was incredibly professional. We'll be booking him again."</p>
           <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
             <span style="color:var(--neon-pink);font-weight:700;font-size:0.9rem;">Angela T.</span>
-            <span style="color:var(--text-mute);font-size:0.82rem;">· Community Fundraiser · Gary, IN</span>
-            <span style="color:var(--neon-gold);font-size:0.82rem;margin-left:auto;">★★★★★</span>
+            <span style="color:var(--text-mute);font-size:0.82rem;">&#183; Community Fundraiser &#183; Gary, IN</span>
+            <span style="color:var(--neon-gold);font-size:0.82rem;margin-left:auto;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
           </div>
-        </blockquote>
+        </div>
 
-        <p><strong>Neighborhoods we cover:</strong> Miller Beach, Aetna, Downtown Gary, Glen Park, and Black Oak.</p>
+        <div class="testimonial-card">
+          <p style="color:var(--text);font-style:italic;line-height:1.7;margin:0 0 0.75rem;">"Had my birthday at 18th Street Brewery and we sang Jackson 5 all night. The whole brewery was on their feet — people I've never met were singing backup vocals. Daniel knows how to make a room feel like a concert. Best birthday I've had in years."</p>
+          <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
+            <span style="color:var(--neon-pink);font-weight:700;font-size:0.9rem;">Deja W.</span>
+            <span style="color:var(--text-mute);font-size:0.82rem;">&#183; Birthday Party &#183; Miller Beach, Gary</span>
+            <span style="color:var(--neon-gold);font-size:0.82rem;margin-left:auto;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+        </div>
 
-        <p>Gary has a rich entertainment history and a growing events scene. We've brought mobile karaoke to bars, community halls, and private venues throughout the city — from the lakefront neighborhoods of Miller Beach to the south side near Merrillville.</p>
-        <h3 style="margin-top:2rem;">Frequently Asked Questions — Gary Karaoke</h3>
+        <div class="testimonial-card">
+          <p style="color:var(--text);font-style:italic;line-height:1.7;margin:0 0 0.75rem;">"We hired Daniel for our church's anniversary celebration and he was absolutely perfect. He created a family-friendly atmosphere that brought our whole congregation together — from the youngest kids to our senior members. Everyone participated. It was a blessing."</p>
+          <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
+            <span style="color:var(--neon-pink);font-weight:700;font-size:0.9rem;">Pastor Ron B.</span>
+            <span style="color:var(--text-mute);font-size:0.82rem;">&#183; Church Anniversary Celebration &#183; Gary, IN</span>
+            <span style="color:var(--neon-gold);font-size:0.82rem;margin-left:auto;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEIGHBORHOODS -->
+    <section style="padding: 3rem 0; background: rgba(0,0,0,0.12);">
+      <div class="container">
+        <h2>Gary Neighborhoods &amp; Areas <span class="grad">We Cover</span></h2>
+        <p style="color:var(--text-mute);margin-bottom:0.5rem;">We serve all of Gary and the surrounding area — here's where we regularly show up:</p>
+        <p style="color:var(--text-dim);font-size:0.93rem;margin-bottom:1rem;">Not sure if we cover your specific location? Call 219.758.1313 or send us a message and we'll confirm. We've never turned down a Gary booking over location.</p>
+        <div class="neighborhood-grid">
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">Miller Beach</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">Gary's lakefront arts district — home to 18th Street Brewery and a creative, open-minded community that loves live entertainment. Our Wednesday residency is based here.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">Glen Park</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">A residential neighborhood on Gary's south side — community events, church celebrations, and private parties are all common booking types here.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">Midtown Gary</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">The central commercial district — bars, event halls, and community centers serving the heart of the city.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">Tolleston</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">A west-side Gary neighborhood with a close-knit community atmosphere — private parties, church events, and neighborhood gatherings.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">Brunswick</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">South Gary residential community — ideal for backyard parties, family reunions, and milestone celebrations.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">Aetna</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">East Gary neighborhood close to Hammond — community events, birthday parties, and bar nights throughout the area.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">Black Oak</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">A northwest Gary neighborhood on the Hammond border — private events and community gatherings throughout this established residential area.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h4 style="color:var(--neon-cyan);margin:0 0 0.4rem;font-size:1rem;">Lake Michigan Shoreline</h4>
+            <p style="color:var(--text-dim);font-size:0.87rem;line-height:1.55;margin:0;">Lakefront events, Miller Beach summer parties, and outdoor gatherings along Gary's beautiful Lake Michigan shoreline — we bring full production anywhere with power.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFFERENTIATORS -->
+    <section style="padding: 3rem 0;">
+      <div class="container">
+        <h2>The PopUp Karaoke <span class="grad">Difference in Gary</span></h2>
+        <p style="color:var(--text-mute);margin-bottom:1rem;">Gary deserves an entertainment partner who shows up prepared, understands the city, and delivers every time. Here's what sets us apart.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin:1.5rem 0;">
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;">
+            <div style="font-size:1.75rem;margin-bottom:0.5rem;">&#127932;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">Soul-Deep Song Library</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Gospel, Motown, classic soul, R&amp;B, Jackson 5, and Michael Jackson — our library goes as deep as Gary's musical roots. No skimping on the catalog that matters most here.</p>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;">
+            <div style="font-size:1.75rem;margin-bottom:0.5rem;">&#127866;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">Proven at 18th Street Brewery</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Our Wednesday residency isn't just a gig — it's proof. The Miller Beach community keeps showing up week after week because Daniel consistently delivers. Come see it for yourself.</p>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;">
+            <div style="font-size:1.75rem;margin-bottom:0.5rem;">&#9989;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">Family-Friendly &amp; Adult Events</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Church anniversary with grandparents and kids? Adult birthday bash? We adapt completely — same professional host, different energy level and content calibration for each event type.</p>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;">
+            <div style="font-size:1.75rem;margin-bottom:0.5rem;">&#127981;</div>
+            <h4 style="color:var(--text);margin:0 0 0.5rem;">Community-First Mindset</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Gary is a community, not just a market. Daniel shows up as a participant, not just a vendor — he knows this city, respects its history, and brings his best to every event.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="padding: 2rem 0 3rem; background: rgba(0,0,0,0.12);">
+      <div class="container geo-content">
+        <h3 style="margin-top:0;">Frequently Asked Questions — Gary Karaoke</h3>
         <div style="margin-top:1rem;">
-        <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
-          <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">Do you provide mobile karaoke in Gary, Indiana?</h4>
-          <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Yes — we serve all of Gary including Miller Beach, Glen Park, Black Oak, and Downtown Gary for private events, bar nights, birthdays, and corporate gatherings.</p>
-        </div>
-        <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
-          <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">What types of events do you do in Gary, IN?</h4>
-          <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">We handle bar karaoke nights, birthday parties, wedding receptions, community fundraisers, church events, and corporate team-building events throughout Gary.</p>
-        </div>
-        <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
-          <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">Is PopUp Karaoke veteran-owned?</h4>
-          <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Yes — PopUp Karaoke is veteran-owned and operated, based right in NW Indiana. We bring military-grade reliability to every event.</p>
-        </div>
-        <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
-          <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">How do I book karaoke for a Gary, IN event?</h4>
-          <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Use the booking form at popupkaraoke.net or call 219.758.1313. We typically respond within 24 hours with a custom quote.</p>
-        </div>
+          <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
+            <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">Do you provide mobile karaoke in Gary, Indiana?</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Yes — we serve all of Gary including Miller Beach, Glen Park, Black Oak, and Downtown Gary for private events, bar nights, birthdays, and corporate gatherings.</p>
+          </div>
+          <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
+            <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">What types of events do you do in Gary, IN?</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">We handle bar karaoke nights, birthday parties, wedding receptions, community fundraisers, church events, and corporate team-building events throughout Gary.</p>
+          </div>
+          <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
+            <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">Is PopUp Karaoke veteran-owned?</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Yes — PopUp Karaoke is veteran-owned and operated, based right in NW Indiana. We bring military-grade reliability to every event.</p>
+          </div>
+          <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
+            <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">How do I book karaoke for a Gary, IN event?</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Use the booking form at popupkaraoke.net or call 219.758.1313. We typically respond within 24 hours with a custom quote.</p>
+          </div>
+          <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
+            <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">Do you do Wednesday karaoke nights in Gary?</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Yes — we host a weekly karaoke residency every Wednesday at 18th Street Brewery in Miller Beach (5725 Miller Ave, Gary). Walk-ins welcome, free to attend. Come see us live before booking your private event.</p>
+          </div>
+          <div class="faq-item" style="border:1px solid var(--border);border-radius:0.75rem;padding:1.25rem 1.5rem;margin-bottom:0.75rem;">
+            <h4 style="font-size:1rem;color:var(--text);margin:0 0 0.5rem;">Do you have gospel and R&amp;B songs in your catalog?</h4>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.65;margin:0;">Absolutely — we carry an extensive catalog including gospel, classic soul, Motown, and R&amp;B spanning from the 1960s through today. We also have a large Jackson 5 and Michael Jackson catalog, which Gary crowds always love.</p>
+          </div>
         </div>
 
         <div class="other-areas" style="margin-top: clamp(2rem, 4vw, 3rem); padding-top: 2rem; border-top: 1px solid var(--border);">
           <h3 style="text-align: center; font-size: 1.3rem; margin-bottom: 1rem;">Other Areas We Serve</h3>
           <p style="text-align: center; color: var(--text-mute); margin-bottom: 1.25rem;">Booking elsewhere? Check out our pages for these cities:</p>
           <div class="area-tags" style="justify-content: center;">
-              <a class="area-tag" href="/chicago-karaoke.html">🏙️ Chicago</a>
-              <a class="area-tag" href="/northwest-indiana-karaoke.html">🎯 NW Indiana</a>
-              <a class="area-tag" href="/valparaiso-karaoke.html">📍 Valparaiso</a>
-              <a class="area-tag" href="/crown-point-karaoke.html">📍 Crown Point</a>
-              <a class="area-tag" href="/hammond-karaoke.html">📍 Hammond</a>
-              <a class="area-tag" href="/merrillville-karaoke.html">📍 Merrillville</a>
+              <a class="area-tag" href="/chicago-karaoke.html">&#127961; Chicago</a>
+              <a class="area-tag" href="/northwest-indiana-karaoke.html">&#127919; NW Indiana</a>
+              <a class="area-tag" href="/valparaiso-karaoke.html">&#128205; Valparaiso</a>
+              <a class="area-tag" href="/crown-point-karaoke.html">&#128205; Crown Point</a>
+              <a class="area-tag" href="/hammond-karaoke.html">&#128205; Hammond</a>
+              <a class="area-tag" href="/merrillville-karaoke.html">&#128205; Merrillville</a>
           </div>
         </div>
+
         <div class="cta-wrap" style="margin-top: clamp(2.5rem, 5vw, 4rem);">
           <div class="cta-block">
             <h3 class="cta-headline">Ready to book karaoke in <span class="grad">Gary?</span></h3>
             <p class="cta-sub">Tell us about your event and we'll send a custom quote — usually within 24 hours.</p>
-            <a href="/#contact" class="btn btn-primary btn-xl">🎉 Get Your Free Quote</a>
+            <a href="/#contact" class="btn btn-primary btn-xl">&#127881; Get Your Free Quote</a>
             <div class="cta-trust">
-              <span><span class="dot">✓</span> Free quotes</span>
-              <span><span class="dot">✓</span> Veteran-owned</span>
-              <span><span class="dot">✓</span> 60K+ songs</span>
-              <span><span class="dot">✓</span> 5★ on Google</span>
+              <span><span class="dot">&#10003;</span> Free quotes</span>
+              <span><span class="dot">&#10003;</span> Veteran-owned</span>
+              <span><span class="dot">&#10003;</span> 75K+ songs</span>
+              <span><span class="dot">&#10003;</span> 5&#9733; on Google</span>
             </div>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer>
@@ -303,7 +549,7 @@
           <li><a href="/northwest-indiana-karaoke.html">NW Indiana</a></li>
           <li><a href="/valparaiso-karaoke.html">Valparaiso</a></li>
           <li><a href="/crown-point-karaoke.html">Crown Point</a></li>
-          <li><a href="/gary-karaoke.html">Gary</a></li>
+          <li><a href="/gary-karaoke.html" aria-current="page">Gary</a></li>
           <li><a href="/hammond-karaoke.html">Hammond</a></li>
           <li><a href="/merrillville-karaoke.html">Merrillville</a></li>
         </ul>
@@ -313,12 +559,12 @@
         <ul>
           <li><a href="tel:+12197581313">219.758.1313</a></li>
           <li><a href="mailto:booking@popupkaraoke.net">booking@popupkaraoke.net</a></li>
-          <li><a href="https://square.link/u/CmsBTgrE?src=gary-karaoke-footer" target="_blank" rel="noopener">💳 Make a Payment</a></li>
+          <li><a href="https://square.link/u/CmsBTgrE?src=gary-karaoke-footer" target="_blank" rel="noopener">&#128179; Make a Payment</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <p>© <span id="year">2026</span> PopUp Karaoke, LLC. Veteran-owned. All rights reserved.</p>
+      <p>&#169; <span id="year">2026</span> PopUp Karaoke, LLC. Veteran-owned. All rights reserved.</p>
       <div class="foot-links">
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
@@ -329,8 +575,8 @@
   <!-- Sticky mobile CTA bar -->
   <div class="mobile-cta" aria-label="Quick actions">
     <div class="mobile-cta-inner">
-      <a class="mobile-cta-call" href="tel:+12197581313" aria-label="Call PopUp Karaoke">📞 Call</a>
-      <a class="mobile-cta-book" href="/#contact" aria-label="Book your event">🎤 Book Now</a>
+      <a class="mobile-cta-call" href="tel:+12197581313" aria-label="Call PopUp Karaoke">&#128222; Call</a>
+      <a class="mobile-cta-book" href="/#contact" aria-label="Book your event">&#127908; Book Now</a>
     </div>
   </div>
 
