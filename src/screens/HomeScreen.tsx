@@ -144,9 +144,10 @@ export default function HomeScreen() {
 
   const shareApp = async () => {
     try {
+      const { message, iosUrl, androidText } = data.share;
       await Share.share({
-        message: '🎤 Check out PopUp Karaoke — NW Indiana & Chicagoland\'s premier mobile karaoke service!\n\niOS: https://apps.apple.com/app/id6745000492\nAndroid: https://play.google.com/store/apps/details?id=app.replit.popupkaraoke',
-        url: 'https://apps.apple.com/app/id6745000492',
+        message: `${message}\n\niOS: ${iosUrl}\nAndroid: ${androidText}`,
+        url: iosUrl,
       });
     } catch { /* ignore */ }
   };

@@ -97,6 +97,12 @@ export interface HomeSocial {
   tiktok: string;
 }
 
+export interface HomeShare {
+  message: string;
+  iosUrl: string;
+  androidText: string;
+}
+
 export interface HomeAnnouncement {
   id: string;
   title: string;
@@ -116,6 +122,7 @@ export interface HomeData {
   blog: HomeBlogPost[];
   crowdFavorites: HomeCrowdCategory[];
   social: HomeSocial;
+  share: HomeShare;
   serviceAreas: string[];
   announcements: HomeAnnouncement[];
   contact: HomeContact;
@@ -394,6 +401,11 @@ export const DEFAULT_HOME_DATA: HomeData = {
     facebook: 'https://www.facebook.com/PopUpKaraoke219',
     instagram: 'https://www.instagram.com/popupkaraoke219/',
     tiktok: 'https://www.tiktok.com/@popupkaraoke219',
+  },
+  share: {
+    message: "🎤 Check out PopUp Karaoke — NW Indiana & Chicagoland's premier mobile karaoke service!",
+    iosUrl: 'https://apps.apple.com/us/app/popup-karaoke/id6767769319',
+    androidText: 'Coming Soon',
   },
   serviceAreas: [
     'Chicago', 'NW Indiana', 'Hammond', 'Gary', 'Merrillville',
