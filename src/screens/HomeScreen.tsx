@@ -23,7 +23,7 @@ import type { HomeData, HomeVenue, HomeService, HomeReview, HomeSong, HomeFaq } 
 import SongRequestModal from '../components/SongRequestModal';
 import BookingModal from '../components/BookingModal';
 import { Share } from 'react-native';
-import { getCatalog, onCatalogReady } from '../services/catalogService';
+import { getCatalog, getCachedCatalog, onCatalogReady } from '../services/catalogService';
 import type { SongRow } from '../services/catalogService';
 
 // ── Emoji map for service cards (stored as strings in JSON) ─
@@ -136,7 +136,10 @@ function ReviewCard({ review }: { review: HomeReview }) {
 
 export default function HomeScreen() {
   const [data, setData] = useState<HomeData>(DEFAULT_HOME_DATA);
-  const [songCountLabel, setSongCountLabel] = useState('75K+');
+  const _cached = getCachedCatalog();
+  const [songCountLabel, setSongCountLabel] = useState(
+    _cached && _cached.length > 0 ? _cached.length.toLocaleString() : '76,957'
+  );
   const [topSongs, setTopSongs] = useState<{ title: string; artist: string }[]>([]);
   const [showRequestModal, setShowRequestModal] = useState(false);
   const [showBookingModal, setShowBookingModal] = useState(false);
@@ -186,14 +189,6 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      {/* Offline banner */}
-      {offline && (
-        <View style={styles.offlineBanner}>
-          <Ionicons name="cloud-offline-outline" size={14} color="#92400e" />
-          <Text style={styles.offlineBannerText}>Showing cached content — connect to refresh</Text>
-        </View>
-      )}
-
       <ScrollView
         style={styles.scroll}
         contentContainerStyle={styles.scrollContent}
@@ -401,6 +396,13 @@ export default function HomeScreen() {
             activeOpacity={0.8}
           >
             <Text style={styles.primaryBtnText}>💳 Pay Invoice</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.primaryBtn, { width: '100%', backgroundColor: '#f59e0b' }]}
+            onPress={() => Linking.openURL(data.contact.tipJarUrl)}
+            activeOpacity={0.8}
+          >
+            <Text style={styles.primaryBtnText}>💸 Tip Jar</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.outlineBtn, { width: '100%' }]}

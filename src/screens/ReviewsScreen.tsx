@@ -18,6 +18,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Colors, Spacing, Radius, FontSize, FontWeight } from '../theme';
 import { getHomeData, DEFAULT_HOME_DATA } from '../services/homeContentService';
 import type { HomeReview } from '../services/homeContentService';
+import { getCachedCatalog, getCatalog, onCatalogReady } from '../services/catalogService';
 
 const GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/k6X7ETF24b8YAou7A';
 
@@ -64,6 +65,10 @@ export default function ReviewsScreen() {
   const [reviews, setReviews] = useState<HomeReview[]>(DEFAULT_HOME_DATA.reviews);
   const [stats, setStats]     = useState(DEFAULT_HOME_DATA.stats);
   const [social, setSocial]   = useState(DEFAULT_HOME_DATA.social);
+  const cached = getCachedCatalog();
+  const [songCount, setSongCount] = useState(
+    cached && cached.length > 0 ? cached.length.toLocaleString() : '76,957'
+  );
 
   useEffect(() => {
     getHomeData(live => {
@@ -71,6 +76,13 @@ export default function ReviewsScreen() {
       if (live.stats) setStats(live.stats);
       if (live.social) setSocial(live.social);
     });
+
+    // Keep song count in sync with live catalog
+    getCatalog().then(songs => {
+      if (songs.length > 0) setSongCount(songs.length.toLocaleString());
+    });
+    const unsub = onCatalogReady(live => setSongCount(live.length.toLocaleString()));
+    return unsub;
   }, []);
 
   return (
@@ -94,7 +106,7 @@ export default function ReviewsScreen() {
             </View>
           </View>
           <View style={styles.badges}>
-            {['🇺🇸 Veteran-Owned', '🎤 Pro Host', '🔊 75K+ Songs'].map(b => (
+            {['🇺🇸 Veteran-Owned', '🎤 Pro Host', `🔊 ${songCount} Songs`].map(b => (
               <View key={b} style={styles.badge}>
                 <Text style={styles.badgeText}>{b}</Text>
               </View>

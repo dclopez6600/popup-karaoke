@@ -95,9 +95,30 @@ function TabNavigator() {
   );
 }
 
+// ── Deep link config ──────────────────────────
+// popupkaraoke.net/songs  → Songs tab
+// popupkaraoke.net/events → Events tab
+// popupkaraoke.net/reviews → Reviews tab
+// Also handles custom scheme: popupkaraoke://songs, etc.
+const linking = {
+  prefixes: ['https://popupkaraoke.net', 'popupkaraoke://'],
+  config: {
+    screens: {
+      Main: {
+        screens: {
+          Home:    'home',
+          Events:  'events',
+          Songs:   'songs',
+          Reviews: 'reviews',
+        },
+      },
+    },
+  },
+};
+
 export default function AppNavigator() {
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Main" component={TabNavigator} />
       </Stack.Navigator>

@@ -71,6 +71,7 @@ export interface HomeContact {
   textUrl: string;
   bookUrl: string;
   googleReviewsUrl: string;
+  tipJarUrl: string;
 }
 
 export interface HomeFaq {
@@ -419,6 +420,7 @@ export const DEFAULT_HOME_DATA: HomeData = {
     textUrl: 'sms:+12197581313',
     bookUrl: 'https://popupkaraoke.net/#contact',
     googleReviewsUrl: 'https://maps.app.goo.gl/k6X7ETF24b8YAou7A',
+    tipJarUrl: 'https://square.link/u/yWVpwZsg',
   },
 };
 

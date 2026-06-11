@@ -191,7 +191,7 @@ export default function SongsScreen() {
   // Debounce search input
   useEffect(() => {
     if (debounceTimer.current) clearTimeout(debounceTimer.current);
-    debounceTimer.current = setTimeout(() => setDebouncedQuery(query), 350);
+    debounceTimer.current = setTimeout(() => setDebouncedQuery(query), 300);
     return () => { if (debounceTimer.current) clearTimeout(debounceTimer.current); };
   }, [query]);
 
@@ -328,6 +328,14 @@ export default function SongsScreen() {
             <Text style={[styles.duetToggleText, showFavOnly && { color: Colors.gold }]}>⭐ My Songs {favorites.size > 0 ? `(${favorites.size})` : ''}</Text>
           </TouchableOpacity>
         </View>
+
+        {/* Favorites local-storage warning */}
+        {showFavOnly && (
+          <View style={styles.favWarning}>
+            <Ionicons name="information-circle-outline" size={14} color={Colors.textMuted} />
+            <Text style={styles.favWarningText}>My Songs are saved on this device only and may be lost if the app is reinstalled.</Text>
+          </View>
+        )}
 
         {/* Request a Song — always visible under search */}
         <TouchableOpacity
@@ -536,6 +544,25 @@ const styles = StyleSheet.create({
   duetToggleActive: { borderColor: Colors.accent, backgroundColor: 'rgba(255,45,139,0.12)' },
   duetToggleText: { color: Colors.textMuted, fontSize: FontSize.sm },
   duetToggleTextActive: { color: Colors.accent, fontWeight: FontWeight.semibold },
+
+  // Favorites local warning banner
+  favWarning: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 6,
+    backgroundColor: 'rgba(255,255,255,0.05)',
+    borderRadius: Radius.sm,
+    paddingHorizontal: Spacing.md,
+    paddingVertical: 6,
+    marginHorizontal: Spacing.md,
+    marginBottom: 6,
+  },
+  favWarningText: {
+    flex: 1,
+    color: Colors.textMuted,
+    fontSize: 11,
+    lineHeight: 16,
+  },
 
   // Inline request CTA (under search bar)
   requestCtaInline: {

@@ -5,6 +5,33 @@
 // ─────────────────────────────────────────────
 
 const CATALOG_URL = 'https://popupkaraoke.net/catalog-data.js';
+const LAST_COUNT_KEY = '@puk_last_catalog_count';
+
+// ── New-song push notification ────────────────
+async function maybeNotifyNewSongs(newCount: number): Promise<void> {
+  try {
+    const Notifications = await import('expo-notifications');
+    const { status } = await Notifications.getPermissionsAsync();
+    if (status !== 'granted') return;
+
+    const raw = await import('@react-native-async-storage/async-storage').then(m => m.default.getItem(LAST_COUNT_KEY));
+    const lastCount = raw ? parseInt(raw, 10) : 0;
+
+    if (lastCount > 0 && newCount > lastCount) {
+      const added = newCount - lastCount;
+      await Notifications.scheduleNotificationAsync({
+        content: {
+          title: '✨ New Karaoke Songs Added!',
+          body: `${added.toLocaleString()} new song${added === 1 ? '' : 's'} just added to the catalog. Check them out!`,
+          data: { screen: 'Songs' },
+        },
+        trigger: null, // fire immediately
+      });
+    }
+
+    await import('@react-native-async-storage/async-storage').then(m => m.default.setItem(LAST_COUNT_KEY, String(newCount)));
+  } catch { /* notifications optional */ }
+}
 
 // App's internal song row: [title, artist, genre, language, duo]
 export type SongRow = [string, string, string, string, number];
@@ -62,6 +89,8 @@ function startLiveFetch(): Promise<SongRow[]> {
       // Notify all subscribers
       _listeners.forEach(cb => cb(songs));
       _listeners.clear();
+      // Fire push notification if song count grew
+      maybeNotifyNewSongs(songs.length).catch(() => {});
       return songs;
     })
     .catch(err => {

@@ -2,7 +2,7 @@
   "expo": {
     "name": "PopUp Karaoke",
     "slug": "popup-karaoke",
-    "version": "2.0.1",
+    "version": "3.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
@@ -14,7 +14,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "app.replit.popupkaraoke",
-      "buildNumber": "25",
+      "buildNumber": "32",
       "privacyManifests": {
         "NSPrivacyCollectedDataTypes": []
       },
@@ -38,6 +38,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "scheme": "popupkaraoke",
     "plugins": [
       [
         "expo-notifications",
