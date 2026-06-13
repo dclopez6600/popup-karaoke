@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#7c3aed">
+
+  <title>Referral Program | Refer a Friend, Both Save | PopUp Karaoke</title>
+  <meta name="description" content="Love PopUp Karaoke? Refer a friend who books an event and you both save. Our referral program rewards loyal fans for spreading the word.">  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://popupkaraoke.net/referrals">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Referral Program | PopUp Karaoke — Refer a Friend & Both Save">
+  <meta property="og:description" content="Loved your PopUp Karaoke event? Refer a friend who books and you both get a discount on your next event.">
+  <meta property="og:url" content="https://popupkaraoke.net/referrals.html">
+  <meta property="og:image" content="https://popupkaraoke.net/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Refer a Friend | PopUp Karaoke">
+  <meta name="twitter:image" content="https://popupkaraoke.net/og-image.png">
+
+  <link rel="icon" type="image/svg+xml" href="puklogo.svg">
+  <link rel="icon" type="image/png" sizes="512x512" href="puklogo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="dns-prefetch" href="https://square.link">
+  <link rel="stylesheet" href="style.css?v=20260612">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://popupkaraoke.net/"},
+      {"@type": "ListItem", "position": 2, "name": "Referral Program", "item": "https://popupkaraoke.net/referrals.html"}
+    ]
+  }
+  </script>
+
+  <style>
+    .ref-hero {
+      padding: 5rem var(--gap,1.25rem) 4rem;
+      text-align: center;
+      background: linear-gradient(160deg, #0d0d14 0%, #11082a 60%, #0d0d14 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .ref-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255,45,120,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .ref-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,45,120,0.1);
+      border: 1px solid rgba(255,45,120,0.3);
+      border-radius: 100px;
+      padding: 0.35rem 1rem;
+      font-size: 0.8rem;
+      color: var(--neon-pink,#ff2d78);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .ref-hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin: 0 0 1.25rem;
+    }
+    .ref-hero p {
+      color: var(--text-dim,#aaa);
+      font-size: 1.1rem;
+      max-width: 540px;
+      margin: 0 auto 2rem;
+      line-height: 1.65;
+    }
+    .reward-cards {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 3rem auto 0;
+      max-width: 680px;
+    }
+    .reward-card {
+      flex: 1;
+      min-width: 220px;
+      max-width: 280px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+    .reward-card.you { border-color: rgba(0,229,255,0.35); }
+    .reward-card.friend { border-color: rgba(255,45,120,0.35); }
+    .reward-card-tag {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 3px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .reward-card.you .reward-card-tag { background: var(--neon-cyan,#00e5ff); color: #000; }
+    .reward-card.friend .reward-card-tag { background: var(--neon-pink,#ff2d78); color: #fff; }
+    .reward-emoji { font-size: 2.5rem; margin-bottom: 0.75rem; display: block; }
+    .reward-amount {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .reward-card.you .reward-amount { color: var(--neon-cyan,#00e5ff); }
+    .reward-card.friend .reward-amount { color: var(--neon-pink,#ff2d78); }
+    .reward-label { color: var(--text-dim,#aaa); font-size: 0.88rem; line-height: 1.45; }
+    .how-section {
+      padding: 5rem var(--gap,1.25rem);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .how-steps {
+      list-style: none;
+      padding: 0;
+      margin: 2.5rem 0 0;
+      counter-reset: how;
+    }
+    .how-steps li {
+      counter-increment: how;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border,rgba(255,255,255,0.08));
+    }
+    .how-steps li:last-child { border-bottom: none; }
+    .how-num {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--neon-pink,#ff2d78), var(--neon-purple,#7c3aed));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1rem;
+      color: #fff;
+    }
+    .how-num::before { content: counter(how); }
+    .how-steps li div h3 { margin: 0 0 0.4rem; font-size: 1.05rem; }
+    .how-steps li div p { margin: 0; color: var(--text-dim,#aaa); font-size: 0.93rem; line-height: 1.6; }
+    .rules-section {
+      padding: 4rem var(--gap,1.25rem);
+      background: var(--card,#1a1a2e);
+    }
+    .rules-inner { max-width: 700px; margin: 0 auto; }
+    .rules-list {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0 0;
+    }
+    .rules-list li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border,rgba(255,255,255,0.08));
+      font-size: 0.93rem;
+      color: var(--text-dim,#aaa);
+      line-height: 1.6;
+    }
+    .rules-list li:last-child { border-bottom: none; }
+    .rules-list li::before {
+      content: '✓';
+      color: var(--neon-cyan,#00e5ff);
+      font-weight: 900;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .share-section {
+      padding: 5rem var(--gap,1.25rem);
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .share-section h2 { font-size: clamp(1.8rem,4vw,2.6rem); font-weight: 900; margin: 0 0 1rem; }
+    .share-section p { color: var(--text-dim,#aaa); line-height: 1.65; margin: 0 0 2rem; }
+    .share-link-box {
+      background: var(--card,#1a1a2e);
+      border: 1px solid rgba(0,229,255,0.3);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+    .share-link-box label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim,#aaa);
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    .share-link-box p {
+      color: var(--neon-cyan,#00e5ff);
+      font-weight: 700;
+      margin: 0;
+      font-size: 1rem;
+      word-break: break-all;
+    }
+    .share-note {
+      background: rgba(255,45,120,0.07);
+      border: 1px solid rgba(255,45,120,0.2);
+      border-radius: 10px;
+      padding: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text-dim,#aaa);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+    .cta-strip {
+      padding: 5rem var(--gap,1.25rem);
+      text-align: center;
+      background: linear-gradient(160deg, #11082a 0%, #0d0d14 100%);
+    }
+    .cta-strip h2 { font-size: clamp(1.9rem,4vw,2.8rem); font-weight: 900; margin: 0 0 1rem; }
+    .cta-strip p { color: var(--text-dim,#aaa); max-width: 480px; margin: 0 auto 2rem; line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <div class="nav-row">
+      <a class="nav-logo" href="/" aria-label="PopUp Karaoke home">
+        <img src="puklogo.png" alt="PopUp Karaoke" width="38" height="38" loading="eager" decoding="async">
+        <span>PopUp Karaoke</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/service-areas">Areas</a></li>
+        <li><a href="/catalog">Catalog</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/#contact">Contact</a></li>
+        <li><a href="https://www.karafun.com/062552/" target="_blank" rel="noopener" style="color:var(--neon-cyan);font-weight:600">&#127925; Queue</a></li>
+        <li><a class="nav-cta nav-book-btn" href="/#contact">&#127908; Book Now</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="mobile-overlay-close" id="mobileOverlayClose" aria-label="Close menu">&#10005;</button>
+    <ul class="mobile-overlay-links">
+      <li><a href="/#contact" class="mob-cta">&#127908; Book Now</a></li>
+      <li><a href="tel:+12197581313" class="mob-phone">&#128222; 219.758.1313</a></li>
+      <li class="mob-divider mob-section-label"><span>Pages</span></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/service-areas">Areas</a></li>
+      <li><a href="/catalog">Catalog</a></li>
+      <li><a href="/faq">FAQ</a></li>
+      <li><a href="https://www.karafun.com/062552/" target="_blank" rel="noopener">&#127925; Join the Queue</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <section class="ref-hero">
+      <span class="ref-hero-eyebrow">🎤 Referral Program</span>
+      <h1>Share the Mic.<br><span class="grad">Both of You Save.</span></h1>
+      <p>Had an amazing PopUp Karaoke night? Refer a friend who books their own event and you'll both get a discount — no codes, no forms, just mention it when they book.</p>
+
+      <div class="reward-cards">
+        <div class="reward-card you">
+          <span class="reward-card-tag">You get</span>
+          <span class="reward-emoji">🎤</span>
+          <div class="reward-amount">$25</div>
+          <div class="reward-label">off your next event<br>when your referral books</div>
+        </div>
+        <div class="reward-card friend">
+          <span class="reward-card-tag">Your friend gets</span>
+          <span class="reward-emoji">🎉</span>
+          <div class="reward-amount">$25</div>
+          <div class="reward-label">off their first event<br>when they mention your name</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-section">
+      <p class="section-eyebrow" style="text-align:center">How it works</p>
+      <h2 class="section-title" style="text-align:center">Three Steps,<br>No Codes Required</h2>
+
+      <ol class="how-steps">
+        <li>
+          <span class="how-num"></span>
+          <div>
+            <h3>Tell a friend about PopUp Karaoke</h3>
+            <p>Share this page, send them your experience, or just brag about how much your party ruled. Point them to <strong style="color:var(--text)">popupkaraoke.net</strong> or have them call <a href="tel:+12197581313" style="color:var(--neon-cyan)">219.758.1313</a>.</p>
+          </div>
+        </li>
+        <li>
+          <span class="how-num"></span>
+          <div>
+            <h3>They mention your name when booking</h3>
+            <p>When your friend reaches out to book, they just mention <em style="color:var(--text)">your name</em> as the person who referred them. That's it — no code to remember, no form to fill out.</p>
+          </div>
+        </li>
+        <li>
+          <span class="how-num"></span>
+          <div>
+            <h3>You both get $25 off</h3>
+            <p>Once their event is confirmed, you'll hear from us with your $25 credit toward your next booking. Your friend's $25 discount is applied automatically to their event.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Rules -->
+    <section class="rules-section">
+      <div class="rules-inner">
+        <p class="section-eyebrow">The fine print</p>
+        <h2 class="section-title">Program Details</h2>
+        <ul class="rules-list">
+          <li>The referral discount applies when your friend books and pays a deposit for a new PopUp Karaoke event.</li>
+          <li>There's no limit on how many friends you can refer — each successful referral earns you another $25 credit.</li>
+          <li>Your $25 credit is applied toward your next event booking. Credits don't expire and don't have to be used all at once.</li>
+          <li>Your friend's $25 discount is applied to their first PopUp Karaoke event total.</li>
+          <li>Referrals must come from a previous paying customer. Current open bookings don't count until the event is complete.</li>
+          <li>The referral only counts if your friend mentions your name when booking — so make sure they know to say it.</li>
+          <li>Discounts cannot be combined with other promotional offers. One referral discount per booking.</li>
+          <li>PopUp Karaoke reserves the right to modify or end this program with reasonable notice.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Share section -->
+    <section class="share-section">
+      <p class="section-eyebrow">Spread the word</p>
+      <h2>Ready to Share?</h2>
+      <p>The easiest way to refer is to send your friend directly to this page. They'll see exactly how it works and know to mention your name when they reach out.</p>
+
+      <div class="share-link-box">
+        <label>Share this link</label>
+        <p>https://popupkaraoke.net/referrals.html</p>
+      </div>
+
+      <div class="share-note">
+        💡 <strong style="color:var(--text)">Pro tip:</strong> Mention your name in the same message. Something like: "Check out PopUp Karaoke — tell them [your name] sent you and we both get $25 off." Simple, clear, works every time.
+      </div>
+
+      <a href="/#contact" class="btn btn-primary btn-xl" style="display:block;width:100%;text-align:center;box-sizing:border-box">🎤 Book Your Next Event</a>
+    </section>
+
+    <!-- Why we do it -->
+    <section style="padding: 0 var(--gap,1.25rem) 4rem;">
+      <div style="max-width: 680px; margin: 0 auto; text-align: center;">
+        <p class="section-eyebrow">From Daniel</p>
+        <h2 class="section-title">Word of Mouth Is How<br>We Grew</h2>
+        <p style="color:var(--text-dim);line-height:1.7;margin:0 0 1.25rem;">PopUp Karaoke didn't grow through ads. It grew because people had an incredible night and told their friends. That's the most powerful marketing there is — and it deserves to be rewarded.</p>
+        <p style="color:var(--text-dim);line-height:1.7;margin:0 0 1.25rem;">This referral program is my way of saying thank you to every client who's spread the word. You're the reason we keep doing this. So let's make your next event even better — together.</p>
+        <p style="color:var(--text-dim);line-height:1.7;margin:0;">— Daniel, Founder &amp; KJ, PopUp Karaoke</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-strip">
+      <h2>Know someone who<br><span class="grad">needs a karaoke night?</span></h2>
+      <p>Send them this page. Have them mention your name. You both save $25 on your next event.</p>
+      <a href="/#contact" class="btn btn-primary btn-xl">🎤 Book Your Event</a>
+      <p style="margin-top:1rem;font-size:0.88rem;color:var(--text-dim)">Questions? Call <a href="tel:+12197581313" style="color:var(--neon-cyan)">219.758.1313</a> or <a href="mailto:booking@popupkaraoke.net" style="color:var(--neon-cyan)">email us</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-brand-row">
+          <img src="puklogo.png" alt="PopUp Karaoke" width="44" height="44" loading="lazy" decoding="async">
+          <span class="foot-brand-name">PopUp Karaoke</span>
+        </div>
+        <p>Veteran-owned mobile karaoke serving NW Indiana and Chicagoland — weddings, bachelorette, birthday, corporate — since 2020.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Events</h4>
+        <ul>
+          <li><a href="/wedding-karaoke.html">Wedding Karaoke</a></li>
+          <li><a href="/birthday-karaoke.html">Birthday Parties</a></li>
+          <li><a href="/corporate-karaoke.html">Corporate Events</a></li>
+          <li><a href="/bar-venue-karaoke.html">Bars &amp; Venues</a></li>
+          <li><a href="/#contact">Book Now</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Areas</h4>
+        <ul>
+          <li><a href="/chicago-karaoke.html">Chicago</a></li>
+          <li><a href="/northwest-indiana-karaoke.html">NW Indiana</a></li>
+          <li><a href="/hammond-karaoke.html">Hammond</a></li>
+          <li><a href="/crown-point-karaoke.html">Crown Point</a></li>
+          <li><a href="/valparaiso-karaoke.html">Valparaiso</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="tel:+12197581313">219.758.1313</a></li>
+          <li><a href="mailto:booking@popupkaraoke.net">booking@popupkaraoke.net</a></li>
+          <li><a href="/referrals.html" style="color:var(--neon-cyan)">🎤 Refer a Friend</a></li>
+          <li><a href="/app.html" style="color:var(--neon-cyan)">📱 Download the App</a></li>
+        </ul>
+      </div>
+    </div>    <div class="foot-app-strip">
+      <div class="foot-app-inner">
+        <p class="foot-app-label">📱 Take the party with you — download the app</p>
+        <div class="foot-app-badges">
+          <a href="https://apps.apple.com/us/app/popup-karaoke/id6767769319"
+             class="app-badge app-badge-ios"
+             target="_blank" rel="noopener"
+             aria-label="Download PopUp Karaoke on the App Store">
+            <svg class="app-badge-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span class="app-badge-text">
+              <span class="app-badge-sub">Download on the</span>
+              <span class="app-badge-name">App Store</span>
+            </span>
+          </a>
+          <span class="app-badge app-badge-android app-badge-soon" aria-label="Android app coming soon">
+            <svg class="app-badge-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M3 20.5v-17c0-.55.31-1.05.8-1.3l11.01 9.3-11 9.28c-.5-.23-.81-.72-.81-1.28zm14.27-5.79l-2.43-2.05-8.72 7.38 11.15-5.33zm2.46-3.55c.38.26.77.77.77 1.34 0 .57-.39 1.08-.77 1.34l-2.07 1.17-2.77-2.34 2.77-2.34 2.07 1.17zM6.12 3.46l8.72 7.38-2.43 2.05-11.15-5.33 4.86-4.1z"/></svg>
+            <span class="app-badge-text">
+              <span class="app-badge-sub">Get it on</span>
+              <span class="app-badge-name">Google Play</span>
+            </span>
+            <span class="badge-soon-chip">Soon</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <p>© <span id="year">2026</span> PopUp Karaoke, LLC. Veteran-owned. All rights reserved.</p>
+      <div class="foot-links"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+    </div>
+  </footer>
+
+  <div class="mobile-cta" aria-label="Quick actions">
+    <div class="mobile-cta-inner">
+      <a class="mobile-cta-call" href="tel:+12197581313" aria-label="Call PopUp Karaoke">📞 Call</a>
+      <a class="mobile-cta-book" href="/#contact" aria-label="Book your event">🎤 Book Now</a>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      var yr=document.getElementById('year'); if(yr) yr.textContent=new Date().getFullYear();
+      var nav=document.getElementById('nav');
+      window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>30);},{passive:true});
+      var tog=document.getElementById('navToggle');
+      var overlay=document.getElementById('mobileOverlay');
+      var close=document.getElementById('mobileOverlayClose');
+      if(tog&&overlay){
+        tog.addEventListener('click',function(){overlay.classList.toggle('open');tog.setAttribute('aria-expanded',overlay.classList.contains('open'));});
+        close.addEventListener('click',function(){overlay.classList.remove('open');tog.setAttribute('aria-expanded','false');});
+        overlay.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){overlay.classList.remove('open');tog.setAttribute('aria-expanded','false');});});
+      }
+    })();
+  </script>
+</body>
+</html>

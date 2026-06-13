@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#7c3aed">
+
+  <title>Book PopUp Karaoke | Get a Quote | NW Indiana & Chicago</title>
+  <meta name="description" content="Book PopUp Karaoke for your wedding, birthday, bachelorette, corporate event, or bar night in NW Indiana and Chicagoland. Fill out the form to get a free quote.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://popupkaraoke.net/book">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Book PopUp Karaoke | Get a Free Quote">
+  <meta property="og:description" content="Fill out our booking inquiry form to get a free quote for your event. NW Indiana and Chicagoland.">
+  <meta property="og:url" content="https://popupkaraoke.net/book">
+  <meta property="og:image" content="https://popupkaraoke.net/og-image.png">
+
+  <link rel="icon" type="image/svg+xml" href="puklogo.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css?v=20260612">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://popupkaraoke.net/"},
+      {"@type": "ListItem", "position": 2, "name": "Book Now", "item": "https://popupkaraoke.net/book"}
+    ]
+  }
+  </script>
+
+  <style>
+    .book-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 7rem 1rem 4rem;
+    }
+    .book-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: clamp(2rem, 5vw, 3rem);
+      width: 100%;
+      max-width: 680px;
+    }
+    .book-header { text-align: center; margin-bottom: 2rem; }
+    .book-emoji { font-size: 3rem; margin-bottom: 0.75rem; }
+    .book-title { font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 900; margin-bottom: 0.5rem; }
+    .book-sub { color: var(--text-mute); font-size: 1rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+
+    .field { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.1rem; }
+    .field label { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--text-dim); }
+    .field label .req { color: var(--neon-pink); margin-left: 2px; }
+    .field input,
+    .field select,
+    .field textarea {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      color: var(--text);
+      font: inherit;
+      font-size: 1rem;
+      transition: border-color .2s, background .2s;
+      width: 100%;
+    }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: var(--purple-500);
+      background: rgba(168,85,247,0.07);
+    }
+    .field input.error,
+    .field select.error,
+    .field textarea.error {
+      border-color: var(--neon-pink);
+    }
+    .field-error { color: var(--neon-pink); font-size: 0.8rem; display: none; }
+    .field input.error ~ .field-error,
+    .field select.error ~ .field-error,
+    .field textarea.error ~ .field-error { display: block; }
+    .field select option { background: #150e2a; }
+    .field textarea { resize: vertical; min-height: 120px; }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    @media (max-width: 480px) { .how-grid { grid-template-columns: 1fr; } }
+    .how-step { padding: 1rem; }
+    .how-num {
+      width: 2rem; height: 2rem;
+      border-radius: 50%;
+      background: var(--neon-pink);
+      color: #fff;
+      font-weight: 800;
+      font-size: .9rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto .5rem;
+    }
+    .how-label { font-weight: 700; font-size: .9rem; margin-bottom: .25rem; }
+    .how-desc { font-size: .8rem; color: var(--text-mute); }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--neon-pink), var(--purple-600));
+      color: #fff;
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,45,146,.45); }
+    .submit-btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+    .success-msg.show { display: block; }
+    .success-emoji { font-size: 4rem; margin-bottom: 1rem; }
+    .success-title { font-size: 1.75rem; font-weight: 900; margin-bottom: .75rem; }
+    .success-sub { color: var(--text-dim); margin-bottom: 2rem; }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .82rem;
+      color: var(--text-mute);
+    }
+
+    .deposit-note {
+      background: rgba(255,213,74,.07);
+      border: 1px solid rgba(255,213,74,.2);
+      border-radius: 10px;
+      padding: .9rem 1.1rem;
+      font-size: .875rem;
+      color: var(--neon-gold);
+      margin: 1.25rem 0;
+      line-height: 1.6;
+    }
+  </style>
+
+  <!-- GTM -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WNX6WZJZ');</script>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNX6WZJZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="bg-fx"></div>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- Nav -->
+<header class="nav" id="nav">
+  <div class="nav-row">
+    <a class="nav-logo" href="/" aria-label="PopUp Karaoke home">
+      <img src="puklogo.webp" alt="PopUp Karaoke" width="38" height="38" loading="eager" decoding="async">
+      <span>PopUp Karaoke</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/service-areas">Areas</a></li>
+      <li><a href="/catalog">Catalog</a></li>
+      <li><a href="/faq">FAQ</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="https://www.karafun.com/062552/" target="_blank" rel="noopener" style="color:var(--neon-cyan);font-weight:600">&#127925; Queue</a></li>
+      <li><a class="nav-cta nav-book-btn" href="/book" aria-current="page">&#127908; Book Now</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <button class="mobile-overlay-close" id="mobileOverlayClose" aria-label="Close menu">&#10005;</button>
+  <ul class="mobile-overlay-links">
+    <li><a href="/book" class="mob-cta">&#127908; Book Now</a></li>
+    <li><a href="tel:+12197581313" class="mob-phone">&#128222; 219.758.1313</a></li>
+    <li class="mob-divider mob-section-label"><span>Pages</span></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/service-areas">Areas</a></li>
+    <li><a href="/catalog">Catalog</a></li>
+    <li><a href="/faq">FAQ</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="https://www.karafun.com/062552/" target="_blank" rel="noopener">&#127925; Join the Queue</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+</div>
+
+<main id="main" class="book-wrap">
+  <div class="book-card">
+
+    <!-- Success State (hidden until submit) -->
+    <div class="success-msg" id="success-msg">
+      <div class="success-emoji">🎤</div>
+      <div class="success-title">We Got Your Request!</div>
+      <p class="success-sub">Daniel will reach out within 24 hours to confirm availability and discuss your event. Check your email for a confirmation.</p>
+      <a href="/" class="btn btn-primary" style="display:inline-flex;margin:0 auto;">← Back to Home</a>
+    </div>
+
+    <!-- Form -->
+    <div id="book-form-wrap">
+      <div class="book-header">
+        <div class="book-emoji">🎤</div>
+        <h1 class="book-title">Book PopUp Karaoke</h1>
+        <p class="book-sub">Fill out the form below and we'll get back to you within 24 hours with availability and pricing.</p>
+      </div>
+
+      <!-- How it works -->
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-num">1</div>
+          <div class="how-label">Submit Form</div>
+          <div class="how-desc">Tell us about your event and we'll check availability.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">2</div>
+          <div class="how-label">Get a Quote</div>
+          <div class="how-desc">Daniel responds within 24 hrs with pricing and details.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">3</div>
+          <div class="how-label">Lock It In</div>
+          <div class="how-desc">Pay the deposit to hold your date — it's that easy.</div>
+        </div>
+      </div>
+
+      <form
+        name="booking-inquiry"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        id="booking-form"
+        novalidate
+      >
+        <input type="hidden" name="form-name" value="booking-inquiry">
+        <p style="display:none;"><input name="bot-field"></p>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Your Name <span class="req">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" autocomplete="name" required>
+            <span class="field-error">Please enter your name.</span>
+          </div>
+          <div class="field">
+            <label for="phone">Phone <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="(219) 555-0100" autocomplete="tel" required>
+            <span class="field-error">Please enter your phone number.</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email Address <span class="req">*</span></label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required>
+          <span class="field-error">Please enter a valid email.</span>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="event-type">Event Type <span class="req">*</span></label>
+            <select id="event-type" name="event_type" required>
+              <option value="" disabled selected>Select type…</option>
+              <option>Wedding</option>
+              <option>Birthday Party</option>
+              <option>Bachelorette / Bachelor</option>
+              <option>Corporate Event</option>
+              <option>Bar Night / Venue</option>
+              <option>Retirement Party</option>
+              <option>Holiday Party</option>
+              <option>Other</option>
+            </select>
+            <span class="field-error">Please select an event type.</span>
+          </div>
+          <div class="field">
+            <label for="event-date">Event Date <span class="req">*</span></label>
+            <input type="date" id="event-date" name="event_date" required>
+            <span class="field-error">Please select a date.</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="venue">Venue / Location <span class="req">*</span></label>
+            <input type="text" id="venue" name="venue" placeholder="Venue name & city" required>
+            <span class="field-error">Please enter the venue or location.</span>
+          </div>
+          <div class="field">
+            <label for="guests">Expected Guests</label>
+            <select id="guests" name="guests">
+              <option value="" disabled selected>Approximate count…</option>
+              <option>Under 25</option>
+              <option>25 – 50</option>
+              <option>50 – 100</option>
+              <option>100 – 200</option>
+              <option>200+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="start-time">Start Time</label>
+            <input type="time" id="start-time" name="start_time">
+          </div>
+          <div class="field">
+            <label for="hours">Hours Needed</label>
+            <select id="hours" name="hours">
+              <option value="" disabled selected>Duration…</option>
+              <option>2 hours</option>
+              <option>3 hours</option>
+              <option>4 hours</option>
+              <option>5+ hours</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="notes">Anything Else We Should Know?</label>
+          <textarea id="notes" name="notes" placeholder="Theme, special requests, outdoor setup, age range of guests, etc."></textarea>
+        </div>
+
+        <div class="deposit-note">
+          💳 <strong>Good to know:</strong> A 25% deposit is required to hold your date. Once we confirm availability, we'll send you a secure payment link. The balance is due the week of your event.
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">
+          <span id="submit-text">🎤 Send Booking Request</span>
+          <span id="submit-spinner" style="display:none;">Sending…</span>
+        </button>
+
+        <div class="trust-row">
+          <span class="trust-badge">🎖️ Veteran-Owned</span>
+          <span class="trust-badge">⭐ 5-Star Google Rating</span>
+          <span class="trust-badge">🔒 Secure & Private</span>
+          <span class="trust-badge">📞 Response in 24 hrs</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<script defer src="site.js?v=20260612"></script>
+<script>
+  // Set date min to today
+  const dateInput = document.getElementById('event-date');
+  if (dateInput) {
+    const today = new Date();
+    dateInput.min = today.toISOString().split('T')[0];
+  }
+
+  // Form validation + GA4 tracking
+  const form = document.getElementById('booking-form');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      // Validate required fields
+      let valid = true;
+      const required = form.querySelectorAll('[required]');
+      required.forEach(field => {
+        if (!field.value.trim() || (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value))) {
+          field.classList.add('error');
+          valid = false;
+        } else {
+          field.classList.remove('error');
+        }
+      });
+
+      if (!valid) {
+        const firstError = form.querySelector('.error');
+        if (firstError) firstError.focus();
+        return;
+      }
+
+      // Show loading state
+      const btn = document.getElementById('submit-btn');
+      document.getElementById('submit-text').style.display = 'none';
+      document.getElementById('submit-spinner').style.display = 'inline';
+      btn.disabled = true;
+
+      try {
+        const data = new FormData(form);
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(data).toString()
+        });
+
+        // GA4 conversion event
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            event: 'booking_inquiry_submitted',
+            event_type: data.get('event_type'),
+            event_date: data.get('event_date')
+          });
+        }
+
+        // Show success
+        document.getElementById('book-form-wrap').style.display = 'none';
+        document.getElementById('success-msg').classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      } catch (err) {
+        btn.disabled = false;
+        document.getElementById('submit-text').style.display = 'inline';
+        document.getElementById('submit-spinner').style.display = 'none';
+        alert('Something went wrong. Please email us directly at booking@popupkaraoke.net');
+      }
+    });
+
+    // Clear error state on input
+    form.querySelectorAll('input, select, textarea').forEach(field => {
+      field.addEventListener('input', () => field.classList.remove('error'));
+    });
+  }
+</script>
+</body>
+</html>
