@@ -1176,6 +1176,7 @@
               { date: 12, day: "Wednesday", venue: "18th Street Brewery", venueClass: "18thStreetBrewery", time: "7pm – 10pm", address: "5725 Miller Ave, Gary, IN 46403", mapsQuery: "18th Street Brewery 5725 Miller Ave Gary IN" },
               { date: 13, day: "Thursday",  venue: "Sunset Markets",      venueClass: "sunsetMarkets",     time: "5pm – 9pm",  address: "6600 Broadway, Merrillville, IN 46410", mapsQuery: "Dean and Barbara White Community Center 6600 Broadway Merrillville IN" },
               { date: 14, day: "Friday",    venue: "El Capitán",          venueClass: "elCapitan",         time: "8pm – 12am", address: "327 Main St, Hobart, IN 46342",   mapsQuery: "El Capitan 327 Main St Hobart IN" },
+              { date: 16, day: "Sunday",    venue: "Stacks Bar and Grill", venueClass: "stacksBarGrill",   time: "10am – 2pm",  address: "175 W Lincolnway, Valparaiso, IN", mapsQuery: "Stacks Bar and Grill 175 W Lincolnway Valparaiso IN", note: "Table reservations required" },
               { date: 18, day: "Tuesday",   venue: "Flights",             venueClass: "flights",           time: "8pm – 11pm", address: "839 169th St, Hammond, IN 46324",  mapsQuery: "Flights Taproom 839 169th St Hammond IN" },
               { date: 19, day: "Wednesday", venue: "18th Street Brewery", venueClass: "18thStreetBrewery", time: "7pm – 10pm", address: "5725 Miller Ave, Gary, IN 46403", mapsQuery: "18th Street Brewery 5725 Miller Ave Gary IN" },
               { date: 20, day: "Thursday",  venue: "Emilio's Restaurant & Cantina", venueClass: "emilios", time: "7pm – 10pm", address: "9400 Indianapolis Blvd, Highland, IN 46322", mapsQuery: "Emilio's Restaurant & Cantina 9400 Indianapolis Blvd Highland IN" },
@@ -1203,6 +1204,7 @@
                 +       '<span class="cal-event-time">' + esc(e.time) + '</span>'
                 +       '<span class="cal-event-addr"><a href="' + maps + '" target="_blank" rel="noopener">' + esc(e.address) + '</a></span>'
                 +     '</div>'
+                +     (e.note ? '<div class="cal-event-note" style="font-size:0.72rem;color:var(--text-mute,var(--text-dim));font-style:italic;margin-top:0.25rem;">*' + esc(e.note) + '</div>' : '')
                 +   '</div>'
                 + '</article>';
             }).join('');
@@ -1290,6 +1292,9 @@
               <li class="song"><div class="song-info"><div class="song-title">She</div><div class="song-artist">The Monkees</div></div><span class="new-tag">NEW</span></li>
             </ul>
           </div>
+        </div>
+        <div style="text-align:center;margin:1.5rem 0 0;">
+          <a href="top-100.html" class="btn btn-secondary">🔥 See the Full Top 100 →</a>
         </div>
         <!-- SONG SEARCH -->
         <div class="song-search-wrap reveal">
@@ -1401,6 +1406,15 @@
             </picture>
             <span class="vl-name">Emilio's</span>
             <span class="vl-loc">Highland, IN</span>
+          </div>
+          <div class="venue-strip-divider" aria-hidden="true"></div>
+          <div class="venue-logo-card">
+            <picture>
+              <source srcset="logos/stacks-logo.webp" type="image/webp">
+              <img src="logos/stacks-logo.png" alt="Stacks Bar and Grill" width="120" height="120" loading="lazy" decoding="async">
+            </picture>
+            <span class="vl-name">Stacks Bar and Grill</span>
+            <span class="vl-loc">Valparaiso, IN</span>
           </div>
         </div>
       </div>
