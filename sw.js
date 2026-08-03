@@ -1,7 +1,7 @@
 // PopUp Karaoke Service Worker
 // Strategy: cache-first for assets, network-first for HTML
 
-const CACHE_NAME = 'popupkaraoke-v1';
+const CACHE_NAME = 'popupkaraoke-v2';
 const STATIC_ASSETS = [
   '/',
   '/style.css',
