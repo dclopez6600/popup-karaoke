@@ -2415,9 +2415,7 @@ setupForm(document.getElementById('bookingForm'));setupForm(document.getElementB
 
   <!-- EXIT INTENT MODAL -->
   <style>
-    @keyframes noteFloat{0%{transform:translateY(0) rotate(-15deg);opacity:1}100%{transform:translateY(-115vh) rotate(25deg);opacity:0}}
     #exitModal{display:none;position:fixed;inset:0;z-index:9990;background:rgba(6,0,16,0.9);align-items:center;justify-content:center;padding:1.5rem;}
-    #byeOverlay{display:none;position:fixed;inset:0;z-index:9995;background:rgba(6,0,16,0.94);align-items:center;justify-content:center;flex-direction:column;transition:opacity 0.5s;}
   </style>
 
   <div id="exitModal" role="dialog" aria-modal="true" aria-labelledby="exitModalTitle">
@@ -2433,21 +2431,9 @@ setupForm(document.getElementById('bookingForm'));setupForm(document.getElementB
     </div>
   </div>
 
-  <!-- BYE OVERLAY -->
-  <div id="byeOverlay">
-    <div id="byeNotes" style="position:absolute;inset:0;pointer-events:none;overflow:hidden;"></div>
-    <div style="text-align:center;position:relative;z-index:1;user-select:none;">
-      <p id="byeWord1" style="font-size:3.5rem;font-weight:900;color:#ff2d92;opacity:0;transform:translateY(24px);transition:opacity 0.55s ease,transform 0.55s ease;margin:0 0 0.1rem;">Bye...</p>
-      <p id="byeWord2" style="font-size:3.5rem;font-weight:900;color:#a855f7;opacity:0;transform:translateY(24px);transition:opacity 0.55s ease,transform 0.55s ease;margin:0 0 0.1rem;">Bye...</p>
-      <p id="byeWord3" style="font-size:3.5rem;font-weight:900;color:#c084fc;opacity:0;transform:translateY(24px);transition:opacity 0.55s ease,transform 0.55s ease;margin:0;">Bye...</p>
-      <p id="byeSub" style="color:rgba(255,255,255,0.4);font-size:0.9rem;margin-top:1.5rem;opacity:0;transition:opacity 0.55s ease;">Come back when you're ready to sing!</p>
-    </div>
-  </div>
-
   <!-- EXIT INTENT SCRIPT -->
   <script>(function(){
     var modal = document.getElementById('exitModal');
-    var bye   = document.getElementById('byeOverlay');
     var KEY   = 'puk_ei';
 
     function show(){
@@ -2457,41 +2443,9 @@ setupForm(document.getElementById('bookingForm'));setupForm(document.getElementB
       document.body.style.overflow = 'hidden';
     }
 
-    function showBye(){
+    function hide(){
       modal.style.display = 'none';
       document.body.style.overflow = '';
-      bye.style.opacity = '0';
-      bye.style.display = 'flex';
-      // reset words
-      ['byeWord1','byeWord2','byeWord3','byeSub'].forEach(function(id){
-        var el = document.getElementById(id);
-        if(el){ el.style.opacity='0'; el.style.transform='translateY(24px)'; }
-      });
-      document.getElementById('byeNotes').innerHTML = '';
-      setTimeout(function(){
-        bye.style.opacity = '1';
-        ['byeWord1','byeWord2','byeWord3','byeSub'].forEach(function(id,i){
-          setTimeout(function(){
-            var el = document.getElementById(id);
-            if(el){ el.style.opacity='1'; el.style.transform='translateY(0)'; }
-          }, i * 680 + 80);
-        });
-        // musical notes
-        var notes = ['♪','♫','♩','♬'];
-        var colors = ['#ff2d92','#a855f7','#c084fc','#f472b6','#e879f9'];
-        var nb = document.getElementById('byeNotes');
-        for(var n=0; n<22; n++){
-          (function(i){
-            setTimeout(function(){
-              var s = document.createElement('span');
-              s.textContent = notes[i%4];
-              s.style.cssText = 'position:absolute;font-size:'+(1.2+Math.random()*2.2).toFixed(1)+'rem;color:'+colors[Math.floor(Math.random()*5)]+';left:'+(2+Math.random()*96).toFixed(1)+'%;bottom:-3rem;animation:noteFloat '+(1.6+Math.random()*1.8).toFixed(1)+'s ease-out forwards;pointer-events:none;';
-              nb.appendChild(s);
-            }, i*110);
-          })(n);
-        }
-        setTimeout(function(){ bye.style.opacity='0'; setTimeout(function(){ bye.style.display='none'; },520); }, 4500);
-      }, 40);
     }
 
     // TRIGGER 1: mouse exits toward top (Safari + Chrome)
@@ -2521,17 +2475,15 @@ setupForm(document.getElementById('bookingForm'));setupForm(document.getElementB
 
     // BUTTONS
     var bookBtn = document.getElementById('exitBookBtn');
-    if(bookBtn) bookBtn.addEventListener('click', function(){
-      modal.style.display='none'; document.body.style.overflow='';
-    });
+    if(bookBtn) bookBtn.addEventListener('click', hide);
 
     var dismissBtn = document.getElementById('exitDismiss');
-    if(dismissBtn) dismissBtn.addEventListener('click', showBye);
+    if(dismissBtn) dismissBtn.addEventListener('click', hide);
 
-    modal.addEventListener('click', function(e){ if(e.target===modal) showBye(); });
+    modal.addEventListener('click', function(e){ if(e.target===modal) hide(); });
 
     document.addEventListener('keydown', function(e){
-      if(e.key==='Escape' && modal.style.display==='flex') showBye();
+      if(e.key==='Escape' && modal.style.display==='flex') hide();
     });
   })();</script>
 <script>
