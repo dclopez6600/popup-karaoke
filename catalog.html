@@ -286,6 +286,7 @@
     if(params.get('lang')) activeLang = params.get('lang');
     if(params.get('q')) searchQ = params.get('q');
     if(params.get('new')==='1') newOnly = true;
+    if(params.get('duet')==='1') duetOnly = true;
 
     function genreClass(g){
       return 'g-' + g.replace(/[^a-zA-Z]/g,'-').replace(/-+/g,'-');
@@ -387,6 +388,7 @@
       applyFilters();
     });
 
+    document.getElementById('duetOnly').checked = duetOnly;
     document.getElementById('duetOnly').addEventListener('change', function(){
       duetOnly = this.checked;
       applyFilters();
