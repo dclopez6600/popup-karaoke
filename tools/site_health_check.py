@@ -80,8 +80,11 @@ with sync_playwright() as p:
             ok(f"Google event data: {len(data)} public events")
         except Exception:
             bad("Google event data (#puk-events-schema) missing on homepage")
-        form = pg.locator("#bookingForm")
-        if form.count() and pg.locator("#b-name").count() and pg.locator("#b-email").count() and form.get_attribute("data-netlify") == "true":
+        # Netlify rewrites the form on deploy and injects a hidden form-name field;
+        # that field is what proves submissions will be captured.
+        has_fields = pg.locator("#bookingForm #b-name").count() and pg.locator("#bookingForm #b-email").count()
+        netlify = pg.locator('#bookingForm input[name="form-name"][value="booking"]').count() or pg.locator("#bookingForm[data-netlify]").count()
+        if has_fields and netlify:
             ok("booking form present with name/email fields and Netlify handling")
         else:
             bad("booking form missing or broken on homepage")
