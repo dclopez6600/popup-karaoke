@@ -1,7 +1,7 @@
 // PopUp Karaoke Service Worker
 // Strategy: cache-first for assets, network-first for HTML
 
-const CACHE_NAME = 'popupkaraoke-v2';
+const CACHE_NAME = 'popupkaraoke-v3';
 const STATIC_ASSETS = [
   '/',
   '/style.css',
@@ -40,6 +40,9 @@ self.addEventListener('fetch', (event) => {
 
   // Only handle same-origin requests
   if (url.origin !== location.origin) return;
+
+  // Always fetch the event calendar fresh (it changes monthly)
+  if (url.pathname === '/events.js') return;
 
   // Network-first for HTML (so page updates are always fresh)
   if (request.headers.get('accept') && request.headers.get('accept').includes('text/html')) {

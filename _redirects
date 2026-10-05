@@ -73,5 +73,8 @@
 /blog/best-duet-karaoke-songs/  /blog/best-duet-karaoke-songs.html  301
 /blog/karaoke-team-building-activities/  /blog/karaoke-team-building-activities.html  301
 
+# Internal scripts — never served
+/tools/*  /404.html  404!
+
 # ── Catch-all 404 → custom 404 page ─────────────────────
 /*                        /404.html                 404

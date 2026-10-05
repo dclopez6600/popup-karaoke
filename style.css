@@ -431,3 +431,4 @@ a,button,input,select,textarea,[role="button"],[tabindex]{cursor:url('mic-cursor
     gap: 0.75rem;
   }
 }
+.geo-content .container{width:100%;max-width:100%}
