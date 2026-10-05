@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Full Song Catalog — 86,000+ Karaoke Songs | PopUp Karaoke</title>
-  <meta name="description" content="Browse our full karaoke library of 86,000+ songs. Filter by genre, language, or search by title and artist. PopUp Karaoke serves NW Indiana and Chicagoland.">
+  <title>Full Song Catalog — 90,000+ Karaoke Songs | PopUp Karaoke</title>
+  <meta name="description" content="Browse our full karaoke library of 90,000+ songs. Filter by genre, language, or search by title and artist. PopUp Karaoke serves NW Indiana and Chicagoland.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.popupkaraoke.net/catalog.html">
   <link rel="icon" href="icon-192.png">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="86,000+ Song Catalog | PopUp Karaoke">
+  <meta property="og:title" content="90,000+ Song Catalog | PopUp Karaoke">
   <meta property="og:description" content="Browse our complete karaoke library. Filter by genre, language, duets, and more.">
   <meta property="og:url" content="https://www.popupkaraoke.net/catalog.html">
   <meta property="og:image" content="https://www.popupkaraoke.net/og-image.webp">
@@ -168,7 +168,8 @@
   <div class="hero">
     <div style="width:var(--container);margin:0 auto;padding:0 1rem">
       <h1>🎵 Our <span>Song Library</span></h1>
-      <p>86,000+ karaoke tracks — search by title, artist, genre, or language.</p>
+      <p>90,000+ karaoke tracks — search by title, artist, genre, or language.</p>
+      <p style="margin-top:0.6rem"><a href="new-karaoke-songs.html" style="color:var(--neon-cyan,#22d3ee);font-weight:700;text-decoration:none">✨ See the 501 new songs added in September 2026 →</a></p>
     </div>
   </div>
 
@@ -202,6 +203,9 @@
         <button class="chip" data-lang="fr">French</button>
         <button class="chip" data-lang="de">German</button>
         <label class="duet-label" style="margin-left:auto">
+          <input type="checkbox" id="newOnly"> New this month ✨
+        </label>
+        <label class="duet-label">
           <input type="checkbox" id="duetOnly"> Duets only 🎤🎤
         </label>
       </div>
@@ -216,7 +220,7 @@
 
   <!-- TABLE -->
   <div class="table-wrap">
-    <div id="loadingState" class="loading-state">Loading 86,000+ songs…</div>
+    <div id="loadingState" class="loading-state">Loading 90,000+ songs…</div>
     <table class="song-table" id="songTable" style="display:none" aria-label="Song catalog">
       <thead>
         <tr>
@@ -273,6 +277,7 @@
     var activeGenre = '';
     var activeLang = '';
     var duetOnly = false;
+    var newOnly = false;
     var searchQ = '';
 
     // ── URL params (deep-link support) ──
@@ -280,6 +285,7 @@
     if(params.get('genre')) activeGenre = params.get('genre');
     if(params.get('lang')) activeLang = params.get('lang');
     if(params.get('q')) searchQ = params.get('q');
+    if(params.get('new')==='1') newOnly = true;
 
     function genreClass(g){
       return 'g-' + g.replace(/[^a-zA-Z]/g,'-').replace(/-+/g,'-');
@@ -288,7 +294,7 @@
     function renderRow(song){
       var gc = genreClass(song.g);
       return '<tr>'
-        + '<td><div class="song-title">'+escHtml(song.t)+'</div><div class="song-artist">'+escHtml(song.a)+'</div></td>'
+        + '<td><div class="song-title">'+escHtml(song.t)+(song.n?' <span style="font-size:0.6rem;font-weight:800;letter-spacing:0.06em;color:#0b0118;background:#22d3ee;border-radius:999px;padding:0.05rem 0.4rem;vertical-align:middle">NEW</span>':'')+'</div><div class="song-artist">'+escHtml(song.a)+'</div></td>'
         + '<td><span class="genre-badge '+gc+'">'+escHtml(song.g)+'</span></td>'
         + '<td class="col-lang"><span class="lang-badge">'+escHtml(song.l)+'</span></td>'
         + '<td class="col-duet">'+(song.d?'<span class="duet-icon">🎤🎤</span>':'')+'</td>'
@@ -305,6 +311,7 @@
         if(activeGenre && s.g !== activeGenre) return false;
         if(activeLang && s.l !== activeLang) return false;
         if(duetOnly && !s.d) return false;
+        if(newOnly && !s.n) return false;
         if(q && s.t.toLowerCase().indexOf(q)===-1 && s.a.toLowerCase().indexOf(q)===-1) return false;
         return true;
       });
@@ -343,6 +350,7 @@
         parts.push(lm[activeLang]||activeLang);
       }
       if(duetOnly) parts.push('Duets');
+      if(newOnly) parts.push('New this month');
       if(searchQ) parts.push('"'+searchQ+'"');
 
       resultsCount.innerHTML = '<strong>'+filtered.length.toLocaleString()+'</strong> songs';
@@ -372,6 +380,13 @@
       });
     });
 
+    var newBox = document.getElementById('newOnly');
+    newBox.checked = newOnly;
+    newBox.addEventListener('change', function(){
+      newOnly = this.checked;
+      applyFilters();
+    });
+
     document.getElementById('duetOnly').addEventListener('change', function(){
       duetOnly = this.checked;
       applyFilters();
@@ -399,7 +414,7 @@
 
     // ── Load catalog data ──
     var script = document.createElement('script');
-    script.src = 'catalog-data.js';
+    script.src = 'catalog-data.js?v=2026-10';
     script.onload = function(){
       data = window.CATALOG_DATA || [];
       loadingEl.style.display = 'none';
