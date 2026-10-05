@@ -73,6 +73,20 @@
 /blog/best-duet-karaoke-songs/  /blog/best-duet-karaoke-songs.html  301
 /blog/karaoke-team-building-activities/  /blog/karaoke-team-building-activities.html  301
 
+# Old pages Google still requests (Search Console 404s, Oct 2026) -> closest current page
+/referral.html                          /                                             301
+/referral                               /                                             301
+/karaoke-near-me.html                   /service-areas.html                           301
+/karaoke-near-me                        /service-areas.html                           301
+/karaoke-for-bars.html                  /blog/karaoke-night-ideas-bars-breweries.html 301
+/karaoke-for-bars                       /blog/karaoke-night-ideas-bars-breweries.html 301
+/equipment.html                         /what-to-expect.html                          301
+/equipment                              /what-to-expect.html                          301
+/blog/karaoke-calumet-city-illinois.html /calumet-city-karaoke.html                   301
+/blog/karaoke-calumet-city-illinois     /calumet-city-karaoke.html                    301
+/karaoke-en-espanol.html                /catalog.html?lang=es                         301
+/karaoke-en-espanol                     /catalog.html?lang=es                         301
+
 # Internal scripts — never served
 /tools/*  /404.html  404!
 
