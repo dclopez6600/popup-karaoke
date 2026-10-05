@@ -95,29 +95,7 @@
       "time": "7:00 PM – 10:00 PM",
       "mapsQuery": "18th+Street+Brewery+5725+Miller+Ave+Gary+IN",
       "color": "primary",
-      "emoji": "🍺",
-      "rule": {
-        "type": "weekly",
-        "dayOfWeek": 3
-      }
-    },
-    {
-      "name": "Emilio's Restaurant & Cantina",
-      "shortName": "Emilio's",
-      "address": "9400 Indianapolis Blvd, Highland, IN",
-      "schedule": "2nd & 4th Thursdays",
-      "time": "7:00 PM – 10:00 PM",
-      "mapsQuery": "Emilio%27s+Restaurant+%26+Cantina+9400+Indianapolis+Blvd+Highland+IN",
-      "color": "accent",
-      "emoji": "🌮",
-      "rule": {
-        "type": "nthWeekday",
-        "dayOfWeek": 4,
-        "weeks": [
-          2,
-          4
-        ]
-      }
+      "emoji": "🍺"
     },
     {
       "name": "El Capitan",
@@ -127,23 +105,119 @@
       "time": "8:00 PM – 12:00 AM",
       "mapsQuery": "El+Capitan+327+Main+St+Hobart+IN",
       "color": "cyan",
-      "emoji": "🎸",
-      "rule": {
-        "type": "weekly",
-        "dayOfWeek": 5
-      }
+      "emoji": "🎸"
     }
   ],
   "oneOffEvents": [
     {
+      "date": "2026-10-02",
+      "venue": "El Capitán",
+      "shortName": "El Capitán",
+      "time": "8:00 PM – 12:00 AM",
+      "address": "327 Main St, Hobart, IN",
+      "mapsQuery": "El+Capitan+327+Main+St+Hobart+IN",
+      "color": "cyan",
+      "emoji": "🎸",
+      "note": "Karaoke Friday"
+    },
+    {
       "date": "2026-10-04",
-      "venue": "Moods — Dolly Parton Sing Along Brunch",
+      "venue": "Moods",
       "shortName": "Moods",
       "time": "12:00 PM – 3:00 PM",
       "address": "2548 Portage Mall, Portage, IN",
       "mapsQuery": "Moods+2548+Portage+Mall+Portage+IN",
       "color": "accent",
-      "emoji": "🥂"
+      "emoji": "🥂",
+      "note": "Dolly Parton Sing Along Brunch"
+    },
+    {
+      "date": "2026-10-07",
+      "venue": "18th Street Brewery – Miller",
+      "shortName": "18th Street Brewery",
+      "time": "7:00 PM – 10:00 PM",
+      "address": "5725 Miller Ave, Gary, IN",
+      "mapsQuery": "18th+Street+Brewery+5725+Miller+Ave+Gary+IN",
+      "color": "primary",
+      "emoji": "🍺",
+      "note": "Karaoke Night"
+    },
+    {
+      "date": "2026-10-08",
+      "venue": "Emilio's Restaurant & Cantina",
+      "shortName": "Emilio's",
+      "time": "7:00 PM – 10:00 PM",
+      "address": "9400 Indianapolis Blvd, Highland, IN",
+      "mapsQuery": "Emilio's+Restaurant+%26+Cantina+9400+Indianapolis+Blvd+Highland+IN",
+      "color": "accent",
+      "emoji": "🌮",
+      "note": "Karaoke Thursdays"
+    },
+    {
+      "date": "2026-10-14",
+      "venue": "18th Street Brewery – Miller",
+      "shortName": "18th Street Brewery",
+      "time": "7:00 PM – 10:00 PM",
+      "address": "5725 Miller Ave, Gary, IN",
+      "mapsQuery": "18th+Street+Brewery+5725+Miller+Ave+Gary+IN",
+      "color": "primary",
+      "emoji": "🍺",
+      "note": "Karaoke Night"
+    },
+    {
+      "date": "2026-10-16",
+      "venue": "El Capitán",
+      "shortName": "El Capitán",
+      "time": "8:00 PM – 12:00 AM",
+      "address": "327 Main St, Hobart, IN",
+      "mapsQuery": "El+Capitan+327+Main+St+Hobart+IN",
+      "color": "cyan",
+      "emoji": "🎸",
+      "note": "Karaoke Friday"
+    },
+    {
+      "date": "2026-10-21",
+      "venue": "18th Street Brewery – Miller",
+      "shortName": "18th Street Brewery",
+      "time": "7:00 PM – 10:00 PM",
+      "address": "5725 Miller Ave, Gary, IN",
+      "mapsQuery": "18th+Street+Brewery+5725+Miller+Ave+Gary+IN",
+      "color": "primary",
+      "emoji": "🍺",
+      "note": "Karaoke Night"
+    },
+    {
+      "date": "2026-10-22",
+      "venue": "Emilio's Restaurant & Cantina",
+      "shortName": "Emilio's",
+      "time": "7:00 PM – 10:00 PM",
+      "address": "9400 Indianapolis Blvd, Highland, IN",
+      "mapsQuery": "Emilio's+Restaurant+%26+Cantina+9400+Indianapolis+Blvd+Highland+IN",
+      "color": "accent",
+      "emoji": "🌮",
+      "note": "Karaoke Thursdays"
+    },
+    {
+      "date": "2026-10-28",
+      "venue": "18th Street Brewery – Miller",
+      "shortName": "18th Street Brewery",
+      "time": "7:00 PM – 10:00 PM",
+      "address": "5725 Miller Ave, Gary, IN",
+      "mapsQuery": "18th+Street+Brewery+5725+Miller+Ave+Gary+IN",
+      "color": "primary",
+      "emoji": "🍺",
+      "note": "Karaoke Night"
+    },
+    {
+      "date": "2026-10-30",
+      "venue": "El Capitán",
+      "shortName": "El Capitán",
+      "time": "8:00 PM – 12:00 AM",
+      "address": "327 Main St, Hobart, IN",
+      "mapsQuery": "El+Capitan+327+Main+St+Hobart+IN",
+      "color": "cyan",
+      "emoji": "🎸",
+      "note": "Karaoke Friday"
     }
   ],
   "reviews": [

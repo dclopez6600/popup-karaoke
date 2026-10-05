@@ -1,0 +1,27 @@
+name: Sync app events from events.js
+
+on:
+  push:
+    branches: [dev]
+    paths: ['events.js', 'tools/build-home-data.js']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node tools/build-home-data.js
+      - name: Commit if changed
+        run: |
+          if git diff --quiet home-data.json; then echo "No changes"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add home-data.json
+          git commit -m "Sync app events from events.js"
+          git push
